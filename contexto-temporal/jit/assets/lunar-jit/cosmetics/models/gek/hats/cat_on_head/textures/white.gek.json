@@ -1,0 +1,12 @@
+{
+  "type": "hat",
+  "attached_bone": "HEAD",
+  "model": "lunar:cosmetics/models/gek/hats/cat_on_head/cat_on_head.geo.json",
+  "texture": "lunar:cosmetics/models/gek/hats/cat_on_head/textures/white.webp",
+  "animation": "lunar:cosmetics/models/gek/hats/cat_on_head/cat_on_head.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "main"
+  }
+}

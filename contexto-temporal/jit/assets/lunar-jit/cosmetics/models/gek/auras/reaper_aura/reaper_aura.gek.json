@@ -1,0 +1,31 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/auras/reaper_aura/reaper_aura.geo.json",
+  "texture": "lunar:cosmetics/models/gek/auras/reaper_aura/reaper_aura.webp",
+  "animation": "lunar:cosmetics/models/gek/auras/reaper_aura/reaper_aura.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "horizontal",
+            "plays_when": "q.is_swimming || q.is_elytra_flying"
+          },
+          {
+            "anim": "gui",
+            "plays_when": "q.is_in_gui",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "main",
+            "plays_when": "1"
+          }
+        ]
+      }
+    ]
+  }
+}

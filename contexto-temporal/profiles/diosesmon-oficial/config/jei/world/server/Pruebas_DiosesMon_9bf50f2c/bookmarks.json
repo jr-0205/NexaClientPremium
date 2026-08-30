@@ -1,0 +1,11 @@
+[
+  {"version":2},
+  {"ingredient":{"id":"mega_showdown:zygarde_cube"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:ash_cap"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:pika_case"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:booster_energy"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:omni_ring"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:z_ring"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:mega_bracelet"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"mega_showdown:dynamax_band"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

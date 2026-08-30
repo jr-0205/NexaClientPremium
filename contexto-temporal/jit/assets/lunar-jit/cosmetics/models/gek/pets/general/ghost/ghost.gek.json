@@ -1,0 +1,60 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/ghost/ghost.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/ghost/ghost.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/ghost/ghost.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "highspeed",
+            "plays_when": "!q.is_swimming && (c.ground_speed_smoothed > 12) && !q.is_elytra_flying",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "9"
+          },
+          {
+            "anim": "elytra",
+            "plays_when": "q.is_elytra_flying",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "2"
+          },
+          {
+            "anim": "swimming",
+            "plays_when": "q.is_swimming || q.is_elytra_flying",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "9"
+          },
+          {
+            "anim": "afk",
+            "plays_when": "(c.afk_timer >= 10) && !q.is_in_gui",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "4"
+          },
+          {
+            "anim": "main",
+            "plays_when": "!q.is_swimming && !q.is_elytra_flying && !(c.afk_timer >= 15)",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "2"
+          }
+        ]
+      },
+      {
+        "name": "eyes_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "eyes",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "9"
+          }
+        ]
+      }
+    ]
+  }
+}

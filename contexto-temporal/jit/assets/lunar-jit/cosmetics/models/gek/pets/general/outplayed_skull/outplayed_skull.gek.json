@@ -1,0 +1,36 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/outplayed_skull/outplayed_skull.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/outplayed_skull/outplayed_skull.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/outplayed_skull/outplayed_skull.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "elytra",
+            "plays_when": "q.is_elytra_flying || q.is_swimming",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "2"
+          },
+          {
+            "anim": "afk",
+            "plays_when": "(c.afk_timer >= 5) && !q.is_in_gui && !q.is_in_preview_model",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "8"
+          },
+          {
+            "anim": "main",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "8"
+          }
+        ]
+      }
+    ]
+  }
+}

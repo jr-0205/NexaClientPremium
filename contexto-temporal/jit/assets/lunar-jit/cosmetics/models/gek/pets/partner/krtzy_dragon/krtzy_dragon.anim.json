@@ -1,0 +1,89 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"main": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"cosmetic": {
+					"rotation": [0, "q.head_y_rotation*0.8", 0]
+				},
+				"platform": {
+					"scale": 0
+				},
+				"rightWing": {
+					"rotation": [0, "v.wing_rotation=-20+math.cos(55-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*55;return v.wing_rotation;", 0]
+				},
+				"leftWing": {
+					"rotation": [0, "-v.wing_rotation", 0]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, "30+math.cos(55-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*10"]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, "30+math.cos(70-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*10"]
+				},
+				"downMouth": {
+					"rotation": [0, 0, "20-math.cos(80+q.life_time*360*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*15"]
+				},
+				"rightEye": {
+					"rotation": ["math.cos(30+q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*4", 0, 0]
+				},
+				"leftEye": {
+					"rotation": ["-math.cos(30+q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*4", 0, 0]
+				},
+				"pet_root": {
+					"rotation": [
+						"math.cos(70-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*4+q.head_x_rotation*0.8-q.is_crouching*30",
+						"q.head_y_rotation*0.3",
+						0
+					],
+					"position": [
+						1.5,
+						"-1.5+math.cos(q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))-math.clamp(c.local_y_velocity_smoothed*0.4,-3,6)",
+						"math.clamp(c.local_z_velocity_smoothed,-6,6)"
+					],
+					"scale": 0.4
+				}
+			}
+		},
+		"elytra": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"cosmetic": {
+					"rotation": [0, "q.head_y_rotation*0.8", 0]
+				},
+				"platform": {
+					"scale": 0
+				},
+				"rightWing": {
+					"rotation": [0, "v.wing_rotation=-20+math.cos(55-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*55;return v.wing_rotation;", 0]
+				},
+				"leftWing": {
+					"rotation": [0, "-v.wing_rotation", 0]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, "30+math.cos(55-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*10"]
+				},
+				"rightLeg": {
+					"rotation": [0, 0, "30+math.cos(70-q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*10"]
+				},
+				"downMouth": {
+					"rotation": [0, 0, "20-math.cos(80+q.life_time*360*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*15"]
+				},
+				"rightEye": {
+					"rotation": ["math.cos(30+q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*4", 0, 0]
+				},
+				"leftEye": {
+					"rotation": ["-math.cos(30+q.life_time*720*(1+q.is_flying*0.5)*(1-2*q.is_under_water))*4", 0, 0]
+				},
+				"pet_root": {
+					"rotation": ["-90+math.cos(70-q.life_time*720*1)", 0, 0],
+					"position": [-1.5, "-1.5+math.cos(q.life_time*720)", 14],
+					"scale": 0.4
+				}
+			}
+		}
+	}
+}

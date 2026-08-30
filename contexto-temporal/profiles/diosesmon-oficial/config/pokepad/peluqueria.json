@@ -1,0 +1,23 @@
+{
+  "_comentario": "Catalogo de la Peluqueria. id = id del cosmetico HAT en el backend (hair_<estilo><color>); name = nombre visible; price = precio en PokeDolares.",
+  "hairs": [
+    { "id": "hair_shortblack",    "name": "Corto Negro",    "price": 5000 },
+    { "id": "hair_shortblond",    "name": "Corto Rubio",    "price": 5000 },
+    { "id": "hair_shortbrown",    "name": "Corto Castaño",  "price": 5000 },
+    { "id": "hair_longblack",     "name": "Largo Negro",    "price": 5000 },
+    { "id": "hair_longblond",     "name": "Largo Rubio",    "price": 5000 },
+    { "id": "hair_longbrown",     "name": "Largo Castaño",  "price": 5000 },
+    { "id": "hair_curlyblack",    "name": "Rizado Negro",   "price": 5000 },
+    { "id": "hair_curlyblond",    "name": "Rizado Rubio",   "price": 5000 },
+    { "id": "hair_curlybrown",    "name": "Rizado Castaño", "price": 5000 },
+    { "id": "hair_ponytailblack", "name": "Coleta Negro",   "price": 5000 },
+    { "id": "hair_ponytailblond", "name": "Coleta Rubio",   "price": 5000 },
+    { "id": "hair_ponytailbrown", "name": "Coleta Castaño", "price": 5000 },
+    { "id": "hair_bunblack",      "name": "Moño Negro",     "price": 5000 },
+    { "id": "hair_bunblond",      "name": "Moño Rubio",     "price": 5000 },
+    { "id": "hair_bunbrown",      "name": "Moño Castaño",   "price": 5000 },
+    { "id": "hair_spikyblack",    "name": "Puntas Negro",   "price": 5000 },
+    { "id": "hair_spikyblond",    "name": "Puntas Rubio",   "price": 5000 },
+    { "id": "hair_spikybrown",    "name": "Puntas Castaño", "price": 5000 }
+  ]
+}

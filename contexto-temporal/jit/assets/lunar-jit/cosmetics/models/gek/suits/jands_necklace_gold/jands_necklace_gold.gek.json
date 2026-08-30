@@ -1,0 +1,14 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "model": "lunar:cosmetics/models/gek/suits/jands_necklace_gold/jands_necklace_gold.geo.json",
+  "texture": "lunar:cosmetics/models/gek/suits/jands_necklace_gold/jands_necklace_gold.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/jands_necklace_gold/jands_necklace_gold.anim.json",
+  "show_during_emote": false,
+  "compat": "suits_full_coverage",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

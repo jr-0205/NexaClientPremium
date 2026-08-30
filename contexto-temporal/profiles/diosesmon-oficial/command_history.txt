@@ -1,0 +1,29 @@
+/home casa
+/p tp cuervo1719
+/p tp cuervo1917
+/dexrewards
+/p tp cuervo1719
+/p tp cuervo1917
+/msg Dufunali dale
+/tpaccept
+/p tp cuervo1917
+/warp
+/pwarp
+/p tp cuervo1917
+/spawn
+/dexrewards
+/p tp cuervo1917
+/rtp
+/spawn
+/pwarp
+/spawn
+/pwarp
+/dexrewards
+/p tp cuervo1917
+/p tp cuervo1719
+/p tp cuervo1917
+/home casa
+/p home sal2007
+/spawn
+/p home sal2007
+/spawn

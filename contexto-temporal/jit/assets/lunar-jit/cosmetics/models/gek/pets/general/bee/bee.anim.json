@@ -1,0 +1,83 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"main": {
+			"loop": true,
+			"bones": {
+				"bee": {
+					"rotation": {
+						"vector": [
+							"(math.cos(q.anim_time*240)*3-q.is_crouching*30)-q.is_swimming*90",
+							"math.clamp(c.local_x_velocity_smoothed*4,-30,30)",
+							"(math.sin(45-q.anim_time*240)*5)+math.clamp(c.local_x_velocity_smoothed*3,-20,20)"
+						]
+					},
+					"position": {
+						"vector": [
+							"t.posx=-(t.a*math.cos(t.b*t.a_t)+t.c*math.cos(t.d*t.a_t)+t.e*math.cos(t.f*t.a_t))*0.05;return t.posx;",
+							"t.a=11;t.b=-17;t.c=15;t.d=-4.2;t.e=-8;t.f=5;t.a_t=q.anim_time*18;t.posy=(t.a*math.sin(t.b*t.a_t)+t.c*math.sin(t.d*t.a_t)+t.e*math.sin(t.f*t.a_t))*0.05;return t.posy-lunar.sigmoid(c.local_y_velocity_smoothed,10,1.15);",
+							"math.clamp(c.local_z_velocity_smoothed*2,-8,8)"
+						]
+					}
+				},
+				"leftwing": {
+					"rotation": {
+						"vector": [0, 0, "q.is_in_water ?-t.underwater_wings:-t.wing_z;"]
+					}
+				},
+				"bone2": {
+					"rotation": {
+						"vector": [
+							0,
+							0,
+							"t.underwater_wings=55+math.cos(q.anim_time*360)*55;t.wing_z=40+math.cos(q.anim_time*(2880/(1+q.is_crouching*2)))*40;return q.is_in_water ?t.underwater_wings:t.wing_z;"
+						]
+					}
+				},
+				"rbleg": {
+					"rotation": {
+						"vector": [
+							"t.legx=math.cos(45-q.anim_time*240)*10",
+							0,
+							"t.legz=math.sin(90-q.anim_time*240)*15"
+						]
+					}
+				},
+				"rbleg2": {
+					"rotation": {
+						"vector": ["t.legx", 0, "t.legz"]
+					}
+				},
+				"rbleg3": {
+					"rotation": {
+						"vector": ["t.legx", 0, "t.legz"]
+					}
+				},
+				"rbleg4": {
+					"rotation": {
+						"vector": ["t.legx", 0, "t.legz"]
+					}
+				},
+				"eyes": {
+					"scale": {
+						"vector": [
+							1,
+							"t.wink_timing=-math.cos(q.anim_time*180)*2;t.wink=math.clamp(1-math.min(math.cos(q.anim_time*720),0)*t.wink_timing,0,1);return q.is_crouching ? 0.4 : t.wink;",
+							1
+						]
+					}
+				},
+				"bubble": {
+					"scale": {
+						"vector": [
+							"1*query.is_in_water_smooth(0.2)",
+							"1*query.is_in_water_smooth(0.2)",
+							"1*query.is_in_water_smooth(0.2)"
+						]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

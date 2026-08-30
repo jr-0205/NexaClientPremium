@@ -1,0 +1,55 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"main": {
+			"loop": true,
+			"bones": {
+				"armorBody": {
+					"rotation": {
+						"vector": ["-q.is_swimming*90", 0, 0]
+					},
+					"position": {
+						"vector": ["q.is_swimming*-2", "t.y_going_down=-q.local_y_velocity*0.3;t.chicken_y_pos=math.max(t.y_going_down,-0);t.chicken_y_pos_filtered= t.chicken_y_pos+q.is_swimming*5;return t.chicken_y_pos_filtered;", 0]
+					}
+				},
+				"body": {
+					"rotation": {
+						"vector": [0, 0, "t.vel_coef= (q.ground_speed>=1) ? 1 : 0;t.body_z_rotation = (t.body_y_pos+query.is_on_ground_smooth(0.2)*t.is_walking * (math.cos(45-q.anim_time*360*t.vel_coef) * 8))-q.local_x_velocity*4;return math.clamp(t.body_z_rotation,-30,30);"]
+					},
+					"position": {
+						"vector": [0, "t.body_y_pos=math.clamp(-q.local_y_velocity*0.2,-0.6,0);t.is_walking = (q.ground_speed>0.5)?1:0;t.body_bobbing=t.body_y_pos+query.is_on_ground_smooth(0.2)*t.is_walking * (math.cos(q.anim_time*720) * 0.35);return t.body_bobbing;", 0]
+					}
+				},
+				"head": {
+					"rotation": {
+						"vector": ["(query.is_crouching_smooth_easeoutsine(0.15)*-20)+q.head_x_rotation*0.8+q.is_swimming*20", "q.head_y_rotation*0.8", 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"vector": [0, "(t.body_z_rotation==0)?0:math.cos(45-q.anim_time*360) * 20", "(t.body_z_rotation==0)?0:math.cos(q.anim_time*360) * 10"]
+					}
+				},
+				"rightwing": {
+					"rotation": {
+						"vector": [0, 0, "t.is_falling=math.clamp(q.local_y_velocity,-1,0);t.wing_flap=(q.local_y_velocity<0)?25+math.cos(q.anim_time*t.is_falling*3000)*40:0;t.wing_flap_filtered=(q.is_in_water)?20+math.cos(q.anim_time*360)*40 : t.wing_flap;return t.wing_flap_filtered;"]
+					}
+				},
+				"leftwing": {
+					"rotation": {
+						"vector": [0, 0, "-t.wing_flap_filtered"]
+					}
+				},
+				"eyes": {
+					"scale": {
+						"vector": [1, "t.wink_timing=-math.cos(q.anim_time*210)*2;t.wink=math.clamp(1-math.min(math.cos(q.anim_time*590),0)*t.wink_timing,0,1);return q.is_crouching ? 0.4 : t.wink;", 1]
+					}
+				}
+			}
+		},
+		"static": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}

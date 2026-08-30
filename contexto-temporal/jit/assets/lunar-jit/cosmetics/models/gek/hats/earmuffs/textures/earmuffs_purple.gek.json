@@ -1,0 +1,12 @@
+{
+  "type": "hat",
+  "attached_bone": "HEAD",
+  "model": "lunar:cosmetics/models/gek/hats/earmuffs/earmuffs.geo.json",
+  "texture": "lunar:cosmetics/models/gek/hats/earmuffs/textures/earmuffs_purple.webp",
+  "animation": "lunar:cosmetics/models/gek/hats/earmuffs/earmuffs.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

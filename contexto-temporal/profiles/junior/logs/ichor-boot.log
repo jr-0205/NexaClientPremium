@@ -1,0 +1,150 @@
+[14:32:50] [Genesis/main/INFO] Found external file: user-message-patterns.json
+[14:32:50] [Genesis/main/INFO] Found external file: waypoint-patterns.json
+[14:32:50] [Genesis/main/INFO] Found external file: kill-sound-chat-patterns.json
+[14:32:50] [Genesis/main/INFO] Found external file: vanilla_capes.json
+[14:32:50] [Genesis/main/INFO] Found external file: tier-tagger.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/teamview.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/bedwars.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/quickplay.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/kuudra-waypoints.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/splits.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/commands.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/minions.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/stacking-enchants.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/chocolate-factory-prices.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/garden.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/autocomplete-warps.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/glacite-tunnels.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/max-levels.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/hoppity-eggs.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/deployable-textures.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/important-items.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/enchants.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/metal-detector-locations.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/modern-islands.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/important-npc-locations.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/adblock-websites.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/api-items-override.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/vendor-items.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/sphinx-key.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/item-abilities.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/middle-click.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/fairy-souls.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/api-materials-override.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/skill-xp.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/item-shop-prices.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/tab-widgets.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/baits.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/sea-creatures.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/trash-items.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/quiz-key.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/rooms.json
+[14:32:50] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/routes.json
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_8.jar with checksum d80ee362
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-skyhanni-mixins-0.1.0-SNAPSHOT-all.jar with checksum 7fe2cbf1
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+[14:32:50] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+[14:32:51] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+[14:32:51] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+[14:32:51] [Genesis/main/INFO] Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+[14:32:51] [Genesis/GameBootstrap/main/INFO] Launching Minecraft 1.21.8 v1_21_8 (parsed from 1.21.8)
+[14:32:59] [Genesis/GameBootstrap/main/INFO] Config hash: 5e566700  File hash: d355cf17
+[14:32:59] [Genesis/Baker/main/INFO] Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\5e566700\d355cf17\bake.zip
+[14:32:59] [Genesis/Baker/main/INFO] Baking classes...
+LUNARCLIENT_STATUS_BUILD_CACHE
+[14:32:59] [IchorPipeline/main/INFO] Loading Mixin runtime for META_MIXIN
+[14:33:00] [Ichor/mixin(META_MIXIN)/INFO] SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/CARLOS_JR/.lunarclient/offline/multiver/genesis-0.1.0-SNAPSHOT-all.jar Service=Ichor Env=CLIENT
+[14:33:00] [Genesis/IchorMixinService/main/INFO] Initializing MixinExtras 0.5.4 in IchorClassLoader(META_MIXIN)
+[14:33:00] [IchorPipeline/main/INFO] Loading Mixin runtime for MIXIN
+[14:33:03] [IchorPipeline/main/INFO] Built mapping set for com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR.OCCHHCHCOICROCHHIOCRRIIORHIOOH 2336ms on thread main
+[14:33:04] [IchorPipeline/main/INFO] Built mapping set for com.moonsworth.lunar.ichor.OHRORRHCHCRICORRRCIRIOCCIRCRII.COOCHIRORIICRCIIRIROHIIRIRICCH.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.IROCROOIOIORORHHCCOOCCHRRRIOIC 1165ms on thread main
+[14:33:05] [Ichor/mixin(MIXIN)/INFO] SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/CARLOS_JR/.lunarclient/offline/multiver/genesis-0.1.0-SNAPSHOT-all.jar Service=Ichor Env=CLIENT
+[14:33:05] [Genesis/IchorMixinService/main/INFO] Initializing MixinExtras 0.5.4 in Genesis
+[14:33:05] [IchorPipeline/main/INFO] Done loading Mixin runtimes in 6616ms
+[14:33:05] [IchorPipeline/main/INFO] Setting up mixins for META_MIXIN
+[14:33:06] [IchorPipeline/main/INFO] Setting up mixins for MIXIN
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+[14:33:06] [Ichor/main/INFO] Mixin config mixins.modern.json doesn't exist in Genesis
+[14:33:06] [Ichor/main/INFO] Mixin config mixins.modern_lunar.json doesn't exist in Genesis
+[14:33:07] [Ichor/main/INFO] Mixin config mixins.modern_bridge_v1_21_8.json doesn't exist in Genesis
+[14:33:07] [Ichor/main/INFO] Mixin config mixins.modern_lunar_v1_21_8.json doesn't exist in Genesis
+[14:33:07] [IchorPipeline/main/INFO] Done registering Mixins in 1421ms
+[14:33:07] [IchorPipeline/main/INFO] Going to default mixins stage for META_MIXIN
+[14:33:11] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/compat/sodium/mixin/MixinSodiumOptionsGUI (checked [net.irisshaders.iris.compat.sodium.mixin.MixinSodiumOptionsGUI]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/compat/sodium/mixin/MixinSodiumOptionsGUI (checked [net.irisshaders.iris.compat.sodium.mixin.MixinSodiumOptionsGUI]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[14:33:11] [IchorPipeline/main/INFO] Going to default mixins stage for MIXIN
+[14:33:13] [Ichor/MixinExtras|Service(META_MIXIN)/INFO] Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
+[14:33:52] [Ichor/[MyTotemDoll: SodiumCompatPlugin](MIXIN)/INFO] [net.lopymine.mtd.mixin.sodium.CubeMixinMixin] Detected Sodium, current version older than hot: false
+[14:33:52] [Ichor/[MyTotemDoll: SodiumCompatPlugin](MIXIN)/INFO] [net.lopymine.mtd.mixin.sodium.ModelPartMixinMixin] Detected Sodium, current version older than hot: false
+[14:33:53] [IchorPipeline/main/INFO] Mixin runtimes prepared in 45672ms
+[14:33:53] [IchorPipeline/main/INFO] Initialized Mixin in 53734ms
+[14:33:54] [Genesis/Baker/main/INFO] Found 27631 classes to bake.
+LUNARCLIENT_STATUS_PREINIT
+[14:33:54] [Genesis/GameBootstrap/main/INFO] Starting game!
+[14:33:54] [Genesis/GameBootstrap/main/INFO] Branch: master
+[14:33:54] [Genesis/GameBootstrap/main/INFO] Commit Hash: 88476a8240fd6c38de742044a3db29275b29c638
+LUNARCLIENT_BAKE_PROGRESS 0.13580069
+[14:33:54] [Ichor/MixinExtras|Service(MIXIN)/INFO] Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
+LUNARCLIENT_BAKE_PROGRESS 0.8581481
+LUNARCLIENT_BAKE_PROGRESS 1.8854905
+LUNARCLIENT_BAKE_PROGRESS 3.1641564
+LUNARCLIENT_BAKE_PROGRESS 4.8076925
+LUNARCLIENT_BAKE_PROGRESS 6.233838
+LUNARCLIENT_BAKE_PROGRESS 8.073197
+LUNARCLIENT_BAKE_PROGRESS 9.619715
+LUNARCLIENT_BAKE_PROGRESS 12.056776
+LUNARCLIENT_BAKE_PROGRESS 15.383813
+[Bridge] Setting Bridge Implementation to com.moonsworth.lunar.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR.RROHOCRCCHCIORHICIHCOHRIRCIHCI
+LUNARCLIENT_BAKE_PROGRESS 34.914482
+LUNARCLIENT_BAKE_PROGRESS 42.07969
+LUNARCLIENT_BAKE_PROGRESS 49.52879
+LUNARCLIENT_BAKE_PROGRESS 54.40552
+[14:34:08] [Genesis/Baker/pool-4-thread-6/INFO] Baked 16291 classes in 69037ms.
+LUNARCLIENT_STATUS_SAVING_CACHE
+[Bridge] Found textures dir: C:\Users\CARLOS_JR\.lunarclient\textures
+[Bridge] Found JIT dir: C:\Users\CARLOS_JR\.lunarclient\jit
+[Bridge] Found IPC port: 28190
+[Bridge] Found ui dir: C:\Users\CARLOS_JR\.lunarclient\ui\7c408ec0c875ded4aaa94f426f3b31dcec957c5f
+[Bridge] Found webosr dir: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\natives
+[14:34:28] [Ichor/mixin(MIXIN)/WARN] @Inject(@At("INVOKE")) Shift.BY=3 on mixins.modern_lunar_combined.json:CRHOOIHHORCRRICOCOHIHOOIOHIORH.RORCICOHRIOIIIOIOHIIIICRCIHRII.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COOCHIRORIICRCIIRIROHIIRIRICCH from mod (unknown)::handler$bhl000$lunar$onBlockEntityLoad$v1_17_0 exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.

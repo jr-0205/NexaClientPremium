@@ -1,0 +1,275 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"main": {
+			"loop": true,
+			"bones": {
+				"astronaut": {
+					"rotation": {
+						"vector": ["math.clamp(c.local_z_velocity_smoothed * 4, -45, 45)", 0, "math.clamp(c.local_x_velocity_smoothed * 4, -45, 45)"]
+					},
+					"position": {
+						"vector": [
+							"math.clamp(-c.local_x_velocity_smoothed, -4, 4)",
+							"math.clamp(-c.local_y_velocity_smoothed, -4, 4)+ math.sin(q.life_time * 64) * 1 ",
+							"math.clamp(c.local_z_velocity_smoothed, -4, 4)"
+						]
+					}
+				},
+				"astrohead": {
+					"rotation": {
+						"vector": ["math.clamp(-c.local_z_velocity_smoothed * 2, -22.5, 22.5) +q.head_x_rotation * 0.5", "q.head_y_rotation", 0]
+					}
+				},
+				"right_arm": {
+					"rotation": {
+						"vector": [
+							"math.clamp(c.local_z_velocity_smoothed * 10, -45, 45) +-math.sin(q.life_time * 64 - 32) * 12.25",
+							0,
+							"12 + math.cos(q.life_time * 64 + 32) * 12.25"
+						]
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"vector": [
+							"math.clamp(c.local_z_velocity_smoothed * 10, -45, 45) +math.cos(q.life_time * 64 - 32) * 12.25",
+							0,
+							"-12 + math.sin(q.life_time * 64 - 32) * 12.25"
+						]
+					}
+				},
+				"right_leg": {
+					"rotation": {
+						"vector": [
+							"math.clamp(c.local_z_velocity_smoothed * 10, -45, 45) +-math.cos(q.life_time * 64) * 12.25",
+							0,
+							"12 + -math.sin(q.life_time * 64) * 12.25"
+						]
+					}
+				},
+				"left_leg": {
+					"rotation": {
+						"vector": [
+							"math.clamp(c.local_z_velocity_smoothed * 10, -45, 45) +math.cos(q.life_time * 64) * 12.25",
+							0,
+							"-12 + math.sin(q.life_time * 64 + 32) * 12.25"
+						]
+					}
+				},
+				"eyes": {
+					"position": {
+						"vector": ["math.clamp(c.eye_look_x_position_offset, -0.5, 0.5)", "math.clamp(c.eye_look_y_position_offset, -0.5, 0.5)", 0]
+					},
+					"scale": {
+						"vector": [1, "math.clamp(math.sin(q.life_time * 64) * 40 + 40, 0.1, 1)", 1]
+					}
+				},
+				"bubble": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"rocket": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"is_swimming": {
+			"loop": true,
+			"bones": {
+				"astronaut": {
+					"rotation": {
+						"vector": [-40, 0, "math.clamp(c.local_x_velocity_smoothed * 4, -45, 45)"]
+					},
+					"position": {
+						"vector": [
+							"-2+math.clamp(-c.local_x_velocity_smoothed, -4, 4)",
+							"-4+math.clamp(-c.local_y_velocity_smoothed, -4, 4)+ math.sin(q.life_time * 128) * 1",
+							"math.clamp(c.local_z_velocity_smoothed, -4, 4)"
+						]
+					}
+				},
+				"astrohead": {
+					"rotation": {
+						"vector": [-40, "q.head_y_rotation", 0]
+					}
+				},
+				"right_arm": {
+					"rotation": {
+						"vector": [-132.5, -10, 0]
+					},
+					"position": {
+						"vector": [0, 0, -1]
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"vector": [-132.5, 10, 0]
+					},
+					"position": {
+						"vector": [0, 0, -1]
+					}
+				},
+				"right_leg": {
+					"rotation": {
+						"vector": ["25-math.cos(q.life_time * 400) * 50", 0, 0]
+					}
+				},
+				"left_leg": {
+					"rotation": {
+						"vector": ["25+math.cos(q.life_time * 400) * 50", 0, 0]
+					}
+				},
+				"eyes": {
+					"position": {
+						"vector": ["math.clamp(c.eye_look_x_position_offset, -0.5, 0.5)", "math.clamp(c.eye_look_y_position_offset, -0.5, 0.5)", 0]
+					},
+					"scale": {
+						"vector": [1, "math.clamp(math.sin(q.life_time * 64) * 40 + 40, 0.1, 1)", 1]
+					}
+				},
+				"bubble": {
+					"position": {
+						"vector": [0, "math.cos(q.life_time*360)*2", 0]
+					},
+					"scale": {
+						"vector": [
+							"math.clamp(math.cos(90+query.life_time*360)*0.8,0,0.8)",
+							"math.clamp(math.cos(90+query.life_time*360)*0.8,0,0.8)",
+							"math.clamp(math.cos(90+query.life_time*360)*0.8,0,0.8)"
+						]
+					}
+				},
+				"rocket": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"elytra_flying": {
+			"loop": true,
+			"bones": {
+				"astronaut": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"rocket": {
+					"rotation": {
+						"vector": ["-90-c.local_y_velocity_smoothed", "-720-q.head_y_rotation*2", "-q.head_y_rotation"]
+					},
+					"position": {
+						"vector": [-15, 0, 0]
+					},
+					"scale": {
+						"vector": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"fast_flight": {
+			"loop": true,
+			"animation_length": 0.16667,
+			"bones": {
+				"astronaut": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"rocket": {
+					"rotation": {
+						"vector": [
+							"-lunar.sigmoid_swing(10,1.2,c.local_y_velocity_smoothed)*3",
+							"-lunar.sigmoid_swing(20,1.01,c.local_x_velocity_smoothed)*2",
+							"-720-lunar.sigmoid_swing(20,1.1,c.local_x_velocity_smoothed)*2"
+						]
+					},
+					"position": {
+						"vector": ["-3-c.local_x_velocity_smoothed*0.2", 0, 0]
+					},
+					"scale": {
+						"vector": [0.85, 0.85, 0.85]
+					}
+				}
+			}
+		},
+		"in_gui": {
+			"loop": true,
+			"bones": {
+				"astronaut": {
+					"position": {
+						"vector": [4, "0.5+math.sin(q.life_time*90)*0.5", 0]
+					},
+					"scale": {
+						"vector": [1.3, 1.3, 1.3]
+					}
+				},
+				"astro_body": {
+					"rotation": {
+						"vector": [7.5, 0, 0]
+					}
+				},
+				"astrohead": {
+					"rotation": {
+						"vector": [-20.349, -29.18416, 4.11615]
+					}
+				},
+				"eyes": {
+					"scale": {
+						"vector": [1, "math.clamp(math.sin(q.life_time * 80) * 40 + 40, 0.1, 1)", 1]
+					}
+				},
+				"bubble": {
+					"scale": {
+						"vector": [0, 0, 0]
+					}
+				},
+				"right_arm": {
+					"rotation": {
+						"vector": [-47.5, 0, 30]
+					},
+					"position": {
+						"vector": [0, 0, -1.2]
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"vector": [27.86585, -0.51074, -32.42142]
+					}
+				},
+				"right_leg": {
+					"rotation": {
+						"vector": [-27.5, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.45, -1.075]
+					}
+				},
+				"left_leg": {
+					"rotation": {
+						"vector": [45, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.1, 0.925]
+					}
+				},
+				"rocket": {
+					"rotation": {
+						"vector": ["-21.5+math.sin(q.life_time*90)*12", 13, 30]
+					},
+					"position": {
+						"vector": [-1.45, "math.cos(30-q.life_time*90)*0.5", 0.25]
+					},
+					"scale": {
+						"vector": [0.7, 0.7, 0.7]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -1,0 +1,75 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/ice_dragon/ice_dragon.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/ice_dragon/ice_dragon.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/ice_dragon/ice_dragon.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "afk_controller",
+        "transition_ticks": "8",
+        "states": [
+          {
+            "anim": "afk",
+            "plays_when": "(c.afk_timer >= 2)",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "30"
+          },
+          {
+            "anim": "empty",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "30"
+          }
+        ]
+      },
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "main_flying",
+            "plays_when": "q.is_swimming",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "9"
+          },
+          {
+            "anim": "main_flying",
+            "plays_when": "q.is_in_water",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "main_flying",
+            "plays_when": "!q.is_in_water && !q.is_elytra_flying && !q.is_in_gui",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "10"
+          }
+        ]
+      },
+      {
+        "name": "blinking_controller",
+        "states": [
+          {
+            "anim": "blink",
+            "plays_when": "lunar.interval(6, 1)"
+          },
+          {
+            "anim": "blink",
+            "plays_when": "lunar.interval(4.5, 1)"
+          }
+        ]
+      },
+      {
+        "name": "roar_controller",
+        "states": [
+          {
+            "anim": "ice_roar",
+            "plays_when": "lunar.interval(12, 4)"
+          }
+        ]
+      }
+    ]
+  }
+}

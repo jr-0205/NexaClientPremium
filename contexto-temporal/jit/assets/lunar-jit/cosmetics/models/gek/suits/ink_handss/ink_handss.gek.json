@@ -1,0 +1,15 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "model": "lunar:cosmetics/models/gek/suits/ink_handss/ink_handss.geo.json",
+  "texture": "lunar:cosmetics/models/gek/suits/ink_handss/ink_handss.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/ink_handss/ink_handss.anim.json",
+  "show_during_emote": false,
+  "compat": "suits_use_other",
+  "animated_texture": true,
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "animation"
+  }
+}

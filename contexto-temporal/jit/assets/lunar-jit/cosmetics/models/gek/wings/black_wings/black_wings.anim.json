@@ -1,0 +1,46 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"walk": {
+			"loop": true,
+			"bones": {
+				"Wing2": {
+					"rotation": {
+						"vector": [-6.51426, "-0.8056-math.cos(query.life_time*180)*20", -20.40298]
+					},
+					"position": {
+						"vector": [2, 0, -0.6]
+					}
+				},
+				"group": {
+					"rotation": {
+						"vector": [0, "-5-math.cos(60-query.life_time*180)*35", 0]
+					}
+				},
+				"Wing3": {
+					"rotation": {
+						"vector": [-6.64363, "3.5553+math.cos(query.life_time*180)*20", 20.01271]
+					},
+					"position": {
+						"vector": [-2, 0, -0.6]
+					}
+				},
+				"group2": {
+					"rotation": {
+						"vector": [0, "5+math.cos(60-query.life_time*180)*35", 0]
+					}
+				},
+              "Wings": {
+                "scale": {
+                  "vector": [
+                    "math.clamp(option.size / 5, 0, 1)",
+                    "math.clamp(option.size / 5, 0, 1)",
+                    "math.clamp(option.size / 5, 0, 1)"
+                  ]
+                }
+              }
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

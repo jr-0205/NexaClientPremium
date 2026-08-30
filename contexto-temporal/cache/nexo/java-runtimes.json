@@ -1,0 +1,85 @@
+{
+  "detectedAt": "2026-08-29T03:21:02.3231593+00:00",
+  "runtimes": [
+    {
+      "javaExecutable": "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Java\\jdk-25.0.2\\bin\\javaw.exe",
+      "majorVersion": 25,
+      "fullVersion": "25.0.2",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "Program Files",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Common Files\\Oracle\\Java\\javapath\\javaw.exe",
+      "majorVersion": 25,
+      "fullVersion": "25.0.2",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "PATH",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Users\\CARLOS_JR\\.lunarclient\\jre\\d093c370fc8eaa3e6743d7f61fb633adac4344f2\\zulu21.48.17-ca-jre21.0.10-win_x64\\bin\\java.exe",
+      "javawExecutable": "C:\\Users\\CARLOS_JR\\.lunarclient\\jre\\d093c370fc8eaa3e6743d7f61fb633adac4344f2\\zulu21.48.17-ca-jre21.0.10-win_x64\\bin\\javaw.exe",
+      "majorVersion": 21,
+      "fullVersion": "21.0.10",
+      "vendor": "Azul Systems, Inc.",
+      "architecture": "amd64",
+      "source": "Lunar Client",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files\\Java\\jdk-21.0.10\\bin\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Java\\jdk-21.0.10\\bin\\javaw.exe",
+      "majorVersion": 21,
+      "fullVersion": "21.0.10",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "Program Files",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files\\Java\\jdk-17.0.18\\bin\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Java\\jdk-17.0.18\\bin\\javaw.exe",
+      "majorVersion": 17,
+      "fullVersion": "17.0.18",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "Program Files",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files\\Java\\jre1.8.0_481\\bin\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Java\\jre1.8.0_481\\bin\\javaw.exe",
+      "majorVersion": 8,
+      "fullVersion": "1.8.0_481",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "Program Files",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files\\Java\\jdk1.8.0_481\\bin\\java.exe",
+      "javawExecutable": "C:\\Program Files\\Java\\jdk1.8.0_481\\bin\\javaw.exe",
+      "majorVersion": 8,
+      "fullVersion": "1.8.0_481",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "Program Files",
+      "is64Bit": true
+    },
+    {
+      "javaExecutable": "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path\\java.exe",
+      "javawExecutable": "C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\java8path\\javaw.exe",
+      "majorVersion": 8,
+      "fullVersion": "1.8.0_481",
+      "vendor": "Oracle Corporation",
+      "architecture": "amd64",
+      "source": "PATH",
+      "is64Bit": true
+    }
+  ]
+}

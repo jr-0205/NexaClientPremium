@@ -1,0 +1,23 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/wings/dragon_wings/dragon_wings.geo.json",
+  "texture": "lunar:cosmetics/models/gek/wings/dragon_wings/textures/black.webp",
+  "animation": "lunar:cosmetics/models/gek/wings/dragon_wings/dragon_wings.anim.json",
+  "cosmetic_options": [
+    {
+      "type": "float",
+      "id": "Size",
+      "molang_query": "option.size",
+      "default": 5,
+      "min": 4,
+      "max": 7
+    }
+  ],
+  "show_during_emote": false,
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

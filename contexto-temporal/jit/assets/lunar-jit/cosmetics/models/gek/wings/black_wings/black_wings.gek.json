@@ -1,0 +1,36 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/wings/black_wings/black_wings.geo.json",
+  "texture": "lunar:cosmetics/models/gek/wings/black_wings/black_wings.webp",
+  "animation": "lunar:cosmetics/models/gek/wings/black_wings/black_wings.anim.json",
+  "animated_texture": false,
+  "emissive_texture": false,
+  "cosmetic_options": [
+    {
+      "type": "float",
+      "id": "Size",
+      "molang_query": "option.size",
+      "default": 3,
+      "min": 2,
+      "max": 5
+    }
+  ],
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "walk",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "10"
+          }
+        ]
+      }
+    ]
+  }
+}

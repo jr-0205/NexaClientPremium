@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Grupos Huevo — DiosesMon</title>
+  <meta name="description" content="Guía local de grupos huevo para Pokémon de DiosesMon y Cobblemon.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="sprites.css">
+  <link rel="stylesheet" href="project-theme.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <header class="hero">
+    <nav><span class="brand">DIOSESMON · ARCHIVO DE CRIANZA</span><span id="datasetStatus">Datos locales</span></nav>
+    <div class="hero-copy">
+      <p class="eyebrow">GUÍA DE CAMPO 01</p>
+      <h1>Grupos<br><em>Huevo</em></h1>
+      <p class="intro">Escribe un Pokémon y consulta directamente todas las especies que comparten sus grupos huevo.</p>
+    </div>
+    <div class="orb" aria-hidden="true"><span></span></div>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Filtros">
+      <label class="search"><span>POKÉMON DE REFERENCIA</span><input id="search" type="search" placeholder="Ej. Larvitar, Eevee, 133…" autocomplete="off"></label>
+      <label><span>GRUPO A</span><select id="groupA"><option value="">Todos</option></select></label>
+      <label><span>GRUPO B</span><select id="groupB"><option value="">Cualquiera</option></select></label>
+      <button id="reset" type="button">Limpiar</button>
+    </section>
+
+    <fieldset class="generation-filter">
+      <legend>GENERACIONES</legend>
+      <div id="generationChecks" class="generation-checks"></div>
+      <button id="toggleGenerations" type="button">Desmarcar todas</button>
+    </fieldset>
+
+    <section class="legend">
+      <div><strong id="resultCount">0</strong><span>Pokémon encontrados</span></div>
+      <p id="matchExplanation"><b>Cómo usar:</b> escribe el nombre exacto de un Pokémon para ver únicamente los integrantes de sus grupos huevo. Después puedes afinar el resultado con Grupo A y Grupo B.</p>
+    </section>
+
+    <section id="groupOverview" class="group-overview" aria-label="Resumen de grupos"></section>
+    <section id="grid" class="pokemon-grid" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden>No encontramos coincidencias. Prueba con otro grupo o limpia los filtros.</div>
+  </main>
+
+  <footer><span>DIOSESMON</span><p>Datos extraídos del simulador Showdown incluido en tu perfil de DiosesMon. Las reglas específicas del servidor pueden variar.</p></footer>
+  <script src="pokemon-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

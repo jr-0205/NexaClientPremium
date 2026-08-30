@@ -1,0 +1,19 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "model": {
+    "lunar:cosmetics/models/gek/suits/flame_hands/flame_hands.geo.json": "!q.is_slim_model",
+    "lunar:cosmetics/models/gek/suits/flame_hands/flame_hands_slim.geo.json": "q.is_slim_model"
+  },
+  "texture": "lunar:cosmetics/models/gek/suits/flame_hands/textures/flame_hands_purple.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/flame_hands/flame_hands.anim.json",
+  "show_during_emote": false,
+  "compat": "suits_use_other",
+  "animated_texture": true,
+  "render_first_person": "DOUBLE_ARM",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "animation"
+  }
+}

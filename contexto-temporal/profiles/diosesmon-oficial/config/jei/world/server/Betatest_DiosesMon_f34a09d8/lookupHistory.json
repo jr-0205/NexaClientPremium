@@ -1,0 +1,8 @@
+[
+  {"version":1},
+  {"ingredient":{"id":"cobblemon:metal_coat"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cobblemon:candied_berry"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cobblemon:sitrus_berry"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cobblemon:max_revive"},"type":"item_stack","bookmarkType":"INGREDIENT"},
+  {"ingredient":{"id":"cobblemon:healing_machine"},"type":"item_stack","bookmarkType":"INGREDIENT"}
+]

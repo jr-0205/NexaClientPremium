@@ -1,0 +1,9 @@
+{
+	"masterToggle": true,
+	"categories": {
+		"items": true,
+		"weapons": true,
+		"armor": true,
+		"other": true
+	}
+}

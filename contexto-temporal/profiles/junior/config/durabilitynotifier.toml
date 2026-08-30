@@ -1,0 +1,11 @@
+[general]
+percentage = 10
+checkArmor = false
+armorFilter = []
+[message]
+sendMessage = true
+messageColor = "YELLOW"
+[sound]
+playSound = true
+soundLocation = "minecraft:block.note_block.pling"
+volume = 0.6

@@ -1,0 +1,61 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/turtle/turtle.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/turtle/turtle.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/turtle/turtle.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "10",
+        "states": [
+          {
+            "anim": "in_gui",
+            "plays_when": "q.is_in_gui",
+            "transition_easing": "easeOutSine"
+          },
+          {
+            "anim": "main",
+            "plays_when": "!q.is_crouching && !q.is_elytra_flying && !c.in_special_env && !q.is_raining",
+            "transition_easing": "easeOutSine"
+          },
+          {
+            "anim": "is_raining",
+            "plays_when": "!q.is_elytra_flying && !c.in_special_env && q.is_raining",
+            "transition_easing": "easeOutSine"
+          },
+          {
+            "anim": "in_water_surface",
+            "plays_when": "q.distance_from_surface < 3 && q.is_in_water && !q.is_swimming && !q.is_flying",
+            "transition_easing": "easeOutSine",
+            "transition_ticks": "20"
+          },
+          {
+            "anim": "in_water_deep",
+            "plays_when": "(q.distance_from_surface>=3 && q.is_in_water) || q.is_swimming",
+            "transition_easing": "easeOutSine",
+            "transition_ticks": "20"
+          }
+        ]
+      },
+      {
+        "name": "eye_controller",
+        "default_transition_ticks": "0",
+        "states": [
+          {
+            "anim": "eyes_norain",
+            "plays_when": "!q.is_raining",
+            "transition_easing": "linear"
+          },
+          {
+            "anim": "eyes_rain",
+            "plays_when": "q.is_raining",
+            "transition_easing": "linear"
+          }
+        ]
+      }
+    ]
+  }
+}

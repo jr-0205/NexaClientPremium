@@ -1,0 +1,31 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/auras/dragon_auraa/dragon_auraa.geo.json",
+  "texture": "lunar:cosmetics/models/gek/auras/dragon_auraa/textures/black.webp",
+  "animation": "lunar:cosmetics/models/gek/auras/dragon_auraa/dragon_auraa.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "0",
+        "states": [
+          {
+            "anim": "horizontal",
+            "plays_when": "q.is_swimming || q.is_elytra_flying"
+          },
+          {
+            "anim": "gui",
+            "plays_when": "q.is_in_gui",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "main",
+            "plays_when": "1"
+          }
+        ]
+      }
+    ]
+  }
+}

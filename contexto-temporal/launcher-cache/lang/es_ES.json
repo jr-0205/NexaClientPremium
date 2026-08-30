@@ -1,0 +1,3361 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "cancel": "Cancelar",
+    "save": "Guardar"
+  },
+  "db": {
+    "recovery": {
+      "title": "Base de datos del perfil recuperada",
+      "body": "Tu base de datos del perfil estaba corrupta y se ha restablecido. Se ha guardado una copia de seguridad en {{path}}."
+    }
+  },
+  "game": "Minecraft: Java Edition",
+  "layout": {
+    "mission-control": "Mission Control",
+    "licenses": "Licencias",
+    "quick-play": "Partida Rápida",
+    "views": {
+      "grid": "Ver como Cuadrícula",
+      "list": "Ver como Lista"
+    },
+    "sidebar": {
+      "launchpad": {
+        "display": "Plataforma de inicio",
+        "tooltip": "Plataforma de inicio"
+      },
+      "servers": {
+        "display": "Servidores",
+        "tooltip": "Servidores"
+      },
+      "versions": {
+        "display": "Versiones",
+        "tooltip": "Versiones"
+      },
+      "explore": {
+        "display": "Explorar",
+        "tooltip": "Explorar"
+      },
+      "settings": {
+        "display": "Ajustes",
+        "tooltip": "Ajustes"
+      },
+      "create-profile": {
+        "tooltip": "Crear perfil"
+      },
+      "news": {
+        "display": "Noticias de Lunar Client",
+        "tooltip": "Noticias"
+      },
+      "store": {
+        "display": "Tienda de Lunar Client",
+        "tooltip": "Tienda"
+      },
+      "badlion": {
+        "display": "Versiones de Badlion",
+        "tooltip": "Badlion"
+      },
+      "satellite": {
+        "display": "Satélite",
+        "tooltip": "Satélite"
+      },
+      "external-tooltip-subtitle": "Abrir en el buscador"
+    }
+  },
+  "quick-play": {
+    "launch": {
+      "solo": {
+        "title": "Uniéndote a {{server}}",
+        "subtitle": "Lanzando tu juego en la {{version}}..."
+      },
+      "friend": {
+        "title": "Uniéndote a {{friend}} en {{server}}",
+        "subtitle": "Lanzando tu juego en la {{version}}..."
+      },
+      "recommended": {
+        "title": "Uniéndote a {{server}}",
+        "subtitle": "Lanzando tu juego con la versión recomendada ({{version}})..."
+      },
+      "misc": {
+        "subtitle-already-open": "El juego ya está abierto, ¡nos vemos allí!"
+      }
+    }
+  },
+  "auth": {
+    "logged-out-guest": {
+      "title": "Sesión cerrada correctamente",
+      "subtitle": "Ahora has cerrado sesión y estás navegando como invitado."
+    },
+    "logged-out": {
+      "title": "Sesión cerrada correctamente",
+      "subtitle": "Has cerrado sesión."
+    },
+    "switch-success": {
+      "title": "Cambio de cuenta realizado correctamente",
+      "subtitle": "¡Ahora has iniciado sesión como {{user}}!"
+    },
+    "sign-in-success": {
+      "title": "Inicio de sesión completado correctamente",
+      "subtitle": "¡Ahora has iniciado sesión como {{user}}!"
+    },
+    "failure": {
+      "title": {
+        "sign-in": "Error al iniciar sesión",
+        "switch": "Error al cambiar de cuenta",
+        "remove": "Error al eliminar la cuenta"
+      },
+      "subtitle": {
+        "no-multiplayer-access": "Esta cuenta de Minecraft no tiene permiso para jugar en línea.",
+        "invalid-session": "Tu sesión ya no es válida. Por favor, inicia sesión de nuevo.",
+        "no-ownership": "Esta cuenta de Microsoft no ha comprado Minecraft: Java Edition.",
+        "banned": "Esta cuenta ha sido baneada del acceso a los servicios de Minecraft.",
+        "sisu-authorize-region-banned": "Estás en una región en la que Minecraft está prohibido.",
+        "sisu-authorize-xbox-banned": "Tu cuenta de Xbox Live ha sido suspendida.",
+        "sisu-authorize-uk-age-verification": "Microsoft requiere que verifiques tu edad antes de iniciar sesión.",
+        "sisu-authorize-signup": "Tu cuenta de Microsoft no está registrada en Xbox Live.",
+        "sisu-authorize-family-required": "Tu cuenta es una cuenta infantil y un adulto debe añadirla a una familia de Microsoft antes de iniciar sesión.",
+        "unknown": "Se produjo un error desconocido."
+      }
+    },
+    "click-to-login": "Haz clic para iniciar sesión",
+    "switch-account": "Cambiar cuenta",
+    "accounts-section": "Cuentas ({{count}})",
+    "reauthenticate-now": "Vuelve a autenticarte ahora",
+    "sign-out": "Cerrar sesión",
+    "add-account": "Añadir cuenta",
+    "add-account-via-link": "Añadir cuenta (mediante enlace)",
+    "account-settings": "Ajustes de la cuenta",
+    "device-code": {
+      "title": "Iniciar sesión con Microsoft",
+      "description": "Inicia sesión en Minecraft con tu cuenta de Microsoft. Al hacer clic en el botón de abajo se abrirá la página de inicio de sesión de Microsoft y se copiará el código en tu portapapeles.",
+      "expires-in": "El código caduca en {{time}}",
+      "copy-and-open": "Copiar y abrir",
+      "qr-fallback": "Si el botón de arriba no funciona, prueba <0>{{url}}</0> en cualquier dispositivo.",
+      "qr-hint": "O prueba el código QR en tu teléfono para una configuración más rápida.",
+      "authenticating": "Iniciando sesión…",
+      "debug": "Información de depuración: {{status}} // {{code}}",
+      "expired": {
+        "description": "Tu código de inicio de sesión caducó antes de que terminaras. Obtén uno nuevo para volver a intentarlo."
+      },
+      "get-new-code": "Obtener un código nuevo",
+      "try-again": "Inténtelo de nuevo",
+      "error": {
+        "declined": "Has rechazado la solicitud de inicio de sesión. Vuelve a intentarlo cuando estés listo.",
+        "generic": "Se produjo un error al iniciar sesión. Por favor, inténtalo de nuevo."
+      }
+    }
+  },
+  "accounts": {
+    "change-skin-cape": "Cambiar skin / capa",
+    "screenshots": "Capturas de pantalla"
+  },
+  "notifications": {
+    "explore-content-installed": {
+      "title": "{{type}} instalado",
+      "subtitle": "{{name}} ha sido instalado",
+      "error": {
+        "title": "Instalación fallida",
+        "subtitle": "Ocurrió un error al instalar el {{type}}"
+      }
+    },
+    "explore-datapack-installed": {
+      "title": "Data Pack instalado",
+      "subtitle": "El paquete de datos {{name}} ha sido instalado",
+      "error": {
+        "title": "Instalación fallida",
+        "subtitle": "Ocurrió un error al instalar el Data Pack"
+      }
+    },
+    "uninstalling-datapack": {
+      "title": "Desinstalando {{datapack}}",
+      "subtitle": "El Data Pack {{name}} se desinstaló"
+    },
+    "enabling-datapack": {
+      "title": "Habilitando {{datapack}}",
+      "subtitle": "El Data Pack ha sido habilitado"
+    },
+    "disabling-datapack": {
+      "title": "Deshabilitando {{datapack}}",
+      "subtitle": "El Data Pack ha sido deshabilitado"
+    },
+    "adding-datapack": {
+      "title": "Se añadieron {{count}} Data Pack(s) a {{world}}",
+      "subtitle": "Data Pack(s) añadido(s) con éxito"
+    },
+    "radio-starting-station": {
+      "title": "Iniciando {{station}}",
+      "subtitle": "¡Disfruta los siguientes {{minutes}} minutos de canciones!"
+    },
+    "radio-starting-station-loop": {
+      "title": "Reiniciando {{station}}",
+      "subtitle": "¡Disfruta los siguientes {{minutes}} minutos de canciones (de nuevo)!"
+    },
+    "radio-skipping-track": {
+      "title": "Omitiendo la pista",
+      "subtitle": "Seleccionando la siguiente pista en {{station}}..."
+    },
+    "radio-stopping-station": {
+      "title": "{{station}} se ha parado",
+      "title-complete": "{{station}} ha completado",
+      "subtitle": "¡Selecciona la estación para empezar a escucharla de nuevo!"
+    },
+    "already-uploading-logs": {
+      "title": "Los registros ya se están cargando",
+      "subtitle": "¡Por favor, espera a que termine la actualización!"
+    },
+    "hosted-worlds-available": {
+      "title": "El mundo de {{username}} ya está disponible",
+      "subtitle": "¡Inicia {{version}} para unirte a su mundo!"
+    },
+    "hosted-worlds-invite": {
+      "title": "{{username}} te ha invitado a su mundo",
+      "subtitle": "¡Inicia {{version}} para unirte!"
+    },
+    "launching-experimental": {
+      "title": "Lanzando la rama experimental '{{branch}}'",
+      "subtitle": "Estas versiones pueden causar problemas, procede con precaución."
+    },
+    "no-disk-space-left": {
+      "title": "No queda espacio en el dispositivo",
+      "subtitle": "¡Por favor, libera espacio del disco para prevenir inconvenientes!"
+    },
+    "read-only-volume": {
+      "title": "Operando en un volumen de solo lectura",
+      "subtitle": "¡Por favor, mueve el Launcher a una ubicación ejecutable!"
+    },
+    "must-be-logged-in": {
+      "title": "Sin autorización",
+      "subtitle": "¡Debes iniciar sesión para realizar esta acción!"
+    },
+    "action-failed": {
+      "title": "Error al realizar esta acción",
+      "subtitle": "Por favor, inténtelo de nuevo en unos segundos..."
+    },
+    "new-tab-subtitle": "Abriendo una nueva pestaña...",
+    "already-launched": {
+      "title": "El juego ya está activo",
+      "subtitle": "¡Por favor cierre el juego antes de lanzar otra vez!"
+    },
+    "promotion": {
+      "free-cosmetics-available": "Cosméticos Gratuitos Disponibles",
+      "watch-a-promotion": "¡Vea un breve vídeo promocional para obtener un cosmético gratis!",
+      "watch": "Ver"
+    },
+    "best-friends-limit": {
+      "title": "Alcanzado el límite de mejores amigos",
+      "subtitle": "Suscríbete a Lunar+ para más ranuras"
+    },
+    "launcher-still-running": {
+      "title": "El Launcher sigue funcionando",
+      "subtitle": "El Launcher sigue funcionando en segundo plano."
+    },
+    "launcher-closing-deeplink": {
+      "title": "El launcher se está cerrando",
+      "subtitle": "¡Esperamos verte de nuevo pronto, astronauta!"
+    },
+    "installing-vc-redist": {
+      "title": "Instalando Visual C++ Redistributable",
+      "subtitle": "Abriendo el instalador en una ventana diferente..."
+    },
+    "enabling-mod": {
+      "title": "Habilitando {{mod}}",
+      "subtitle": "Tu modpack utilizará este mod en el próximo lanzamiento!"
+    },
+    "disabling-mod": {
+      "title": "Deshabilitando {{mod}}",
+      "subtitle": "Tu modpack no utilizará este mod en el próximo lanzamiento!"
+    },
+    "enabling-resourcepack": {
+      "title": "Activando {{resourcepack}}",
+      "subtitle": "¡Tu modpack usará este resourcepack en el próximo inicio!"
+    },
+    "disabling-resourcepack": {
+      "title": "Desactivando {{resourcepack}}",
+      "subtitle": "¡Tu modpack no usará este resourcepack en el próximo inicio!"
+    },
+    "enabling-shader": {
+      "title": "Habilitando {{shader}}",
+      "subtitle": "¡Tu modpack usará este shader en el próximo inicio!"
+    },
+    "disabling-shader": {
+      "title": "Deshabilitando {{shader}}",
+      "subtitle": "¡Tu modpack no usará este shader en el próximo inicio!"
+    },
+    "external-mod-added": {
+      "title-modpack": "Se añadió el mod al paquete de mods",
+      "title": "Mod añadido",
+      "subtitle": "{{filename}} ha sido añadido a {{profile}}"
+    },
+    "external-mod-invalid-extension": {
+      "title": "Error al añadir mods",
+      "subtitle": "Los archivos deben de terminar en .jar para que sea un archivo de mod válido"
+    },
+    "mrpack-install-invalid-extension": {
+      "title": "Error al instalar el modpack",
+      "subtitle": "El archivo debe terminar con .mrpack (Modrinth) o .zip (CurseForge)"
+    },
+    "modpack-install-unsupported": {
+      "title": "Modpack incompatible",
+      "subtitle": "Solo los modpacks de Fabric, Forge, NeoForge y Quilt son compatibles actualmente"
+    },
+    "modpack-mods-install-unsupported": {
+      "title": "Mods incompatibles",
+      "subtitle": "Actualmente solo se admiten mods de Fabric, Forge, NeoForge y Quilt"
+    },
+    "refreshing-metadata": {
+      "title": "Actualizando metadatos...",
+      "subtitle": "¡Por favor, espera mientras actualizamos tu contenido del Launcher!"
+    },
+    "wrapped-error": {
+      "title": "No se pudo acceder a tu Wrapped",
+      "subtitle": "Ocurrió un error desconocido al acceder a tu Wrapped."
+    },
+    "opening-wrapped": {
+      "title": "Abriendo tu Lunar Client Wrapped",
+      "subtitle": "Abriendo una nueva pestaña en tu navegador..."
+    },
+    "no-updater-stream-provided": {
+      "title": "No hay flujo de actualización proporcionado",
+      "subtitle": "¡Por favor proporciona una rama válida del lanzador!"
+    },
+    "switching-updater-stream": {
+      "title": "Cambiando flujo del launcher",
+      "subtitle": "Intentando cambiar a la rama {{stream}}..."
+    },
+    "elevated-start": {
+      "title": "Lunar Client se está ejecutando como Administrador",
+      "subtitle": "Advertencia: Por razones de estabilidad y seguridad, ¡esto no es recomendable!"
+    },
+    "unlink-project": {
+      "title": "Proyecto {{provider}} desvinculado",
+      "subtitle": "El proyecto {{provider}} ha sido desvinculado de este perfil."
+    },
+    "modpack-installed": {
+      "title": "Pack de mods Instalado",
+      "subtitle": "Modpack instalado exitosamente y listo para iniciar"
+    },
+    "resourcepack-added": {
+      "title": "Resourcepack añadido",
+      "subtitle": "Resourcepack añadido correctamente a {{profile}}"
+    },
+    "shader-added": {
+      "title": "Shader agregado",
+      "subtitle": "Shader agregado correctamente a {{profile}}"
+    },
+    "no-profile-for-logs": {
+      "title": "No se encontró perfil para los registros",
+      "subtitle": "Por favor, selecciona un perfil para abrir los registros"
+    }
+  },
+  "updater": {
+    "title": "Descargando la Actualización",
+    "subtitle": "La actualización del Launcher a {{version}} está en curso... {{percentage}}%",
+    "update-available": {
+      "title": "Actualización de Launcher Disponible",
+      "subtitle": "Una nueva actualización está disponible. Haz clic aquí para instalar."
+    },
+    "downloading": {
+      "title": "Descargando la actualización del Launcher",
+      "subtitle": "Iniciando la descarga de la versión {{version}}..."
+    },
+    "installing": {
+      "title": "Instalando la Actualización del Launcher",
+      "subtitle": "Instalando nueva actualización... ¡Aguanta!"
+    },
+    "checking-for-update": {
+      "title": "Comprobando la actualización del Launcher",
+      "subtitle": "Intentando obtener la última actualización del Launcher..."
+    },
+    "already-checking": {
+      "title": "Comprobación de actualización ya en curso",
+      "subtitle": "Por favor, inténtelo de nuevo en unos segundos..."
+    },
+    "error": {
+      "title": "Actualización fallida",
+      "subtitle": "Por favor, reinicia Lunar Client e inténtalo de nuevo.",
+      "action": "Reiniciar Launcher"
+    },
+    "ready": {
+      "title": "Actualización lista",
+      "subtitle": "La versión {{version}} está lista para instalar.",
+      "action": "Instalar actualización"
+    },
+    "no-update": {
+      "title": "No hay actualizaciones de Launcher Disponibles",
+      "subtitle": "¡Ya estas en la última versión del Launcher!"
+    },
+    "links": {
+      "changelog": "Lista de cambios",
+      "support": "Soporte",
+      "status": "Estado"
+    }
+  },
+  "guest": {
+    "login-with-microsoft-account": "Iniciar Sesión con una Cuenta de Microsoft",
+    "login-with-code": "Usar un código de inicio de sesión en su lugar",
+    "continue-as-guest": "Continuar como Invitado",
+    "continue-as-user": "Continuar como {{user}}",
+    "sections": {
+      "boosted-frames": {
+        "title": "Fotogramas Aumentados",
+        "description": "El mejor rendimiento en cualquier hardware"
+      },
+      "cosmetics-emotes": {
+        "title": "Cosméticos & Emotes",
+        "description": "Exprésate con varios atuendos y montones de bailes"
+      },
+      "countless-mods": {
+        "title": "Innumerables Mods",
+        "description": "Todos tus mods favoritos disponibles en una interfaz fácil de usar"
+      },
+      "multi-version": {
+        "title": "Versiones multiples",
+        "description": "Soporta todas las versiones más nuevas de Minecraft: Edición Java"
+      }
+    }
+  },
+  "home": {
+    "latest-news": "Últimas Noticias",
+    "latest-news-unread": "Últimas noticias <0>({{number}} sin leer)</0>",
+    "view-all-news": "Ver todas las noticias",
+    "explore-lunarverse": "Explora el Lunarverso",
+    "view-changelog": "Ver registro de cambios",
+    "launch": "Iniciar",
+    "friends": "Amigos <0>({{number}} online)</0>",
+    "open-satellite": "Abrir Satélite",
+    "players-online": "Jugadores Online",
+    "player-header-logged-in": "Bienvenido de nuevo astronauta, <player></player>",
+    "player-header-logged-out": "Bienvenido de nuevo astronauta",
+    "quick-play": {
+      "click-to-play": "Clic para jugar"
+    },
+    "settings": {
+      "global-settings": "Configuración global",
+      "profile-settings": "Ajustes del perfil"
+    }
+  },
+  "topbar": {
+    "launchpad": "Plataforma de inicio",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "about-lunar-client": "Acerca de Lunar Client",
+    "check-for-updates": "Comprobar actualizaciones",
+    "view-announcement": "Ver Anuncios",
+    "licenses": "Licencias",
+    "support": "Soporte",
+    "privacy-policy": "Política de privacidad",
+    "terms-of-service": "Términos de Servicio",
+    "settings": "Ajustes",
+    "open-application-folder": "Abrir carpeta de la aplicación",
+    "open-logs-folder": "Abrir carpetas de registros",
+    "upload-logs": "Subir Registros",
+    "launcher-logs": "Registros del launcher",
+    "game-logs": "Registros del juego",
+    "common-questions": "Preguntas Comunes",
+    "switch-stream": "Cambiar transmisión",
+    "execute-deeplink": "Ejecutar enlace profundo",
+    "restart-launcher": "Reiniciar el Launcher",
+    "instance-running_one": "{{count}} Instancia ejecutándose",
+    "instance-running_other": "{{count}} Instancias ejecutándose",
+    "friend-requests-popout": {
+      "inbound": "Entrante",
+      "outbound": "Saliente",
+      "accept": "Aceptar",
+      "cancel": "Cancelar",
+      "decline": "Rechazar",
+      "sent-ago": "Enviado {{time}}",
+      "received-ago": "Recibido {{time}}",
+      "no-inbound-title": "No hay solicitudes de amistad entrantes",
+      "no-inbound-subtitle": "¡Ve a hacer amigos!",
+      "no-outbound-title": "No hay solicitudes de amistad salientes",
+      "no-results": "No hay solicitudes que coincidan con '{{name}}'",
+      "no-outbound-subtitle": "¡Prueba a añadir a alguien!",
+      "search-friend-requests": "Buscar solicitudes de amistad...",
+      "add-friend": "Añadir amigo"
+    }
+  },
+  "about-modal": {
+    "identifiers": "Identificadores",
+    "installation-id": "Identificador de instalación",
+    "overwolf-id": "ID de Overwolf",
+    "session-id": "Identificador de sesión",
+    "build-information": "Información de compilación",
+    "version": "Versión",
+    "stream": "Transmitir"
+  },
+  "terms-modal": {
+    "title": "Términos actualizados",
+    "subtitle": "Recientemente hemos revisado nuestros {{documents}}. Al hacer clic en continuar, aceptas los <0/>, tal como han sido actualizados.",
+    "accept-and-continue": "Aceptar y continuar"
+  },
+  "change-stream-modal": {
+    "title": "Cambiar la transmisión del launcher",
+    "subtitle": "Actualmente estás en <0>{{stream}}</0> directo."
+  },
+  "game-not-owned-modal": {
+    "title": "No posees Minecraft",
+    "subtitle": "La cuenta de Microsoft con la que has intentado iniciar sesión no posee una copia válida de <0/>. ¡Haz clic a continuación para comprar el juego!",
+    "purchase-game": "Comprar Juego",
+    "contact-support": "Si crees que esto es un error, por favor contacta al soporte de Lunar Client.",
+    "minecraft-java-edition": "Minecraft: Edición de Java"
+  },
+  "execute-deeplink-modal": {
+    "title": "Ejecutar enlace profundo"
+  },
+  "store-preview": {
+    "modal-title": "Vista previa en el juego",
+    "modal-body": "Inicia el juego para previsualizar este cosmético. Asegúrate de haber iniciado sesión en el launcher.",
+    "launch-and-preview": "Iniciar y previsualizar",
+    "toast-title": "Vista previa en la tienda",
+    "toast-body": "¡Previsualizando cosméticos en el juego!"
+  },
+  "post": {
+    "badges": {
+      "limited-time": "Tiempo Limitado",
+      "includes-reward": "Incluye Recompensas"
+    }
+  },
+  "radio": {
+    "playing": "Reproduciendo",
+    "play-station": "Reproducir la estación",
+    "tracks": "pistas",
+    "minutes": "minutos",
+    "streamer-safe": "Modo Streamer",
+    "subscription-required": "Requiere Suscripción",
+    "premium": "Premium",
+    "free": "Gratis",
+    "skips-not-required": "Saltar",
+    "switch-station": "Cambiar Estación",
+    "upgrade-to-premium": "Mejorar a Premium",
+    "pause": "Pausar",
+    "play": "Reproducir",
+    "settings": "Ajustes",
+    "stop": "Detener",
+    "cta": {
+      "title": "¿Buscas más estaciones?",
+      "subtitle": "Suscríbete hoy por tan solo <0>{{price}}</0>"
+    },
+    "skips-remaining_one": "{{count}} omisión restante",
+    "skips-remaining_other": "{{count}} omisiones restantes"
+  },
+  "servers": {
+    "explore-servers": "Explorar Servidores",
+    "remove-from-favorites": "Eliminar de favoritos",
+    "add-to-favorites": "Añadir a favoritos",
+    "view-server-info": "Ver información del servidor",
+    "opening-server-social": "Abriendo el {{social}} de {{server}}",
+    "opening-server-store": "Abriendo la tienda de {{server}}...",
+    "opening-server-website": "Abriendo la Página de {{server}}",
+    "removed-from-favorites": {
+      "title": "Se removió {{server}} de tus favoritos",
+      "subtitle": "¡Ya no verás este servidor en tu página de servidores!"
+    },
+    "added-to-favorites": {
+      "title": "Se agregó {{server}} a tus favoritos",
+      "subtitle": "¡El servidor ya está disponible en tu página de servidores!"
+    },
+    "sorts": {
+      "recommended": "Recomendado",
+      "most-players": "Más Jugadores",
+      "name-desc": "Nombre (A - Z)",
+      "name-asc": "Nombre (Z - A)"
+    },
+    "tabs": {
+      "featured": "Destacado",
+      "community": "Comunidad"
+    },
+    "play": "Jugar",
+    "search": {
+      "searching-for": "Buscando",
+      "type-to-start-searching": "¡Escribe para empezar a buscar!",
+      "version": "Versión",
+      "region": "Región",
+      "your-servers": "Tus servidores",
+      "community-servers": "Servidores de la Comunidad",
+      "mode": "Modo",
+      "placeholder": "Buscar servidores de {{type}}...",
+      "no-results": {
+        "title": "No se pudo encontrar '{{search}}'",
+        "subtitle": "¿Seguro que lo has escrito correctamente?",
+        "clear-search": "Borrar búsqueda"
+      }
+    },
+    "status": {
+      "n-online": "{{amount}} en línea",
+      "n-players-online": "{{amount}} Jugadores conectados",
+      "offline": "Desconectado"
+    }
+  },
+  "versions": {
+    "lunar-version": "Versión de Lunar",
+    "vanilla-version": "Versión Vanilla",
+    "badlion-version": "Version de Badlion",
+    "mods": "Mods",
+    "resourcepacks": "Resource Packs",
+    "shaders": "Shaders",
+    "datapacks": "Data Packs",
+    "servers": "Servidores",
+    "servers-management": {
+      "no-servers": {
+        "title": "No se encontraron servidores",
+        "subtitle": "Añade tu primer servidor a la lista multijugador de este perfil"
+      },
+      "add-server": "Añadir servidor",
+      "edit-server": "Editar servidor",
+      "remove-server": "Eliminar servidor",
+      "remove-confirmation": "¿Estás seguro de que quieres eliminar \"{{name}}\" de la lista de servidores de este perfil?",
+      "play-server": "Jugar",
+      "save-error": "No se ha podido guardar en la lista de servidores de este perfil. Inténtalo de nuevo.",
+      "drag-to-reorder": "Desliza para reordenar",
+      "import-servers": "Importa tu perfil",
+      "name-label": "Nombre",
+      "name-placeholder": "Servidor de Minecraft",
+      "address-label": "Dirección",
+      "address-placeholder": "play.example.com",
+      "global-scope-callout": "Este perfil utiliza tu carpeta .minecraft global, por lo que estás editando la lista de servidores compartida entre todos tus perfiles globales.",
+      "import-servers-dialog": {
+        "title": "Importar servidores",
+        "subtitle": "Copiar los servidores de otro perfil hacia este.",
+        "global-minecraft": "Predeterminado (.minecraft)",
+        "empty": "Sin otros perfiles para importar.",
+        "server-count_one": "Servidor {{count}}",
+        "server-count_other": "Servidores {{count}}",
+        "confirm_one": "Importar servidor {{count}}",
+        "confirm_other": "Importar servidores {{count}}",
+        "toast": {
+          "title": "Importar servidores",
+          "body_zero": "Sin nuevos servidores para importar. Ya se encuentran en este perfil.",
+          "body_one": "Servidor importado {{count}}.",
+          "body_other": "Servidores importados {{count}}."
+        }
+      }
+    },
+    "launching": {
+      "title": "Lanzando {{version}}",
+      "subtitle": "¡Siéntate, toma unas palomitas y disfruta del espectáculo!"
+    },
+    "installing": {
+      "title": "Instalando {{modpack}}",
+      "subtitle": "Siéntese cómodo mientras le preparamos una experiencia llena de mods!"
+    },
+    "new-version-available": "Nueva versión disponible",
+    "version": "Versión",
+    "selected-version": "Versión Seleccionada",
+    "launch-game": "Iniciar el Juego",
+    "lunar": "Lunar",
+    "versions": "Versiones",
+    "vanilla": "Vanilla",
+    "badlion": "Badlion",
+    "add-to-quick-play": "Añadir a Partida Rápida",
+    "addons": "Complementos",
+    "selected": "Seleccionado",
+    "select": "Selecciona",
+    "sorts": {
+      "popular": "Popular",
+      "released-oldest": "Más antiguo",
+      "released-newest": "Más recientes",
+      "name-desc": "Nombre (A - Z)",
+      "name-asc": "Nombre (Z - A)"
+    },
+    "already-launched": "El juego ya se ha lanzado",
+    "already-launching": "El juego ya se está lanzando",
+    "new-profile": "Nuevo perfil",
+    "search-placeholder": {
+      "lunar": "Buscar tus versiones de Lunar...",
+      "vanilla": "Buscar tus versiones de Vanilla...",
+      "badlion": "Buscar tus versiones de Badlion...",
+      "modpacks": "Busca tus modpacks..."
+    },
+    "no-search-results": {
+      "title": "No se pudo encontrar '{{search}}'",
+      "subtitle": "¿Seguro que lo escribiste correctamente?",
+      "clear-search": "Borrar búsqueda"
+    },
+    "credits": "Créditos",
+    "beta": "Beta",
+    "no-mods": {
+      "title": "No se encontraron Mods",
+      "subtitle": "¡Minecraft es mejor con mods! Explora nuevos contenidos añadiendo tu primer mod.\n"
+    },
+    "settings": {
+      "title": "Ajustes de la Versión",
+      "game-version": {
+        "description": "La versión del juego"
+      },
+      "loader": {
+        "title": "Cargador",
+        "description": "El cargador a usar"
+      },
+      "loader-version": {
+        "description": "La versión del cargador"
+      }
+    },
+    "tooltips": {
+      "bundled-mod": "Mod integrado en el cliente"
+    },
+    "game-directory-indicator": {
+      "label": {
+        "isolated": "Perfil aislado",
+        "global": "Usando .minecraft global",
+        "custom": "Directorio personalizado"
+      },
+      "tooltip": {
+        "isolated": "Este perfil mantiene sus archivos separados de tus otros perfiles. Haz clic en el engranaje para cambiar desde dónde se inicia.",
+        "global": "Este perfil comparte tu carpeta global de .minecraft. Haz clic en el engranaje para cambiar desde dónde se inicia.",
+        "custom": "Este perfil se inicia desde una carpeta personalizada. Haz clic en el engranaje para cambiar desde dónde se inicia."
+      }
+    }
+  },
+  "modpacks": {
+    "user-modpack": "Tus Packs de mods",
+    "modrinth-modpack": "Modrinth Modpack",
+    "curseforge-modpack": "Pack de mods de CurseForge",
+    "selected-modpack": "Pack de mods seleccionado",
+    "explore-type": "Explorar {{type}}",
+    "explore-resourcepacks": "Explorar Resource Packs",
+    "explore-datapacks": "Explorar Data Packs",
+    "explore-shaders": "Explorar Shaders",
+    "explore-mods": "Explorar Mods",
+    "modpacks": "Modpacks",
+    "latest": "reciente",
+    "version-latest": "{{version}} (más reciente)",
+    "play-with-modpack": "Jugar con Modpack",
+    "launch-modpack": "Lanzar Modpack",
+    "install-modpack-and-launch": "Instala Modpack y Lanza",
+    "launch-without-modpack": "Lanzar sin mods recomendados",
+    "install-and-play": "Instala y Juega",
+    "view-on-modrinth": "Ver en Modrinth",
+    "view-on-curseforge": "Ver en CurseForge",
+    "information": "Información",
+    "search-{{type}}": "Buscar {{type}}..",
+    "gallery": "Galería",
+    "update-all-complete-type": "Actualización de {{type}} completada",
+    "update-all-complete-type-body": "{{count}} {{type}} actualizados",
+    "update-all-complete-type-body-no": "No hay {{type}} para actualizar",
+    "showing-x-images": "Mostrando {{count}} imágenes",
+    "view-licenses": "Ver Licencias",
+    "open-type-folder": "Abrir carpeta de {{type}}",
+    "update-all": "Actualizar Todo",
+    "update-up-to-date": "Actualizados a la fecha",
+    "opening-type-folder": "Abriendo carpeta de {{type}} en {{manager}}...",
+    "update-available-notification": {
+      "title": "Actualización disponible para {{modpack}}",
+      "subtitle": "¡Visita la página de modpacks para actualizar a la última versión!"
+    },
+    "uninstalling": {
+      "title": "Desinstalando {{modpack}}",
+      "subtitle": "Eliminando todos los archivos de tu ordenador..."
+    },
+    "update-available": "Actualización disponible",
+    "settings": {
+      "title": "Ajustes del pack de mods",
+      "settings": "Ajustes",
+      "modifying": "Modificando",
+      "display": "Mostrar",
+      "java-environment": "Entorno Java",
+      "unlink-project": {
+        "title": "Desvincular Proyecto",
+        "message": "¿Estás seguro de que deseas desvincular este proyecto?"
+      },
+      "current-project-id": "ID actual del proyecto",
+      "linked-project": {
+        "title": "Proyecto vinculado",
+        "description": "El proyecto {{provider}} vinculado a este perfil."
+      },
+      "project-release-channel": {
+        "title": "Canal de difusión de proyectos",
+        "description": "El canal de difusión que se utilizará para este proyecto."
+      },
+      "project-version": {
+        "title": "Versión del proyecto",
+        "description": "La versión para este proyecto.",
+        "not-installed": "Has cambiado a una versión que no está instalada. Haz clic en Instalar y jugar para descargarla.",
+        "switching": "Cambiando versión…"
+      },
+      "installed-versions": {
+        "title": "Versiones Instaladas",
+        "description": "Versiones almacenadas en el disco. Para liberar espacio borra los archivos o abre la carpeta para inspeccionar.",
+        "empty": "Aun sin versiones instaladas.",
+        "selected": "Selección actual",
+        "open-folder": "Abrir carpeta",
+        "cannot-uninstall-selected": "Cambiar primero a otra versión",
+        "uninstall": {
+          "title": "Desinstalar versión",
+          "description": "Esto borrará los archivos almacenados para {{version}}. El resto no se verá afectado.",
+          "confirm": "Desinstalar"
+        }
+      },
+      "modpack-name": {
+        "title": "Nombre",
+        "description": "Nombre descriptivo para tu pack de mods"
+      },
+      "modpack-description": {
+        "title": "Descripción",
+        "description": "Una breve descripción de tu modpack"
+      },
+      "featured-image": {
+        "title": "Imagen destacada",
+        "description": "Como aparece en la lista de versiones"
+      },
+      "icon": {
+        "title": "Icono",
+        "description": "Como aparece en la lista de versiones"
+      },
+      "game-version": {
+        "title": "Versión del juego",
+        "description": "Versión de juego usada para este proyecto."
+      },
+      "loader": {
+        "title": "Cargador",
+        "description": "El cargador a utilizar en este proyecto."
+      },
+      "loader-version": {
+        "title": "Versión del cargador",
+        "description": "La versión del cargador a utilizar en este proyecto."
+      },
+      "image-too-large": {
+        "title": "El archivo es demasiado grande",
+        "description": "El tamaño máximo del archivo es de 5MB."
+      },
+      "lunar-features": {
+        "title": "Usar funciones de Lunar",
+        "description": "Incluir o no los mods y características principales de Lunar Client."
+      },
+      "export": {
+        "title": "Perfil de exportación",
+        "description": "Exportar este perfil como un archivo .lcpack",
+        "button": "Exportar perfil",
+        "export": "Exportar",
+        "exporting": "Exportando..."
+      },
+      "clone": {
+        "title": "Copiar Perfil",
+        "description": "Crea una copia de este perfil con sus propios archivos",
+        "button": "Copiar Perfil",
+        "cloning": "Clonando..."
+      },
+      "invalid-image": "Imagen inválida",
+      "nsfw-content": "No se pueden subir imágenes con contenido NSFW",
+      "files": "Archivos"
+    },
+    "content": {
+      "view-type": "Ver {{type}}",
+      "view-author": "Ver Autor",
+      "view-wiki": "Ver Wiki",
+      "view-issues": "Ver Problemas",
+      "view-discord": "Ver Discord",
+      "view-source": "Ver Fuente",
+      "switch-to-recommended-version": "Cambiar a la versión recomendada",
+      "uninstall-type": "Desinstalar {{type}}"
+    },
+    "resourcepacks": {
+      "uninstall-resourcepack": "Desinstalar Resource Pack"
+    },
+    "shaders": {
+      "uninstall-shader": "Desinstalar Shader"
+    },
+    "datapacks": {
+      "uninstall-datapack": "Desinstalar Data Pack"
+    },
+    "view-gallery": "Ver Galería",
+    "update-modpack": "Actualizar Pack de mods",
+    "view-mods": "Ver Mods",
+    "view-information": "Ver Información",
+    "uninstall-modpack": "Desinstalar Pack de mods",
+    "delete-modpack": "Eliminar Pack de mods",
+    "clone": "Copiar Perfil",
+    "install-type": "Instalar {{type}}",
+    "installing": "Instalando...",
+    "select": "Seleccionar",
+    "selected": "Seleccionado",
+    "no-mods": {
+      "title": "No se encontraron mods en el Pack de mods",
+      "subtitle": "Los Pack de mods son mejores con mods (¡Está en el nombre!). Explora contenido nuevo añadiendo tu primer mod."
+    },
+    "no-resourcepacks": {
+      "title": "No se encontraron Resource Packs",
+      "subtitle": "Explora nuevo contenido añadiendo tu primer Resource Pack."
+    },
+    "no-shaders": {
+      "title": "No se encontraron Shaders",
+      "subtitle": "Explora nuevo contenido agregando tu primer Shader."
+    },
+    "no-datapacks": {
+      "title": "No se encontraron Data Packs",
+      "subtitle": "Explora nuevo contenido añadiendo tu primer Data Pack."
+    },
+    "add-mods-cta": {
+      "add-one-more": {
+        "top": "Vamos, añade un mod más...",
+        "bottom": "¡Sabes que quieres!"
+      }
+    },
+    "dropzone": {
+      "hover": {
+        "title": "Soltar mods aquí",
+        "subtitle": "El archivo debe terminar en .jar para que el archivo del mod sea válido, o .mrpack para agregar sus mods aquí"
+      },
+      "error": {
+        "title": "Error al añadir mods",
+        "subtitle": "Se ha producido un error al añadir los mods"
+      },
+      "install-mrpack": {
+        "title": "Suelta un .mrpack (Modrinth) o .zip (CurseForge) aquí",
+        "subtitle": "Instala un Pack de mods desde un archivo .mrpack (Modrinth) o .zip (CurseForge)",
+        "error": {
+          "title": "Error al instalar el pack de mods",
+          "subtitle": "Ocurrió un error durante la instalación del pack de mods"
+        }
+      }
+    },
+    "enabled": "Habilitado",
+    "external": "Externo",
+    "modpack-update-available": "Actualización de Pack de mods disponible",
+    "current": "Actual",
+    "new": "Nuevo",
+    "version-available": "¡Hay una nueva versión disponible!",
+    "update-and-launch": "Actualizar + Iniciar",
+    "proceed-withount-updating": "Seguir sin actualizar (no recomendado)",
+    "dont-remind": "No volver a recordar para este Pack de mods",
+    "install-modpack-description": "¿Estás seguro que deseas instalar este pack de mods con {{count}} mods?",
+    "install-modpack": "Instalar Pack de mods",
+    "install-mods": "Instalar Mods",
+    "install-modpack-from-link": {
+      "description": "Hemos detectado un vínculo a un modpack de {{provider}} pegado en tu portapapeles. ¿Te gustaría instalarlo?"
+    },
+    "install-modpack-from-deeplink": {
+      "warning": "Make sure this is the modpack you intended to install. Modpacks can contain untrusted mods that run code on your computer, so only continue if you trust the source.",
+      "continue": "Continue",
+      "view-listing": "Ver en {{provider}}",
+      "by-author": "by {{author}}",
+      "downloads_one": "{{formattedCount}} descargado",
+      "downloads_other": "{{formattedCount}} descargas"
+    },
+    "cancel": "Cancelar",
+    "x-mods-found": "{{count}} encontrados",
+    "install-mrpack-mods": {
+      "title": "Instalar Mods",
+      "description": "¿Estás seguro de querer instalar {{count}} mods a este modpack?"
+    }
+  },
+  "resourcepacks": {
+    "dropzone": {
+      "hover": {
+        "title": "Suelta los Resource Packs aquí",
+        "subtitle": "El archivo debe terminar en .zip para que sea un archivo válido de resourcepack"
+      },
+      "error": {
+        "title": "Error al añadir Resource Packs",
+        "subtitle": "Ocurrió un error al añadir los Resource Packs"
+      }
+    }
+  },
+  "shaders": {
+    "dropzone": {
+      "hover": {
+        "title": "Suelta los Shaders aquí",
+        "subtitle": "El archivo debe terminar en .zip para que sea un shader válido"
+      },
+      "error": {
+        "title": "Error al agregar los Shaders",
+        "subtitle": "Ocurrió un error al agregar los Shaders"
+      }
+    }
+  },
+  "datapacks": {
+    "no-worlds": "No se encontraron mundos compatibles",
+    "dropzone": {
+      "hover": {
+        "title": "Suelta los Data Packs aquí",
+        "subtitle": "El archivo debe terminar en .zip para ser una Data Pack válido"
+      }
+    },
+    "available-worlds": "Mundos disponibles ({{count}})",
+    "open-worlds-folder": "Abrir carpeta de mundos",
+    "opening-worlds-folder": "Abriendo carpeta de mundos en {{manager}}...",
+    "all-worlds-tooltip": "Se muestran todos los mundos porque los Data Packs se instalan por mundo"
+  },
+  "content-migration": {
+    "action": "Migrate content",
+    "title": "Migrating content",
+    "subtitle": "Actualizando {{profile}} a Minecraft {{version}}.",
+    "preparing": "Preparing…",
+    "progress": "{{current}} de {{total}}",
+    "complete": "Migration complete",
+    "summary": "{{migrated}} updated · {{disabled}} disabled · {{unchanged}} unchanged",
+    "disabled-title": "Disabled (no compatible version)",
+    "failed-title": "Fallido",
+    "nothing-changed": "Everything was already compatible.",
+    "error-title": "La migración falló",
+    "error-body": "Algo salió mal durante la migración. Tu perfil se mantuvo en su versión original.",
+    "continue": "Continuar",
+    "kind": {
+      "mod": "mods",
+      "resourcepack": "resource packs",
+      "shader": "shaders",
+      "datapack": "data packs"
+    },
+    "update": {
+      "title": "Actualizar {{type}}",
+      "latest-title": "Actualizar a las últimas versiones",
+      "latest-body": "Actualiza tus {{type}} a sus versiones más recientes para Minecraft {{version}}.",
+      "latest-action": "Actualizar",
+      "migrate-title": "Cambiar versión de Minecraft",
+      "migrate-body": "Cambiar de versión mueve todo el perfil: todo su contenido se actualiza a versiones compatibles y la versión de Minecraft del perfil cambia para coincidir. Todo lo que no tenga una versión compatible se desactivará."
+    },
+    "setting": {
+      "title": "Migrar contenido",
+      "description": "Mueve los mods, paquetes de recursos y shaders de este modpack a una versión diferente de Minecraft."
+    },
+    "switch-hint": {
+      "body": "Tu contenido aún no se ha migrado a {{version}}; es posible que los mods sean incompatibles hasta que lo hagas.",
+      "action": "Migrar contenido"
+    },
+    "confirm": {
+      "title": "Migrar a una versión diferente",
+      "description": "Elige una versión a la que migrar el contenido de este modpack. Los mods, paquetes de recursos y shaders compatibles se actualizarán automáticamente; todo lo que no tenga una versión compatible se desactivará.",
+      "select-version": "Selecciona una versión",
+      "cancel": "Cancelar",
+      "migrate": "Migrar"
+    }
+  },
+  "profile-migration": {
+    "title": "Configurando tus perfiles",
+    "subtitle": "Estamos trasladando tus perfiles existentes al nuevo sistema de perfiles individuales. Mantén el launcher abierto hasta que se complete el proceso.",
+    "subtitle-with-estimate": "Estamos trasladando tus perfiles existentes al nuevo sistema de perfiles individuales. {{estimate}} Mantén el launcher abierto hasta que se complete el proceso.",
+    "preparing": "Preparing…",
+    "migrating": "Migrando {{name}} ({{current}} de {{total}})",
+    "copying-shared-assets": "Copiando recursos compartidos ({{current}} de {{total}})",
+    "estimate": {
+      "less-than-minute": "Esto debería tardar menos de un minuto.",
+      "minutes_one": "Esto puede tardar alrededor de un minuto.",
+      "minutes_other": "Esto puede tardar alrededor de {{count}} minutos.",
+      "hours_one": "Esto puede tardar alrededor de una hora.",
+      "hours_other": "Esto puede tardar alrededor de {{count}} horas."
+    },
+    "phase": {
+      "reading": "Leyendo los metadatos del perfil…",
+      "moving": "Moviendo archivos…",
+      "copying": "Copiando archivos…",
+      "writing-db": "Actualizando base de datos…",
+      "cleaning": "Limpiando el directorio antiguo…",
+      "seeding": "Copiando la configuración compartida…",
+      "finalizing": "Finalizando el perfil…"
+    },
+    "complete": "Migración completada: tus perfiles ya están listos.",
+    "continue": "Continuar",
+    "failures-title": "Some profiles couldn't be migrated",
+    "failure-row": "{{profile}} — {{phase}}: {{error}}",
+    "error-no-space": "Espacio en disco insuficiente"
+  },
+  "profiles": {
+    "import": {
+      "confirm": {
+        "title": "¿Seguro que quieres importar este perfil?",
+        "warning": "Importa solo archivos .lcpack de fuentes confiables",
+        "import": "Importar"
+      },
+      "title": "Importando perfil",
+      "downloading-content": "Descargando contenido",
+      "toast": {
+        "title": "Perfil importado",
+        "body": "Tu perfil, {{profile}}, se ha importado correctamente"
+      }
+    },
+    "settings": {
+      "profile-name-updated": {
+        "title": "Nombre del Perfil Actualizado",
+        "subtitle": "¡Se ha actualizado el nombre del perfil correctamente!"
+      },
+      "profile-description-updated": {
+        "title": "Descripción del Perfil Actualizada",
+        "subtitle": "¡Se ha actualizado la descripción del perfil correctamente!"
+      },
+      "not-allowed-image-update": {
+        "title": "No se puede actualizar el perfil {{type}}",
+        "subtitle": "El contenido inapropiado no está permitido."
+      },
+      "profanity-not-allowed": {
+        "title": "¡La profanación no está permitida!",
+        "subtitle": "Introduzca un perfil válido {{type}}"
+      }
+    }
+  },
+  "profile-wizard": {
+    "filesystem-import": {
+      "title": "Importar desde el sistema de archivos",
+      "description": "¿Tienes un modpack local que quieres importar? Lunar Client admite importar modpacks de Modrinth (terminados en .mrpack), modpacks de Curseforge (terminados en .zip) y perfiles de Lunar Client (.lcpack)",
+      "dropzone-title": "Importar perfiles desde otros launchers",
+      "dropzone-description": "¿Te estás cambiando? ¡Migra tus perfiles existentes en segundos!",
+      "open-file": "Abrir archivo",
+      "supports-mrpack-modpacks": "Compatible con modpacks <strong>.mrpack, .zip</strong> y <strong>.lcpack</strong>",
+      "isolate-dialog": {
+        "title": "Importar perfil",
+        "description": "Choose how this imported profile stores its files. You can change this later in profile settings.",
+        "confirm": "Import"
+      },
+      "errors": {
+        "invalid-modpack": "El archivo subido no pudo reconocerse como un modpack válido. Solo se admiten formatos .zip, .mrpack y .lcpack",
+        "curseforge-modpack-unsupported": "Actualmente, solo se admiten modpacks de Fabric de CurseForge"
+      }
+    },
+    "wizard": {
+      "reset": "Restablecer",
+      "actions": {
+        "create-profile": "Crear perfil",
+        "required-fields": "Campos requeridos"
+      },
+      "information": {
+        "stepper": "Información",
+        "title": "Información del perfil",
+        "description": "Estás a solo unos pocos clics de crear tu propio perfil en Lunar Client. ¡Te guiaremos paso a paso!",
+        "name-field-label": "Nombre",
+        "name-field-description": "Todos los grandes libros empiezan con un gran título... ¡esto aparecerá en la cuadrícula de perfiles para iniciar!",
+        "description-field-label": "Descripción",
+        "description-field-description": "Escribe una breve descripción sobre tu modpack",
+        "remaining-characters_one": "{{count}} caracteres restantes",
+        "remaining-characters_other": "{{count}} caracteres restantes",
+        "errors": {
+          "duplicate-name": "Los perfiles no pueden tener nombres duplicados",
+          "name-too-long": "Los nombres de perfil deben tener 32 caracteres o menos",
+          "description-too-long": "Las descripciones del perfil deben tener 300 caracteres o menos",
+          "name-profanity": "Los nombres de perfil no pueden contener lenguaje inapropiado",
+          "description-profanity": "Las descripciones del perfil no pueden contener lenguaje inapropiado",
+          "unknown-error": "Error desconocido"
+        }
+      },
+      "game-version": {
+        "stepper": "Versión del juego",
+        "title": "Seleccionar versión del juego",
+        "description": "¡Elige la versión de Minecraft y el mod loader para tu nuevo perfil!",
+        "search": "Buscar",
+        "recommended": "Recomendado",
+        "lunar-version": "Lunar {{version}}",
+        "vanilla-version": "Vanilla {{version}}",
+        "selected-version": "Seleccionado: {{version}}",
+        "lunar-features": {
+          "full": "Funciones completas de Lunar",
+          "disable": "Desactivar funciones de Lunar",
+          "lunar-tab": "Lunar",
+          "vanilla-tab": "Vanilla"
+        },
+        "loaders": {
+          "fabric": {
+            "label": "Fabric",
+            "lunar-version-support": "Compatible con Minecraft 1.16+",
+            "vanilla-version-support": "Compatible con Minecraft 1.14 hasta la 1.21"
+          },
+          "forge": {
+            "label": "Forge",
+            "lunar-version-support": "Compatible con Minecraft 1.8 y 1.12",
+            "vanilla-version-support": "Compatible con Minecraft 1.7 hasta la 1.21"
+          },
+          "optifine": {
+            "label": "OptiFine",
+            "version-support": "Compatible con Minecraft 1.7 hasta la 1.21"
+          },
+          "quilt": {
+            "label": "Quilt",
+            "version-support": "Compatible con Minecraft 1.14 hasta la 1.21"
+          },
+          "neo-forge": {
+            "label": "Neo Forge",
+            "version-support": "Compatible con Minecraft 1.20 y 1.21"
+          },
+          "vanilla": {
+            "label": "Vanilla",
+            "version-support": "¡Compatible con todas las versiones!"
+          }
+        },
+        "sort-by": "Ordenar por:",
+        "sorts": {
+          "popular": "Popular",
+          "oldest": "Más antiguo",
+          "newest": "Más reciente",
+          "name-desc": "Nombre (a-z)",
+          "name-asc": "Nombre (z-a)"
+        }
+      },
+      "images": {
+        "stepper": "Imágenes",
+        "title": "Seleccionar imágenes",
+        "description": "¡Dale un aspecto renovado a tu perfil seleccionando un icono y un fondo!",
+        "reset": "Reiniciar imagen",
+        "upload": "Subir imagen",
+        "icon": {
+          "label": "Icono",
+          "description": "Un icono de 128×128 para tu perfil"
+        },
+        "background": {
+          "label": "Fondo",
+          "description": "Un fondo de 515×232 para tu perfil"
+        },
+        "hints": {
+          "accepted-files": {
+            "label": "Tipos de archivo aceptados",
+            "value": ".png, .jpeg, .webp"
+          },
+          "max-size": {
+            "label": "Tamaño máximo",
+            "value": "1MB"
+          }
+        },
+        "errors": {
+          "file-too-large": "La imagen debe pesar menos de 1MB",
+          "unsupported-file-type": "Tipo de archivo no compatible. La imagen debe ser .png, .jpeg o .webp",
+          "nsfw-content": "No se pueden subir imágenes con contenido NSFW",
+          "unknown": "Error desconocido"
+        }
+      },
+      "profile-settings": {
+        "stepper": "Ajustes del perfil",
+        "title": "Seleccionar ajustes del perfil",
+        "description": "A continuación se muestran los ajustes globales que se aplicarán a todas las versiones del juego que se puedan iniciar, a menos que se sobrescriban específicamente dentro de un perfil de versión en la página de ajustes de dicho perfil."
+      }
+    },
+    "page-selection": {
+      "title": "Crear nuevo perfil",
+      "description": "Selecciona si quieres crear un nuevo perfil o importar un perfil existente en Lunar Client.",
+      "wizard": {
+        "title": "Mago",
+        "description": "¡Crea tu propio modpack desde cero en unos pocos clics!"
+      },
+      "filesystem-import": {
+        "title": "Importar desde el sistema de archivos",
+        "description": "¡Selecciona un archivo para importarlo en Lunar Client y nosotros nos encargamos del resto!",
+        "note": "Compatible con modpacks <strong>.mrpack, .zip</strong> y <strong>.lcpack</strong>"
+      }
+    },
+    "toast": {
+      "created": {
+        "title": "Perfil creado",
+        "body": "¡Todo listo! Tu perfil, {{profile}}, se ha creado correctamente"
+      }
+    }
+  },
+  "settings": {
+    "enabled": "Habilitado",
+    "disabled": "Deshabilitado",
+    "advanced-mode-notification-enabled": "El modo avanzado se ha activado",
+    "advanced-mode-notification-disabled": "El modo avanzado se ha desactivado",
+    "on-reset": {
+      "title": "Ajustes restablecidos",
+      "subtitle": "{{ setting }} se ha restablecido por defecto"
+    },
+    "restart-modal": {
+      "title": "Hace falta reiniciar",
+      "subtitle": "El ajuste {{ setting }} requiere un reinicio para tener efecto.",
+      "not-now": "Ahora no",
+      "restart-now": "Reiniciar Ahora"
+    },
+    "core-dump": {
+      "title": "Volcado de memoria",
+      "subtitle": "Activar la generación de volcados de memoria cuando el juego se cierra inesperadamente",
+      "alternate-terms": {
+        "mini-dump": "Volcado parcial de memoria"
+      }
+    },
+    "enable-attach": {
+      "title": "Enable Attach",
+      "subtitle": "Allow attaching debuggers and other tools to the Java process"
+    },
+    "detach-game-process": {
+      "title": "Separar proceso del juego",
+      "subtitle": "Ejecutar el juego como un proceso independiente que continúa después de que el launcher se cierre"
+    },
+    "modal": {
+      "couldnt-find-setting": "No se ha encontrado el ajuste '{{term}}'",
+      "spelt-correctly": "¿Estás seguro de que lo has escrito bien?",
+      "clear-search": "Limpiar búsqueda",
+      "reset": "Restablecer",
+      "clear-recent-branches": "Limpiar ramas recientes",
+      "requires-restart": "Es necesario reiniciar para que surta efecto",
+      "pending-restart": "Reinicio pendiente",
+      "sidebar": {
+        "search-settings": "Buscar ajustes...",
+        "clear": "Limpiar",
+        "advanced-mode": "Modo Avanzado",
+        "categories": {
+          "search": "Buscando por '{{term}}'",
+          "game-settings": "Ajustes del Juego",
+          "general-settings": "Ajustes Generales",
+          "notification-settings": "Configuración de Notificaciones",
+          "discord-settings": "Ajustes de Discord",
+          "privacy-settings": "Ajustes de Privacidad",
+          "storage-settings": "Ajustes de almacenamiento",
+          "account-settings": "Ajustes de la cuenta",
+          "badlion-settings": "Ajustes de Badlion"
+        }
+      },
+      "pages": {
+        "game": "Juego",
+        "general": "General",
+        "notifications": "Notificaciones\n",
+        "discord": "Discord",
+        "privacy": "Privacidad",
+        "storage": "Almacenamiento",
+        "account": "Cuenta",
+        "badlion": "Badlion"
+      }
+    },
+    "confirm-reset-modal": {
+      "title": "Restablecer todos los ajustes",
+      "subtitle": "¿Está seguro de que desea restablecer todos los ajustes?",
+      "cancel": "Cancelar",
+      "reset": "Restablecer"
+    },
+    "confirm-action-modal": {
+      "cancel": "Cancelar",
+      "confirm": "Confirmar",
+      "content-heading": "The following will be deleted:",
+      "uninstall": {
+        "title": "Desinstalar",
+        "description": "¿Seguro que quieres desinstalar {{name}}?"
+      },
+      "delete-profile": {
+        "title": "Eliminar modpack",
+        "description": "¿Seguro que quieres eliminar {{name}}? Esta acción no se puede deshacer.",
+        "global-directory-warning": "This modpack uses your shared global .minecraft folder, so your worlds, resource packs and other files stored there won't be deleted."
+      },
+      "sign-out": {
+        "title": "Cerrar sesión",
+        "description": "¿Está seguro de que desea cerrar sesión?"
+      },
+      "remove-friend": {
+        "title": "Eliminar amigo",
+        "description": "¿Seguro que deseas eliminar a este amigo?"
+      },
+      "delete-log": {
+        "title": "Eliminar registro",
+        "description": "¿Seguro que quieres eliminar este archivo de registro?"
+      },
+      "clear-cache": {
+        "title": "Borrar cache",
+        "description": "¿Seguro que quieres borrar el caché?"
+      },
+      "clear-logs": {
+        "title": "Clear Logs",
+        "description": "Are you sure you want to clear all logs?"
+      },
+      "unlink-social": {
+        "title": "Unlink {{platform}}",
+        "description": "Are you sure you want to unlink your {{platform}} account?",
+        "confirm": "Unlink"
+      }
+    },
+    "badge": {
+      "advanced": "Avanzado",
+      "new": "Nuevo",
+      "recommended": "Recomendado",
+      "overridden": "Sobreescrito"
+    },
+    "actions": {
+      "title": "Acciones",
+      "change": "Cambiar",
+      "save": "Guardar",
+      "add": "Añadir"
+    },
+    "after-launch-action": {
+      "title": "Visibilidad del launcher al iniciar el juego",
+      "description": "Selecciona qué opción debe tomar el launcher después de que el juego haya iniciado",
+      "options": {
+        "hide": "Ocultar",
+        "hide-description": "El launcher se ocultará cuando se inicie la instancia del juego",
+        "show": "Mantener abierto",
+        "show-description": "El launcher permanecerá abierto en segundo plano"
+      }
+    },
+    "mission-control-after-launch-action": {
+      "title": "Conducta del control de misiones una vez iniciado el juego",
+      "description": "Selecciona la opción que debe tomar el launcher tras el lanzamiento del juego",
+      "options": {
+        "show-on-available-monitor": "Mostrar en el monitor disponible",
+        "show-on-available-monitor-description": "El launcher se mostrará en el mejor monitor disponible",
+        "open-in-background": "Abrir en segundo plano",
+        "open-in-background-description": "El launcher se abrirá en segundo plano",
+        "dont-show": "No mostrar",
+        "dont-show-description": "El launcher no se abrirá cuando inicie el juego"
+      }
+    },
+    "allocated-memory": {
+      "title": "Memoria Asignada",
+      "subtitle": "Cantidad de memoria que debemos asignar a la instancia del juego",
+      "set-recommended": {
+        "title": "Memoria asignada actualizada",
+        "subtitle": "Configura tu memoria a la recomendada {{memory}}"
+      },
+      "free-to-allocate": "Tienes <0/> libre para asignar."
+    },
+    "override-global-setting": "Override Global Setting",
+    "game-directory": {
+      "title": "Directorio del juego",
+      "subtitle": "Selecciona desde qué directorio iniciar Minecraft",
+      "override-label": "Usar un directorio personalizado",
+      "current-directory": "Directorio actual",
+      "change-directory": "Cambiar directorio",
+      "reset-directory": "Restablecer directorio",
+      "copied-to-clipboard": {
+        "title": "Copiado al portapapeles",
+        "subtitle": "¡El directorio actual del juego se ha copiado en el portapapeles!"
+      },
+      "no-access": {
+        "title": "No es posible acceder al directorio",
+        "subtitle": "El directorio que intentaba seleccionar no es accesible. Por favor, seleccione un directorio diferente."
+      },
+      "move-failed": {
+        "title": "Couldn't move your files",
+        "subtitle": "Some files were in use and couldn't be moved, so your profile is still using its original directory. Close any apps using these files and try again."
+      },
+      "move-prompt": {
+        "title": "¿Mover los archivos del perfil actual?",
+        "description": "Your profile already has saves, mods, configs, and other files at its current location. Move them to the new directory so the launcher keeps using them, or leave them where they are?",
+        "global-description": "Tu perfil ya tiene mundos, configuraciones y otros archivos en su ubicación actual. ¿Quieres moverlos a tu carpeta global .minecraft para que el launcher siga utilizándolos, o prefieres dejarlos donde están? Tus mods permanecerán asociados a este perfil en cualquier caso; nunca se compartirán con .minecraft.",
+        "back-title": "¿Mover los archivos de nuevo al perfil?",
+        "back-description": "Vas a desactivar el directorio personalizado. ¿Quieres mover tus mundos, mods, configuraciones y otros archivos de vuelta a la ubicación predeterminada del perfil, o prefieres dejarlos en el directorio personalizado?",
+        "move": "Mover archivos",
+        "back-move": "Mover archivos de vuelta",
+        "keep": "No mover",
+        "moving-title": "Moviendo archivos…",
+        "moving-counter": "{{current}} de {{total}}",
+        "preparing": "Preparando…"
+      },
+      "banner": {
+        "isolated": "Este perfil está aislado: sus archivos (mundos, mods y configuraciones) se mantienen separados de los de tus otros perfiles.",
+        "global": "Este perfil utiliza tu carpeta global .minecraft, compartiendo sus archivos con cualquier otro perfil que también la use. Sus mods permanecen separados y se gestionan de forma individual para este perfil.",
+        "custom": "Este perfil se inicia desde una carpeta personalizada que has elegido."
+      },
+      "use-global": "Usar la carpeta global .minecraft"
+    },
+    "ignore-forge-processor-hash-check": {
+      "title": "Ignorar la comprobación de hash del procesador Forge",
+      "subtitle": "Si el launcher debería ignorar la verificación de hash del procesador Forge"
+    },
+    "game-resolution": {
+      "title": "Resolución del Juego",
+      "subtitle": "Establecer la resolución de la instancia del juego",
+      "select-a-preset": "Selecciona un preajuste",
+      "aspect-ratio": "Relación de aspecto {{ratio}} ",
+      "visualise-on-screen": "Visualizar en pantalla",
+      "launch-in-fullscreen": "Iniciar en modo de pantalla completa",
+      "lock-aspect-ratio": "Bloquear relación de aspecto",
+      "alternate-terms": {
+        "aspect-ratio": "Relación de Aspecto",
+        "fullscreen": "Pantalla Completa"
+      },
+      "visualise-resolution": {
+        "close": "Cerrar"
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "subtitle": "Seleccionar el idioma del launcher",
+      "translation-callout": "¿Quieres ayudar a traducir Lunar Client? ¡Haz clic aquí!"
+    },
+    "hardware-acceleration": {
+      "title": "Aceleración por Hardware",
+      "description": "Si el Launcher se iniciará utilizando la aceleración por hardware. Requiere un reinicio."
+    },
+    "computer-startup": {
+      "title": "Inicio del ordenador",
+      "options": {
+        "open": "Abrir Launcher",
+        "open-description": "El Launcher se abrirá normalmente al iniciar tu PC",
+        "docked": "Iniciar en el Dock / Iniciar minimizado",
+        "docked-description": "El Launcher se iniciará minimizado en el Dock",
+        "closed": "No iniciar automáticamente",
+        "closed-description": "El Launcher no se abrirá al iniciar tu PC"
+      }
+    },
+    "discord-rich-presence": {
+      "title": "Presencia en Discord",
+      "subtitle": "Indica si tu estado de juego debe mostrarse en Discord"
+    },
+    "discord-rich-presence-hide-when-idle": {
+      "title": "Ocultar la Presencia en Discord cuando está inactivo",
+      "subtitle": "Indica si tu estado de juego debe ocultarse cuando estás inactivo"
+    },
+    "discord-rich-presence-language": {
+      "title": "Idioma de Discord Rich Presence",
+      "subtitle": "Selecciona el idioma a usar para el Discord Rich Presence",
+      "automatic-option": "Automático - {{language}}"
+    },
+    "enable-animations": {
+      "title": "Habilitar Animaciones",
+      "animations": "Animaciones",
+      "subtitle": "Indica si todas las animaciones deben estar activadas; desactivarlas puede mejorar el rendimiento"
+    },
+    "exit-to-dock": {
+      "title": "Salir al Dock",
+      "subtitle": "Indica si el Launcher debería salir al dock en segundo plano cuando se cierra"
+    },
+    "game-branch": {
+      "title": "Rama",
+      "subtitle": "Selecciona la rama del juego en la que desea jugar",
+      "no-permission": {
+        "title": "Sin autorización",
+        "subtitle": "No tienes permiso para cambiar a esta rama"
+      },
+      "switched": {
+        "title": "Rama Cambiada",
+        "subtitle": "¡La rama de juego ahora es {{branch}}!"
+      },
+      "recent-branches": "Ramas recientes"
+    },
+    "game-update-preference": {
+      "title": "Entrega de actualizaciones del juego",
+      "subtitle": "Selecciona cuando te gustaría recibir actualizaciones de Lunar Client",
+      "options": {
+        "opt-in": "Temprano (Opt-In)",
+        "opt-in-description": "Recibirás las actualizaciones antes de lo habitual, ¡pueden venir con algún que otro error!",
+        "normal": "Normal",
+        "normal-description": "¡Recibirás actualizaciones con las masas!",
+        "opt-out": "Tardío (Opt-Out)",
+        "opt-out-description": "Recibirás las actualizaciones más tarde de lo habitual... lento y constante se gana la carrera, ¿verdad?"
+      },
+      "alternate-terms": {
+        "canary": "Canario"
+      }
+    },
+    "show-new-indicators": {
+      "title": "Indicadores de contenido nuevo",
+      "description": "Indica si muestra un indicador para nuevos contenidos/actualizaciones en blogs, cosméticos, versión, etc."
+    },
+    "update-notifications": {
+      "title": "Notificaciones de Actualización",
+      "description": "Indica si desea enviar una notificación cuando una nueva versión del Launcher está disponible para su instalación"
+    },
+    "start-playing-notifications": {
+      "title": "Reproduciendo las notificaciones",
+      "subtitle": "Envía una notificación cuando un amigo empieza a jugar Minecraft",
+      "options": {
+        "always": "Siempre",
+        "focused": "Solo cuando está enfocado",
+        "never": "Nunca",
+        "always-description": "Siempre enviará una notificación, incluso mientras está en el dock",
+        "focused-description": "Enviará una notificación sólo cuando cualquier ventana del launcher esté enfocada",
+        "never-description": "Nunca enviará notificaciones cuando los amigos empiecen a jugar"
+      }
+    },
+    "navigate-home-on-launch": {
+      "title": "Navegar al inicio al lanzar",
+      "description": "Indica si el Launcher debe navegar a la página de inicio al lanzarse"
+    },
+    "os-notifications": {
+      "title": "Notificaciones nativas",
+      "description": "Indica si desea recibir notificaciones nativas (del sistema operativo) cuando el Launcher está fuera de foco."
+    },
+    "notify-game-launching": {
+      "title": "Iniciando el juego",
+      "description": "Mostrar una notificación cuando una versión del juego comience a iniciarse"
+    },
+    "notify-experimental-branch": {
+      "title": "Advertencia de rama experimental",
+      "description": "Mostrar una advertencia al iniciar una rama no estable"
+    },
+    "notify-content-installed": {
+      "title": "Contenido instalado",
+      "description": "Mostrar una notificación cuando se añadan mods, paquetes de recursos, shaders o paquetes de datos"
+    },
+    "notify-modpack-installed": {
+      "title": "Instalando modpack",
+      "description": "Mostrar una notificación cuando se esté instalando un modpack"
+    },
+    "notify-opening-folder": {
+      "title": "Abriendo carpeta",
+      "description": "Mostrar una notificación al abrir una carpeta de contenido del juego"
+    },
+    "notify-branch-change": {
+      "title": "Cambio de rama",
+      "description": "Mostrar una notificación al cambiar de rama del juego"
+    },
+    "notify-game-closed": {
+      "title": "Juego cerrado",
+      "description": "Muestra una notificación cuando el juego se ha cerrado"
+    },
+    "closing-notifications": {
+      "title": "Cerrando Notificacioens",
+      "subtitle": "Indica si el Launcher le notificará que sigue en segundo plano",
+      "options": {
+        "always": "Siempre",
+        "just-once": "Sólo una vez",
+        "never": "Nunca",
+        "always-description": "Notificar siempre cuando el lanzador sigue funcionando después de cerrar todas las ventanas.",
+        "just-once-description": "Notificar una vez por sesión cuando el launcher sigue funcionando después de cerrar todas las ventanas",
+        "never-description": "No notificar cuando el launcher sigue funcionando después de cerrar todas las ventanas"
+      }
+    },
+    "show-tooltips": {
+      "title": "Información sobre Herramientas",
+      "description": "Indica si mostrar o no información útil al pasar el ratón sobre los elementos del Launcher"
+    },
+    "confirm-critical-actions": {
+      "title": "Confirmar acciones críticas",
+      "subtitle": "Mostrar un aviso de confirmación antes de realizar acciones destructivas",
+      "description": "Mostrar un aviso de confirmación antes de desinstalar contenido, eliminar perfiles, cerrar sesión y realizar otras acciones destructivas"
+    },
+    "copyright": {
+      "microsoft": "No afiliado con Mojang o Microsoft"
+    },
+    "auto-upload-logs": {
+      "title": "Registros subidos automáticamente",
+      "subtitle": "Si los registros de tu juego deberían subirse automáticamente en caso de un fallo"
+    },
+    "copy-upload-id-to-clipboard": {
+      "title": "Copiar ID de carga al portapapeles",
+      "subtitle": "Si el ID de carga debe copiarse automáticamente al portapapeles después de una carga de registro"
+    },
+    "radio-should-loop": {
+      "title": "Repetición de Radio",
+      "subtitle": "Si la Radio debería reiniciar la estación cuando esta termine"
+    },
+    "ads-and-data": {
+      "title": "No venda ni comparta mi información personal",
+      "subtitle": "Ver y administrar cómo los anunciantes en aplicaciones seleccionadas pueden usar sus datos",
+      "alternate-terms": {
+        "analytics": "Estadísticas"
+      }
+    },
+    "allow-analytics-collection": {
+      "title": "Analíticas",
+      "description": "Lunar Client recopila analíticas y datos de uso para mejorar la experiencia del usuario"
+    },
+    "ads-optimization": {
+      "title": "Anuncios Optimizados",
+      "subtitle": "Incluir o no el uso de cookies o tecnologías similares para personalizar los anuncios basados en tu interés."
+    },
+    "ads-manage-preferences": {
+      "title": "Administrar preferncias"
+    },
+    "use-osr-overlay": {
+      "title": "Utilizar overlay OSR",
+      "subtitle": "Incluir o no las superposiciones integradas dentro de la instancia del juego"
+    },
+    "pre-launch-command": {
+      "title": "Comandos de preejecución",
+      "subtitle": "Comando a ejecutar antes de iniciar el juego"
+    },
+    "wrapper-command": {
+      "title": "Comando Wrapper",
+      "subtitle": "Comando para ejecutar el proceso de Java"
+    },
+    "post-exit-command": {
+      "title": "Comando post-salida",
+      "subtitle": "Comando a ejecutar después de cerrar el juego"
+    },
+    "custom-commands": {
+      "show-environment-variables": "Mostrar las variables de entorno",
+      "environment-variables": {
+        "inst_name": "Nombre de la instancia",
+        "inst_id": "ID de la instancia",
+        "inst_dir": "Ruta absoluta de la instancia",
+        "inst_mc_dir": "Ruta absoluta de Minecraft",
+        "inst_java": "Binario de Java usado para el inicio",
+        "inst_java_args": "Parámetros de la línea de comandos usados para el inicio"
+      }
+    },
+    "jvm-args": {
+      "title": "Argumentos de JVM",
+      "subtitle": "Customiza los argumentos de JVM usados para lanzar la instancia del juego "
+    },
+    "environment-variables": {
+      "title": "Variables de Entorno",
+      "subtitle": "Establecer variables de entorno personalizadas para el proceso de Java"
+    },
+    "allow-friend-requests": {
+      "title": "Permitir solicitudes de amistad",
+      "subtitle": "Si quieres recibir solicitudes de amistad"
+    },
+    "last-seen-visibility": {
+      "title": "Visibilidad de última conexión",
+      "subtitle": "Quién puede ver tu última conexión",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Show everyone when you were last online",
+        "friends": "Amigos",
+        "friends-description": "Mostrar la última conexión a tus amigos",
+        "no-one": "Nadie",
+        "no-one-description": "No mostrar última conexión a nadie"
+      }
+    },
+    "country-flag-visibility": {
+      "title": "Visibilidad de la bandera del país",
+      "subtitle": "Quién puede ver la bandera de tu país en distintos lugares",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Mostrar la bandera de tu país a todos",
+        "friends": "Amigos",
+        "friends-description": "Mostrar la bandera de tu país a tus amigos",
+        "no-one": "Nadie",
+        "no-one-description": "No mostrar a nadie la bandera de tu país"
+      }
+    },
+    "radio-playing-visibility": {
+      "title": "Visibilidad de la radio en reproducción",
+      "subtitle": "Quien puede ver lo que estés escuchando",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Show everyone what you're listening to",
+        "friends": "Amigos",
+        "friends-description": "Mostrar a tus amigos lo que estés escuchando",
+        "no-one": "Nadie",
+        "no-one-description": "No mostrar a nadie el estado de tu radio"
+      }
+    },
+    "default-screenshot-upload-privacy": {
+      "title": "Privacidad predeterminada al subir capturas de pantalla",
+      "subtitle": "Elige quién puede ver tus capturas de pantalla subidas de forma predeterminada",
+      "options": {
+        "private": "Privado",
+        "private-description": "New screenshots are uploaded as private by default",
+        "public": "Público",
+        "public-description": "New screenshots are uploaded as public by default",
+        "unlisted": "No listados",
+        "unlisted-description": "Las nuevas capturas se suben como no listadas de forma predeterminada"
+      }
+    },
+    "socials": {
+      "title": "Redes sociales vinculadas",
+      "link": "Vincular",
+      "unlink": "Desvincular",
+      "unknown-handle": "Usuario desconocido"
+    },
+    "socials-visibility": {
+      "title": "Visibilidad social",
+      "subtitle": "Quién puede ver tus cuentas sociales vinculadas",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Anyone can see your linked social accounts",
+        "friends": "Friends",
+        "friends-description": "Only your friends can see your linked social accounts",
+        "no-one": "No One",
+        "no-one-description": "No one can see your linked social accounts"
+      }
+    },
+    "incoming-gift-privacy": {
+      "title": "Privacidad de los regalos recibidos",
+      "subtitle": "Quién puede enviarte regalos desde la Tienda del Cliente Lunar",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Cualquiera puede enviarte regalos",
+        "friends": "Amigos",
+        "friends-description": "Solo tus amigos pueden enviarte regalos ",
+        "no-one": "Nadie",
+        "no-one-description": "Nadie puede enviarte regalos"
+      }
+    },
+    "cosmetic-ownership-visibility": {
+      "title": "Visibilidad de cosméticos",
+      "subtitle": "Quién puede ver los cosméticos que posees",
+      "options": {
+        "everyone": "Everyone",
+        "everyone-description": "Show everyone the cosmetics you own",
+        "friends": "Amigos",
+        "friends-description": "Mostrar tus cosméticos a tus amigos",
+        "no-one": "Nadie",
+        "no-one-description": "No mostrar tus cosméticos a nadie"
+      }
+    },
+    "wrapped-leaderboard-visibility": {
+      "title": "Visibilidad de la clasificación de Wrapped",
+      "subtitle": "Quién puede ver tu posición en las clasificaciones de Wrapped",
+      "options": {
+        "everyone": "Todos",
+        "everyone-description": "Permitir que todos puedan verte si apareces en la clasificación de Wrapped",
+        "no-one": "Nadie",
+        "no-one-description": "Ocultar tu posición en la clasificación de Wrapped si es visible"
+      }
+    },
+    "reset-all": {
+      "title": "Restablecer toda la configuración",
+      "subtitle": "Reiniciar toda la configuración a los valores predeterminados",
+      "reset-all": "Restablecer todo"
+    },
+    "log-retention": {
+      "title": "Retención de los registros de minecraft",
+      "subtitle": "Selecciona por cuánto tiempo quieres guardar los registros de Minecraft",
+      "options": {
+        "one-day": "Un día",
+        "three-days": "Tres días",
+        "one-week": "Una semana",
+        "two-weeks": "Dos semanas",
+        "one-month": "Un mes",
+        "two-months": "Dos meses",
+        "three-months": "Tres meses",
+        "six-months": "Seis meses",
+        "one-year": "Un año",
+        "two-years": "Dos años",
+        "forever": "Para siempre"
+      }
+    },
+    "ui-retention": {
+      "title": "Retención de UI",
+      "subtitle": "Selecciona cuánto tiempo deseas conservar las versiones de UI descargadas"
+    },
+    "directory-overview": {
+      "title": "Resumen del directorio",
+      "subtitle": "Ver cuánto espacio de disco está consumiendo cada directorio principal",
+      "total": "Total",
+      "categories": {
+        "logs": "Registros",
+        "profiles": "Perfiles",
+        "assets": "Recursos",
+        "cache": "Caché",
+        "other": "Otro"
+      },
+      "subcategories": {
+        "logs-launcher": "Registros del launcher",
+        "logs-game": "Registros del juego",
+        "profiles-lunar": "Perfiles de Lunar Client",
+        "profiles-vanilla": "Perfiles Vainilla",
+        "profiles-modrinth": "Perfiles de Modrinth",
+        "profiles-curseforge": "Perfiles de CurseForge",
+        "profiles-user-modpacks": "Perfiles de Modpacks del Usuario",
+        "cache-game": "Caché del Juego",
+        "cache-launcher": "Caché del Launcher",
+        "cache-multiver": "Caché Multiver",
+        "assets-textures": "Texturas",
+        "assets-ui": "UI",
+        "assets-jre": "JRE",
+        "assets-licenses": "Licencias",
+        "other-settings": "Ajustes"
+      }
+    },
+    "logs": {
+      "title": "Registros",
+      "subtitle": "Buscar o limpiar tus registros",
+      "open-logs": "Abrir Registros",
+      "clear-logs": "Borrar Registros"
+    },
+    "clear-cache": {
+      "title": "Limpiar Cache",
+      "subtitle": "Borrar los archivos caché de Lunar Client (aumentará temporalmente el tiempo de lanzamiento)"
+    },
+    "badlion-services": {
+      "title": "Usar servicios de Badlion",
+      "subtitle": "Activar el lanzamiento de versiones Badlion en el launcher"
+    },
+    "badlion-insider-mode": {
+      "title": "Modo Insider",
+      "subtitle": "Activar el modo Insider para acceso anticipado a funciones de Badlion"
+    },
+    "badlion-test-mode": {
+      "title": "Modo de prueba",
+      "subtitle": "Activar el modo de prueba para funciones experimentales de Badlion"
+    },
+    "badlion-debug-mode": {
+      "title": "Modo de depuración",
+      "subtitle": "Activar el modo de depuración para solucionar problemas de Badlion"
+    },
+    "badlion-garbage-collector": {
+      "title": "Activar recolector de basura optimizado",
+      "subtitle": "Usar un recolector de basura optimizado para un mejor rendimiento"
+    },
+    "badlion-java-path": {
+      "title": "Ruta de Java",
+      "subtitle": "Especificar una ruta personalizada de instalación de Java para Badlion"
+    },
+    "badlion-backup-java-installation": {
+      "title": "Backup de instalación de Java",
+      "subtitle": "Usar un backup de la instalación de Java por si la principal falla"
+    },
+    "badlion-custom-jar": {
+      "title": "Hash personalizado del Jar",
+      "subtitle": "Usar un hash personalizado para el Jar de Badlion"
+    },
+    "badlion-discord-rich-presence": {
+      "title": "Discord Rich Presence de Badlion",
+      "subtitle": "Si el estado de tu partida en Badlion debe mostrarse en Discord"
+    },
+    "badlion-discord-show-servers": {
+      "title": "Discord Rich Presence de Badlion en Servidores",
+      "subtitle": "Mostrar en Discord en qué servidor de Minecraft estás jugando"
+    },
+    "use-arm64-runtime": {
+      "title": "Utilizar el entorno de ejecución ARM64",
+      "subtitle": "Si conviene usar un entorno de ejecución ARM64 para las versiones estándar, si su sistema lo admite"
+    },
+    "mission-control-show-skyblock-wiki": {
+      "title": "Mostrar Wiki de Skyblock en Mission Control",
+      "subtitle": "Elige cuándo mostrar la Wiki de Skyblock en la barra lateral de Mission Control",
+      "options": {
+        "always": "Siempre",
+        "on-skyblock": "En Skyblock",
+        "never": "Nunca"
+      }
+    },
+    "mission-control-show-minecraft-wiki": {
+      "title": "Mostrar Wiki de Minecraft en Mission Control",
+      "subtitle": "Elige cuándo mostrar la Wiki de Minecraft en la barra lateral de Mission Control"
+    },
+    "notification-position": {
+      "title": "Posición de las notificaciones",
+      "subtitle": "Selecciona dónde deben aparecer las notificaciones en el launcher",
+      "options": {
+        "top-left": "Arriba a la izquierda",
+        "top-center": "Arriba en el centro",
+        "top-right": "Arriba a la derecha",
+        "bottom-left": "Abajo a la izquierda",
+        "bottom-center": "Abajo en el centro",
+        "bottom-right": "Abajo a la derecha"
+      }
+    },
+    "include-snapshots": {
+      "title": "Incluir versiones Snapshot",
+      "subtitle": "Determina si se incluyen las versiones Snapshot en la lista de versiones vanilla"
+    },
+    "overridden-by-profile": "<profile></profile> está anulando esta configuración",
+    "import-content": {
+      "title": "Importar desde .minecraft",
+      "subtitle": "Copia los mundos, paquetes y la configuración de tu carpeta global .minecraft a este perfil",
+      "action": "Importar archivos",
+      "description": "Elige qué copiar desde tu carpeta global .minecraft a este perfil. Los archivos que ya existan aquí no se modificarán.",
+      "empty": "No hay nada en tu carpeta global .minecraft para importar.",
+      "importing": "Importando archivo…",
+      "cancel": "Cancelar",
+      "import": "Importar",
+      "categories": {
+        "saves": "Mundos",
+        "mods": "Mods",
+        "resourcepacks": "Resource packs",
+        "shaderpacks": "Shader packs",
+        "config": "Configuración de los mods",
+        "screenshots": "Capturas de pantalla",
+        "options": "Opciones de juego",
+        "servers": "Lista de servidores"
+      },
+      "success": {
+        "title": "Archivos importados",
+        "subtitle": "Los archivos seleccionados se copiaron a este perfil."
+      },
+      "partial": {
+        "title": "Some files couldn't be imported",
+        "subtitle": "Algunos archivos estaban en uso o ya existían y se omitieron."
+      },
+      "loading": "Comprobando tu .minecraft…",
+      "copy-note": "El contenido se copia, no se mueve: tu .minecraft original conserva su copia, por lo que tendrás ambas.",
+      "copy-note-short": "Los archivos se copian, no se mueven.",
+      "play-without-importing": "Jugar sin importar",
+      "migration": {
+        "title": "Bienvenido a tu perfil aislado",
+        "description": "Este modpack ahora se ejecuta en su propia carpeta. Parte de tu contenido no se ha transferido: elige qué quieres traer desde tu .minecraft principal.",
+        "empty": "Este modpack ahora se ejecuta en su propia carpeta. No hay nada en tu .minecraft principal que traer."
+      },
+      "overwrite": "Reemplazar los archivos que ya existen"
+    }
+  },
+  "resources": {
+    "open-application-folder": {
+      "toast": "Abriendo la carpeta de la aplicación en {{manager}}..."
+    },
+    "open-logs": {
+      "toast": "Abriendo registros en {{manager}}..."
+    },
+    "desktop-file": {
+      "toast": "Generando archivo de escritorio..."
+    }
+  },
+  "profile-card": {
+    "join": "Unirse",
+    "message": "Message",
+    "quick-message-placeholder": "Message {{username}}",
+    "unknown-username": "Unknown",
+    "discord-copied-title": "Discord username copied",
+    "friends-since": "Since {{date}}",
+    "alt": {
+      "player-badge": "Player badge",
+      "player-bust": "Player bust for {{name}}"
+    }
+  },
+  "friends": {
+    "unknown-username": "Jugador de Lunar Client",
+    "join": "Unirse a {{world}}",
+    "owner": "Dueño",
+    "requests": {
+      "received": {
+        "title": "{{username}} Te envió una solicitud de amistad",
+        "subtitle": "Acepta o rechaza en la pestaña de solicitudes"
+      },
+      "accepted": {
+        "title": "{{username}} es ahora tu amigo",
+        "subtitle": "¡Ahora los puedes ver en tu lista de amigos!"
+      },
+      "send": {
+        "error": {
+          "target-invalid-username": "Nombre de Usuario Inválido",
+          "target-not-found": "No se ha encontrado el usuario {{username}}",
+          "target-friend-requests-disabled": "{{username}} tiene las solicitudes desactivadas",
+          "target-is-sender": "No puedes añadirte como amigo",
+          "already-friends": "Ya eres amigo de {{username}}",
+          "already-have-inbound-request": "Ya tienes una solicitud pendiente de {{username}}",
+          "already-have-outbound-request": "Ya enviaste una solicitud a {{username}}"
+        }
+      }
+    },
+    "now-ingame": {
+      "title": "{{username}} esta ahora en el juego",
+      "subtitle": "Únete a tu amigo en la {{version}}"
+    },
+    "chat": {
+      "open-link-external": {
+        "title": "¿Estás seguro de que quieres abrir la siguiente página web?",
+        "subtitle": "Nunca abras enlaces de personas en las que no confíes!"
+      },
+      "message": "Mensaje",
+      "you-declined": "Has rechazado",
+      "invitation": {
+        "invitation-to-play": "Invitación para jugar",
+        "has-expired": "ha expirado"
+      }
+    },
+    "context-menu": {
+      "send-message": "Enviar mensaje",
+      "join-game": "Unirse a la partida",
+      "remove-friend": "Eliminar amigo",
+      "add-best-friend": "Añadir Mejor Amigo",
+      "remove-best-friend": "Eliminar Mejor Amigo",
+      "add-friend": "Añadir amigo",
+      "remove-from-group": "Eliminar del grupo"
+    },
+    "sorting": {
+      "tooltip": "Ordenar Por",
+      "ascending": "Nombre (Ascendente)",
+      "decending": "Nombre (Descendente)",
+      "last-seen": "Visto por última vez"
+    },
+    "status": {
+      "last-seen": "Visto por última vez",
+      "recently": "recently",
+      "invited-you-to-play": "Te invitó a jugar",
+      "online": "En línea",
+      "offline": "Desconectado",
+      "invisible": "Invisible",
+      "in-launcher": "En Launcher",
+      "singleplayer": "Un jugador",
+      "multiplayer": "Multijugador",
+      "do-not-disturb": "No molestar",
+      "incoming": "Entrante",
+      "friend-request": "Solicitud de Amistad",
+      "outgoing": "Saliente",
+      "minecraft": "Minecraft",
+      "playing": "Jugando",
+      "lunar-client": "Lunar Client",
+      "realms": "Minecraft Realms",
+      "hosted-world": "En el Mundo de {{player}}",
+      "replay-world": "En el Mundo de Repetición",
+      "rewind-editor": "En el Editor Rewind",
+      "away": "Ausente",
+      "busy": "Ocupado",
+      "change-status": "Cambiar estado"
+    },
+    "popup": {
+      "add-lunar-client-friend": "Añadir amigo de Lunar Client",
+      "enter-username": "Introduce nombre de usuario...",
+      "view-n-requests": "Ver {{count}} solicitudes",
+      "view-friends": "Ver amigos",
+      "add-friend": "Agregar amigo",
+      "friend-requests": "Solicitudes de amistad",
+      "n-requests-pending": "{{count}} pendientes",
+      "chat-with-friends-send-game-invites-and-more": "¡Chatea con amigos, envía invitaciones de juego y más!",
+      "add-your-friends": "Añade a tus amigos",
+      "invites": "Invitaciones",
+      "clear-all": "Borrar todos",
+      "playing": "jugando",
+      "currently": "Actualmente",
+      "appearing": "Apareciendo",
+      "allow-friend-requests": "Permitir solicitudes de amistad",
+      "search-for-lunar-client-users": "Buscar Usuarios de Lunar Client...",
+      "add-your-first-friend": "Agrega a tu primer amigo",
+      "no-friends-title": "No hay Amigos",
+      "you-have-no-friends-called-name": "No tienes ningún amigo llamado {{name}}",
+      "start-a-conversation-with-username": "¡Inicia una conversación con {{username}} enviándole un mensaje!",
+      "friends": "Amigos",
+      "show-radio-status": "Mostrar estado de la radio",
+      "show-last-seen": "Mostrar la última vez visto"
+    }
+  },
+  "launch-info": {
+    "title": "Información de Lanzamiento",
+    "statistic-label": {
+      "version": "Versión",
+      "branch": "Rama",
+      "started": "Iniciado"
+    }
+  },
+  "phase": {
+    "loading": {
+      "title": "Cargando"
+    },
+    "ready": {
+      "title": "Iniciar",
+      "step": {
+        "ready-to-launch": "Listo para iniciar"
+      }
+    },
+    "error": {
+      "title": "Lanzar",
+      "step": {
+        "error-occurred": "Un error ha ocurrido"
+      },
+      "solutions": {
+        "out-of-memory": {
+          "label": "Memoria",
+          "action": "Incrementar memoria"
+        },
+        "no-space-left": {
+          "action": "Manage Storage"
+        },
+        "incompatible-mods": {
+          "fixing-all": "Solucionando todo...",
+          "auto-fix-all": "Solucionar todo automáticamente",
+          "blocked-by": "Blocks: {{mods}}"
+        },
+        "mutual-breaks": {
+          "header": "Conflicto mutuo · elige uno para conservar",
+          "keep-aria": "Conservar {{name}}, desactivar el otro",
+          "rationale": "{{source}} declara que entra en conflicto con cualquier versión de {{target}}."
+        },
+        "resolution-type": {
+          "required": "Requerido",
+          "disable": "Deshabilitar",
+          "mutual-conflict": "Conflicto mutuo",
+          "replace": "Reemplazar",
+          "remove": "Eliminar"
+        }
+      },
+      "upload-log": "Subir Registro de Fallos",
+      "started-uploading": "Iniciado la Subida",
+      "upload-failed": "No se pueden subir los Registros",
+      "upload-cooldown": "Por favor espera antes volver a subir",
+      "try-again-logs": "Si el problema persiste, póngase en contacto con el soporte.",
+      "your-logs-are-being-uploaded": "Sus registros de fallos se están subiendo para su investigación.",
+      "your-logs-were-uploaded": "Sus registros de fallos se han subido correctamente.",
+      "upload-id-copied": "{{uploadId}} se ha copiado en tu portapapeles.",
+      "must-login-logs": "Debes iniciar sesión en el launcher para subir tus registros de fallos.",
+      "uploaded": "Subido",
+      "contact-support": "Contactar con Soporte",
+      "relaunch": "Reiniciar",
+      "failed-to-launch": "Error al Iniciar",
+      "contact-support-error": "Si tiene este problema con regularidad, por favor comuníquese con el soporte técnico.",
+      "auto-upload-logs": "Cargar automáticamente registros de fallos",
+      "logs-uploaded": "Registros Cargados",
+      "show-conflicts": "Mostrar conflictos",
+      "search": "Búsqueda",
+      "fixing": "Corrigiendo...",
+      "fixed": "Corregido",
+      "failed": "Fallido",
+      "auto-fix": "Solucionar automáticament",
+      "resolving": "Resolviendo..."
+    },
+    "authenticating": {
+      "title": "Autentificación",
+      "step": {
+        "contacting-lc-servers": "Conectando con los servidores de LC",
+        "badlion-authenticating": "Autenticando con Badlion"
+      }
+    },
+    "updating": {
+      "title": "Actualizando",
+      "step": {
+        "downloading-lc-assets": "Descargando los activos de LC",
+        "downloading-assets": "Descargando activos",
+        "downloading-licenses": "Descargando licencias",
+        "downloading-artifacts": "Descargando artefactos",
+        "extracting-natives": "Extrayendo archivos locales",
+        "downloading-textures": "Descargando texturas",
+        "downloading-ui": "Descargando UI",
+        "extracting-ui": "Extracción de IU",
+        "downloading-jre": "Descargando JRE",
+        "installing-modpack": "Instalando Pack de mods",
+        "downloading-mods": "Descargando Mods",
+        "downloading-modpack-index": "Descargando el índice del Pack de mods",
+        "downloading-modpack-manifest": "Descargando el manifiesto del Pack de mods",
+        "downloading-modpack-icon": "Descargando Icono del Pack de mods",
+        "downloading-modpack-featured-image": "Descargando la imagen destacada del Pack de mods",
+        "downloading-libraries": "Descargando bibliotecas",
+        "downloading-assets-index": "Cargando los Assets",
+        "running-processors": "Cargando los procesos",
+        "downloading-vc-redist": "Descargando VC++ Redistributable",
+        "installing-vc-redist": "Instalando VC++ Redistributable",
+        "patching-optifine": "Reparando Optifine",
+        "downloading-bundled-mods-index": "Descargando el índice de Mods integrados",
+        "downloading-bundled-mods": "Descargando Mods integrados",
+        "badlion-downloading": "Descargando Badlion",
+        "badlion-checking-java": "Comprobando la instalación de Java",
+        "badlion-creating-java-path": "Creando la ruta de instalación de Java",
+        "badlion-downloading-java": "Descargando Java",
+        "badlion-verifying-java": "Verificando Java",
+        "badlion-building-java-cache": "Construyendo el caché de Java",
+        "badlion-applying-jar-patch": "Aplicando nuevo parche jar",
+        "badlion-applying-assets-patch": "Aplicando nuevo parche de recursos de Badlion",
+        "badlion-processing-mc-assets": "Procesando recursos de Minecraft",
+        "badlion-downloading-mc-assets": "Descargando recursos de Minecraft",
+        "badlion-building-cache": "Construyendo cache",
+        "badlion-reading-patch-data": "Leyendo datos del parche",
+        "badlion-loading-patch-files": "Cargando archivos a parchear",
+        "badlion-loading-copy-files": "Cargando archivos a ser copiados",
+        "badlion-patching-files": "Parcheando archivos",
+        "badlion-building-files": "Construyendo archivos",
+        "badlion-writing-files": "Escribiendo archivos",
+        "badlion-unzipping-bl-assets": "Descomprimiendo recursos de Badlion",
+        "badlion-downloading-bl-dependencies": "Descargando dependencias de Badlion",
+        "badlion-installing-native-dependencies": "Instalando dependencias nativas de Badlion",
+        "badlion-downloading-bl-assets": "Descargando recursos de Badlion",
+        "badlion-downloading-patch-files": "Descargando archivos de parche de Badlion",
+        "badlion-downloading-asset-patch-files": "Descargando archivos de parche de recursos de Badlion",
+        "badlion-patching-bl-assets": "Parcheando recursos de Badlion",
+        "badlion-downloading-assets-json": "Descargando archivo json de recursos de Badlion",
+        "badlion-downloading-assets-zip-file": "Descargando archivo zip de recursos de Badlion",
+        "badlion-checking-jar-hashes": "Comprobando hashes del jar de Badlion",
+        "badlion-hashing-mojang-jars": "Hasheando jars de Mojang",
+        "badlion-reading-assets-cache": "Leyendo caché de recursos de Badlion",
+        "badlion-loading-assets-cache": "Cargando caché de recursos de Badlion",
+        "badlion-cleaning-assets-directory": "Limpiando directorio de recursos de Badlion",
+        "badlion-checking-assets-cache": "Comprobando caché de recursos de Badlion",
+        "badlion-building-assets-cache": "Construyendo caché de recursos de Badlion",
+        "badlion-cleaning-assets-files": "Limpiando archivos de recursos de Badlion",
+        "badlion-starting-mojang-assets-workers": "Iniciando trabajadores de recursos de Mojang",
+        "badlion-checking-bl-assets": "Comprobando recursos de Badlion",
+        "badlion-reading-bl-assets-data": "Leyendo datos de recursos de Badlion",
+        "badlion-writing-assets-cache": "Escribiendo caché de recursos de Badlion",
+        "badlion-parsing-mc-dependencies": "Analizando dependencias de Minecraft",
+        "badlion-verifying-files": "Verificando archivos",
+        "badlion-contacting-patch-servers": "Contactando con servidores de parcheo",
+        "badlion-loading-json": "Cargando json",
+        "badlion-creating-output-directory": "Creación del directorio de salida",
+        "badlion-writing-json": "Escribiendo archivo json",
+        "badlion-waiting-for-background-patching": "Esperando la actualización en segundo plano",
+        "badlion-downloading-optifine": "Descargando Optifine",
+        "badlion-downloading-vanilla-jars": "Descargando jars vanilla",
+        "badlion-downloading-vanilla-json": "Descargando json vanilla",
+        "badlion-getting-latest-optifine": "Obteniendo la última versión de Optifine",
+        "badlion-parsing-optifine-website": "Procesando la página web de Optifine",
+        "badlion-checking-vanilla-install": "Comprobando si Minecraft vanilla está instalado",
+        "badlion-running-optifine-installer": "Ejecutando el instalador de Optifine",
+        "validating-jar-files": "Validando archivos jar"
+      }
+    },
+    "launching": {
+      "title": "Iniciando",
+      "step": {
+        "preparing-game-launch": "Preparando para iniciar el juego",
+        "starting-jvm": "Iniciando JVM",
+        "starting-game": "Empezando el juego",
+        "badlion-app-launching": "Iniciando Badlion",
+        "badlion-preparing-launch": "Preparando el inicio del juego"
+      }
+    },
+    "building-cache": {
+      "title": "Construyendo Cache",
+      "step": {
+        "building-cache": "Construyendo cache"
+      }
+    },
+    "launched": {
+      "title": "Iniciado",
+      "step": {
+        "game-launched": "Juego Lanzado"
+      }
+    }
+  },
+  "launch-cancel": {
+    "button": {
+      "launched": "Cerrar juego",
+      "launching": "Cancelar inicio"
+    },
+    "cancelling": {
+      "title": "Cancelando el lanzamiento",
+      "subtitle": "Por favor, espere mientras cancelamos el lanzamiento..."
+    },
+    "cancelled": {
+      "title": "El lanzamiento ha sido cancelado",
+      "subtitle": "¡Ya puedes iniciar Minecraft de nuevo!"
+    },
+    "closing": {
+      "title": "Cerrando el juego",
+      "subtitle": "Por favor, espere mientras cerramos el juego..."
+    },
+    "closed": {
+      "title": "El juego se ha cerrado",
+      "subtitle": "¡Ya puedes iniciar Minecraft de nuevo!"
+    }
+  },
+  "promotion": {
+    "sidebar": {
+      "title": "Ver Promoción",
+      "subtitle": "¡Reclama una recompensa gratuita!"
+    }
+  },
+  "discord-status": {
+    "in-launcher": {
+      "title": "Activo en el Launcher"
+    },
+    "on-version": "En {{version}}",
+    "version": "{{version}}",
+    "playing-version": "Jugando {{version}}",
+    "playing-version-vanilla": "Jugando Vanilla {{version}}",
+    "playing": "Jugando",
+    "hosted-world": {
+      "title": "Jugando Hosted World",
+      "subtitle": "En el mundo de {{host}}",
+      "image-text": "Mundo de {{host}}"
+    },
+    "singleplayer": {
+      "title": "Jugando en Singleplayer"
+    },
+    "realms": {
+      "title": "Jugar a Realms"
+    },
+    "local-server": {
+      "title": "Jugar en un Servidor Local"
+    },
+    "private-server": {
+      "title": "Jugar en un Servidor Privado"
+    },
+    "public-server": {
+      "title": "Jugando {{server}}"
+    },
+    "public-server-game-variant-map": {
+      "title": "{{playerState}} {{gameName}} en {{server}}",
+      "subtitle": "{{gameVariantName}} en {{mapName}}"
+    },
+    "public-server-game-variant": {
+      "title": "{{playerState}} {{gameName}} en {{server}}",
+      "subtitle": "{{gameVariantName}}"
+    },
+    "public-server-game": {
+      "title": "{{playerState}} {{gameName}} en {{server}}"
+    },
+    "replay": {
+      "title": "Viendo la Repetición"
+    },
+    "rewind": {
+      "title": "Viendo Rewind"
+    }
+  },
+  "generic": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "inbox": {
+    "title": "Bandeja de entrada",
+    "no-notifications": "Sin notificaciones",
+    "mark-all-as-read": "Marcar todo como leído",
+    "mark-as-read": "Marcar como leído",
+    "delete": "Eliminar",
+    "purchase": {
+      "description": "Tu compra de <items></items> fue procesada",
+      "legacy-description_one": "Tu compra de {{count}} cosmético fue procesada",
+      "legacy-description_other": "Tu compra de {{count}} cosmético fue procesada"
+    },
+    "package-list-remaining-count": "{{remaining}} más",
+    "gift": {
+      "anonymous-description": "Alguien te regaló anónimamente <items></items>",
+      "public-description": "<strong>{{username}}</strong> te regaló <items></items>"
+    },
+    "friend-request": {
+      "description": "<strong>{{username}}</strong> te envió una solicitud de amistad",
+      "accept": "Aceptar",
+      "decline": "Declinar"
+    },
+    "now-friends": {
+      "description": "Tú y <strong>{{username}}</strong> ahora son amigos"
+    }
+  },
+  "deeplink": {
+    "launch": {
+      "invalid-address": {
+        "title": "Dirección inválida",
+        "subtitle": "La dirección del servidor con la que intenta iniciar es inválida."
+      },
+      "invalid-port": {
+        "title": "Puerto inválido",
+        "subtitle": "El puerto con el que se está intentando iniciar es inválido."
+      },
+      "unable-to-resolve-server": {
+        "title": "No se pudo resolver el servidor",
+        "subtitle": "No se pudo resolver el ID del servidor proporcionado."
+      },
+      "invalid-ram-amount": {
+        "title": "Cantidad de RAM inválida",
+        "subtitle": "Se recibió una entrada no válida o superior a la memoria máxima del sistema."
+      }
+    }
+  },
+  "renderer-error": {
+    "title": "Ha ocurrido un error inesperado",
+    "description": "Hubo un problema en la ventana {{window}} mientras navegaba por la ruta {{path}}",
+    "refresh-view": "Actualizar Vista",
+    "relaunch-launcher": "Vuelve a iniciar el Launcher",
+    "footer-text": "Si tiene este problema con regularidad, por favor comuníquese con el soporte técnico."
+  },
+  "apex": {
+    "img-alt": "Apex Hosting",
+    "content": "Official Hosting Partner",
+    "hover-title": "Apex Hosting is the Official Hosting Partner of Lunar Client.",
+    "hover-content": "Create your own server and get 25% off your first purchase by using our link!",
+    "button": "Visit Apex Hosting",
+    "toast": "Opening Apex Hosting"
+  },
+  "bisect": {
+    "img-alt": "Alojamiento Bisect",
+    "content": "Obtén 25% de descuento en tu primer mes alojando un servidor",
+    "hover-content": "¡Obtén 25% de descuento en tu primer mes alojando un servidor con el código \"LUNAR\" al pagar!",
+    "button": "Iniciar",
+    "toast": "Abriendo Alojamiento Bisect"
+  },
+  "header": {
+    "type-to-search": "Escribe para buscar...",
+    "advanced-mode": "Modo Avanzado",
+    "upload-logs": "Subir Registros"
+  },
+  "modal": {
+    "confirm": "Confirmar"
+  },
+  "prompts": {
+    "no-username": {
+      "enter-a-username": "Ingresa un usuario",
+      "enter-username-here": "Ingresa un usuario aquí...",
+      "message": "¡Parece que tu cuenta de <0>{{game}}</0> aún no tiene un nombre de usuario establecido! Ingresa un nombre de usuario a continuación para continuar."
+    }
+  },
+  "mission-ctrl": {
+    "settings": "Ajustes",
+    "settings-menu": {
+      "global": "Global Settings",
+      "profile": "Profile Settings"
+    },
+    "account": "Cuenta",
+    "session": "Sesión",
+    "switch-accounts": "Cambiar Cuentas",
+    "view-profile": "Ver Perfil",
+    "focus-game": "Enfocar el juego",
+    "console": {
+      "label": "Consola",
+      "live-indicator": "En vivo",
+      "no-logs-unlaunched": "No se encontraron registros. ¡Inicia el juego para generarlos!",
+      "no-logs-launching": "Iniciando...",
+      "no-logs-match": "No se encontraron registros que coincidan con '{{search}}'",
+      "log-scrolling-paused": "Los registros están en pausa debido al desplazamiento",
+      "scroll-down": "Haz clic para desplazarte hacia abajo",
+      "search-logs": "Buscar registros...",
+      "search-degraded": "La salida del registro es muy extensa. Los resultados de la búsqueda podrían estar incompletos.",
+      "font-size": {
+        "label": "Tamaño de fuente",
+        "small": "Pequeño",
+        "medium": "Mediano",
+        "large": "Grande"
+      },
+      "log-density": {
+        "label": "Densidad de los registros",
+        "compact": "Compacto",
+        "cozy": "Cómoda"
+      },
+      "search-mode": {
+        "label": "Modo de búsqueda",
+        "find": "Buscar",
+        "filter": "Filtrar"
+      },
+      "log-types": {
+        "label": "Tipos de registro",
+        "info": "Información",
+        "warning": "Advertencia",
+        "error": "Error"
+      },
+      "dividers": "Divisores",
+      "sensitive-mode": "Modo sensible",
+      "enabled": "Habilitado",
+      "disabled": "Deshabilitado",
+      "enabled-setting": "{{setting}} habilitado",
+      "disabled-setting": "{{setting}} deshabilitado",
+      "delete-log": "Eliminar registro",
+      "log-file-name": "{{date}} ({{session}})",
+      "spoiler-tooltip": {
+        "hide": "Haga clic para ocultar",
+        "reveal": "Clic para revelar"
+      },
+      "settings": "Ajustes",
+      "upload-logs": "Subir Registros",
+      "open-logs-folder": "Abrir carpetas de registros"
+    },
+    "wiki-navigation": {
+      "back": "Atrás",
+      "forward": "Adelante",
+      "refresh": "Recargar",
+      "home": "Inicio"
+    },
+    "skyblock-wiki": "Wiki de SkyBlock",
+    "minecraft-wiki": "Wiki de Minecraft"
+  },
+  "install-queue": {
+    "title": "Downloads",
+    "unknown-profile": "Unknown",
+    "status": {
+      "queued": "Queued",
+      "done": "Done",
+      "failed": "Failed"
+    },
+    "summary": {
+      "installing": "{{count}} installing",
+      "queued": "{{count}} queued",
+      "failed": "{{count}} failed",
+      "done": "{{count}} done"
+    },
+    "duration": {
+      "ms": "{{value}}ms",
+      "seconds": "{{value}}s",
+      "minutes": "{{value}}m"
+    },
+    "cleared": {
+      "title": "Descargas eliminadas",
+      "body": "Se han eliminado de la cola las descargas completadas"
+    },
+    "actions": {
+      "cancel": "Cancelar",
+      "retry": "Reintentar",
+      "clear-finished": "Limpiar"
+    }
+  },
+  "explore": {
+    "type": {
+      "mods": "Mods",
+      "modpacks": "Modpacks",
+      "resource-packs": "Resource Packs",
+      "shaders": "Shaders",
+      "data-packs": "Data Packs"
+    },
+    "content-type": {
+      "mod": "Mod",
+      "modpack": "Modpack",
+      "resourcepack": "Resource Pack",
+      "shader": "Shader",
+      "datapack": "Data Pack"
+    },
+    "promoted": "Ascendido",
+    "search": "Buscar {{provider}}...",
+    "clear-search": "Borrar búsqueda",
+    "search-profiles": "Buscar {{count}} perfiles",
+    "view-modrinth": "Ver {{type}} de Modrinth",
+    "view-curseforge": "Ver {{type}} de CurseForge",
+    "categories": "Categorías",
+    "features": "Características",
+    "performance-impact": "Impacto en el rendimiento",
+    "resolutions": "Resoluciones",
+    "loaders": "Cargadores",
+    "environment": "Entorno",
+    "game-versions": "Versiones del juego",
+    "type-will-install-to": "Los {{type}}s se instalarán en...",
+    "previously-adding-mods-for": "Mods que estabas añadiendo para:",
+    "hide-already-installed": "Esconder ya instalados",
+    "show-additional-loaders": "Mostrar cargadores adicionales",
+    "show-additional-versions": "Mostrar versiones adicionales",
+    "view": "Ver",
+    "client-side": "Lado del cliente",
+    "server-side": "Lado del servidor",
+    "client-server": "Lado del cliente & Lado del servidor",
+    "installed": "Instalados",
+    "install": "Instalar",
+    "uninstall": "Desinstalar",
+    "reinstall": "Reinstalar",
+    "sort-by": "Ordenar por:",
+    "popularity": "Popularidad",
+    "downloads": "Descargas",
+    "total-downloads": "{{amount}} descargas",
+    "followers": "Seguidores",
+    "featured": "Destacado",
+    "date-published": "Fecha de publicación",
+    "date-updated": "Fecha actualizada",
+    "view-less": "Ver menos",
+    "view-x-more": "Ver {{count}} más",
+    "jump-back-in": "Reanudar",
+    "closing-in-x": "Cerrando en {{count}}...",
+    "no-results-found": "No se encontró ningún {{type}}",
+    "modal": {
+      "next": "Siguiente",
+      "installed": "Instalado",
+      "optional-dependencies": "Dependencias opcionales ({{count}})",
+      "required-dependencies": "Dependencias requeridas ({{count}})",
+      "switch-profile": "Cambiar perfil",
+      "install-title": "Instalar {{mod}}",
+      "compatible-profiles": "Perfiles compatibles ({{count}})",
+      "incompatible-profiles": "Perfiles incompatibles ({{count}})",
+      "mod-incompatible-version": "{{mod}} es incompatible con Minecraft {{version}}",
+      "mod-incompatible-loader": "{{mod}} incompatible con cargador {{loader}} ",
+      "compatible-versions": "Versiones compatibles ({{count}})",
+      "no-compatible-versions": "No se encontraron versiones compatibles para este perfil",
+      "no-compatible-versions-modpack": "No se encontraron versiones compatibles",
+      "no-compatible-profiles": "No se encontraron perfiles compatibles para este mod",
+      "no-profiles": "No se encontraron perfiles",
+      "create": "Crear",
+      "create-new-pack": "Crear un nuevo paquete",
+      "use-lunar-features": "Usar las funciones de Lunar",
+      "isolate-profile": "Perfil aislado",
+      "game-version": "Versión del juego",
+      "showing-versions-compatible": "Mostrando versiones del juego compatibles con el mod",
+      "showing-loaders-compatible": "Mostrando loaders compatibles con el mod",
+      "chars-remaining": "{{count}} caracteres restantes",
+      "loader": "Loader",
+      "select-label": "Seleccionar {{label}}",
+      "name": "Nombre",
+      "downloading-mods": "Descargando mods",
+      "downloading-metadata": "Descargando metadatos",
+      "percent-complete": "{{percent}}% completado",
+      "profile-name-exists": "Ya existe un perfil con este nombre"
+    },
+    "notifications": {
+      "deselected_profile": {
+        "title": "Perfil deseleccionado",
+        "subtitle": "Explorando mods para todas las versiones y loaders"
+      }
+    },
+    "tooltips": {
+      "switch-profile": "Cambiar perfil",
+      "profile-uses-loader": "{{profile}} usa {{loader}} {{gameVersion}}",
+      "deselect-profile": "Perfil deseleccionado",
+      "show-filters": "Mostrar filtros",
+      "dismiss": "Descartar",
+      "use-lunar-features-description": "Si incluir los mods y funciones principales de Lunar Client, incluyendo cosméticos y emotes",
+      "isolate-profile-description": "Mantener los archivos de este perfil separados de tu carpeta .minecraft principal. Desmarca para compartir tu carpeta .minecraft principal.",
+      "currently-fabric-only": "Actualmente solo compatible con el loader Fabric",
+      "final-download-size-may-differ": "El tamaño final de la descarga puede variar según la cantidad de mods"
+    },
+    "project": {
+      "versions": "Versiones",
+      "loaders": "Loaders",
+      "tags": "Tags",
+      "creators": "Creators",
+      "organization": "Organization",
+      "changelog": "Changelog",
+      "gallery": "Gallery",
+      "description": "Description",
+      "no-compatible-versions-with-profile": {
+        "title": "Couldn't find any versions compatible with <profile />",
+        "description": "Try switching profiles and looking for a compatible version",
+        "switch-profile": "Switch Profile"
+      },
+      "no-supported-versions": {
+        "title": "Couldn't find any versions compatible with Lunar Client",
+        "description": "Try looking for a compatible {{projectType}}"
+      }
+    }
+  },
+  "modals": {
+    "announcement": {
+      "title": "¡Por si te lo perdiste!",
+      "dont-remind-me-for": "No me lo recuerdes durante {{interval}}"
+    },
+    "age-verification": {
+      "title": "Microsoft requiere que verifiques tu edad",
+      "description": "Como parte del programa de cumplimiento de Microsoft para la Ley de Seguridad en Línea del Reino Unido, se ha introducido la verificación de edad para cuentas de Microsoft en el Reino Unido. Para completar la verificación, se recomienda escanear el código QR y seguir las instrucciones en tu dispositivo móvil.",
+      "action": {
+        "find-out-more": "Descubre más sobre la verificación",
+        "retry": "¿Acabas de verificarte? Haz clic para iniciar sesión de nuevo"
+      }
+    },
+    "no-multiplayer": {
+      "title": "Acceso multijugador desactivado",
+      "description": "Tu cuenta no tiene acceso a las funciones multijugador. Esto puede ocurrir si eres menor de 18 años y no tienes una cuenta parental vinculada, o si el acceso al multijugador está desactivado. Puedes habilitarlo en la configuración de privacidad de Xbox.",
+      "action": {
+        "find-out-more": "Descubre más sobre cómo habilitar el acceso",
+        "retry": "¿Acceso habilitado? Haz clic para iniciar sesión de nuevo"
+      }
+    },
+    "family-required": {
+      "title": "This Account Needs To Be Added To A Family",
+      "description": "This account belongs to a minor and must be added to a Microsoft family group by an adult before it can sign in. Ask a parent or guardian to add this account to their Microsoft family, then try signing in again.",
+      "action": {
+        "find-out-more": "Find Out More About Microsoft Family",
+        "retry": "Added to a family? Click to sign in again"
+      }
+    },
+    "hosts-override": {
+      "title": "External Software Interfering With Lunar Client",
+      "description": "It looks like you have software installed that is interfering with Lunar Client's ability to connect to our servers. This is often caused by antivirus software, VPNs, or software that intentionally interferes with Lunar Client. Please disable or uninstall any software that may be interfering.",
+      "action": {
+        "find-out-more": "Find Out More About Fixing This Issue",
+        "dismiss": "All working? Dismiss this warning"
+      }
+    },
+    "file-permission": {
+      "title": "External Software Interfering With Lunar Client",
+      "description": "It looks like something is interfering with Lunar Client's ability to read or write data to your computer. This is often caused by permission issues or software that intentionally interferes with Lunar Client. Please disable or uninstall any software that may be interfering.",
+      "action": {
+        "find-out-more": "Find Out More About Fixing This Issue",
+        "dismiss": "All working? Dismiss this warning"
+      }
+    },
+    "unverified-modpack-files": {
+      "title": "This modpack contains files we couldn't verify",
+      "description_one": "The following file was not found on Modrinth or CurseForge:",
+      "description_other": "The following {{count}} files were not found on Modrinth or CurseForge:",
+      "warning": "These files could potentially be harmful to your computer. You can install only verified files or cancel the import.",
+      "acknowledge": "I understand that installing all files is at my own risk.",
+      "install-all": "Install All Files",
+      "install-verified": "Verified Files Only"
+    },
+    "sensitive-import-fields": {
+      "cancel": "Cancel",
+      "import": {
+        "title": "This pack can run commands on your computer",
+        "description": "\"{{modpackName}}\" includes launch settings that can run programs or change your game's environment. Choose which to keep — anything left unchecked won't be imported.",
+        "warning": "Only keep these if you trust where this pack came from. They can execute commands on your computer every time you launch.",
+        "confirm": "Import"
+      },
+      "clone": {
+        "title": "This profile runs commands on your computer",
+        "description": "\"{{modpackName}}\" includes launch settings that can run programs or change your game's environment. Choose which to copy into the clone — anything left unchecked won't be copied.",
+        "warning": "These run on your computer every time you launch the cloned profile.",
+        "confirm": "Clone"
+      },
+      "export": {
+        "title": "This profile runs commands on your computer",
+        "description": "\"{{modpackName}}\" includes launch settings that can run programs or change your game's environment. Choose which to include in the exported pack — anything left unchecked won't be shared.",
+        "warning": "Anyone you share this pack with will receive these and they'll run on their computer. Don't include anything private like tokens or passwords.",
+        "confirm": "Export"
+      },
+      "fields": {
+        "preLaunchCommand": "Pre-launch command",
+        "wrapperCommand": "Wrapper command",
+        "postExitCommand": "Post-exit command",
+        "jvmArguments": "JVM arguments",
+        "environmentVariables": "Environment variables"
+      }
+    }
+  },
+  "satellite": {
+    "context-menu": {
+      "delete-message": "Borrar mensaje",
+      "pin-message": "Fijar mensaje",
+      "unpin-message": "Desfijar mensaje",
+      "copy-text": "Copiar Texto",
+      "delete-chat": "Borrar Chat",
+      "leave-chat": "Abandonar chat"
+    },
+    "toast": {
+      "added": {
+        "title": "¡{{username}} te ha añadido a un chat!",
+        "body": "Abrir chat"
+      }
+    },
+    "chat": {
+      "type-a-message": "Escribe un mensaje para enviar a {{name}}...",
+      "emoji": "Emoji",
+      "send-message": "Enviar mensaje",
+      "add-images": "Añadir imágenes",
+      "selected-images": "{{count}} imagen(es) seleccionada(s)",
+      "loading-previous-messages": "Cargando mensajes anteriores...",
+      "beginning-of-conversation": "Inicio de la conversación",
+      "jump-to-recent": "Ir a recientes",
+      "jump": "Saltar",
+      "jumping-to-message": "Saltando al mensaje...",
+      "sent-a-sticker": "Envió un sticker",
+      "sent-images": "Envió {{count}} imágenes",
+      "system-message": "Mensaje del sistema",
+      "send-a-message": "Enviar un mensaje...",
+      "subscribe": "¡Suscríbete a Lunar+ para aumentar tu límite de mensajes!",
+      "system": {
+        "pinned": "<0>{{actor}}</0> fijó un mensaje en este chat. <1>Ir al mensaje</1>",
+        "invite": {
+          "single": "<0>{{actor}}</0> invitó a <1>{{invitee}}</1> a este chat.",
+          "multiple": "<0>{{actor}}</0> invitó a <1/> a este chat.",
+          "separator": {
+            "comma": ", ",
+            "and": " y "
+          }
+        },
+        "leave": "<0>{{actor}}</0> salió del chat.",
+        "name-change": "<0>{{actor}}</0> cambió el nombre del chat a \"{{name}}\".",
+        "icon-change": "<0>{{actor}}</0> cambió el icono del chat."
+      },
+      "typing-indicator": {
+        "single": "{{username}} está escribiendo...",
+        "multiple": "{{usernames}} están escribiendo...",
+        "multiple-many": "{{count}} personas están escribiendo..."
+      },
+      "emoji-picker": {
+        "emojis": "Emojis",
+        "stickers": "Stickers",
+        "no-emojis": "No se encontraron emojis",
+        "no-stickers": "No se encontraron stickers",
+        "search-emojis": "Encuentra el emoji perfecto",
+        "search-stickers": "Encuentra el sticker perfecto",
+        "groups": {
+          "smileys-emotion": "Caritas y emociones",
+          "people-body": "Personas y cuerpo",
+          "animals-nature": "Animales y naturaleza",
+          "food-drink": "Comida y bebida",
+          "travel-places": "Viajes y lugares",
+          "activities": "Actividades",
+          "objects": "Objetos",
+          "symbols": "Símbolos",
+          "flags": "Banderas"
+        }
+      },
+      "gif-picker": {
+        "title": "GIFs",
+        "search": "Buscar en KLIPY",
+        "no-results": "No se encontraron GIFs",
+        "search-prompt": "Busca GIFs para enviar",
+        "scroll-for-more": "Desliza para ver más",
+        "error": "Error al cargar los GIFs. Inténtalo de nuevo.",
+        "powered-by-klipy": "Impulsado por KLIPY"
+      },
+      "reaction-info": {
+        "reaction-emoji": "¡Esto es parte de la categoría de emojis {{name}}!",
+        "reaction-sticker": "¡Esto es parte del pack de stickers {{name}}!",
+        "browse-emoji-category": "Explorar categoría de emojis",
+        "browse-sticker-pack": "Explorar pack de stickers",
+        "emojis-matching": "Emojis que coinciden con {{name}}"
+      },
+      "errors": {
+        "image-rejected": "Error al enviar el mensaje: Una o más imágenes fueron rechazadas por ser inapropiadas",
+        "send-failed": "Error al enviar el mensaje: Ocurrió un error del servidor",
+        "upload-urls-failed": "Error al enviar el mensaje: No se pudieron obtener las URL de subida para las imágenes",
+        "image-upload-failed": "Error al enviar el mensaje: La subida de imágenes falló",
+        "exceeds-limit": "Error al enviar el mensaje: El mensaje es demasiado largo",
+        "network-error": "Error al enviar el mensaje: Ocurrió un error de red",
+        "unknown-error": "Error al enviar el mensaje: Ocurrió un error desconocido"
+      },
+      "sending-message": "Enviando mensaje...",
+      "sending-images": "Enviando imágenes...",
+      "image-preview": "Vista previa de la imagen"
+    },
+    "empty": {
+      "title": "Selecciona una conversación",
+      "subtitle": "Elige un amigo o un chat grupal para empezar a enviar mensajes",
+      "input-placeholder": "Selecciona una conversación para empezar a enviar mensajes..."
+    },
+    "guest": {
+      "title": "Log In to Use Satellite",
+      "subtitle": "Sign in with your account to chat with friends and join conversations"
+    },
+    "no-messages": {
+      "title": "Se está solitario aquí...",
+      "subtitle": "¡Sé el primero en enviar un mensaje!"
+    },
+    "group-chat": {
+      "member-count": "{{number}} miembros"
+    },
+    "actions": {
+      "best-friend": "Mejor amigo",
+      "pinned-messages": "Mensajes fijados",
+      "show-member-list": "Ver lista de miembros",
+      "add-members": "Añadir miembros",
+      "settings": "Ajustes",
+      "create-group-chat": "Crear chat grupal"
+    },
+    "popouts": {
+      "add-members": {
+        "title": "Añadir miembros",
+        "add": "Añadir",
+        "search-friends": "Buscar amigos..."
+      },
+      "member-list": {
+        "title": "Lista de miembros",
+        "search-members": "Buscar miembros..."
+      },
+      "pinned-messages": {
+        "title": "Mensajes fijados",
+        "empty": {
+          "title": "No hay mensajes fijados",
+          "subtitle": "¡Fija mensajes importantes para encontrarlos fácilmente después!"
+        }
+      },
+      "settings": {
+        "title": "Ajustes",
+        "invite-policy": {
+          "title": "Política de invitación",
+          "options": {
+            "everyone": {
+              "label": "Todos",
+              "description": "Todos los miembros pueden invitar amigos a este chat grupal"
+            },
+            "owner": {
+              "label": "Dueño",
+              "description": "Solo el dueño puede invitar amigos a este chat grupal"
+            }
+          }
+        },
+        "name-policy": {
+          "title": "Política de nombre",
+          "options": {
+            "everyone": {
+              "label": "Todos",
+              "description": "Todos los miembros pueden cambiar el nombre del chat grupal"
+            },
+            "owner": {
+              "label": "Dueño",
+              "description": "Solo el dueño puede cambiar el nombre del chat grupal"
+            }
+          }
+        },
+        "icon-policy": {
+          "title": "Política del icono",
+          "options": {
+            "everyone": {
+              "label": "Todos",
+              "description": "Todos los miembros pueden cambiar el icono del chat grupal"
+            },
+            "owner": {
+              "label": "Dueño",
+              "description": "Solo el dueño puede cambiar el icono del chat grupal"
+            }
+          }
+        },
+        "message-pinning-policy": {
+          "title": "Política de fijado de mensajes",
+          "options": {
+            "everyone": {
+              "label": "Todos",
+              "description": "Todos los miembros pueden fijar mensajes en el chat grupal"
+            },
+            "owner": {
+              "label": "Dueño",
+              "description": "Solo el dueño puede fijar mensajes en el chat grupal"
+            }
+          }
+        },
+        "owner": {
+          "title": "Dueño",
+          "description": "Transferir la propiedad a otro miembro",
+          "current": "Actual",
+          "placeholder": "Seleccionar nuevo propietario...",
+          "transfer-ownership": "Transferir la propiedad"
+        }
+      }
+    },
+    "modals": {
+      "add-friend": {
+        "title": "Añadir amigo",
+        "request-sent": "¡Solicitud de amistad enviada!",
+        "enter-username": "Introduce un nombre de usuario...",
+        "errors": {
+          "not-found": "Jugador no encontrado",
+          "invalid-username": "Nombre de usuario inválido",
+          "requests-disabled": "El jugador tiene las solicitudes de amistad desactivadas",
+          "is-sender": "¡No puedes enviarte mensajes a ti mismo!",
+          "already-friends": "Ya eres amigo de este jugador",
+          "has-request": "Tienes una solicitud de amistad pendiente de este jugador",
+          "already-sent": "Ya has enviado una solicitud de amistad a este jugador",
+          "unknown": "Se produjo un error desconocido"
+        }
+      },
+      "create-conversation": {
+        "title": "Seleccionar amigos",
+        "participant-limit": "Puedes añadir {{number}} amigos más",
+        "create-group-chat": "Crear chat grupal",
+        "subscribe": "¡Suscríbete a Lunar+ para obtener 5 espacios adicionales!",
+        "search-friends": "Buscar amigos..."
+      },
+      "edit-group": {
+        "title": "Editar grupo",
+        "upload-image": "Haz clic para subir una imagen",
+        "remove-icon": "Eliminar icono",
+        "group-name": "Nombre del grupo",
+        "cancel": "Cancelar",
+        "save": "Guardar",
+        "file-selected": "Archivo seleccionado: {{name}}",
+        "uploading": "Subiendo...",
+        "errors": {
+          "not-image": "El archivo seleccionado no es una imagen",
+          "size": "La imagen debe ser menor de 5MB",
+          "reading-file": "Error al leer el archivo"
+        }
+      },
+      "delete-conversation": {
+        "title": "Borrar Chat",
+        "description": "¿Seguro que quieres eliminar este chat? Esta acción no se puede deshacer.",
+        "description-named": "¿Seguro que quieres eliminar \"{{name}}\"? Esta acción no se puede deshacer.",
+        "cancel": "Cancelar",
+        "delete": "Eliminar"
+      }
+    },
+    "navigator": {
+      "friends-section": {
+        "best-friends": "Mejores amigos",
+        "in-game": "En el juego",
+        "online": "En línea",
+        "offline": "Desconectado"
+      },
+      "header": {
+        "clear": "Limpiar",
+        "create": "Crear",
+        "search": "Buscar {{view}}...",
+        "popout": {
+          "add-friend": "Añadir amigo",
+          "new-group-chat": "Nuevo chat grupal"
+        }
+      },
+      "view-selector": {
+        "friends": "Amigos",
+        "chats": "Chats"
+      },
+      "no-search-results": {
+        "title": "No se pudo encontrar '{{searchTerm}}'",
+        "subtitle": "¿Seguro que lo escribiste correctamente?",
+        "clear-search": "Limpiar búsqueda"
+      },
+      "empty-friends": {
+        "title": "Aún no tienes amigos",
+        "subtitle": "Añade amigos para empezar a chatear y ver su estado en línea",
+        "add-friend": "Añadir amigo"
+      },
+      "empty-chats": {
+        "title": "Aún no hay conversaciones",
+        "subtitle": "Inicia una conversación con tus amigos o crea un chat grupal",
+        "start-chat": "Iniciar chat"
+      }
+    }
+  },
+  "skin-changer": {
+    "title": "Skin Changer",
+    "no-account": "Please sign in to change your skin",
+    "apply": "Apply Skin",
+    "applying": "Applying...",
+    "drop": {
+      "accept": "Drop skin file here",
+      "reject": "Only PNG files are accepted"
+    },
+    "reset": {
+      "button": "Reset to Default",
+      "title": "Skin Reset",
+      "body": "Your skin has been reset to the default"
+    },
+    "success": {
+      "title": "Skin Applied",
+      "body": "In-game updates are instant. It may take up to an hour to update across Lunar Client."
+    },
+    "error": {
+      "title": "Upload Failed",
+      "unknown": "An unknown error occurred",
+      "invalid-file": "Invalid File",
+      "png-only": "Please select a PNG file",
+      "invalid-dimensions": "Skin must be 64x64 (or 64x32). Got {{width}}x{{height}}.",
+      "unreadable": "Could not read the selected image."
+    },
+    "tab": {
+      "skin": "Skin",
+      "cape": "Cape",
+      "preset": "Looks"
+    },
+    "mode": {
+      "username": "Search by username",
+      "url": "Search by image URL"
+    },
+    "search": {
+      "button": "Search",
+      "placeholder": {
+        "username": "Enter a Minecraft username...",
+        "url": "https://textures.minecraft.net/texture/..."
+      }
+    },
+    "searching": "Searching...",
+    "lookup": {
+      "error": {
+        "title": "Lookup Failed",
+        "not-found": "Player not found"
+      }
+    },
+    "url": {
+      "error": {
+        "title": "Fetch Failed",
+        "unknown": "Failed to fetch skin from URL",
+        "not-official": "Only official textures.minecraft.net URLs are supported. Paste a link from textures.minecraft.net/texture/<hash>."
+      }
+    },
+    "upload": {
+      "selected": "Selected: {{name}}",
+      "tooltip": "Upload skin PNG file",
+      "select-file": "Select File"
+    },
+    "variant": {
+      "title": "Model Type",
+      "description": "Classic has wider arms, Slim has thinner arms.",
+      "classic": "Classic",
+      "slim": "Slim",
+      "mismatch": "{{skinName}} is designed for the {{originalVariant}} model. Using it with {{selectedVariant}} may cause arm textures to look incorrect."
+    },
+    "saved": {
+      "title": "Saved Skins",
+      "description": "Skins you've previously used in-game.",
+      "rename": "Rename",
+      "delete": "Delete"
+    },
+    "history": {
+      "title": "Skin History",
+      "description": "Skins you've applied recently. Click to revert.",
+      "clear": "Clear",
+      "untitled": "Custom Skin",
+      "rename": "Rename",
+      "delete": "Delete",
+      "options": "Skin options"
+    },
+    "confirm-action-modal": {
+      "clear-history": {
+        "title": "Clear Skin History",
+        "description": "Are you sure you want to clear your skin history?"
+      },
+      "delete-history-entry": {
+        "title": "Delete Skin",
+        "description": "Are you sure you want to remove this skin from your history?",
+        "confirm": "Delete"
+      },
+      "reset-skin": {
+        "title": "Reset to Default",
+        "description": "Are you sure you want to reset your skin to the default?"
+      }
+    },
+    "defaults": {
+      "title": "Default Skins",
+      "description": "Choose from the default Minecraft skins."
+    },
+    "rename": {
+      "title": "Rename Skin",
+      "placeholder": "Enter skin name"
+    },
+    "capes": {
+      "title": "Capes",
+      "description": "Select a cape to equip, or hide your current cape.",
+      "none": "No Cape",
+      "empty": {
+        "title": "No capes available",
+        "description": "You don't own any capes yet."
+      },
+      "success": {
+        "title": "Cape Updated",
+        "body": "Your cape has been changed successfully"
+      }
+    },
+    "elytra": {
+      "show": "Show Elytra",
+      "hide": "Hide Elytra"
+    },
+    "presets": {
+      "title": "Saved Looks",
+      "description": "Skin and cape combos you can apply with one click.",
+      "save-current": {
+        "label": "Save Look",
+        "tooltip": "Save the current skin + cape combo as a look"
+      },
+      "save-title": "Save This Look",
+      "save-disabled": "Apply a skin from a file or URL before saving.",
+      "already-saved": "Already Saved",
+      "save-duplicate": {
+        "title": "Already Saved",
+        "body": "This combo is already saved as “{{name}}”.",
+        "tooltip": "Already saved as {{name}}"
+      },
+      "default-name": "My Look",
+      "name-placeholder": "Name this look",
+      "rename": "Rename",
+      "rename-title": "Rename Look",
+      "delete": "Delete",
+      "options": "Look options",
+      "active": "Active",
+      "cape-missing": "Cape missing",
+      "cape-alt": "Cape preview",
+      "empty": {
+        "title": "Save your first look",
+        "description": "Pick a skin and cape, then save the combo as a look. Apply any saved look with a single click."
+      },
+      "save": {
+        "success": {
+          "title": "Look Saved",
+          "body": "Your look has been saved."
+        },
+        "error": {
+          "title": "Can't Save Look",
+          "no-url": "Apply this skin first, then save the look."
+        }
+      },
+      "apply": {
+        "success": {
+          "title": "Look Applied",
+          "body": "{{name}} is now active."
+        },
+        "error": {
+          "title": "Apply Failed"
+        }
+      },
+      "confirm-delete": {
+        "title": "Delete Look",
+        "description": "Are you sure you want to delete {{name}}?"
+      }
+    }
+  },
+  "screenshots": {
+    "search": {
+      "label": "Search screenshots",
+      "placeholder": "Search screenshots...",
+      "placeholder-count_one": "Search {{count}} screenshot...",
+      "placeholder-count_other": "Search {{count}} screenshots...",
+      "results_one": "{{count}} found",
+      "results_other": "{{count}} found",
+      "no-results": {
+        "title": "No screenshots found",
+        "subtitle": "Try a different search or source filter.",
+        "clear-filters": "Clear filters"
+      },
+      "clear": "Clear search"
+    },
+    "empty": {
+      "title": "No screenshots yet",
+      "subtitle": "Press F2 in game to take a screenshot — it will show up here."
+    },
+    "sources": {
+      "all": "All Sources",
+      "minecraft": ".minecraft"
+    },
+    "sorts": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "name-asc": "Name (A-Z)",
+      "name-desc": "Name (Z-A)"
+    },
+    "context-menu": {
+      "header": "Screenshot"
+    },
+    "info": {
+      "resolution": "{{width}} × {{height}}"
+    },
+    "selection": {
+      "selected_one": "{{count}} screenshot selected",
+      "selected_other": "{{count}} screenshots selected",
+      "delete": "Delete screenshots",
+      "clear": "Clear selection",
+      "delete-failed_one": "{{count}} screenshot couldn't be deleted",
+      "delete-failed_other": "{{count}} screenshots couldn't be deleted"
+    },
+    "actions": {
+      "refresh": "Refresh",
+      "open-folder": "Open Folder",
+      "select": "Select",
+      "deselect": "Deselect",
+      "edit": "Edit",
+      "copy": "Copy Image",
+      "show-in-folder": "Show in Folder",
+      "delete": "Delete",
+      "rename": "Rename"
+    },
+    "viewer": {
+      "loading": "Loading screenshot...",
+      "previous": "Previous screenshot",
+      "next": "Next screenshot",
+      "position": "{{current}} of {{total}}",
+      "load-failed": "This screenshot couldn't be loaded. The file may have been moved or deleted.",
+      "zoom-in": "Zoom in",
+      "zoom-out": "Zoom out",
+      "zoom-reset": "Reset zoom"
+    },
+    "editor": {
+      "title": "Editing {{name}}",
+      "tools": {
+        "select": "Select",
+        "pen": "Draw",
+        "shape": "Shape",
+        "text": "Text",
+        "eraser": "Eraser",
+        "crop": "Crop"
+      },
+      "stroke-size": "Stroke size {{size}}",
+      "undo": "Undo",
+      "redo": "Redo",
+      "apply-crop": "Apply Crop",
+      "cancel-crop": "Cancel",
+      "unsaved-changes": "Unsaved changes",
+      "save-copy": "Save as Copy",
+      "overwrite": "Overwrite",
+      "colors": {
+        "red": "Red",
+        "orange": "Orange",
+        "yellow": "Yellow",
+        "green": "Green",
+        "blue": "Blue",
+        "white": "White",
+        "black": "Black",
+        "custom": "Custom color"
+      },
+      "discard-changes": {
+        "title": "Discard Changes",
+        "description": "You have unsaved edits to \"{{name}}\". Are you sure you want to discard them?",
+        "confirm": "Discard"
+      },
+      "overwrite-confirm": {
+        "title": "Overwrite Screenshot",
+        "description": "This will replace the original \"{{name}}\" with your edits. This cannot be undone.",
+        "confirm": "Overwrite"
+      },
+      "shapes": {
+        "rect": "Rectangle",
+        "ellipse": "Ellipse",
+        "triangle": "Triangle",
+        "star": "Star",
+        "line": "Line",
+        "arrow": "Arrow"
+      },
+      "transforms": {
+        "rotate-ccw": "Rotate left",
+        "rotate-cw": "Rotate right",
+        "flip-horizontal": "Flip horizontal",
+        "flip-vertical": "Flip vertical"
+      },
+      "pick-color": "Choose a color",
+      "eyedropper": "Pick a color from the image",
+      "selection-hint": "Drag to move — use the handles to resize or rotate — press Delete to remove",
+      "color-picker": {
+        "done": "Done"
+      }
+    },
+    "confirm-delete": {
+      "title": "Delete Screenshot",
+      "description": "Are you sure you want to delete \"{{name}}\"? It will be moved to the trash."
+    },
+    "confirm-delete-selected": {
+      "title": "Delete Screenshots",
+      "description_one": "Are you sure you want to delete {{count}} screenshot? It will be moved to the trash.",
+      "description_other": "Are you sure you want to delete {{count}} screenshots? They will be moved to the trash."
+    },
+    "toasts": {
+      "saved": {
+        "title": "Screenshot Saved"
+      },
+      "save-failed": {
+        "title": "Can't Save Screenshot",
+        "subtitle": "Something went wrong while saving. Please try again."
+      },
+      "copied": {
+        "title": "Image Copied to Clipboard"
+      },
+      "deleted": {
+        "title": "Screenshot Deleted"
+      },
+      "deleted-selected": {
+        "title": "Screenshots Deleted",
+        "body_one": "{{count}} screenshot moved to the trash",
+        "body_other": "{{count}} screenshots moved to the trash"
+      },
+      "delete-failed": {
+        "title": "Can't Delete Screenshot"
+      },
+      "load-failed": {
+        "title": "Can't Load Screenshot"
+      },
+      "copy-failed": {
+        "title": "Can't Copy Image"
+      },
+      "renamed": {
+        "title": "Screenshot Renamed"
+      }
+    },
+    "rename": {
+      "title": "Rename Screenshot",
+      "placeholder": "New name",
+      "cancel": "Cancel",
+      "confirm": "Rename",
+      "errors": {
+        "invalid": "That name can't be used. Avoid characters like / \\ : * ? \" < > |.",
+        "exists": "A file with that name already exists.",
+        "failed": "Something went wrong while renaming. Please try again."
+      }
+    }
+  }
+}

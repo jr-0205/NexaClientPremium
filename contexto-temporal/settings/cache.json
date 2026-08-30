@@ -1,0 +1,48 @@
+{
+	"profileSelectHistory": {
+		"lunar": [],
+		"modrinth": [],
+		"vanilla": [],
+		"user-modpack": [
+			{
+				"time": 1788074939917,
+				"version": "1.21.8",
+				"module": "fabric",
+				"profileId": "ca09900b-3645-4e81-8129-aa5e00073a6a"
+			},
+			{
+				"time": 1788060643029,
+				"version": "1.21.8",
+				"module": "fabric",
+				"profileId": "ca09900b-3645-4e81-8129-aa5e00073a6a"
+			},
+			{
+				"time": 1788060642995,
+				"version": "1.21.8",
+				"module": "fabric",
+				"profileId": "ca09900b-3645-4e81-8129-aa5e00073a6a"
+			}
+		],
+		"curseforge": [],
+		"explore": [],
+		"badlion": []
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.7.16-ow"
+		}
+	},
+	"terms": {
+		"privacy": {
+			"updatedAt": "2025-10-16T00:00:00.000Z",
+			"hash": "0adbe35120db93cdc0b3ff0e5cbd11387bedb125",
+			"acceptedAt": "2026-08-29T20:01:08.859Z"
+		},
+		"terms": {
+			"updatedAt": "2025-10-16T00:00:00.000Z",
+			"hash": "0adbe35120db93cdc0b3ff0e5cbd11387bedb125",
+			"acceptedAt": "2026-08-29T20:01:08.859Z"
+		}
+	},
+	"guestViewed": true
+}

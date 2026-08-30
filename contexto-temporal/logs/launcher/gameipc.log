@@ -1,0 +1,84 @@
+[2026-08-24 03:27:21.864] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-24 03:27:21.945] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-24 03:27:22.047] [info]  [GameIPC] Server listening on port 28190
+[2026-08-24 03:33:23.423] [info]  [GameIPC] Received handshake from headers!
+[2026-08-24 03:33:23.428] [info]  [GameIPC] Registered 9 services
+[2026-08-24 03:33:23.430] [info]  [GameIPC] No pending pushes to flush
+[2026-08-24 04:45:39.406] [info]  [GameIPC] Client connection has closed. Launch ID: 07e27470-764f-4790-bcbd-5856a05dd641, Code: 1006, Reason: 
+[2026-08-24 04:49:36.381] [info]  [GameIPC] Received handshake from headers!
+[2026-08-24 04:49:36.387] [info]  [GameIPC] Registered 9 services
+[2026-08-24 04:49:36.389] [info]  [GameIPC] No pending pushes to flush
+[2026-08-24 05:19:20.688] [info]  [GameIPC] Client connection has closed. Launch ID: df4865d2-8ac1-403b-8f15-a6366ea12cec, Code: 1006, Reason: 
+[2026-08-24 16:18:36.063] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-24 16:18:36.160] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-24 16:18:36.253] [info]  [GameIPC] Server listening on port 28190
+[2026-08-24 16:25:05.161] [info]  [GameIPC] Received handshake from headers!
+[2026-08-24 16:25:05.192] [info]  [GameIPC] Registered 9 services
+[2026-08-24 16:25:05.197] [info]  [GameIPC] No pending pushes to flush
+[2026-08-25 00:11:29.108] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-25 00:11:29.250] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-25 00:11:29.433] [info]  [GameIPC] Server listening on port 28190
+[2026-08-25 00:11:35.023] [info]  [GameIPC] Received handshake from headers!
+[2026-08-25 00:11:35.057] [info]  [GameIPC] Registered 9 services
+[2026-08-25 00:11:35.078] [info]  [GameIPC] No pending pushes to flush
+[2026-08-25 04:08:39.419] [info]  [GameIPC] Client connection has closed. Launch ID: 9b18d9c3-01f5-4117-a9a1-240c0d1f3b9a, Code: 1006, Reason: 
+[2026-08-25 23:33:16.079] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-25 23:33:16.181] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-25 23:33:16.285] [info]  [GameIPC] Server listening on port 28190
+[2026-08-25 23:38:18.112] [info]  [GameIPC] Received handshake from headers!
+[2026-08-25 23:38:18.119] [info]  [GameIPC] Registered 9 services
+[2026-08-25 23:38:18.211] [info]  [GameIPC] No pending pushes to flush
+[2026-08-26 00:44:29.713] [info]  [GameIPC] Client connection has closed. Launch ID: 497b0e91-169c-4853-af66-dfeaef5abf76, Code: 1006, Reason: 
+[2026-08-26 02:36:32.628] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-26 02:36:32.719] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-26 02:36:32.795] [info]  [GameIPC] Server listening on port 28190
+[2026-08-26 02:41:07.645] [info]  [GameIPC] Received handshake from headers!
+[2026-08-26 02:41:07.657] [info]  [GameIPC] Registered 9 services
+[2026-08-26 02:41:07.659] [info]  [GameIPC] No pending pushes to flush
+[2026-08-26 04:51:36.947] [info]  [GameIPC] Client connection has closed. Launch ID: 58ed73cc-e2bc-4d88-bf02-1eb4e5f6a165, Code: 1006, Reason: 
+[2026-08-26 22:45:42.552] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-26 22:45:42.664] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-26 22:45:42.783] [info]  [GameIPC] Server listening on port 28190
+[2026-08-26 22:51:01.787] [info]  [GameIPC] Received handshake from headers!
+[2026-08-26 22:51:01.791] [info]  [GameIPC] Registered 9 services
+[2026-08-26 22:51:01.793] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 00:24:31.563] [info]  [GameIPC] Client connection has closed. Launch ID: 93ba942f-06b5-4eea-a041-c02f007794c8, Code: 1006, Reason: 
+[2026-08-27 02:22:14.434] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-27 02:22:14.523] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-27 02:22:14.615] [info]  [GameIPC] Server listening on port 28190
+[2026-08-27 02:29:06.461] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 02:29:06.502] [info]  [GameIPC] Registered 9 services
+[2026-08-27 02:29:06.515] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 02:48:10.516] [info]  [GameIPC] Client connection has closed. Launch ID: 4da8f02c-4c66-42fa-9e38-417a265d810d, Code: 1006, Reason: 
+[2026-08-27 12:20:35.244] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-27 12:20:35.323] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-27 12:20:35.407] [info]  [GameIPC] Server listening on port 28190
+[2026-08-27 12:30:18.360] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 12:30:18.379] [info]  [GameIPC] Registered 9 services
+[2026-08-27 12:30:18.386] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 13:11:41.868] [info]  [GameIPC] Client connection has closed. Launch ID: 2274adbb-0276-4076-a132-434ad6e67e39, Code: 1006, Reason: 
+[2026-08-27 13:27:18.179] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 13:27:18.199] [info]  [GameIPC] Registered 9 services
+[2026-08-27 13:27:18.202] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 13:34:13.904] [info]  [GameIPC] Client connection has closed. Launch ID: 3451dd72-de55-45f8-9675-6e839fd44ae9, Code: 1006, Reason: 
+[2026-08-27 14:35:27.009] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 14:35:27.021] [info]  [GameIPC] Registered 9 services
+[2026-08-27 14:35:27.024] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 15:19:09.303] [info]  [GameIPC] Client connection has closed. Launch ID: 035db4bd-3335-4903-b3f9-df379531b32f, Code: 1006, Reason: 
+[2026-08-27 15:19:24.766] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 15:19:24.788] [info]  [GameIPC] Registered 9 services
+[2026-08-27 15:19:24.789] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 17:45:05.757] [info]  [GameIPC] Client connection has closed. Launch ID: 035db4bd-3335-4903-b3f9-df379531b32f, Code: 1000, Reason: 
+[2026-08-27 21:13:50.879] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-27 21:13:50.955] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-27 21:13:51.029] [info]  [GameIPC] Server listening on port 28190
+[2026-08-27 21:17:54.439] [info]  [GameIPC] Received handshake from headers!
+[2026-08-27 21:17:54.446] [info]  [GameIPC] Registered 9 services
+[2026-08-27 21:17:54.448] [info]  [GameIPC] No pending pushes to flush
+[2026-08-27 22:48:52.933] [info]  [GameIPC] Client connection has closed. Launch ID: 42b754f4-f17d-428d-a4a9-62781ba4e60a, Code: 1000, Reason: 
+[2026-08-29 14:01:07.203] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-29 14:01:07.282] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-29 14:01:07.384] [info]  [GameIPC] Server listening on port 28190
+[2026-08-29 21:14:48.253] [info]  [Electron] Logger initialized for gameipc at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\gameipc.log (Prefix: GameIPC)
+[2026-08-29 21:14:48.349] [info]  [GameIPC] Using WebSocketServer directly
+[2026-08-29 21:14:48.472] [info]  [GameIPC] Server listening on port 28190

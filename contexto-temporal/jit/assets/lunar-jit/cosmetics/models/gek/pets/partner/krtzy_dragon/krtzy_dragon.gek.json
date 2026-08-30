@@ -1,0 +1,28 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/partner/krtzy_dragon/krtzy_dragon.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/partner/krtzy_dragon/krtzy_dragon.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/partner/krtzy_dragon/krtzy_dragon.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "10",
+        "states": [
+          {
+            "anim": "elytra",
+            "plays_when": "q.is_swimming || q.is_elytra_flying",
+            "transition_easing": "easeOutSine"
+          },
+          {
+            "anim": "main",
+            "plays_when": "1",
+            "transition_easing": "easeOutSine"
+          }
+        ]
+      }
+    ]
+  }
+}

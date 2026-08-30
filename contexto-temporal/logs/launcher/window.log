@@ -1,0 +1,571 @@
+[2026-08-24 03:25:58.118] [debug] [Window] [mission-control] Window closing...
+[2026-08-24 03:27:10.430] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-24 03:27:21.743] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-24 03:27:21.813] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-24 03:27:21.852] [info]  [Window] Setup complete!
+[2026-08-24 03:27:22.103] [debug] [Window] [main] Window focused
+[2026-08-24 03:27:23.622] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-24 03:27:23.810] [debug] [Window] [main] Window ready to show
+[2026-08-24 03:27:23.813] [info]  [Window] [main] [Console] 03:27:23.774 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-24 03:27:23.814] [info]  [Window] [main] [Console] 03:27:23.776 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-24 03:27:23.815] [info]  [Window] [main] [Console] 03:27:23.777 ›          * Sample rate: 0.05
+[2026-08-24 03:27:23.816] [info]  [Window] [main] [Console] 03:27:23.777 ›          * Traces Sample rate: 0.01
+[2026-08-24 03:27:23.818] [info]  [Window] [main] [Console] 03:27:23.777 ›          * Debug: disabled
+[2026-08-24 03:27:23.819] [info]  [Window] [main] [Console] 03:27:23.777 ›          * ANR: disabled
+[2026-08-24 03:27:23.821] [info]  [Window] [main] [Console] 03:27:23.777 ›          * Environment: production
+[2026-08-24 03:27:24.502] [info]  [Window] Renderer ready for window 'main'
+[2026-08-24 03:27:24.767] [info]  [Window] [main] [Console] 03:27:24.483 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-24 03:27:33.048] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: https://skins.mcstats.com/raw/aa35297e424044cb8b676659959d35eb?cropLeft=0
+[2026-08-24 03:27:55.896] [error] [Window] [main] [Console] Uncaught (in promise) #<Event>
+[2026-08-24 03:27:59.994] [debug] [Window] [main] Window focused
+[2026-08-24 03:28:10.295] [debug] [Window] [main] Window focused
+[2026-08-24 03:28:10.595] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: data:image/png;base64,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
+[2026-08-24 03:28:10.606] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:37.431] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318
+[2026-08-24 03:28:37.714] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:40.291] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/b999ea52809a505996d29ef58a8c60f7bb31ae2645736c867cc51f0d3e7e1f19
+[2026-08-24 03:28:40.483] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:41.606] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318
+[2026-08-24 03:28:41.613] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:42.590] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/b999ea52809a505996d29ef58a8c60f7bb31ae2645736c867cc51f0d3e7e1f19
+[2026-08-24 03:28:42.595] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:44.166] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/2d0a403edce24fdc3de8e8d6e952ff57ef7e7abddb68084f2059293ea9165753
+[2026-08-24 03:28:44.345] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:28:45.788] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318
+[2026-08-24 03:28:45.805] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 03:33:02.466] [info]  [Window] Hiding all windows...
+[2026-08-24 03:33:02.489] [debug] [Window] [main] Window hidden
+[2026-08-24 04:45:39.956] [debug] [Window] [main] Window focused
+[2026-08-24 04:45:54.483] [debug] [Window] [main] Window minimized
+[2026-08-24 04:46:13.590] [debug] [Window] [main] Window focused
+[2026-08-24 04:46:25.178] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: https://skins.mcstats.com/raw/aa35297e424044cb8b676659959d35eb?cropLeft=0
+[2026-08-24 04:46:25.375] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 04:46:25.575] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318
+[2026-08-24 04:46:25.634] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-24 04:47:02.482] [debug] [Window] [main] Window focused
+[2026-08-24 04:47:09.382] [debug] [Window] [main] Window focused
+[2026-08-24 04:47:21.433] [debug] [Window] [main] Window focused
+[2026-08-24 04:47:39.151] [debug] [Window] [main] Window minimized
+[2026-08-24 04:47:41.051] [debug] [Window] [main] Window focused
+[2026-08-24 04:48:14.205] [debug] [Window] [main] Window minimized
+[2026-08-24 04:48:17.189] [debug] [Window] [main] Window focused
+[2026-08-24 04:49:07.743] [info]  [Window] Hiding all windows...
+[2026-08-24 04:49:07.759] [debug] [Window] [main] Window hidden
+[2026-08-24 05:19:22.065] [debug] [Window] [main] Window focused
+[2026-08-24 16:18:32.298] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-24 16:18:35.958] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-24 16:18:36.012] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-24 16:18:36.051] [info]  [Window] Setup complete!
+[2026-08-24 16:18:36.316] [debug] [Window] [main] Window focused
+[2026-08-24 16:18:37.795] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-24 16:18:37.947] [debug] [Window] [main] Window ready to show
+[2026-08-24 16:18:37.956] [info]  [Window] [main] [Console] 16:18:37.916 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-24 16:18:37.958] [info]  [Window] [main] [Console] 16:18:37.918 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-24 16:18:37.959] [info]  [Window] [main] [Console] 16:18:37.918 ›          * Sample rate: 0.05
+[2026-08-24 16:18:37.961] [info]  [Window] [main] [Console] 16:18:37.919 ›          * Traces Sample rate: 0.01
+[2026-08-24 16:18:37.963] [info]  [Window] [main] [Console] 16:18:37.919 ›          * Debug: disabled
+[2026-08-24 16:18:37.964] [info]  [Window] [main] [Console] 16:18:37.919 ›          * ANR: disabled
+[2026-08-24 16:18:37.965] [info]  [Window] [main] [Console] 16:18:37.919 ›          * Environment: production
+[2026-08-24 16:18:38.518] [info]  [Window] Renderer ready for window 'main'
+[2026-08-24 16:18:42.616] [info]  [Window] [main] [Console] 16:18:38.501 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-24 16:18:44.797] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-24 16:18:44.801] [info]  [Window] Opening Mission Control on primary display (Display ID: 4154504103)...
+[2026-08-24 16:18:45.378] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-24 16:18:45.549] [debug] [Window] [mission-control] Window ready to show
+[2026-08-24 16:18:45.561] [info]  [Window] [mission-control] [Console] 16:18:45.519 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-24 16:18:45.563] [info]  [Window] [mission-control] [Console] 16:18:45.521 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-24 16:18:45.564] [info]  [Window] [mission-control] [Console] 16:18:45.521 ›          * Sample rate: 0.05
+[2026-08-24 16:18:45.566] [info]  [Window] [mission-control] [Console] 16:18:45.522 ›          * Traces Sample rate: 0.01
+[2026-08-24 16:18:45.567] [info]  [Window] [mission-control] [Console] 16:18:45.522 ›          * Debug: disabled
+[2026-08-24 16:18:45.568] [info]  [Window] [mission-control] [Console] 16:18:45.522 ›          * ANR: disabled
+[2026-08-24 16:18:45.569] [info]  [Window] [mission-control] [Console] 16:18:45.522 ›          * Environment: production
+[2026-08-24 16:18:46.174] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-24 16:18:46.213] [debug] [Window] [mission-control] Window focused
+[2026-08-24 16:19:08.842] [debug] [Window] [mission-control] Window focused
+[2026-08-24 16:22:08.629] [debug] [Window] [mission-control] Window focused
+[2026-08-24 16:22:09.114] [debug] [Window] [mission-control] Window minimized
+[2026-08-24 16:22:09.221] [debug] [Window] [main] Window focused
+[2026-08-24 16:22:09.920] [debug] [Window] [main] Window minimized
+[2026-08-24 16:22:38.541] [debug] [Window] [mission-control] Window focused
+[2026-08-24 16:22:51.841] [debug] [Window] [mission-control] Window focused
+[2026-08-24 16:23:14.103] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-24 16:23:14.189] [debug] [Window] [main] Window hidden
+[2026-08-25 00:10:41.385] [debug] [Window] [mission-control] Window focused
+[2026-08-25 00:10:41.389] [info]  [Window] Downloaded update present on window focus... quiting and installing!
+[2026-08-25 00:10:44.996] [info]  [Window] Cleaning up...
+[2026-08-25 00:10:45.072] [debug] [Window] [main] Window closing...
+[2026-08-25 00:10:45.119] [debug] [Window] [mission-control] Window closing...
+[2026-08-25 00:11:19.581] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-25 00:11:27.929] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-25 00:11:29.025] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-25 00:11:29.089] [info]  [Window] Setup complete!
+[2026-08-25 00:11:29.707] [debug] [Window] [main] Window focused
+[2026-08-25 00:11:39.175] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-25 00:11:43.130] [info]  [Window] [main] [Console] 00:11:42.438 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-25 00:11:43.137] [info]  [Window] [main] [Console] 00:11:42.540 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-25 00:11:43.140] [info]  [Window] [main] [Console] 00:11:42.542 ›          * Sample rate: 0.05
+[2026-08-25 00:11:43.142] [info]  [Window] [main] [Console] 00:11:42.543 ›          * Traces Sample rate: 0.01
+[2026-08-25 00:11:43.147] [info]  [Window] [main] [Console] 00:11:42.543 ›          * Debug: disabled
+[2026-08-25 00:11:43.151] [info]  [Window] [main] [Console] 00:11:42.543 ›          * ANR: disabled
+[2026-08-25 00:11:43.153] [info]  [Window] [main] [Console] 00:11:42.544 ›          * Environment: production
+[2026-08-25 00:11:51.480] [info]  [Window] Renderer ready for window 'main'
+[2026-08-25 00:11:53.034] [info]  [Window] [main] [Console] 00:11:51.426 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-25 00:11:53.271] [debug] [Window] [main] Window ready to show
+[2026-08-25 00:23:08.840] [debug] [Window] [main] Window minimized
+[2026-08-25 23:33:12.050] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-25 23:33:15.978] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-25 23:33:16.056] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-25 23:33:16.064] [info]  [Window] Setup complete!
+[2026-08-25 23:33:18.161] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-25 23:33:18.337] [info]  [Window] [main] [Console] 23:33:18.305 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-25 23:33:18.339] [info]  [Window] [main] [Console] 23:33:18.306 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-25 23:33:18.341] [info]  [Window] [main] [Console] 23:33:18.307 ›          * Sample rate: 0.05
+[2026-08-25 23:33:18.343] [info]  [Window] [main] [Console] 23:33:18.307 ›          * Traces Sample rate: 0.01
+[2026-08-25 23:33:18.344] [info]  [Window] [main] [Console] 23:33:18.307 ›          * Debug: disabled
+[2026-08-25 23:33:18.346] [info]  [Window] [main] [Console] 23:33:18.308 ›          * ANR: disabled
+[2026-08-25 23:33:18.347] [info]  [Window] [main] [Console] 23:33:18.308 ›          * Environment: production
+[2026-08-25 23:33:18.836] [info]  [Window] Renderer ready for window 'main'
+[2026-08-25 23:33:18.896] [debug] [Window] [main] Window focused
+[2026-08-25 23:33:19.265] [debug] [Window] [main] Window ready to show
+[2026-08-25 23:33:27.867] [info]  [Window] [main] [Console] 23:33:18.821 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-25 23:33:29.083] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-25 23:33:29.089] [info]  [Window] Opening Mission Control on primary display (Display ID: 4162083945)...
+[2026-08-25 23:33:33.414] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-25 23:33:34.029] [debug] [Window] [mission-control] Window ready to show
+[2026-08-25 23:33:34.037] [info]  [Window] [mission-control] [Console] 23:33:33.979 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-25 23:33:34.039] [info]  [Window] [mission-control] [Console] 23:33:33.985 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-25 23:33:34.040] [info]  [Window] [mission-control] [Console] 23:33:33.986 ›          * Sample rate: 0.05
+[2026-08-25 23:33:34.042] [info]  [Window] [mission-control] [Console] 23:33:33.986 ›          * Traces Sample rate: 0.01
+[2026-08-25 23:33:34.044] [info]  [Window] [mission-control] [Console] 23:33:33.986 ›          * Debug: disabled
+[2026-08-25 23:33:34.046] [info]  [Window] [mission-control] [Console] 23:33:33.987 ›          * ANR: disabled
+[2026-08-25 23:33:34.047] [info]  [Window] [mission-control] [Console] 23:33:33.987 ›          * Environment: production
+[2026-08-25 23:33:34.927] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-25 23:33:34.989] [debug] [Window] [mission-control] Window focused
+[2026-08-25 23:36:49.954] [debug] [Window] [mission-control] Window minimized
+[2026-08-25 23:36:50.010] [debug] [Window] [main] Window focused
+[2026-08-25 23:36:53.605] [debug] [Window] [main] Window minimized
+[2026-08-25 23:37:40.304] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-25 23:37:40.347] [debug] [Window] [main] Window hidden
+[2026-08-26 02:36:29.160] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-26 02:36:32.559] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-26 02:36:32.612] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-26 02:36:32.617] [info]  [Window] Setup complete!
+[2026-08-26 02:36:34.245] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-26 02:36:34.491] [info]  [Window] [main] [Console] 02:36:34.456 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-26 02:36:34.493] [info]  [Window] [main] [Console] 02:36:34.458 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-26 02:36:34.494] [info]  [Window] [main] [Console] 02:36:34.459 ›          * Sample rate: 0.05
+[2026-08-26 02:36:34.495] [info]  [Window] [main] [Console] 02:36:34.459 ›          * Traces Sample rate: 0.01
+[2026-08-26 02:36:34.497] [info]  [Window] [main] [Console] 02:36:34.459 ›          * Debug: disabled
+[2026-08-26 02:36:34.498] [info]  [Window] [main] [Console] 02:36:34.460 ›          * ANR: disabled
+[2026-08-26 02:36:34.499] [info]  [Window] [main] [Console] 02:36:34.460 ›          * Environment: production
+[2026-08-26 02:36:35.199] [info]  [Window] Renderer ready for window 'main'
+[2026-08-26 02:36:35.247] [debug] [Window] [main] Window focused
+[2026-08-26 02:36:35.666] [debug] [Window] [main] Window ready to show
+[2026-08-26 02:36:39.770] [info]  [Window] [main] [Console] 02:36:35.178 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-26 02:36:41.153] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-26 02:36:41.157] [info]  [Window] Opening Mission Control on primary display (Display ID: 1322389435)...
+[2026-08-26 02:36:42.195] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-26 02:36:42.452] [debug] [Window] [mission-control] Window ready to show
+[2026-08-26 02:36:42.454] [info]  [Window] [mission-control] [Console] 02:36:42.327 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-26 02:36:42.455] [info]  [Window] [mission-control] [Console] 02:36:42.329 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-26 02:36:42.457] [info]  [Window] [mission-control] [Console] 02:36:42.329 ›          * Sample rate: 0.05
+[2026-08-26 02:36:42.459] [info]  [Window] [mission-control] [Console] 02:36:42.330 ›          * Traces Sample rate: 0.01
+[2026-08-26 02:36:42.461] [info]  [Window] [mission-control] [Console] 02:36:42.330 ›          * Debug: disabled
+[2026-08-26 02:36:42.462] [info]  [Window] [mission-control] [Console] 02:36:42.330 ›          * ANR: disabled
+[2026-08-26 02:36:42.463] [info]  [Window] [mission-control] [Console] 02:36:42.330 ›          * Environment: production
+[2026-08-26 02:36:42.909] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-26 02:36:42.941] [debug] [Window] [mission-control] Window focused
+[2026-08-26 02:38:52.183] [debug] [Window] [mission-control] Window minimized
+[2026-08-26 02:38:52.238] [debug] [Window] [main] Window focused
+[2026-08-26 02:38:54.478] [debug] [Window] [main] Window minimized
+[2026-08-26 02:40:33.525] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-26 02:40:33.679] [debug] [Window] [main] Window hidden
+[2026-08-26 04:16:07.594] [debug] [Window] [mission-control] Window focused
+[2026-08-26 04:51:27.535] [debug] [Window] [mission-control] Window closing...
+[2026-08-26 04:51:37.780] [debug] [Window] [main] Window focused
+[2026-08-26 04:51:37.785] [debug] [Window] [main] Window focused
+[2026-08-26 04:52:15.300] [debug] [Window] [main] Window closing...
+[2026-08-26 04:52:15.315] [debug] [Window] [main] Window hidden
+[2026-08-26 22:45:38.097] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-26 22:45:42.449] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-26 22:45:42.524] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-26 22:45:42.534] [info]  [Window] Setup complete!
+[2026-08-26 22:45:44.227] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-26 22:45:44.336] [debug] [Window] [main] Window ready to show
+[2026-08-26 22:45:44.338] [info]  [Window] [main] [Console] 22:45:44.316 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-26 22:45:44.339] [info]  [Window] [main] [Console] 22:45:44.317 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-26 22:45:44.340] [info]  [Window] [main] [Console] 22:45:44.317 ›          * Sample rate: 0.05
+[2026-08-26 22:45:44.341] [info]  [Window] [main] [Console] 22:45:44.318 ›          * Traces Sample rate: 0.01
+[2026-08-26 22:45:44.342] [info]  [Window] [main] [Console] 22:45:44.318 ›          * Debug: disabled
+[2026-08-26 22:45:44.343] [info]  [Window] [main] [Console] 22:45:44.318 ›          * ANR: disabled
+[2026-08-26 22:45:44.344] [info]  [Window] [main] [Console] 22:45:44.318 ›          * Environment: production
+[2026-08-26 22:45:44.740] [info]  [Window] Renderer ready for window 'main'
+[2026-08-26 22:45:44.785] [debug] [Window] [main] Window focused
+[2026-08-26 22:45:45.160] [info]  [Window] [main] [Console] 22:45:44.727 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-26 22:46:12.644] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-26 22:46:12.650] [info]  [Window] Opening Mission Control on primary display (Display ID: 2623434305)...
+[2026-08-26 22:46:13.295] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-26 22:46:13.558] [debug] [Window] [mission-control] Window ready to show
+[2026-08-26 22:46:13.560] [info]  [Window] [mission-control] [Console] 22:46:13.520 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-26 22:46:13.561] [info]  [Window] [mission-control] [Console] 22:46:13.524 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-26 22:46:13.563] [info]  [Window] [mission-control] [Console] 22:46:13.525 ›          * Sample rate: 0.05
+[2026-08-26 22:46:13.564] [info]  [Window] [mission-control] [Console] 22:46:13.525 ›          * Traces Sample rate: 0.01
+[2026-08-26 22:46:13.566] [info]  [Window] [mission-control] [Console] 22:46:13.525 ›          * Debug: disabled
+[2026-08-26 22:46:13.567] [info]  [Window] [mission-control] [Console] 22:46:13.526 ›          * ANR: disabled
+[2026-08-26 22:46:13.568] [info]  [Window] [mission-control] [Console] 22:46:13.526 ›          * Environment: production
+[2026-08-26 22:46:14.156] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-26 22:46:14.188] [debug] [Window] [mission-control] Window focused
+[2026-08-26 22:50:20.675] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-26 22:50:20.774] [debug] [Window] [main] Window hidden
+[2026-08-27 00:24:07.222] [debug] [Window] [mission-control] Window closing...
+[2026-08-27 00:24:32.386] [debug] [Window] [main] Window focused
+[2026-08-27 00:24:35.657] [debug] [Window] [main] Window minimized
+[2026-08-27 00:50:23.339] [debug] [Window] [main] Window closing...
+[2026-08-27 00:50:23.379] [debug] [Window] [main] Window hidden
+[2026-08-27 02:22:12.367] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-27 02:22:14.271] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-27 02:22:14.414] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-27 02:22:14.421] [info]  [Window] Setup complete!
+[2026-08-27 02:22:16.116] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 02:22:16.246] [debug] [Window] [main] Window ready to show
+[2026-08-27 02:22:16.250] [info]  [Window] [main] [Console] 02:22:16.225 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-27 02:22:16.251] [info]  [Window] [main] [Console] 02:22:16.227 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 02:22:16.252] [info]  [Window] [main] [Console] 02:22:16.227 ›          * Sample rate: 0.05
+[2026-08-27 02:22:16.253] [info]  [Window] [main] [Console] 02:22:16.227 ›          * Traces Sample rate: 0.01
+[2026-08-27 02:22:16.254] [info]  [Window] [main] [Console] 02:22:16.227 ›          * Debug: disabled
+[2026-08-27 02:22:16.256] [info]  [Window] [main] [Console] 02:22:16.227 ›          * ANR: disabled
+[2026-08-27 02:22:16.257] [info]  [Window] [main] [Console] 02:22:16.227 ›          * Environment: production
+[2026-08-27 02:22:16.743] [info]  [Window] Renderer ready for window 'main'
+[2026-08-27 02:22:16.792] [debug] [Window] [main] Window focused
+[2026-08-27 02:22:22.174] [info]  [Window] [main] [Console] 02:22:16.723 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-27 02:23:01.891] [debug] [Window] [main] Window focused
+[2026-08-27 02:23:03.897] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-27 02:23:03.901] [info]  [Window] Opening Mission Control on primary display (Display ID: 2623434305)...
+[2026-08-27 02:23:04.519] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 02:23:04.719] [debug] [Window] [mission-control] Window ready to show
+[2026-08-27 02:23:04.724] [info]  [Window] [mission-control] [Console] 02:23:04.680 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-27 02:23:04.727] [info]  [Window] [mission-control] [Console] 02:23:04.682 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 02:23:04.729] [info]  [Window] [mission-control] [Console] 02:23:04.683 ›          * Sample rate: 0.05
+[2026-08-27 02:23:04.731] [info]  [Window] [mission-control] [Console] 02:23:04.683 ›          * Traces Sample rate: 0.01
+[2026-08-27 02:23:04.733] [info]  [Window] [mission-control] [Console] 02:23:04.683 ›          * Debug: disabled
+[2026-08-27 02:23:04.735] [info]  [Window] [mission-control] [Console] 02:23:04.684 ›          * ANR: disabled
+[2026-08-27 02:23:04.736] [info]  [Window] [mission-control] [Console] 02:23:04.684 ›          * Environment: production
+[2026-08-27 02:23:05.530] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-27 02:23:05.611] [debug] [Window] [mission-control] Window focused
+[2026-08-27 02:24:52.400] [debug] [Window] [mission-control] Window focused
+[2026-08-27 02:26:50.622] [debug] [Window] [mission-control] Window focused
+[2026-08-27 02:26:54.938] [debug] [Window] [mission-control] Window minimized
+[2026-08-27 02:27:56.246] [debug] [Window] [main] Window focused
+[2026-08-27 02:27:58.236] [debug] [Window] [main] Window minimized
+[2026-08-27 02:28:24.831] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-27 02:28:24.845] [debug] [Window] [main] Window hidden
+[2026-08-27 02:48:11.839] [debug] [Window] [main] Window focused
+[2026-08-27 02:48:11.867] [debug] [Window] [main] Window focused
+[2026-08-27 12:20:33.800] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-27 12:20:35.178] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-27 12:20:35.228] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-27 12:20:35.234] [info]  [Window] Setup complete!
+[2026-08-27 12:20:37.007] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 12:20:37.196] [info]  [Window] [main] [Console] 12:20:37.157 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-27 12:20:37.197] [info]  [Window] [main] [Console] 12:20:37.158 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 12:20:37.199] [info]  [Window] [main] [Console] 12:20:37.158 ›          * Sample rate: 0.05
+[2026-08-27 12:20:37.200] [info]  [Window] [main] [Console] 12:20:37.159 ›          * Traces Sample rate: 0.01
+[2026-08-27 12:20:37.202] [info]  [Window] [main] [Console] 12:20:37.159 ›          * Debug: disabled
+[2026-08-27 12:20:37.203] [info]  [Window] [main] [Console] 12:20:37.159 ›          * ANR: disabled
+[2026-08-27 12:20:37.204] [info]  [Window] [main] [Console] 12:20:37.159 ›          * Environment: production
+[2026-08-27 12:20:37.593] [info]  [Window] Renderer ready for window 'main'
+[2026-08-27 12:20:37.645] [debug] [Window] [main] Window focused
+[2026-08-27 12:20:37.953] [debug] [Window] [main] Window ready to show
+[2026-08-27 12:20:42.873] [info]  [Window] [main] [Console] 12:20:37.580 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-27 12:21:22.864] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-27 12:21:22.869] [info]  [Window] Opening Mission Control on primary display (Display ID: 2623434305)...
+[2026-08-27 12:21:23.928] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 12:21:24.162] [debug] [Window] [mission-control] Window ready to show
+[2026-08-27 12:21:24.165] [info]  [Window] [mission-control] [Console] 12:21:24.115 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-27 12:21:24.167] [info]  [Window] [mission-control] [Console] 12:21:24.118 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 12:21:24.168] [info]  [Window] [mission-control] [Console] 12:21:24.118 ›          * Sample rate: 0.05
+[2026-08-27 12:21:24.170] [info]  [Window] [mission-control] [Console] 12:21:24.119 ›          * Traces Sample rate: 0.01
+[2026-08-27 12:21:24.173] [info]  [Window] [mission-control] [Console] 12:21:24.119 ›          * Debug: disabled
+[2026-08-27 12:21:24.175] [info]  [Window] [mission-control] [Console] 12:21:24.119 ›          * ANR: disabled
+[2026-08-27 12:21:24.177] [info]  [Window] [mission-control] [Console] 12:21:24.120 ›          * Environment: production
+[2026-08-27 12:21:25.050] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-27 12:21:25.083] [debug] [Window] [mission-control] Window focused
+[2026-08-27 12:21:32.122] [debug] [Window] [mission-control] Window focused
+[2026-08-27 12:24:59.944] [debug] [Window] [mission-control] Window focused
+[2026-08-27 12:28:36.612] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-27 12:28:36.689] [debug] [Window] [main] Window hidden
+[2026-08-27 13:11:22.788] [debug] [Window] [mission-control] Window closing...
+[2026-08-27 13:11:42.739] [debug] [Window] [main] Window focused
+[2026-08-27 13:11:50.971] [debug] [Window] [main] Window closing...
+[2026-08-27 13:11:50.995] [debug] [Window] [main] Window hidden
+[2026-08-27 13:24:06.333] [info]  [Window] Second instance was detected, showing main window in primary...
+[2026-08-27 13:24:06.374] [debug] [Window] [main] Window focused
+[2026-08-27 13:24:07.733] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-27 13:24:07.740] [info]  [Window] Opening Mission Control on primary display (Display ID: 2623434305)...
+[2026-08-27 13:24:08.749] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 13:24:08.993] [debug] [Window] [mission-control] Window ready to show
+[2026-08-27 13:24:08.996] [info]  [Window] [mission-control] [Console] 13:24:08.903 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-27 13:24:08.998] [info]  [Window] [mission-control] [Console] 13:24:08.907 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 13:24:09.000] [info]  [Window] [mission-control] [Console] 13:24:08.908 ›          * Sample rate: 0.05
+[2026-08-27 13:24:09.002] [info]  [Window] [mission-control] [Console] 13:24:08.910 ›          * Traces Sample rate: 0.01
+[2026-08-27 13:24:09.004] [info]  [Window] [mission-control] [Console] 13:24:08.911 ›          * Debug: disabled
+[2026-08-27 13:24:09.006] [info]  [Window] [mission-control] [Console] 13:24:08.914 ›          * ANR: disabled
+[2026-08-27 13:24:09.008] [info]  [Window] [mission-control] [Console] 13:24:08.915 ›          * Environment: production
+[2026-08-27 13:24:09.822] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-27 13:24:09.874] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:24:40.429] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:25:00.815] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:25:27.243] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:26:21.692] [info]  [Window] Hiding all windows except mission-control...
+[2026-08-27 13:26:21.753] [debug] [Window] [main] Window hidden
+[2026-08-27 13:31:59.612] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:34:14.783] [debug] [Window] [main] Window focused
+[2026-08-27 13:34:19.124] [debug] [Window] [main] Window closing...
+[2026-08-27 13:34:19.144] [debug] [Window] [main] Window hidden
+[2026-08-27 13:36:44.673] [debug] [Window] [mission-control] Window focused
+[2026-08-27 13:36:46.934] [debug] [Window] [mission-control] Window closing...
+[2026-08-27 14:01:12.534] [info]  [Window] Second instance was detected, showing main window in primary...
+[2026-08-27 14:01:12.643] [debug] [Window] [main] Window focused
+[2026-08-27 14:01:15.583] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-27 14:01:16.458] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/67380c89-129f-43ea-96eb-7cd979e24a9a/icon?v=1779236756725.953' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:01:16.461] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:01:29.014] [debug] [Window] [main] Window focused
+[2026-08-27 14:07:57.035] [debug] [Window] [main] Window focused
+[2026-08-27 14:08:19.016] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-27 14:08:19.429] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/67380c89-129f-43ea-96eb-7cd979e24a9a/icon?v=1779236756725.953' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:08:19.433] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:08:37.149] [debug] [Window] [main] Window focused
+[2026-08-27 14:09:06.470] [info]  [Window] Window not created while switching route, creating...
+[2026-08-27 14:09:06.506] [info]  [Window] [satellite] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\satellite.html#/
+[2026-08-27 14:09:06.548] [debug] [Window] [satellite] Window focused
+[2026-08-27 14:09:06.999] [info]  [Window] [satellite] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 14:09:07.087] [debug] [Window] [satellite] Window ready to show
+[2026-08-27 14:09:07.090] [info]  [Window] [satellite] [Console] 14:09:07.074 › [Sentry] Initializing Sentry in satellite renderer...
+[2026-08-27 14:09:07.091] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 14:09:07.092] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * Sample rate: 0.05
+[2026-08-27 14:09:07.093] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * Traces Sample rate: 0.01
+[2026-08-27 14:09:07.095] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * Debug: disabled
+[2026-08-27 14:09:07.096] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * ANR: disabled
+[2026-08-27 14:09:07.097] [info]  [Window] [satellite] [Console] 14:09:07.075 ›          * Environment: production
+[2026-08-27 14:09:07.177] [info]  [Window] Renderer ready for window 'satellite'
+[2026-08-27 14:09:09.818] [debug] [Window] [satellite] Window closing...
+[2026-08-27 14:09:09.894] [debug] [Window] [main] Window focused
+[2026-08-27 14:09:53.009] [debug] [Window] [main] Window focused
+[2026-08-27 14:10:04.161] [debug] [Window] [main] Window focused
+[2026-08-27 14:10:04.192] [debug] [Window] [main] Window focused
+[2026-08-27 14:10:06.742] [debug] [Window] [main] Window focused
+[2026-08-27 14:13:11.026] [debug] [Window] [main] Window focused
+[2026-08-27 14:18:32.401] [debug] [Window] [main] Window focused
+[2026-08-27 14:19:10.442] [debug] [Window] [main] Window focused
+[2026-08-27 14:19:56.267] [debug] [Window] [main] Window focused
+[2026-08-27 14:20:21.838] [debug] [Window] [main] Window focused
+[2026-08-27 14:20:27.159] [debug] [Window] [main] Window focused
+[2026-08-27 14:20:34.960] [debug] [Window] [main] Window focused
+[2026-08-27 14:20:41.418] [debug] [Window] [main] Window focused
+[2026-08-27 14:20:50.456] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: https://skins.mcstats.com/raw/aa35297e424044cb8b676659959d35eb?cropLeft=0
+[2026-08-27 14:20:50.664] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-27 14:20:50.769] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318
+[2026-08-27 14:20:51.089] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-27 14:20:57.545] [debug] [Window] [main] Window focused
+[2026-08-27 14:21:05.801] [debug] [Window] [main] Window focused
+[2026-08-27 14:21:24.227] [info]  [Window] [main] [Console] [SkinViewer] Converting remote image to texture source for skin: https://skins.mcstats.com/raw/c0392a811e5041868707ddd7c475d0f6?cropLeft=0
+[2026-08-27 14:21:24.651] [info]  [Window] [main] [Console] [SkinViewer] Loading skin from [object HTMLImageElement] with type default
+[2026-08-27 14:23:05.589] [debug] [Window] [main] Window focused
+[2026-08-27 14:23:08.871] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-27 14:23:09.264] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/67380c89-129f-43ea-96eb-7cd979e24a9a/icon?v=1779236756725.953' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:23:09.267] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 14:23:20.907] [debug] [Window] [main] Window focused
+[2026-08-27 14:23:23.003] [debug] [Window] [main] Window focused
+[2026-08-27 14:23:46.160] [debug] [Window] [main] Window focused
+[2026-08-27 14:24:07.485] [debug] [Window] [main] Window focused
+[2026-08-27 14:24:13.578] [debug] [Window] [main] Window focused
+[2026-08-27 14:24:22.130] [debug] [Window] [main] Window focused
+[2026-08-27 14:24:26.151] [debug] [Window] [main] Window focused
+[2026-08-27 14:25:13.862] [debug] [Window] [main] Window focused
+[2026-08-27 14:25:19.902] [debug] [Window] [main] Window focused
+[2026-08-27 14:26:43.387] [debug] [Window] [main] Window focused
+[2026-08-27 14:27:19.450] [debug] [Window] [main] Window focused
+[2026-08-27 14:27:48.936] [debug] [Window] [main] Window focused
+[2026-08-27 14:27:54.438] [debug] [Window] [main] Window focused
+[2026-08-27 14:27:58.200] [debug] [Window] [main] Window focused
+[2026-08-27 14:28:24.560] [debug] [Window] [main] Window focused
+[2026-08-27 14:28:30.811] [debug] [Window] [main] Window focused
+[2026-08-27 14:28:42.915] [debug] [Window] [main] Window focused
+[2026-08-27 14:28:47.257] [debug] [Window] [main] Window focused
+[2026-08-27 14:29:10.285] [debug] [Window] [main] Window focused
+[2026-08-27 14:29:31.460] [debug] [Window] [main] Window focused
+[2026-08-27 14:29:36.039] [debug] [Window] [main] Window focused
+[2026-08-27 14:29:53.683] [debug] [Window] [main] Window focused
+[2026-08-27 14:31:04.267] [debug] [Window] [main] Window focused
+[2026-08-27 14:31:59.192] [debug] [Window] [main] Window focused
+[2026-08-27 14:32:21.812] [debug] [Window] [main] Window focused
+[2026-08-27 14:32:24.254] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-27 14:32:24.258] [info]  [Window] Opening Mission Control on primary display (Display ID: 2623434305)...
+[2026-08-27 14:32:25.010] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 14:32:25.216] [debug] [Window] [mission-control] Window ready to show
+[2026-08-27 14:32:25.222] [info]  [Window] [mission-control] [Console] 14:32:25.164 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-27 14:32:25.223] [info]  [Window] [mission-control] [Console] 14:32:25.166 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 14:32:25.224] [info]  [Window] [mission-control] [Console] 14:32:25.167 ›          * Sample rate: 0.05
+[2026-08-27 14:32:25.225] [info]  [Window] [mission-control] [Console] 14:32:25.167 ›          * Traces Sample rate: 0.01
+[2026-08-27 14:32:25.227] [info]  [Window] [mission-control] [Console] 14:32:25.168 ›          * Debug: disabled
+[2026-08-27 14:32:25.228] [info]  [Window] [mission-control] [Console] 14:32:25.168 ›          * ANR: disabled
+[2026-08-27 14:32:25.229] [info]  [Window] [mission-control] [Console] 14:32:25.170 ›          * Environment: production
+[2026-08-27 14:32:25.675] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-27 14:32:25.709] [debug] [Window] [mission-control] Window focused
+[2026-08-27 14:32:42.466] [debug] [Window] [mission-control] Window focused
+[2026-08-27 14:33:30.588] [debug] [Window] [mission-control] Window focused
+[2026-08-27 14:35:47.020] [debug] [Window] [mission-control] Window focused
+[2026-08-27 14:36:10.523] [debug] [Window] [mission-control] Window focused
+[2026-08-27 14:36:24.725] [debug] [Window] [mission-control] Window focused
+[2026-08-27 17:45:07.283] [debug] [Window] [mission-control] Window focused
+[2026-08-27 17:45:09.034] [debug] [Window] [main] Window focused
+[2026-08-27 17:45:09.192] [debug] [Window] [main] Window closing...
+[2026-08-27 17:45:09.213] [debug] [Window] [main] Window hidden
+[2026-08-27 17:45:10.411] [debug] [Window] [main] Window focused
+[2026-08-27 17:45:12.514] [debug] [Window] [main] Window closing...
+[2026-08-27 17:45:12.525] [debug] [Window] [main] Window hidden
+[2026-08-27 17:45:13.892] [debug] [Window] [mission-control] Window focused
+[2026-08-27 17:45:14.497] [debug] [Window] [mission-control] Window closing...
+[2026-08-27 21:13:49.763] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-27 21:13:50.773] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-27 21:13:50.834] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-27 21:13:50.866] [info]  [Window] Setup complete!
+[2026-08-27 21:13:51.074] [debug] [Window] [main] Window focused
+[2026-08-27 21:13:52.247] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 21:13:52.385] [debug] [Window] [main] Window ready to show
+[2026-08-27 21:13:52.396] [info]  [Window] [main] [Console] 21:13:52.364 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-27 21:13:52.397] [info]  [Window] [main] [Console] 21:13:52.365 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 21:13:52.398] [info]  [Window] [main] [Console] 21:13:52.365 ›          * Sample rate: 0.05
+[2026-08-27 21:13:52.400] [info]  [Window] [main] [Console] 21:13:52.365 ›          * Traces Sample rate: 0.01
+[2026-08-27 21:13:52.401] [info]  [Window] [main] [Console] 21:13:52.365 ›          * Debug: disabled
+[2026-08-27 21:13:52.402] [info]  [Window] [main] [Console] 21:13:52.365 ›          * ANR: disabled
+[2026-08-27 21:13:52.403] [info]  [Window] [main] [Console] 21:13:52.365 ›          * Environment: production
+[2026-08-27 21:13:52.807] [info]  [Window] Renderer ready for window 'main'
+[2026-08-27 21:13:56.081] [info]  [Window] [main] [Console] 21:13:52.794 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-27 21:13:57.479] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-27 21:13:57.485] [info]  [Window] Opening Mission Control on primary display (Display ID: 2325930830)...
+[2026-08-27 21:13:58.059] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-27 21:13:58.357] [debug] [Window] [mission-control] Window ready to show
+[2026-08-27 21:13:58.363] [info]  [Window] [mission-control] [Console] 21:13:58.280 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-27 21:13:58.364] [info]  [Window] [mission-control] [Console] 21:13:58.287 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-27 21:13:58.366] [info]  [Window] [mission-control] [Console] 21:13:58.298 ›          * Sample rate: 0.05
+[2026-08-27 21:13:58.367] [info]  [Window] [mission-control] [Console] 21:13:58.308 ›          * Traces Sample rate: 0.01
+[2026-08-27 21:13:58.369] [info]  [Window] [mission-control] [Console] 21:13:58.308 ›          * Debug: disabled
+[2026-08-27 21:13:58.370] [info]  [Window] [mission-control] [Console] 21:13:58.309 ›          * ANR: disabled
+[2026-08-27 21:13:58.371] [info]  [Window] [mission-control] [Console] 21:13:58.310 ›          * Environment: production
+[2026-08-27 21:13:59.015] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-27 21:13:59.054] [debug] [Window] [mission-control] Window focused
+[2026-08-27 21:14:01.411] [debug] [Window] [main] Window focused
+[2026-08-27 21:14:02.981] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-27 21:14:03.439] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 21:14:03.455] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/67380c89-129f-43ea-96eb-7cd979e24a9a/icon?v=1779236756725.953' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 21:14:06.832] [warn]  [Window] Window mission-control attempted to be recreated while already existing!
+[2026-08-27 21:15:34.191] [debug] [Window] [main] Window focused
+[2026-08-27 21:15:35.312] [error] [Window] [main] [Console] [Profile Wizard] image validation failed Error: Error invoking remote method 'profiles:validateImage': AxiosError: Request failed with status code 400
+[2026-08-27 21:15:42.537] [debug] [Window] [main] Window focused
+[2026-08-27 21:17:19.935] [debug] [Window] [main] Window focused
+[2026-08-27 21:17:25.572] [debug] [Window] [main] Window focused
+[2026-08-27 21:17:39.635] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-27 21:17:41.441] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/66e9766e-a0c3-4951-b7e4-c8946c428ff5/icon?v=1787887047100.3083' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 21:17:41.455] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/67380c89-129f-43ea-96eb-7cd979e24a9a/icon?v=1779236756725.953' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 21:17:41.458] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-27 21:17:52.393] [debug] [Window] [main] Window closing...
+[2026-08-27 21:17:52.439] [debug] [Window] [main] Window hidden
+[2026-08-27 21:17:54.730] [debug] [Window] [mission-control] Window closing...
+[2026-08-27 22:48:57.376] [debug] [Window] [main] Window focused
+[2026-08-27 22:49:01.063] [debug] [Window] [main] Window closing...
+[2026-08-27 22:49:01.080] [debug] [Window] [main] Window hidden
+[2026-08-27 23:21:16.340] [info]  [Window] Second instance was detected, showing main window in primary...
+[2026-08-27 23:21:16.532] [debug] [Window] [main] Window focused
+[2026-08-27 23:22:21.963] [debug] [Window] [main] Window focused
+[2026-08-27 23:22:31.932] [debug] [Window] [main] Window focused
+[2026-08-27 23:26:32.777] [debug] [Window] [main] Window focused
+[2026-08-27 23:26:47.917] [debug] [Window] [main] Window focused
+[2026-08-27 23:32:36.231] [debug] [Window] [main] Window focused
+[2026-08-27 23:38:59.573] [debug] [Window] [main] Window focused
+[2026-08-27 23:39:02.824] [debug] [Window] [main] Window closing...
+[2026-08-27 23:39:02.847] [debug] [Window] [main] Window hidden
+[2026-08-29 14:01:05.343] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-29 14:01:07.013] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-29 14:01:07.155] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/guest
+[2026-08-29 14:01:07.190] [info]  [Window] Setup complete!
+[2026-08-29 14:01:07.450] [debug] [Window] [main] Window focused
+[2026-08-29 14:01:09.232] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-29 14:01:09.461] [debug] [Window] [main] Window ready to show
+[2026-08-29 14:01:09.467] [info]  [Window] [main] [Console] 14:01:09.424 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-29 14:01:09.469] [info]  [Window] [main] [Console] 14:01:09.427 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-29 14:01:09.470] [info]  [Window] [main] [Console] 14:01:09.427 ›          * Sample rate: 0.05
+[2026-08-29 14:01:09.472] [info]  [Window] [main] [Console] 14:01:09.428 ›          * Traces Sample rate: 0.01
+[2026-08-29 14:01:09.473] [info]  [Window] [main] [Console] 14:01:09.428 ›          * Debug: disabled
+[2026-08-29 14:01:09.475] [info]  [Window] [main] [Console] 14:01:09.428 ›          * ANR: disabled
+[2026-08-29 14:01:09.477] [info]  [Window] [main] [Console] 14:01:09.428 ›          * Environment: production
+[2026-08-29 14:01:09.675] [info]  [Window] Renderer ready for window 'main'
+[2026-08-29 14:01:17.172] [info]  [Window] [main] [Console] 14:01:16.669 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-29 14:01:21.853] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-29 14:01:23.088] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/66e9766e-a0c3-4951-b7e4-c8946c428ff5/icon?v=1787887047100.3083' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 14:01:23.092] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 14:12:18.285] [debug] [Window] [main] Window focused
+[2026-08-29 14:12:20.441] [debug] [Window] [main] Window focused
+[2026-08-29 21:14:46.614] [info]  [Electron] Logger initialized for window at C:\Users\CARLOS_JR\.lunarclient\logs\launcher\window.log (Prefix: Window)
+[2026-08-29 21:14:48.019] [info]  [Window] Setting up (Silent startup: false)...
+[2026-08-29 21:14:48.178] [info]  [Window] [main] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\main.html#/
+[2026-08-29 21:14:48.240] [info]  [Window] Setup complete!
+[2026-08-29 21:14:48.561] [debug] [Window] [main] Window focused
+[2026-08-29 21:14:50.158] [info]  [Window] [main] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-29 21:14:50.315] [debug] [Window] [main] Window ready to show
+[2026-08-29 21:14:50.327] [info]  [Window] [main] [Console] 21:14:50.285 › [Sentry] Initializing Sentry in app renderer...
+[2026-08-29 21:14:50.328] [info]  [Window] [main] [Console] 21:14:50.286 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-29 21:14:50.330] [info]  [Window] [main] [Console] 21:14:50.286 ›          * Sample rate: 0.05
+[2026-08-29 21:14:50.332] [info]  [Window] [main] [Console] 21:14:50.287 ›          * Traces Sample rate: 0.01
+[2026-08-29 21:14:50.333] [info]  [Window] [main] [Console] 21:14:50.287 ›          * Debug: disabled
+[2026-08-29 21:14:50.334] [info]  [Window] [main] [Console] 21:14:50.287 ›          * ANR: disabled
+[2026-08-29 21:14:50.336] [info]  [Window] [main] [Console] 21:14:50.287 ›          * Environment: production
+[2026-08-29 21:14:50.850] [info]  [Window] Renderer ready for window 'main'
+[2026-08-29 21:14:55.004] [info]  [Window] [main] [Console] 21:14:50.824 › [Styngr] [Player] Binding event listeners to audio element...
+[2026-08-29 21:14:55.746] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-29 21:14:56.618] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/66e9766e-a0c3-4951-b7e4-c8946c428ff5/icon?v=1787887047100.3083' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 21:14:56.659] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 21:15:24.956] [debug] [Window] [main] Window focused
+[2026-08-29 21:15:31.174] [debug] [Window] [main] Window focused
+[2026-08-29 21:15:44.892] [debug] [Window] [main] Window focused
+[2026-08-29 21:15:56.536] [debug] [Window] [main] Window focused
+[2026-08-29 21:16:08.638] [debug] [Window] [main] Window focused
+[2026-08-29 21:30:02.455] [debug] [Window] [main] Window focused
+[2026-08-29 21:30:33.051] [info]  [Window] Rewriting /versions to /versions/modpacks...
+[2026-08-29 21:30:33.410] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/66e9766e-a0c3-4951-b7e4-c8946c428ff5/icon?v=1787887047100.3083' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 21:30:33.419] [error] [Window] [main] [Console] Access to image at 'lc-asset://profile/ca09900b-3645-4e81-8129-aa5e00073a6a/icon?v=1778521797761.5867' from origin 'file://' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, sentry-ipc.
+[2026-08-29 21:30:43.185] [info]  [Window] [mission-control] Loading file: C:\Users\CARLOS_JR\AppData\Local\Programs\Lunar Client\resources\app.asar\dist\html\mission-control.html#undefined
+[2026-08-29 21:30:43.190] [info]  [Window] Opening Mission Control on primary display (Display ID: 4217749287)...
+[2026-08-29 21:30:43.733] [info]  [Window] [mission-control] [Console] 🌐 i18next is made possible by our own product, Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[2026-08-29 21:30:43.836] [debug] [Window] [mission-control] Window ready to show
+[2026-08-29 21:30:43.838] [info]  [Window] [mission-control] [Console] 21:30:43.815 › [Sentry] Initializing Sentry in mission-control renderer...
+[2026-08-29 21:30:43.839] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * DSN: https://2b19802000444b71b53899a26418c0ef@o923049.ingest.sentry.io/6029601
+[2026-08-29 21:30:43.841] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * Sample rate: 0.05
+[2026-08-29 21:30:43.842] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * Traces Sample rate: 0.01
+[2026-08-29 21:30:43.843] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * Debug: disabled
+[2026-08-29 21:30:43.845] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * ANR: disabled
+[2026-08-29 21:30:43.846] [info]  [Window] [mission-control] [Console] 21:30:43.817 ›          * Environment: production
+[2026-08-29 21:30:44.487] [info]  [Window] Renderer ready for window 'mission-control'
+[2026-08-29 21:30:44.528] [debug] [Window] [mission-control] Window focused
+[2026-08-29 21:30:50.664] [debug] [Window] [mission-control] Window minimized
+[2026-08-29 21:30:50.698] [debug] [Window] [main] Window focused
+[2026-08-29 21:30:51.988] [debug] [Window] [main] Window minimized
+[2026-08-29 21:30:55.260] [debug] [Window] [mission-control] Window focused
+[2026-08-29 21:30:57.364] [debug] [Window] [main] Window focused
+[2026-08-29 21:30:57.369] [debug] [Window] [main] Window focused
+[2026-08-29 21:31:01.403] [debug] [Window] [mission-control] Window focused
+[2026-08-29 21:31:04.774] [debug] [Window] [mission-control] Window closing...
+[2026-08-29 21:31:04.850] [debug] [Window] [main] Window focused
+[2026-08-29 21:38:23.483] [debug] [Window] [main] Window focused
+[2026-08-29 21:46:27.253] [debug] [Window] [main] Window focused
+[2026-08-29 22:28:07.624] [debug] [Window] [main] Window focused
+[2026-08-29 22:28:09.689] [debug] [Window] [main] Window focused
+[2026-08-29 22:28:11.207] [debug] [Window] [main] Window focused
+[2026-08-29 22:28:12.632] [debug] [Window] [main] Window closing...
+[2026-08-29 22:28:12.678] [debug] [Window] [main] Window hidden
+[2026-08-30 01:28:54.272] [info]  [Window] Second instance was detected, showing main window in primary...
+[2026-08-30 01:28:54.439] [debug] [Window] [main] Window focused
+[2026-08-30 01:29:47.877] [debug] [Window] [main] Window focused
+[2026-08-30 01:42:04.433] [debug] [Window] [main] Window focused
+[2026-08-30 01:42:07.118] [debug] [Window] [main] Window closing...
+[2026-08-30 01:42:07.154] [debug] [Window] [main] Window hidden

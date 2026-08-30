@@ -1,0 +1,4 @@
+[12:52:37] [WARN] [FabricLoader/Resolution]: Mod resolution failed
+[12:52:37] [INFO] [FabricLoader/Resolution]: Immediate reason: [HARD_DEP_INCOMPATIBLE_PRESELECTED entityculling 1.10.1 {breaks ichor @ [*]}, ROOT_FORCELOAD_SINGLE entityculling 1.10.1]
+[12:52:37] [INFO] [FabricLoader/Resolution]: Reason: [NEG_HARD_DEP entityculling 1.10.1 {breaks ichor @ [*]}]
+[12:52:37] [INFO] [FabricLoader/Resolution]: Fix: add [], remove [], replace [[entityculling 1.10.1] -> add:entityculling 1 ([(-∞,∞)])]

@@ -1,0 +1,11 @@
+{
+  "_comentario": "Puntos del Taxi del PokePad. x/y en pixeles de taxi_map.png (origen arriba-izquierda); warp = nombre del warp de crosscommands (/warp <warp>). La app muestra un readout 'px' bajo el cursor para medir x/y.",
+  "points": [
+    { "id": "centro",  "name": "Plaza central", "warp": "centro",  "x": 516, "y": 472 },
+    { "id": "oeste",   "name": "Zona Oeste",    "warp": "oeste",   "x": 356, "y": 503 },
+    { "id": "este",    "name": "Zona Este",     "warp": "este",    "x": 632, "y": 499 },
+    { "id": "norte",   "name": "Gimnasios",     "warp": "norte",   "x": 502, "y": 344 },
+    { "id": "sur",     "name": "Torre Batalla", "warp": "sur",     "x": 478, "y": 641 },
+    { "id": "tejados", "name": "Tejados",       "warp": "tejados", "x": 465, "y": 549 }
+  ]
+}

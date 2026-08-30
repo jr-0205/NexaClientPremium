@@ -1,0 +1,8 @@
+{
+	"renderThreadPriority": 10,
+	"serverThreadPriority": 8,
+	"soundEngineThreadPriority": 5,
+	"everyOtherThreadPriority": 0,
+	"threadBlacklist": [],
+	"debug": false
+}

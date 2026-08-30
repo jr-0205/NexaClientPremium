@@ -1,0 +1,13 @@
+{
+  "type": "backpack",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/suits/black_tuxedo/black_tuxedo.geo.json",
+  "texture": "lunar:cosmetics/models/gek/suits/black_tuxedo/black_tuxedo.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/black_tuxedo/black_tuxedo.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 3.6,
+			"bones": {
+				"wing_left": {
+					"rotation": {
+						"vector": ["math.sin(90+q.life_time*200)*10", "-22.5+math.sin(q.life_time*200)*30", "math.sin(129-q.life_time*200)*20"]
+					},
+					"position": {
+						"vector": ["math.cos(q.life_time*200)*0.5", 0, 0]
+					}
+				},
+				"wing_2": {
+					"rotation": {
+						"vector": ["math.sin(90-q.life_time*200)*10", "-math.sin(90-q.life_time*200)*5", 0]
+					}
+				},
+				"wing_right": {
+					"rotation": {
+						"vector": ["math.sin(90+q.life_time*200)*10", "22.5-math.sin(q.life_time*200)*30", "-math.sin(129-q.life_time*200)*20"]
+					},
+					"position": {
+						"vector": ["-math.cos(q.life_time*200)*0.5", 0, 0]
+					}
+				},
+				"wing_3": {
+					"rotation": {
+						"vector": ["math.sin(90-q.life_time*200)*10", "math.sin(90-q.life_time*200)*5", 0]
+					}
+				},
+				"dragonwings": {
+					"scale": {
+						"vector": ["math.clamp((option.size ?? 5) / 5, 0, 2)", "math.clamp((option.size ?? 5) / 5, 0, 2)", "math.clamp((option.size ?? 5) / 5, 0, 2)"]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -1,0 +1,35 @@
+/home sa
+/home sabri
+/msg piggy_feels
+/tpa piggy_feels
+/home sabri
+/p tp Nbase
+/f list
+/p tp slime_1
+/p home
+/p tp slime_1
+/clan home creepers
+/clan home granjadeslimes
+/clan home granjadeslimes2
+/p tp slime_1
+/kit
+/skull lucowskyx
+/f list
+/invsee rochipoint
+/home sabri
+/clan home centro
+/p tp slime_1
+/p tp Nbase
+/p tp slime_1
+/p tp warp
+/p tp slime_1
+/f list
+/home mex
+/skull Junior_00
+/kits
+/clan home centro
+/p tp club
+/home sabri
+/skull Junior_00
+/home sabri
+/p tp slime_1

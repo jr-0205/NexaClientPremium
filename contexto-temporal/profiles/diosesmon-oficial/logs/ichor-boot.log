@@ -1,0 +1,320 @@
+[21:14:27] [Genesis/main/INFO] Found external file: user-message-patterns.json
+[21:14:27] [Genesis/main/INFO] Found external file: waypoint-patterns.json
+[21:14:27] [Genesis/main/INFO] Found external file: kill-sound-chat-patterns.json
+[21:14:27] [Genesis/main/INFO] Found external file: vanilla_capes.json
+[21:14:27] [Genesis/main/INFO] Found external file: tier-tagger.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/teamview.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/bedwars.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/quickplay.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/kuudra-waypoints.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/splits.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/commands.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/minions.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/stacking-enchants.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/chocolate-factory-prices.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/garden.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/autocomplete-warps.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/glacite-tunnels.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/max-levels.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/hoppity-eggs.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/deployable-textures.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/important-items.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/enchants.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/metal-detector-locations.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/modern-islands.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/important-npc-locations.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/adblock-websites.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/api-items-override.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/vendor-items.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/sphinx-key.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/item-abilities.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/middle-click.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/fairy-souls.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/api-materials-override.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/skill-xp.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/item-shop-prices.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/tab-widgets.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/baits.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/fishing/sea-creatures.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/trash-items.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/quiz-key.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/rooms.json
+[21:14:27] [Genesis/main/INFO] Found external file: hypixel/skyblock/dungeon/routes.json
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+[21:14:27] [Genesis/main/INFO] Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+[21:14:28] [Genesis/main/INFO] Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+[21:14:28] [Genesis/GameBootstrap/main/INFO] Launching Minecraft 1.21.1 v1_21_1 (parsed from 1.21.1)
+[21:14:37] [Genesis/GameBootstrap/main/INFO] Config hash: 4e60efcf  File hash: 4d88f820
+[21:14:37] [Genesis/Baker/main/INFO] Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\4e60efcf\4d88f820\bake.zip
+[21:14:37] [Genesis/Baker/main/INFO] Baking classes...
+LUNARCLIENT_STATUS_BUILD_CACHE
+[21:14:37] [IchorPipeline/main/INFO] Loading Mixin runtime for META_MIXIN
+[21:14:38] [Ichor/mixin(META_MIXIN)/INFO] SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/CARLOS_JR/.lunarclient/offline/multiver/genesis-0.1.0-SNAPSHOT-all.jar Service=Ichor Env=CLIENT
+[21:14:38] [Genesis/IchorMixinService/main/INFO] Initializing MixinExtras 0.5.4 in IchorClassLoader(META_MIXIN)
+[21:14:39] [IchorPipeline/main/INFO] Loading Mixin runtime for MIXIN
+[21:14:40] [IchorPipeline/main/INFO] Built mapping set for com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR.OCCHHCHCOICROCHHIOCRRIIORHIOOH 1171ms on thread main
+[21:14:40] [IchorPipeline/main/INFO] Built mapping set for com.moonsworth.lunar.ichor.OHRORRHCHCRICORRRCIRIOCCIRCRII.COOCHIRORIICRCIIRIROHIIRIRICCH.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.IROCROOIOIORORHHCCOOCCHRRRIOIC 529ms on thread main
+[21:14:41] [Ichor/mixin(MIXIN)/INFO] SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/CARLOS_JR/.lunarclient/offline/multiver/genesis-0.1.0-SNAPSHOT-all.jar Service=Ichor Env=CLIENT
+[21:14:41] [Genesis/IchorMixinService/main/INFO] Initializing MixinExtras 0.5.4 in Genesis
+[21:14:43] [IchorPipeline/main/INFO] Done loading Mixin runtimes in 6050ms
+[21:14:43] [IchorPipeline/main/INFO] Setting up mixins for META_MIXIN
+[21:14:43] [Ichor/main/INFO] Mixin config mixins.meta.ichor.fabric.v1_21_1.json doesn't exist in IchorClassLoader(META_MIXIN)
+[21:14:44] [Ichor/main/INFO] Mixin config mixins.meta.lunar.moreculling.v1_21_1.json doesn't exist in IchorClassLoader(META_MIXIN)
+[21:14:44] [IchorPipeline/main/INFO] Setting up mixins for MIXIN
+Mixin plugin not loaded yet
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+[21:14:44] [Ichor/main/INFO] Mixin config mixins.modern.json doesn't exist in Genesis
+[21:14:44] [Ichor/main/INFO] Mixin config mixins.modern_lunar.json doesn't exist in Genesis
+[21:14:45] [Ichor/main/INFO] Mixin config mixins.modern_bridge_v1_21_1.json doesn't exist in Genesis
+[21:14:45] [Ichor/main/INFO] Mixin config mixins.modern_lunar_v1_21_1.json doesn't exist in Genesis
+[21:14:45] [IchorPipeline/main/INFO] Done registering Mixins in 2142ms
+[21:14:45] [IchorPipeline/main/INFO] Going to default mixins stage for META_MIXIN
+[21:14:47] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/common/entity/LithiumEntityCollisions (checked [me.jellysquid.mods.lithium.common.entity.LithiumEntityCollisions]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/common/entity/LithiumEntityCollisions (checked [me.jellysquid.mods.lithium.common.entity.LithiumEntityCollisions]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:47] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/common/LithiumMod (checked [me.jellysquid.mods.lithium.common.LithiumMod]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/common/LithiumMod (checked [me.jellysquid.mods.lithium.common.LithiumMod]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:47] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/mixin/ai/raid/PickupBannerAsLeaderGoalMixin (checked [me.jellysquid.mods.lithium.mixin.ai.raid.PickupBannerAsLeaderGoalMixin]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/mixin/ai/raid/PickupBannerAsLeaderGoalMixin (checked [me.jellysquid.mods.lithium.mixin.ai.raid.PickupBannerAsLeaderGoalMixin]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:47] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/mixin/ai/raid/RaiderEntityMixin (checked [me.jellysquid.mods.lithium.mixin.ai.raid.RaiderEntityMixin]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for me/jellysquid/mods/lithium/mixin/ai/raid/RaiderEntityMixin (checked [me.jellysquid.mods.lithium.mixin.ai.raid.RaiderEntityMixin]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:50] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/mixin/MixinShaderInstance (checked [net.irisshaders.iris.mixin.MixinShaderInstance]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/mixin/MixinShaderInstance (checked [net.irisshaders.iris.mixin.MixinShaderInstance]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:50] [Ichor/mixin(META_MIXIN)/WARN] Catching java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/compat/sodium/mixin/MixinSodiumOptionsGUI (checked [net.irisshaders.iris.compat.sodium.mixin.MixinSodiumOptionsGUI]).
+java.lang.ClassNotFoundException: IchorClassLoader(META_MIXIN) couldn't find class bytes for net/irisshaders/iris/compat/sodium/mixin/MixinSodiumOptionsGUI (checked [net.irisshaders.iris.compat.sodium.mixin.MixinSodiumOptionsGUI]).
+	at com.moonsworth.lunar.ichor.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COHHOIRRCCCICHRHCOHRRCRHOIRIHI(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//com.moonsworth.lunar.ichor.OHOORCOHRORRIHROOCROOIIHHOOHRI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI.getClassNode(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.ClassInfo.forName(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.getTargetClass(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.readTargetClasses(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinInfo.parseTargets(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepareMixins(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinConfig.prepare(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.prepareConfigs(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.select(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProcessor.checkSelect(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at IchorClassLoader(META_MIXIN)//org.spongepowered.asm.mixin.transformer.MixinProxyImpl.gotoDefaultPhase(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.ORCOOOCHIICOIICCROCRCOOROORIHR(Unknown Source)
+	at com.moonsworth.lunar.ichor.IRCROOHIIOOHIRCRRHOHIORHCOHIOR.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.RIHHCHHHROOHOOIOIIRIOOCRHHOOOR(Unknown Source)
+	at com.moonsworth.lunar.ichor.ORCOOOCHIICOIICCROCRCOOROORIHR.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.ClientGameBootstrap.apply(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at com.moonsworth.lunar.genesis.RROHOCRCCHCIORHICIHCOHRIRCIHCI.RROHOCRCCHCIORHICIHCOHRIRCIHCI(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.run(Unknown Source)
+	at com.moonsworth.lunar.genesis.Genesis.main(Unknown Source)
+[21:14:50] [IchorPipeline/main/INFO] Going to default mixins stage for MIXIN
+ERROR StatusConsoleListener Error processing element Listener ([Appenders: null]): CLASS_NOT_FOUND
+ERROR StatusConsoleListener Unable to locate appender "Tracy" for logger config "root"
+[21:14:53] [Ichor/MixinExtras|Service(META_MIXIN)/INFO] Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
+[21:15:27] [IchorPipeline/main/INFO] Mixin runtimes prepared in 41956ms
+[21:15:27] [IchorPipeline/main/INFO] Initialized Mixin in 50180ms
+[21:15:28] [Genesis/Baker/main/INFO] Found 52921 classes to bake.
+LUNARCLIENT_STATUS_PREINIT
+[21:15:28] [Genesis/GameBootstrap/main/INFO] Starting game!
+LUNARCLIENT_BAKE_PROGRESS 0.07088579
+[21:15:29] [Genesis/GameBootstrap/main/INFO] Branch: master
+[21:15:29] [Genesis/GameBootstrap/main/INFO] Commit Hash: 88476a8240fd6c38de742044a3db29275b29c638
+LUNARCLIENT_BAKE_PROGRESS 0.25665674
+[21:15:30] [Ichor/MixinExtras|Service(MIXIN)/INFO] Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.4).
+LUNARCLIENT_BAKE_PROGRESS 0.6143456
+LUNARCLIENT_BAKE_PROGRESS 1.0329002
+LUNARCLIENT_BAKE_PROGRESS 1.3346726
+LUNARCLIENT_BAKE_PROGRESS 1.8660893
+LUNARCLIENT_BAKE_PROGRESS 2.3664284
+LUNARCLIENT_BAKE_PROGRESS 3.0877724
+LUNARCLIENT_BAKE_PROGRESS 3.7601054
+LUNARCLIENT_BAKE_PROGRESS 4.704352
+LUNARCLIENT_BAKE_PROGRESS 5.5480404
+LUNARCLIENT_BAKE_PROGRESS 5.8350143
+LUNARCLIENT_BAKE_PROGRESS 6.7162147
+LUNARCLIENT_BAKE_PROGRESS 7.647472
+LUNARCLIENT_BAKE_PROGRESS 8.694828
+[21:15:43] [Genesis/Baker/pool-4-thread-4/ERROR] Failed to bake module-info: 
+java.lang.NullPointerException
+	at java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+	at java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+	at com.moonsworth.lunar.genesis.OHRORRHCHCRICORRRCIRIOCCIRCRII.OHOORCOHRORRIHROOCROOIIHHOOHRI(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+LUNARCLIENT_BAKE_PROGRESS 10.029836
+LUNARCLIENT_BAKE_PROGRESS 12.850798
+LUNARCLIENT_BAKE_PROGRESS 18.221136
+LUNARCLIENT_BAKE_PROGRESS 18.880613
+[Bridge] Setting Bridge Implementation to com.moonsworth.lunar.RCRHOOHIOCHHHHOCRIOCHRICIRCRRR.RROHOCRCCHCIORHICIHCOHRIRCIHCI
+LUNARCLIENT_BAKE_PROGRESS 19.944714
+LUNARCLIENT_BAKE_PROGRESS 23.678484
+LUNARCLIENT_BAKE_PROGRESS 26.993704
+[21:15:51] [Genesis/Baker/pool-4-thread-2/INFO] Baked 15069 classes in 73615ms.
+LUNARCLIENT_STATUS_SAVING_CACHE
+[Bridge] Found textures dir: C:\Users\CARLOS_JR\.lunarclient\textures
+[Bridge] Found JIT dir: C:\Users\CARLOS_JR\.lunarclient\jit
+[Bridge] Found IPC port: 28190
+[Bridge] Found ui dir: C:\Users\CARLOS_JR\.lunarclient\ui\7c408ec0c875ded4aaa94f426f3b31dcec957c5f
+[Bridge] Found webosr dir: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\natives
+[21:16:02] [Ichor/mixin(MIXIN)/WARN] Method overwrite conflict for method_21740 in modernfix-common.mixins.json:perf.remove_biome_temperature_cache.BiomeMixin from mod modernfix, previously written by net.caffeinemc.mods.lithium.mixin.world.temperature_cache.BiomeMixin. Skipping method.
+[21:16:04] [Ichor/mixin(MIXIN)/WARN] @Inject(@At("INVOKE")) Shift.BY=3 on mixins.modern_lunar_combined.json:CRHOOIHHORCRRICOCOHIHOOIOHIORH.RORCICOHRIOIIIOIOHIIIICRCIHRII.RROHOCRCCHCIORHICIHCOHRIRCIHCI.COOCHIRORIICRCIIRIROHIIRIRICCH from mod (unknown)::handler$bhd000$lunar$onBlockEntityLoad$v1_17_0 exceeds the maximum allowed value: 0. Increase the value of maxShiftBy to suppress this warning.

@@ -1,0 +1,18 @@
+{
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": ".lunarclient:item/lava_shield"
+	},
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [90, -4, -90],
+			"translation": [-13, -0.225, 9.5],
+			"scale": [0.66, 0.66, 0.66]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, -4, 90],
+			"translation": [7.2, -1.25, 9.5],
+			"scale": [0.66, 0.66, 0.66]
+		}
+	}
+}

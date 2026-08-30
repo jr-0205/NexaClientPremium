@@ -1,0 +1,25 @@
+{
+  "type": "backpack",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/shoes/purple_shoes/purple_shoes.geo.json",
+  "texture": "lunar:cosmetics/models/gek/shoes/purple_shoes/purple_shoes.webp",
+  "animation": "lunar:cosmetics/models/gek/shoes/purple_shoes/purple_shoes.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  },
+  "transformations": [
+    {
+      "transformType": "translate",
+      "values": {
+        "player": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      }
+    }
+  ]
+}

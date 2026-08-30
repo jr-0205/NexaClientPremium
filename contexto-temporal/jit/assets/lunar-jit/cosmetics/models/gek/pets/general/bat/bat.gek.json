@@ -1,0 +1,12 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/bat/bat.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/bat/bat.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/bat/bat.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "main"
+  }
+}

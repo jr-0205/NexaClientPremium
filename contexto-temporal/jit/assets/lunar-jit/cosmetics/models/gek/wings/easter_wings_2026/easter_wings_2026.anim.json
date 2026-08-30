@@ -1,0 +1,96 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"moving": {
+			"loop": true,
+			"bones": {
+				"leftWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *30 -20", 0]
+					}
+				},
+				"leftWingEndRot": {
+					"rotation": {
+						"vector": [0, "-math.cos(q.life_time *150) *30+15", 0]
+					}
+				},
+				"variables": {
+					"position": {
+						"vector": [0, 0, "v.timing = 6*30;"]
+					}
+				},
+				"rightWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *-30+20", 0]
+					}
+				},
+				"rightWingEndRot": {
+					"rotation": {
+						"vector": [0, "math.cos(q.life_time *150) *30-15", 0]
+					}
+				}
+			}
+		},
+		"elytra": {
+			"loop": true,
+			"bones": {
+				"leftWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *30 -20", 0]
+					}
+				},
+				"leftWingEndRot": {
+					"rotation": {
+						"vector": [0, "-math.cos(q.life_time *150) *30+15", 0]
+					}
+				},
+				"variables": {
+					"position": {
+						"vector": [0, 0, "v.timing = 6*30;"]
+					}
+				},
+				"rightWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *-30+20", 0]
+					}
+				},
+				"rightWingEndRot": {
+					"rotation": {
+						"vector": [0, "math.cos(q.life_time *150) *30-15", 0]
+					}
+				}
+			}
+		},
+		"idle": {
+			"loop": true,
+			"bones": {
+				"leftWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *30 -20", 0]
+					}
+				},
+				"leftWingEndRot": {
+					"rotation": {
+						"vector": [0, "-math.cos(q.life_time *150) *30+15", 0]
+					}
+				},
+				"variables": {
+					"position": {
+						"vector": [0, 0, "v.timing = 6*30;"]
+					}
+				},
+				"rightWing": {
+					"rotation": {
+						"vector": ["-math.sin(q.life_time *150) *3", "math.sin(q.life_time *150) *-30+20", 0]
+					}
+				},
+				"rightWingEndRot": {
+					"rotation": {
+						"vector": [0, "math.cos(q.life_time *150) *30-15", 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

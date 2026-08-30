@@ -1,0 +1,55 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/pets/general/duck/duck.geo.json",
+  "texture": "lunar:cosmetics/models/gek/pets/general/duck/duck.webp",
+  "animation": "lunar:cosmetics/models/gek/pets/general/duck/duck.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "idle",
+            "plays_when": "c.ground_speed_smoothed <1.3 && !c.in_special_env && !q.is_crouching",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "5"
+          },
+          {
+            "anim": "idle_walk",
+            "plays_when": "c.ground_speed_smoothed >=1.3 && !c.in_special_env && !q.is_crouching",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "10"
+          },
+          {
+            "anim": "is_swimming",
+            "plays_when": "q.is_swimming && !q.is_crouching",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "flying",
+            "plays_when": "q.is_flying && !q.is_crouching",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "in_water_surface",
+            "plays_when": "q.distance_from_surface <= 2 && q.is_in_water && !q.is_swimming && !q.is_flying",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "in_water_deep",
+            "plays_when": "q.is_in_water && !q.is_swimming && q.distance_from_surface > 2",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "sneak",
+            "plays_when": "q.is_crouching && !q.is_in_water",
+            "transition_easing": "easeInOutSine"
+          }
+        ]
+      }
+    ]
+  }
+}

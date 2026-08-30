@@ -1,0 +1,22 @@
+{
+  "activeAccountLocalId": "dd7833d456b841758fac7a00a4f906e7",
+  "accounts": {
+    "dd7833d456b841758fac7a00a4f906e7": {
+      "accessToken": "eyJraWQiOiIwNDkxODEiLCJhbGciOiJSUzI1NiJ9.eyJ4dWlkIjoiMjUzNTQwNzA5NDgzMTY5NiIsImFnZyI6IkFkdWx0Iiwic3ViIjoiMTgyYTY1NjktYmE2My00ZTI1LTk1ODYtZTJkOTkyOGRhZjY0IiwiYXV0aCI6IlhCT1giLCJwZmlkIjoiMzA4OTE1OTk5RDE5NjJFNiIsIm5zIjoiZGVmYXVsdCIsInJvbGVzIjpbXSwiaXNzIjoiYXV0aGVudGljYXRpb24iLCJmbGFncyI6WyJtdWx0aXBsYXllciJdLCJwcm9maWxlcyI6eyJtYyI6ImFhMzUyOTdlLTQyNDAtNDRjYi04YjY3LTY2NTk5NTlkMzVlYiJ9LCJtaWQiOiIzMDg5MTU5OTlEMTk2MkU2IiwicG1pZCI6ImQyMDFiOWM1LWNlNjItNWUzYS1hZmMyLTEzMTIzNDZlY2U1NSIsInBsYXRmb3JtIjoiUENfTEFVTkNIRVIiLCJ0aWQiOiJFOTlCMCIsInBmZCI6W3sidHlwZSI6Im1jIiwiaWQiOiJhYTM1Mjk3ZS00MjQwLTQ0Y2ItOGI2Ny02NjU5OTU5ZDM1ZWIiLCJuYW1lIjoiSnVuaW9yXzAwIn1dLCJ4aWQiOiIyNTM1NDA3MDk0ODMxNjk2IiwibmJmIjoxNzg4MDMzNzQwLCJleHAiOjE3ODgxMjAxNDAsImlhdCI6MTc4ODAzMzc0MCwiYWlkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDQwMmI1MzI4In0.s4GODUZkoDkrOrN6vOBX-M-fAbSYcy86nyEjcIfOZ-RuNaEiLSvCsPgfELHUVAQLu468dp4XIKl_OOTc-bcnES-HLJM3Zv-Nrsx3tDUW6yPRGFcLu_AFhic_F0vmnK4q4Fl3yXizZ-MP6U18SHV3nO1U5AFXpnO8JzbNwpHYwsBs0J7cVmFvaz6Pnowqz14JxinrN7DikV-tCqQxFSu0HkWsq3UAlIkcMWeVPeNqBIIxelSE9N8Sh4zSrVDQoSnJ_uTqV2wDTXtu9rdi4ZXIjVOi_7Oej2EwjKLVVj3SohB1_sb_pysRgBt1zU-CIXP4ftQ1a33q9HrvDqOO-Wcekg",
+      "accessTokenExpiresAt": "2026-08-30T20:01:15.202Z",
+      "eligibleForMigration": false,
+      "hasMultipleProfiles": false,
+      "legacy": false,
+      "persistent": true,
+      "localId": "dd7833d456b841758fac7a00a4f906e7",
+      "refreshToken": "M.C555_BAY.0.U.MsaArtifacts.-Ct2euZ0JM5*fI7bzLFcrusAsXIVwGNsq1PNoJ4FKJpTJGmKYy0hKYFdjsbMc4flB6egtKdrWzF1k1zVM!Ph4lkt5vnm6rmt9SrwtsCHPfNRY9ggvJmda6*o!AIHjkiR1lKNqYi6OEEBQ*d1ZxRg2JKPRHFjRt23mJ62A*DXxCgSy8nYdMukmbI1RkE9dAsq14oIJHKvewagOcaen1!YWLLYOJeSj7EH!IfAAnbpfbjpjwfmZYI4HKIlWhfvBPsNhZWDMQiKpFJzaFvpEtpXXmk11J6sWUTW7J8ehCRwBO0dP6MTrlEJ9eR9ejdJBJ1JY1nIfWNV7IaazSYeuA96DmiZfAOT*AHRZhHeEV1rzgeT4",
+      "minecraftProfile": {
+        "id": "aa35297e424044cb8b676659959d35eb",
+        "name": "Junior_00"
+      },
+      "remoteId": "2535407094831696",
+      "type": "Xbox",
+      "username": "Juniorcito_"
+    }
+  }
+}

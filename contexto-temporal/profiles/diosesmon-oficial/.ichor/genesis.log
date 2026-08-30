@@ -1,0 +1,1345 @@
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\5fdd9a93\804d9644\bake.zip
+Baking classes...
+Found 52828 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15013 classes in 108964ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Baking classes...
+Found 52828 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15018 classes in 88974ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Loading baked classes...
+Loaded 15020 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\415c2927\804d9644\bake.zip
+Baking classes...
+Found 52907 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15014 classes in 88825ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\82a9346b\804d9644\bake.zip
+Baking classes...
+Found 52907 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15018 classes in 85586ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Loading baked classes...
+Loaded 15020 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Loading baked classes...
+Loaded 15020 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Loading baked classes...
+Loaded 15020 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Baking classes...
+Found 52907 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15013 classes in 76856ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\804d9644\bake.zip
+Loading baked classes...
+Loaded 15013 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum 3f875fdf
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 66b244b6
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum b63c140a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum 469518e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 9f40b01f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 352c2c0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum b1f292e0
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum e69ed367
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum a8d64807
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8aff7901
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum b5181547
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7279c63d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum d4ef965e
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum ea1fb69a
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\80f2f45d\804d9644\bake.zip
+Baking classes...
+Found 52907 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+com.moonsworth.lunar.genesis.ROOORHOIRCHIOOCRCHIOICIOHRRIRC.ROOORHOIRCHIOOCRCHIOICIOHRRIRC(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15014 classes in 91041ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\80f2f45d\4d88f820\bake.zip
+Baking classes...
+Found 52921 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.OHRORRHCHCRICORRRCIRIOCCIRCRII.OHOORCOHRORRIHROOCROOIIHHOOHRI(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15081 classes in 84817ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\80f2f45d\4d88f820\bake.zip
+Loading baked classes...
+Loaded 15081 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\4d88f820\bake.zip
+Baking classes...
+Found 52921 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.OHRORRHCHCRICORRRCIRIOCCIRCRII.OHOORCOHRORRIHROOCROOIIHHOOHRI(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15074 classes in 88079ms.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\80f2f45d\4d88f820\bake.zip
+Loading baked classes...
+Loaded 15081 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\4d88f820\bake.zip
+Loading baked classes...
+Loaded 15074 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/deployable-textures.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Found class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\583f33be\4d88f820\bake.zip
+Loading baked classes...
+Loaded 15074 baked classes.
+Found external file: user-message-patterns.json
+Found external file: waypoint-patterns.json
+Found external file: kill-sound-chat-patterns.json
+Found external file: vanilla_capes.json
+Found external file: tier-tagger.json
+Found external file: hypixel/teamview.json
+Found external file: hypixel/bedwars.json
+Found external file: hypixel/quickplay.json
+Found external file: hypixel/skyblock/kuudra-waypoints.json
+Found external file: hypixel/skyblock/splits.json
+Found external file: hypixel/skyblock/commands.json
+Found external file: hypixel/skyblock/minions.json
+Found external file: hypixel/skyblock/stacking-enchants.json
+Found external file: hypixel/skyblock/chocolate-factory-prices.json
+Found external file: hypixel/skyblock/garden.json
+Found external file: hypixel/skyblock/mineshaft-corpse-waypoints.json
+Found external file: hypixel/skyblock/autocomplete-warps.json
+Found external file: hypixel/skyblock/glacite-tunnels.json
+Found external file: hypixel/skyblock/max-levels.json
+Found external file: hypixel/skyblock/hoppity-eggs.json
+Found external file: hypixel/skyblock/deployable-textures.json
+Found external file: hypixel/skyblock/important-items.json
+Found external file: hypixel/skyblock/enchants.json
+Found external file: hypixel/skyblock/metal-detector-locations.json
+Found external file: hypixel/skyblock/modern-islands.json
+Found external file: hypixel/skyblock/important-npc-locations.json
+Found external file: hypixel/skyblock/skyblock-vanilla-items.json
+Found external file: hypixel/skyblock/adblock-websites.json
+Found external file: hypixel/skyblock/api-items-override.json
+Found external file: hypixel/skyblock/vendor-items.json
+Found external file: hypixel/skyblock/sphinx-key.json
+Found external file: hypixel/skyblock/item-abilities.json
+Found external file: hypixel/skyblock/middle-click.json
+Found external file: hypixel/skyblock/fairy-souls.json
+Found external file: hypixel/skyblock/api-materials-override.json
+Found external file: hypixel/skyblock/skill-xp.json
+Found external file: hypixel/skyblock/item-shop-prices.json
+Found external file: hypixel/skyblock/tab-widgets.json
+Found external file: hypixel/skyblock/fishing/trophy-fish-fillet.json
+Found external file: hypixel/skyblock/fishing/trophy-frog-fillet.json
+Found external file: hypixel/skyblock/fishing/baits.json
+Found external file: hypixel/skyblock/fishing/sea-creatures.json
+Found external file: hypixel/skyblock/dungeon/trash-items.json
+Found external file: hypixel/skyblock/dungeon/waterboard-solutions.json
+Found external file: hypixel/skyblock/dungeon/quiz-key.json
+Found external file: hypixel/skyblock/dungeon/rooms.json
+Found external file: hypixel/skyblock/dungeon/routes.json
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\common-0.1.0-SNAPSHOT-all-nomappings.jar with checksum e5d5167f
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-platform-mappings-v1_21_1.jar with checksum fbd853c2
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum beb3c813
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-ferrite-core-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4b6b7d42
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-flashback-mixins-0.1.0-SNAPSHOT-all.jar with checksum d289b49a
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lithium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 233a4b31
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-modmenu-mixins-0.1.0-SNAPSHOT-all.jar with checksum 8462507b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-moreculling-mixins-0.1.0-SNAPSHOT-all.jar with checksum c97806bb
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-noxesium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 92cd2e00
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-replaymod-fabric-mixins-0.1.0-SNAPSHOT-all.jar with checksum 4e2b8f5d
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-sodium-mixins-0.1.0-SNAPSHOT-all.jar with checksum 25ac3668
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\genesis-0.1.0-SNAPSHOT-all.jar with checksum f8ded9f5
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar-lang.jar with checksum 7a13af5b
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\lunar.jar with checksum 402121a3
+Found classpath URL: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\modern-0.1.0-SNAPSHOT-all-nomappings.jar with checksum b0ac35a7
+Adding pre-launch library to game classpath: .\.ichor\ichormodule-libs\net_fabricmc_fabric_loader_0_19_3-lunar-0.1.5.jar
+Missing class cache: C:\Users\CARLOS_JR\.lunarclient\offline\multiver\cache\4e60efcf\4d88f820\bake.zip
+Baking classes...
+Found 52921 classes to bake.
+Failed to bake module-info: 
+null
+java.base/java.util.concurrent.ConcurrentHashMap.putVal(Unknown Source)
+java.base/java.util.concurrent.ConcurrentHashMap.put(Unknown Source)
+com.moonsworth.lunar.genesis.OHRORRHCHCRICORRRCIRIOCCIRCRII.OHOORCOHRORRIHROOCROOIIHHOOHRI(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+com.moonsworth.lunar.genesis.COOCHIRORIICRCIIRIROHIIRIRICCH.COOCHIRORIICRCIIRIROHIIRIRICCH(Unknown Source)
+java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+java.base/java.lang.Thread.run(Unknown Source)
+
+Baked 15069 classes in 73615ms.

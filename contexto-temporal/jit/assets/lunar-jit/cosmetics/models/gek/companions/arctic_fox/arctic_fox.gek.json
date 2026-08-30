@@ -1,0 +1,94 @@
+{
+  "type": "companion",
+  "model": "lunar:cosmetics/models/gek/companions/arctic_fox/arctic_fox.geo.json",
+  "texture": "lunar:cosmetics/models/gek/companions/arctic_fox/arctic_fox.webp",
+  "animation": "lunar:cosmetics/models/gek/companions/arctic_fox/arctic_fox.anim.json",
+  "attributes": {
+    "hitbox_height": 0.8,
+    "hitbox_width": 0.99,
+    "step_height": 0.5,
+    "speed": "(lunar.is_or_was_state_follow_owner()&&query.owner_distance>10)?0.2:0.1",
+    "yaw_speed": "temp.rot=math.abs(query.entity_y_rotation-query.entity_y_rotation_target);math.max(math.max(math.min(temp.rot,360.0-temp.rot)/20.0,10.0),4.0);",
+    "max_fall": 3.0,
+    "pathfinder": "GROUND",
+    "has_physics": true,
+    "eye_height": 0.7,
+    "friction": 0.875
+  },
+  "default_anim": {
+    "swimming": "q.is_in_water",
+    "idle": "1"
+  },
+  "states": [
+    {
+      "id": "follow_owner",
+      "condition": "(!lunar.is_or_was_state_playful_wander() || query.owner_distance > 1) && query.owner_distance > 1 && query.owner_distance <= 30 && c.afk_timer <= 5",
+      "cooldown": 0,
+      "tasks": [
+        {
+          "type": "look_at_target",
+          "continuous": true
+        },
+        {
+          "type": "move_to_owner",
+          "distance": 5,
+          "should_continue": "query.owner_distance < 30 && c.afk_timer <= 5"
+        }
+      ],
+      "animation": {
+        "run": "query.owner_distance > 10",
+        "swimming": "q.is_in_water",
+        "walk": "1"
+      }
+    },
+    {
+      "id": "teleport_to_owner",
+      "condition": "query.owner_distance >= 30",
+      "cooldown": 0,
+      "tasks": [
+        {
+          "type": "teleport_to_owner",
+          "radius": 6
+        }
+      ],
+      "animation": "idle"
+    },
+    {
+      "id": "playful_wander_far",
+      "condition": "c.afk_timer > 20",
+      "tasks": [
+        {
+          "type": "look_at_target",
+          "continuous": true
+        },
+        {
+          "type": "random_wander",
+          "radius": 10
+        }
+      ],
+      "animation": {
+        "swimming": "q.is_in_water",
+        "walk": "1"
+      }
+    },
+    {
+      "id": "playful_wander",
+      "condition": "c.afk_timer > 5",
+      "cooldown": 0,
+      "tasks": [
+        {
+          "type": "look_at_target",
+          "continuous": true
+        },
+        {
+          "type": "random_wander",
+          "radius": 4
+        }
+      ],
+      "animation": {
+        "swimming": "q.is_in_water",
+        "walk": "1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/auras/smallpurple/smallpurple.geo.json",
+  "texture": "lunar:cosmetics/models/gek/auras/smallpurple/smallpurple.webp",
+  "animation": "lunar:cosmetics/models/gek/auras/smallpurple/smallpurple.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "gui",
+            "plays_when": "q.is_in_gui",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "main",
+            "plays_when": "1"
+          }
+        ]
+      }
+    ]
+  }
+}

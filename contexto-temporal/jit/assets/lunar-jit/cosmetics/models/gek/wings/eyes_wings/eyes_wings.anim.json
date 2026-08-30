@@ -1,0 +1,116 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"walk": {
+			"loop": true,
+			"bones": {
+				"Wing3": {
+					"rotation": {
+						"vector": [0, "math.cos(query.life_time*180)*10", 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"vector": [0, "math.cos(120-query.life_time*180)*25", 0]
+					},
+					"position": {
+						"vector": [0.2, 0, 0]
+					}
+				},
+				"bone5": {
+					"rotation": {
+						"vector": [0, "math.cos(140-query.life_time*180)*30", 0]
+					}
+				},
+				"bone2": {
+					"rotation": {
+						"vector": [0, "math.cos(60-query.life_time*180)*20", 0]
+					}
+				},
+				"Wing2": {
+					"rotation": {
+						"vector": [0, "-math.cos(query.life_time*180)*10", 0]
+					}
+				},
+				"bone3": {
+					"rotation": {
+						"vector": [0, "-math.cos(60-query.life_time*180)*20", 0]
+					}
+				},
+				"bone7": {
+					"rotation": {
+						"vector": [0, "-math.cos(120-query.life_time*180)*25", 0]
+					},
+					"position": {
+						"vector": [-0.2, 0, 0]
+					}
+				},
+				"bone8": {
+					"rotation": {
+						"vector": [0, "-math.cos(140-query.life_time*180)*30", 0]
+					}
+				}
+			}
+		},
+		"gui": {
+			"loop": true,
+			"bones": {
+				"Wing3": {
+					"rotation": {
+						"vector": [0, "math.cos(query.life_time*180)*10", 0]
+					}
+				},
+				"bone4": {
+					"rotation": {
+						"vector": [0, "math.cos(120-query.life_time*180)*25", 0]
+					},
+					"position": {
+						"vector": [0.2, 0, 0]
+					}
+				},
+				"bone5": {
+					"rotation": {
+						"vector": [0, "math.cos(140-query.life_time*180)*30", 0]
+					}
+				},
+				"bone2": {
+					"rotation": {
+						"vector": [0, "math.cos(60-query.life_time*180)*20", 0]
+					}
+				},
+				"Wing2": {
+					"rotation": {
+						"vector": [0, "-math.cos(query.life_time*180)*10", 0]
+					}
+				},
+				"bone3": {
+					"rotation": {
+						"vector": [0, "-math.cos(60-query.life_time*180)*20", 0]
+					}
+				},
+				"bone7": {
+					"rotation": {
+						"vector": [0, "-math.cos(120-query.life_time*180)*25", 0]
+					},
+					"position": {
+						"vector": [-0.2, 0, 0]
+					}
+				},
+				"bone8": {
+					"rotation": {
+						"vector": [0, "-math.cos(140-query.life_time*180)*30", 0]
+					}
+				},
+				"Wings4": {
+					"position": {
+						"vector": [-8, 22, 0]
+					},
+					"scale": {
+						"vector": [0.4, 0.4, 0.4]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

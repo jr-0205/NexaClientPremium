@@ -1,0 +1,22 @@
+{
+  "id": {
+    "value": "8cb099a7-1df1-4ed4-b145-719fe92b6992"
+  },
+  "name": "Minecraft 1.21.8",
+  "description": "",
+  "iconPath": null,
+  "minecraftVersion": "1.21.8",
+  "loader": "fabric",
+  "loaderVersion": "0.19.3",
+  "directoryName": "8cb099a71df14ed4b145719fe92b6992",
+  "settings": {
+    "memoryMiB": null,
+    "javaPath": null,
+    "jvmArguments": null,
+    "windowWidth": null,
+    "windowHeight": null,
+    "fullscreen": null
+  },
+  "createdAt": "2026-08-29T03:22:27.4753295+00:00",
+  "updatedAt": "2026-08-29T03:23:02.387173+00:00"
+}

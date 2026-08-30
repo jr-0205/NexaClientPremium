@@ -1,0 +1,19 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/suits/valentines_bear/valentines_bear.geo.json",
+  "texture": "lunar:cosmetics/models/gek/suits/valentines_bear/valentines_bear.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/valentines_bear/valentines_bear.anim.json",
+  "compat": "suits_use_other",
+  "hide_body": true,
+  "hide_right_arm": true,
+  "hide_left_arm": true,
+  "hide_right_leg": true,
+  "hide_left_leg": true,
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

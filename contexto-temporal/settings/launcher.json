@@ -1,0 +1,88 @@
+{
+	"settings": {
+		"discordRichPresence": {},
+		"radio": {
+			"playingVisibility": 1
+		},
+		"launcherResolution": {
+			"main": {
+				"width": 1400,
+				"height": 800,
+				"maximized": true,
+				"fullscreen": false
+			},
+			"mission-control": {
+				"width": 1312,
+				"height": 808,
+				"maximized": false,
+				"fullscreen": false
+			},
+			"satellite": {
+				"width": 1200,
+				"height": 701,
+				"maximized": false,
+				"fullscreen": false
+			}
+		},
+		"missionControl": {
+			"position": {
+				"x": 112,
+				"y": 28
+			},
+			"screen": 1680545650,
+			"afterLaunchAction": "SHOW_ON_AVAILABLE_MONITOR",
+			"minecraftWikiDisplay": "NEVER",
+			"skyblockWikiDisplay": "NEVER",
+			"consoleLogDensity": "COMPACT",
+			"consoleDividers": true,
+			"consoleSensitiveMode": false,
+			"consoleHiddenLogTypes": [
+				"warning"
+			]
+		},
+		"explore": {
+			"provider": "modrinth",
+			"type": "resourcepack"
+		},
+		"defaultScreenshotUploadPrivacy": 2,
+		"incomingGiftPrivacy": 1,
+		"wrappedLeaderboardVisibility": 1,
+		"cosmeticOwnershipVisibility": 1,
+		"allowFriendRequests": true,
+		"lastSeenVisibility": 1,
+		"gameResolution": {
+			"width": 1920,
+			"height": 1080,
+			"fullscreen": false
+		},
+		"afterLaunchAction": "CLOSE",
+		"gameProfile": "ca09900b-3645-4e81-8129-aa5e00073a6a",
+		"language": "es_ES",
+		"gameUpdatePreference": "OPT_OUT",
+		"computerStartup": "CLOSED",
+		"autoUploadLogs": false,
+		"logRetention": "ONE_WEEK",
+		"closingNotifications": "NEVER",
+		"allocatedMemory": 2652,
+		"socialsVisibility": 1,
+		"adsOptimization": false,
+		"allowAnalyticsCollection": false
+	},
+	"trackingIds": {
+		"ga4": ""
+	},
+	"__internal__": {
+		"migrations": {
+			"version": "3.7.16-ow"
+		}
+	},
+	"migrationImportPending": [
+		"67380c89-129f-43ea-96eb-7cd979e24a9a"
+	],
+	"migrationImportSeeded": true,
+	"views": {
+		"servers": {
+			"tab": "community"
+		}
+	}
+}

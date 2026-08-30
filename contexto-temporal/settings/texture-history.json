@@ -1,0 +1,72 @@
+[
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/d1134f4911ceb1086318266003231a15e890c4f6123d84fd373d5e619b3a6318",
+    "type": "classic",
+    "appliedAt": "2026-08-24T09:28:37.388Z",
+    "source": "file",
+    "name": "junior_azul_marino_plateado"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/b999ea52809a505996d29ef58a8c60f7bb31ae2645736c867cc51f0d3e7e1f19",
+    "type": "classic",
+    "appliedAt": "2026-06-16T04:31:13.622Z",
+    "source": "file",
+    "name": "Junior_Mex"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/2d0a403edce24fdc3de8e8d6e952ff57ef7e7abddb68084f2059293ea9165753",
+    "type": "classic",
+    "appliedAt": "2026-05-26T01:30:38.823Z",
+    "source": "file",
+    "name": "juniorm"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/2927a21ecd231a4e98961d69974d7e29ff8b60aed6dfb7ae1ced4e0a39004fc2",
+    "type": "classic",
+    "appliedAt": "2026-05-20T16:49:16.368Z",
+    "source": "saved",
+    "name": "JuniorR"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/add23606eb884175ae00b61b58ca747b44e251f1cee7423c4fb69c99a5cd69f0",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:31:00.081Z",
+    "source": "saved",
+    "name": "bladerp"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/70970d4927ba6f410ec65a5a6c16b11eeb16221c982a48ffbb16cc454408799",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:30:36.818Z",
+    "source": "saved",
+    "name": "empirep"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/cfa51acb02347f7c8569ffb38ff58b24ed7c556467c49fcc387c0018348c9e10",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:30:17.722Z",
+    "source": "saved",
+    "name": "juniorpm"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/7dde21b00172b0b1562f442870849b8c3b704f63b34590320a4dee90b846c74a",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:28:20.383Z",
+    "source": "saved",
+    "name": "juniorp"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/57f5e188d41b4b5100f0fe29a3fa7d559fb874923aebb0e8edf76873de2cf83d",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:24:37.276Z",
+    "source": "file",
+    "name": "junior"
+  },
+  {
+    "textureUrl": "http://textures.minecraft.net/texture/19b0fd21029dfcd9ac1a755a8fd4a67a3b503c2bc90cfdce79d66cecf42dda4a",
+    "type": "classic",
+    "appliedAt": "2026-05-18T18:24:31.664Z",
+    "source": "file",
+    "name": "juniorm"
+  }
+]

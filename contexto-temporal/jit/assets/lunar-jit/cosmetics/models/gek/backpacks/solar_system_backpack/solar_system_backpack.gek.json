@@ -1,0 +1,13 @@
+{
+  "type": "backpack",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/backpacks/solar_system_backpack/solar_system_backpack.geo.json",
+  "texture": "lunar:cosmetics/models/gek/backpacks/solar_system_backpack/solar_system_backpack.webp",
+  "animation": "lunar:cosmetics/models/gek/backpacks/solar_system_backpack/solar_system_backpack.anim.json",
+  "animated_texture": true,
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

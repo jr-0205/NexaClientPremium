@@ -1,0 +1,12 @@
+CreamyKeys Keyboards Folder
+
+Drop .ogg files in this folder to create a simple keyboard named 'single'.
+Or create a folder (folder name becomes the keyboard name) and put .ogg files inside.
+Folders can have subfolders.
+
+Optional: add an index.txt inside a keyboard folder to control ordering.
+Each line is a relative path to an .ogg inside that keyboard folder.
+You can add inline comments with # (anything after # is ignored).
+Even with index.txt, any extra .ogg files are still included.
+
+Open the CreamyKeys config screen and press Rescan to refresh.

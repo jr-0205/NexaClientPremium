@@ -1,0 +1,65 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"main": {
+			"loop": true,
+			"bones": {
+				"bat": {
+					"rotation": [
+						"t.gofast=90+math.cos(q.anim_time*120)*20;t.body_x_tilt=(c.local_z_velocity_smoothed >t.f) ? t.gofast :50;return t.body_x_tilt+q.is_crouching*(-35)-q.is_swimming*60;",
+						"-c.local_x_velocity_smoothed*0.2",
+						"math.clamp(c.local_x_velocity_smoothed*4,-20,20)"
+					],
+					"position": [
+						0,
+						"t.t = 1100;t.f = 10;t.crouch = query.is_crouching ? query.is_crouching_smooth_easeoutsine(0.2)*0.5 : (query.is_in_water?query.is_in_water_smooth_easeoutsine(0.25)*0.3:1);t.bat_y_pos=math.cos(q.anim_time*t.t*t.crouch)*0.6+(math.cos(q.anim_time*90*t.crouch)*0.5-lunar.sigmoid(c.local_y_velocity_smoothed,6,1.2));t.bat_y_gofast=math.cos(60+q.anim_time*120)*3;return (c.local_z_velocity_smoothed>t.f)? t.bat_y_gofast : t.bat_y_pos;",
+						"lunar.sigmoid(c.local_z_velocity_smoothed,12,1.3)"
+					]
+				},
+				"head": {
+					"rotation": [
+						"t.headflight=-t.body_x_tilt+math.cos(45+q.anim_time*t.t*t.crouch)*3;t.head_gofast=-t.body_x_tilt;return (c.local_z_velocity_smoothed>t.f)? t.head_gofast : t.headflight+q.head_x_rotation;",
+						"q.head_y_rotation",
+						0
+					]
+				},
+				"right_wing": {
+					"rotation": [
+						"t.wing_x_r=20+math.cos(60-q.anim_time*t.t*t.crouch)*10;return (c.local_z_velocity_smoothed>t.f)?0 : t.wing_x_r;",
+						"t.wing_y_r=10+math.cos(60-q.anim_time*t.t*t.crouch)*80;t.wing_y_gofast=math.cos(20-q.anim_time*120)*15;return (c.local_z_velocity_smoothed>t.f)?t.wing_y_gofast: t.wing_y_r;",
+						0
+					]
+				},
+				"legs": {
+					"rotation": [
+						"(c.local_z_velocity_smoothed>t.f)?math.cos(30-q.anim_time*120)*20 : -math.cos(45+q.anim_time*t.t)*15",
+						0,
+						0
+					]
+				},
+				"ears": {
+					"rotation": [
+						"t.ears_gofast=-40+math.cos(q.anim_time*t.t)*3;return (c.local_z_velocity_smoothed>t.f)?t.ears_gofast:math.cos(45+q.anim_time*t.t*t.crouch)*5;",
+						0,
+						0
+					]
+				},
+				"eyes": {
+					"scale": [
+						1,
+						"t.wink_timing=-math.cos(q.anim_time*180)*2;t.wink=math.clamp(1-math.min(math.cos(q.anim_time*720),0)*t.wink_timing,0,1);return q.is_crouching ? 0.4 : t.wink;",
+						1
+					]
+				},
+				"left_wing": {
+					"rotation": [
+						"return (c.local_z_velocity_smoothed>t.f)? t.wing_y_gofast : t.wing_x_r;",
+						"return (c.local_z_velocity_smoothed>t.f)?-t.wing_y_gofast: -t.wing_y_r;",
+						0
+					]
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

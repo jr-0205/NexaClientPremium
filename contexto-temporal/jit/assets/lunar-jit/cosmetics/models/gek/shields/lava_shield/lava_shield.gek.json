@@ -1,0 +1,20 @@
+{
+  "type": "wristwear",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/shields/lava_shield/lava_shield.geo.json",
+  "texture": "lunar:cosmetics/models/gek/shields/lava_shield/lava_shield.webp",
+  "animation": "lunar:cosmetics/models/gek/shields/lava_shield/lava_shield.anim.json",
+  "item_transformation": {
+    "lunar:cosmetics/models/gek/shields/lava_shield/lava_shield_block.display.json": "query.is_blocking",
+    "lunar:cosmetics/models/gek/shields/lava_shield/lava_shield_held.display.json": "!query.is_blocking"
+  },
+  "compat": "suits_use_other",
+  "render_first_person": "SINGLE_ARM",
+  "item_render_type": "SHIELD",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "main"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "backpack",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/shoes/penguin/penguin.geo.json",
+  "texture": "lunar:cosmetics/models/gek/shoes/penguin/penguin.webp",
+  "animation": "lunar:cosmetics/models/gek/shoes/penguin/penguin.anim.json",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "animation"
+  },
+  "transformations": [
+    {
+      "transformType": "translate",
+      "values": {
+        "player": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        }
+      }
+    }
+  ]
+}

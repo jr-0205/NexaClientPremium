@@ -1,0 +1,6 @@
+{
+  "_comentario": "Config general del PokePad. pokepad=false desactiva el PokePad en este servidor (requiere reinicio).",
+  "pokepad": true,
+  "_comentario_pokedolares": "Id de la moneda principal (PokeDolares) que muestra la app ATM, consultado a EconomyAPI.",
+  "pokedolares_currency": "pokedolares"
+}

@@ -1,0 +1,33 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/wings/easter_wings_2026/easter_wings_2026.geo.json",
+  "texture": "lunar:cosmetics/models/gek/wings/easter_wings_2026/easter_wings_2026.webp",
+  "animation": "lunar:cosmetics/models/gek/wings/easter_wings_2026/easter_wings_2026.anim.json",
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "15",
+        "states": [
+          {
+            "anim": "moving",
+            "plays_when": "q.absolute_speed>2 && !q.is_elytra_flying || q.is_flying",
+            "transition_easing": "easeOutExpo"
+          },
+          {
+            "anim": "elytra",
+            "plays_when": "q.is_elytra_flying",
+            "transition_easing": "easeOutSine"
+          },
+          {
+            "anim": "idle",
+            "plays_when": "!query.is_flying && !query.is_in_water && !q.is_elytra_flying",
+            "transition_easing": "easeOutSine"
+          }
+        ]
+      }
+    ]
+  }
+}

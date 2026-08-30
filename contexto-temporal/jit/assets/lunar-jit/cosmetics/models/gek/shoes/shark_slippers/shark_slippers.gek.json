@@ -1,0 +1,38 @@
+{
+  "type": "backpack",
+  "attached_bone": "NONE",
+  "show_during_emote": false,
+  "model": "lunar:cosmetics/models/gek/shoes/shark_slippers/shark_slippers.geo.json",
+  "texture": "lunar:cosmetics/models/gek/shoes/shark_slippers/shark_slippers.webp",
+  "animation": "lunar:cosmetics/models/gek/shoes/shark_slippers/shark_slippers.anim.json",
+  "animated_texture": false,
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "main",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "9"
+          }
+        ]
+      }
+    ]
+  },
+  "transformations": [
+    {
+      "transformType": "translate",
+      "values": {
+        "player": {
+          "x": 0.0,
+          "y": -0.025,
+          "z": 0.0
+        }
+      }
+    }
+  ]
+}

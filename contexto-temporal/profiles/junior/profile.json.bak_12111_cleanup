@@ -1,0 +1,17 @@
+{
+    "id": "ca09900b-3645-4e81-8129-aa5e00073a6a",
+    "name": "JUNIOR_",
+    "description": "",
+    "majorGameVersion": "1.21",
+    "gameVersion": "1.21.8",
+    "loaders": [
+        "fabric"
+    ],
+    "type": "user-modpack",
+    "overrides": {},
+    "configVersion": 2,
+    "useLunarFeatures": true,
+    "lunar": {
+        "module": "fabric"
+    }
+}

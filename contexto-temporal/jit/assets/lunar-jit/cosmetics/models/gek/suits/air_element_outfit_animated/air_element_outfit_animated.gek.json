@@ -1,0 +1,18 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "model": "lunar:cosmetics/models/gek/suits/air_element_outfit_animated/air_element_outfit_animated.geo.json",
+  "texture": "lunar:cosmetics/models/gek/suits/air_element_outfit_animated/air_element_outfit_animated.webp",
+  "animation": "lunar:cosmetics/models/gek/suits/air_element_outfit_animated/air_element_outfit_animated.anim.json",
+  "show_during_emote": false,
+  "compat": "suits_full_coverage",
+  "render_first_person": "NONE",
+  "animated_texture": true,
+  "hide_left_leg": true,
+  "hide_right_leg": true,
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 10,
+    "anim": "idle"
+  }
+}

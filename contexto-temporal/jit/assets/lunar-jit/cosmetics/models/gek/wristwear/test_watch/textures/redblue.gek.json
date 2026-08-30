@@ -1,0 +1,18 @@
+{
+  "type": "suits",
+  "attached_bone": "NONE",
+  "model": {
+    "lunar:cosmetics/models/gek/wristwear/test_watch/test_watch.geo.json": "!q.is_slim_model",
+    "lunar:cosmetics/models/gek/wristwear/test_watch/test_watch_slim.geo.json": "q.is_slim_model"
+  },
+  "texture": "lunar:cosmetics/models/gek/wristwear/test_watch/textures/redblue.webp",
+  "animation": "lunar:cosmetics/models/gek/wristwear/test_watch/test_watch.anim.json",
+  "show_during_emote": false,
+  "compat": "allow_all",
+  "render_first_person": "SINGLE_ARM",
+  "state_machine": {
+    "name": "single",
+    "transition_tick_length": 1,
+    "anim": "animation"
+  }
+}

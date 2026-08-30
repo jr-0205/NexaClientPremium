@@ -1,0 +1,39 @@
+{
+  "type": "pet",
+  "attached_bone": "SHOULDER",
+  "model": "lunar:cosmetics/models/gek/wings/angel_wings_new/angel_wings_new.geo.json",
+  "texture": "lunar:cosmetics/models/gek/wings/angel_wings_new/textures/white.webp",
+  "animation": "lunar:cosmetics/models/gek/wings/angel_wings_new/angel_wings_new.anim.json",
+  "cosmetic_options": [
+    {
+      "type": "float",
+      "id": "Size",
+      "molang_query": "option.size",
+      "default": 3,
+      "min": 2,
+      "max": 5
+    }
+  ],
+  "state_machine": {
+    "name": "molang",
+    "controllers": [
+      {
+        "name": "main_controller",
+        "default_transition_ticks": "8",
+        "states": [
+          {
+            "anim": "gui",
+            "plays_when": "q.is_in_gui",
+            "transition_easing": "easeInOutSine"
+          },
+          {
+            "anim": "walk",
+            "plays_when": "1",
+            "transition_easing": "easeInOutSine",
+            "transition_ticks": "10"
+          }
+        ]
+      }
+    ]
+  }
+}
