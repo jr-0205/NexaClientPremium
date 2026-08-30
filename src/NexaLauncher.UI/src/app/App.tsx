@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import {
   bootstrap,
   getAccountStatus,
@@ -13,17 +13,20 @@ import {
 } from "./nexa-bridge";
 import type { BootstrapData, NexaAccountState, NexaProfile, OperationProgress } from "./types";
 import { defaultArtworkPlacement } from "./types";
+import { applyAccentTheme, readAccentTheme, type AccentTheme } from "./theme";
 import { Sidebar } from "../components/Sidebar";
 import { Topbar } from "../components/Topbar";
+import { OperationCenter } from "../components/OperationCenter";
 import { LibraryPage } from "../pages/LibraryPage";
 import { CreateProfilePage } from "../pages/CreateProfilePage";
 import { ProfileDetailPage } from "../pages/ProfileDetailPage";
 import { ContentPage } from "../pages/ContentPage";
 import { AccountPage, type SkinVariant } from "../pages/AccountPage";
+import { PremiumHubPage } from "../pages/PremiumHubPage";
 import { SettingsPage } from "../pages/SettingsPage";
 
-type Section = "library" | "create" | "profile" | "content" | "account" | "settings";
-type SidebarSection = "library" | "create" | "content" | "account" | "settings";
+type Section = "library" | "create" | "profile" | "content" | "premium" | "account" | "settings";
+type SidebarSection = Exclude<Section, "profile">;
 type Notice = { id: number; message: string; kind: "success" | "error" };
 
 const emptyAccount: NexaAccountState = {
@@ -45,6 +48,7 @@ const titleBySection: Record<Section, string> = {
   create: "Crear perfil",
   profile: "Perfil",
   content: "Contenido",
+  premium: "Premium",
   account: "Cuenta",
   settings: "Configuración",
 };
@@ -59,6 +63,9 @@ export default function App() {
   const [operation, setOperation] = useState<OperationProgress | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
+  const [accent, setAccent] = useState<AccentTheme>(() => readAccentTheme());
+
+  useEffect(() => applyAccentTheme(accent), [accent]);
 
   const showNotice = useCallback((message: string, kind: "success" | "error" = "success") => {
     setNotice({ id: Date.now(), message, kind });
@@ -100,7 +107,7 @@ export default function App() {
       setLaunchingProfileId(null);
       setOperation(null);
       setData((current) => current ? { ...current, activeLaunch: { profileId, pid: 0, logPath: "" } } : current);
-      showNotice(account.premium ? "Minecraft se inició con tu cuenta premium." : "Minecraft se inició correctamente.");
+      showNotice(account.premium ? "Minecraft se inició con tu cuenta Premium." : "Minecraft se inició correctamente.");
     });
     const offExited = onBridgeEvent<{ profileId: string; exitCode: number; error?: string }>("launch.exited", ({ exitCode, error }) => {
       setData((current) => current ? { ...current, activeLaunch: null } : current);
@@ -127,9 +134,14 @@ export default function App() {
     : false;
 
   const navigate = useCallback((target: SidebarSection) => {
+    if (target === "premium" && !account.premium) {
+      setSection("account");
+      setSelectedProfileId(null);
+      return;
+    }
     setSection(target);
-    if (target === "library" || target === "create" || target === "account" || target === "settings") setSelectedProfileId(null);
-  }, []);
+    if (target === "library" || target === "create" || target === "premium" || target === "account" || target === "settings") setSelectedProfileId(null);
+  }, [account.premium]);
 
   const openProfile = useCallback((profile: NexaProfile) => {
     setSelectedProfileId(profile.id);
@@ -172,8 +184,10 @@ export default function App() {
     try {
       const next = await signInMicrosoft();
       setAccount(next);
-      setSection("account");
-      showNotice(`Bienvenido, ${next.minecraftName ?? "cuenta Microsoft"}. NEXA Premium está activo.`);
+      setSection(next.premium ? "premium" : "account");
+      showNotice(next.premium
+        ? `Bienvenido, ${next.minecraftName ?? "cuenta Microsoft"}. NEXA Premium está activo.`
+        : "Cuenta Microsoft conectada.");
     } catch (error) {
       showNotice(error instanceof Error ? error.message : "No se pudo iniciar sesión con Microsoft.", "error");
     } finally {
@@ -186,7 +200,8 @@ export default function App() {
     try {
       const next = await signOutMicrosoft();
       setAccount(next);
-      showNotice("Sesión Microsoft cerrada. NEXA volvió al modo local.");
+      setSection("account");
+      showNotice("Sesión Microsoft cerrada. NEXA continúa en modo local.");
     } catch (error) {
       showNotice(error instanceof Error ? error.message : "No se pudo cerrar la sesión.", "error");
     } finally {
@@ -222,10 +237,10 @@ export default function App() {
   const displayUsername = account.premium && account.minecraftName ? account.minecraftName : data?.username ?? "Player";
 
   return (
-    <div className="app-shell">
+    <div className={`app-shell ${account.premium ? "premium-session" : "base-session"}`}>
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
-      <Sidebar active={activeSidebar} onChange={navigate} />
+      <Sidebar active={activeSidebar} premium={account.premium} accent={accent} onAccentChange={setAccent} onChange={navigate} />
       <div className="workspace">
         <Topbar title={title} username={displayUsername} isPremium={account.premium} onOpenAccount={() => navigate("account")} onUpdateLocalUsername={updateLocalUsername} />
         <main className="content-scroll">
@@ -236,18 +251,13 @@ export default function App() {
           {section === "profile" && selectedProfile && <ProfileDetailPage key={selectedProfile.id} profile={selectedProfile} launching={selectedProfileBusy} onLaunch={play} onContent={openContent} onUpdated={replaceProfile} onDeleted={() => { setData((current) => current ? { ...current, profiles: current.profiles.filter((item) => item.id !== selectedProfile.id) } : current); navigate("library"); }} onBack={() => navigate("library")} onNotice={showNotice} />}
           {section === "profile" && !selectedProfile && <div className="page"><div className="empty-state glass-panel"><h2>Perfil no disponible</h2><p>Vuelve a Biblioteca y selecciona un perfil.</p></div></div>}
           {section === "content" && <ContentPage profiles={profiles} initialProfileId={selectedProfileId} onSelectProfile={setSelectedProfileId} onNotice={showNotice} />}
+          {section === "premium" && account.premium && <PremiumHubPage account={account} profiles={profiles} onOpenAccount={() => navigate("account")} onOpenLibrary={() => navigate("library")} />}
           {section === "account" && <AccountPage account={account} busy={accountBusy} onSignIn={signIn} onSignOut={signOut} onUploadSkin={uploadSkin} />}
           {section === "settings" && <SettingsPage username={data?.username ?? "Player"} closeLauncherOnGameStart={data?.closeLauncherOnGameStart ?? true} version={data?.version ?? "1.0.0"} onUpdated={(username, closeLauncherOnGameStart) => setData((current) => current ? { ...current, username, closeLauncherOnGameStart } : current)} onNotice={showNotice} />}
         </main>
       </div>
 
-      {operation && (
-        <div className="operation-pill glass-panel">
-          <Loader2 className="spin" size={16} />
-          <div><strong>{operation.stage}</strong>{(operation.total ?? 0) > 0 && <span>{operation.completed ?? 0} / {operation.total}</span>}</div>
-          {(operation.total ?? 0) > 0 && <div className="operation-track"><span style={{ width: `${Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))}%` }} /></div>}
-        </div>
-      )}
+      <OperationCenter operation={operation} />
 
       {notice && <div key={notice.id} className={`nexa-toast ${notice.kind}`}><span>{notice.message}</span><button className="icon-button" type="button" onClick={() => setNotice(null)}><X size={15} /></button></div>}
     </div>
