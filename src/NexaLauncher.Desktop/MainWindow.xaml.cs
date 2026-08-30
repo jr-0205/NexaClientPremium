@@ -16,7 +16,6 @@ public partial class MainWindow : Window
     private readonly HttpClient previewHttp = new() { Timeout = TimeSpan.FromSeconds(15) };
     private NexaBridge? bridge;
     private NexaDesktopMessageRouter? desktopRouter;
-    private NexaInGameBuildMessageRouter? inGameBuildRouter;
     private NexaProfileLogMessageRouter? profileLogRouter;
     private NexaPremiumAccountService? accountService;
     private NexaAccountMessageRouter? accountRouter;
@@ -53,7 +52,6 @@ public partial class MainWindow : Window
             bridge = new NexaBridge(paths, core);
             accountRouter = new NexaAccountMessageRouter(core, accountService);
             desktopRouter = new NexaDesktopMessageRouter(paths, core);
-            inGameBuildRouter = new NexaInGameBuildMessageRouter(paths, core);
             profileLogRouter = new NexaProfileLogMessageRouter(paths, core);
             core.WebMessageReceived += OnWebMessageReceived;
             core.WindowCloseRequested += (_, _) => Close();
@@ -104,7 +102,6 @@ public partial class MainWindow : Window
     private async void OnWebMessageReceived(object? sender, CoreWebView2WebMessageReceivedEventArgs eventArgs)
     {
         if (profileLogRouter is not null && await profileLogRouter.TryHandleAsync(eventArgs)) return;
-        if (inGameBuildRouter is not null && await inGameBuildRouter.TryHandleAsync(eventArgs)) return;
         if (accountRouter is not null && await accountRouter.TryHandleAsync(eventArgs)) return;
         if (desktopRouter is not null && await desktopRouter.TryHandleAsync(eventArgs)) return;
         bridge?.OnWebMessageReceived(sender, eventArgs);
