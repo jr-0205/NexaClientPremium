@@ -187,6 +187,7 @@ export function ProfileDetailPage({ profile, launching, onLaunch, onContent, onU
           <button className="secondary-button" type="button" onClick={() => onContent(profile)}><Boxes size={16} /> CONTENIDO</button>
           <button className="secondary-button" type="button" onClick={() => setEditing((value) => !value)}>{editing ? <X size={16} /> : <ImagePlus size={16} />} {editing ? "CERRAR EDITOR" : "EDITAR PERFIL"}</button>
           <button className="ghost-button" type="button" onClick={() => openProfileFolder(profile.id).catch((error: Error) => onNotice(error.message, "error"))}><FolderOpen size={16} /> ABRIR CARPETA</button>
+          <button className="ghost-button danger-text" type="button" disabled={launching || deleting} onClick={() => setConfirmDelete(true)}><Trash2 size={16} /> ELIMINAR PERFIL</button>
         </div>
       </div>
 
