@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -45,9 +46,7 @@ export function PremiumHubPage({ account, profiles, onOpenAccount, onOpenLibrary
         </div>
 
         <div className="premium-identity-card">
-          <div className="premium-identity-mark">
-            <img src="./brand/original/NEXA%20N.png" alt="NEXA" />
-          </div>
+          <div className="premium-identity-mark"><img src="./brand/original/NEXA%20N.png" alt="NEXA" /></div>
           <div className="premium-identity-copy">
             <span>IDENTIDAD VERIFICADA</span>
             <strong>{account.minecraftName ?? "Minecraft Player"}</strong>
@@ -74,11 +73,7 @@ export function PremiumHubPage({ account, profiles, onOpenAccount, onOpenLibrary
             <button type="button" className="premium-link-button" onClick={onOpenAccount}>ABRIR SKIN MANAGER <ArrowRight size={15} /></button>
           </div>
           <div className="premium-skin-visual">
-            {account.activeSkinUrl ? (
-              <img src={account.activeSkinUrl} alt={`Skin activa de ${account.minecraftName ?? "Minecraft"}`} />
-            ) : (
-              <Shirt size={42} />
-            )}
+            {account.activeSkinUrl ? <img src={account.activeSkinUrl} alt={`Skin activa de ${account.minecraftName ?? "Minecraft"}`} /> : <Shirt size={42} />}
           </div>
         </article>
 
@@ -116,7 +111,7 @@ export function PremiumHubPage({ account, profiles, onOpenAccount, onOpenLibrary
   );
 }
 
-function Metric({ icon, label, value, detail }: { icon: React.ReactNode; label: string; value: string; detail: string }) {
+function Metric({ icon, label, value, detail }: { icon: ReactNode; label: string; value: string; detail: string }) {
   return (
     <article className="premium-metric glass-panel">
       <span className="premium-metric-icon">{icon}</span>
