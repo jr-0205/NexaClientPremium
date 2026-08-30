@@ -10,25 +10,25 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
 
-/** Minimal NEXA main menu for Minecraft 1.21.1. */
+/** NEXA main menu for Minecraft 1.21.1. */
 public final class NexaTitleScreen extends Screen {
     private static final Identifier NEXA_MARK = Identifier.of("nexo_ingame", "textures/gui/nexa_mark.png");
     private static final Identifier NEXA_BACKGROUND = Identifier.of("nexo_ingame", "textures/gui/nexa_background.png");
     private static final int MARK_TEXTURE_WIDTH = 1199;
     private static final int MARK_TEXTURE_HEIGHT = 1312;
-    private static final int BACKGROUND_TEXTURE_WIDTH = 320;
-    private static final int BACKGROUND_TEXTURE_HEIGHT = 180;
+    private static final int BACKGROUND_TEXTURE_WIDTH = 1648;
+    private static final int BACKGROUND_TEXTURE_HEIGHT = 928;
     private static final String GITHUB_URL = "https://github.com/jr-0205/NexaClientPremium";
 
-    private static final int PANEL = 0xC7131A20;
-    private static final int PANEL_HOVER = 0xE51B252D;
-    private static final int PANEL_ACTIVE = 0xE524303A;
-    private static final int BORDER = 0xB05E6D78;
-    private static final int BORDER_SOFT = 0x70455360;
-    private static final int TEXT = 0xFFF2F5F7;
-    private static final int MUTED = 0xFF9AA8B3;
-    private static final int ICE = 0xFFB8CBD8;
-    private static final int STATUS = 0xFF88AFC8;
+    private static final int PANEL = 0xB80A1118;
+    private static final int PANEL_HOVER = 0xD914202A;
+    private static final int PANEL_ACTIVE = 0xE21A2731;
+    private static final int BORDER = 0x9A748694;
+    private static final int BORDER_SOFT = 0x665C6C78;
+    private static final int TEXT = 0xFFF3F6F8;
+    private static final int MUTED = 0xFFA1ADB6;
+    private static final int ICE = 0xFFD2DEE5;
+    private static final int STATUS = 0xFFA7C7D9;
 
     private int centerX;
     private int mainX;
@@ -37,7 +37,8 @@ public final class NexaTitleScreen extends Screen {
     private int mainHeight;
     private int mainGap;
     private int dockY;
-    private int dockSize;
+    private int dockItemWidth;
+    private int dockItemHeight;
     private int dockGap;
     private long noticeUntil;
     private String notice;
@@ -49,26 +50,25 @@ public final class NexaTitleScreen extends Screen {
     @Override
     protected void init() {
         centerX = width / 2;
-        mainWidth = Math.min(292, Math.max(224, width / 4));
-        mainHeight = 24;
-        mainGap = 7;
+        mainWidth = Math.min(330, Math.max(260, width / 4));
+        mainHeight = 30;
+        mainGap = 8;
         mainX = centerX - mainWidth / 2;
-        mainY = Math.max(210, height / 2 - 6);
-        dockSize = 25;
+        mainY = Math.max(210, Math.min(height / 2 - 4, height - 196));
+        dockItemWidth = Math.min(104, Math.max(88, width / 14));
+        dockItemHeight = 38;
         dockGap = 8;
-        dockY = height - 48;
+        dockY = height - 58;
     }
 
     @Override
     public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
         drawBackgroundCover(context);
-        // The artwork is pre-blurred. These restrained overlays give every
-        // resolution the same legibility without invoking Minecraft blur twice.
-        context.fill(0, 0, width, height, 0x5203070A);
-        context.fill(0, 0, width, Math.max(42, height / 8), 0x42000000);
-        context.fill(0, height - Math.max(70, height / 7), width, height, 0x52000000);
-        context.fill(0, 0, Math.max(55, width / 10), height, 0x24000000);
-        context.fill(width - Math.max(55, width / 10), 0, width, height, 0x24000000);
+        context.fill(0, 0, width, height, 0x3A02070B);
+        context.fill(0, 0, width, Math.max(48, height / 8), 0x36000000);
+        context.fill(0, height - Math.max(82, height / 7), width, height, 0x52000000);
+        context.fill(0, 0, Math.max(58, width / 11), height, 0x22000000);
+        context.fill(width - Math.max(58, width / 11), 0, width, height, 0x22000000);
     }
 
     private void drawBackgroundCover(DrawContext context) {
@@ -111,15 +111,15 @@ public final class NexaTitleScreen extends Screen {
         drawCenteredBrand(context);
         drawMainButton(context, mouseX, mouseY, 0, "UN JUGADOR");
         drawMainButton(context, mouseX, mouseY, 1, "MULTIJUGADOR");
-        drawMainButton(context, mouseX, mouseY, 2, "NEXA EN GITHUB");
+        drawMainButton(context, mouseX, mouseY, 2, "PROYECTO NEXA EN GITHUB");
         drawDock(context, mouseX, mouseY);
-        context.drawTextWithShadow(textRenderer, Text.literal("NEXA Client · Fabric 1.21.1"), 12, height - 16, 0xFF6B7881);
+        context.drawTextWithShadow(textRenderer, Text.literal("NEXA Client · Fabric 1.21.1"), 12, height - 16, 0xFF6E7A83);
 
         if (notice != null && System.currentTimeMillis() < noticeUntil) {
-            int noticeWidth = textRenderer.getWidth(notice) + 20;
+            int noticeWidth = Math.min(width - 32, textRenderer.getWidth(notice) + 22);
             int x = centerX - noticeWidth / 2;
-            int y = dockY - 30;
-            context.fill(x, y, x + noticeWidth, y + 20, 0xE30B1116);
+            int y = dockY - 31;
+            context.fill(x, y, x + noticeWidth, y + 20, 0xE3090F14);
             context.fill(x, y, x + noticeWidth, y + 1, BORDER);
             context.drawCenteredTextWithShadow(textRenderer, Text.literal(notice), centerX, y + 6, TEXT);
         }
@@ -128,73 +128,90 @@ public final class NexaTitleScreen extends Screen {
     private void drawAccountPreview(DrawContext context, int mouseX, int mouseY) {
         int x = 12;
         int y = 12;
-        int w = Math.min(205, Math.max(160, width / 7));
-        int h = 42;
+        int w = Math.min(244, Math.max(202, width / 6));
+        int h = 58;
         boolean hover = inside(mouseX, mouseY, x, y, w, h);
         context.fill(x, y, x + w, y + h, hover ? PANEL_HOVER : PANEL);
-        context.fill(x, y, x + w, y + 1, BORDER_SOFT);
+        context.fill(x, y, x + w, y + 1, hover ? BORDER : BORDER_SOFT);
         context.fill(x, y, x + 1, y + h, BORDER_SOFT);
-        drawNexaMark(context, x + 8, y + 8, 26);
+        drawNexaMark(context, x + 9, y + 12, 30);
 
         String username = "NEXA USER";
-        String status = "MINECRAFT ID PENDIENTE";
+        String status = "MODO LOCAL";
+        String detail = "MINECRAFT SERVICES · ID PENDIENTE";
         if (client != null && client.getSession() != null) {
             username = client.getSession().getUsername();
-            if (client.getSession().getClientId().isPresent()) status = "CUENTA MICROSOFT";
+            if (client.getSession().getClientId().isPresent()) {
+                status = "CUENTA MICROSOFT";
+                detail = "SESIÓN DE MINECRAFT ACTIVA";
+            }
         }
-        context.drawTextWithShadow(textRenderer, Text.literal(username), x + 42, y + 9, TEXT);
-        context.drawTextWithShadow(textRenderer, Text.literal(status), x + 42, y + 24, status.contains("PENDIENTE") ? MUTED : STATUS);
+
+        context.drawTextWithShadow(textRenderer, Text.literal(username), x + 48, y + 9, TEXT);
+        context.drawTextWithShadow(textRenderer, Text.literal(status), x + 48, y + 24, STATUS);
+        context.drawTextWithShadow(textRenderer, Text.literal(detail), x + 48, y + 39, MUTED);
     }
 
     private void drawCloseButton(DrawContext context, int mouseX, int mouseY) {
-        int size = 24;
+        int size = 28;
         int x = width - size - 12;
         int y = 12;
         boolean hover = inside(mouseX, mouseY, x, y, size, size);
-        context.fill(x, y, x + size, y + size, hover ? 0xD83A4248 : 0xA8242B30);
-        context.fill(x, y, x + size, y + 1, hover ? 0xFF8D9BA6 : BORDER_SOFT);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal("X"), x + size / 2, y + 8, TEXT);
+        context.fill(x, y, x + size, y + size, hover ? 0xD83A4248 : 0xA8151C22);
+        context.fill(x, y, x + size, y + 1, hover ? 0xFFC4D0D8 : BORDER_SOFT);
+        context.drawCenteredTextWithShadow(textRenderer, Text.literal("X"), x + size / 2, y + 10, TEXT);
     }
 
     private void drawCenteredBrand(DrawContext context) {
-        int markHeight = Math.min(82, Math.max(60, height / 9));
+        int markHeight = Math.min(92, Math.max(70, height / 8));
         int markWidth = Math.max(1, Math.round(markHeight * (MARK_TEXTURE_WIDTH / (float)MARK_TEXTURE_HEIGHT)));
         int markX = centerX - markWidth / 2;
-        int markY = Math.max(64, mainY - 140);
+        int markY = Math.max(54, mainY - 154);
         drawNexaMark(context, markX, markY, markHeight);
         int titleY = markY + markHeight + 9;
         context.drawCenteredTextWithShadow(textRenderer, Text.literal("N E X A   C L I E N T"), centerX, titleY, TEXT);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal("MINECRAFT · NORDIC INTERFACE"), centerX, titleY + 15, ICE);
+        context.drawCenteredTextWithShadow(textRenderer, Text.literal("MINECRAFT JAVA"), centerX, titleY + 16, MUTED);
     }
 
     private void drawMainButton(DrawContext context, int mouseX, int mouseY, int index, String label) {
         int y = mainY + index * (mainHeight + mainGap);
         boolean hover = inside(mouseX, mouseY, mainX, y, mainWidth, mainHeight);
-        context.fill(mainX, y, mainX + mainWidth, y + mainHeight, BORDER_SOFT);
+        context.fill(mainX, y, mainX + mainWidth, y + mainHeight, hover ? BORDER : BORDER_SOFT);
         context.fill(mainX + 1, y + 1, mainX + mainWidth - 1, y + mainHeight - 1, hover ? PANEL_HOVER : PANEL);
         if (hover) context.fill(mainX + 1, y + mainHeight - 2, mainX + mainWidth - 1, y + mainHeight - 1, ICE);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal(label), centerX, y + 8, hover ? TEXT : 0xFFD5DDE2);
+        context.drawCenteredTextWithShadow(textRenderer, Text.literal(label), centerX, y + 11, hover ? TEXT : ICE);
     }
 
     private void drawDock(DrawContext context, int mouseX, int mouseY) {
-        int totalWidth = dockSize * 3 + dockGap * 2;
+        int totalWidth = dockItemWidth * 3 + dockGap * 2;
         int startX = centerX - totalWidth / 2;
-        String[] tips = { "NEXA MODS", "MODS", "OPCIONES" };
+        String[] labels = { "NEXA MODS", "MODS", "OPCIONES" };
+
         for (int i = 0; i < 3; i++) {
-            int x = startX + i * (dockSize + dockGap);
-            boolean hover = inside(mouseX, mouseY, x, dockY, dockSize, dockSize);
-            context.fill(x, dockY, x + dockSize, dockY + dockSize, hover ? PANEL_ACTIVE : PANEL);
-            context.fill(x, dockY, x + dockSize, dockY + 1, hover ? ICE : BORDER_SOFT);
-            context.fill(x, dockY, x + 1, dockY + dockSize, BORDER_SOFT);
-            if (i == 0) drawNexaMark(context, x + 7, dockY + 5, dockSize - 10);
-            else if (i == 1) drawDockGrid(context, x, dockY, dockSize);
-            else drawDockSliders(context, x, dockY, dockSize);
-            if (hover) drawTooltip(context, tips[i], x + dockSize / 2, dockY - 18);
+            int x = startX + i * (dockItemWidth + dockGap);
+            boolean hover = inside(mouseX, mouseY, x, dockY, dockItemWidth, dockItemHeight);
+            context.fill(x, dockY, x + dockItemWidth, dockY + dockItemHeight, hover ? BORDER : BORDER_SOFT);
+            context.fill(x + 1, dockY + 1, x + dockItemWidth - 1, dockY + dockItemHeight - 1, hover ? PANEL_ACTIVE : PANEL);
+
+            if (i == 0) {
+                drawNexaMark(context, x + 11, dockY + 8, 22);
+            }
+            else if (i == 1) {
+                drawDockGrid(context, x + 10, dockY + 8, 22);
+            }
+            else {
+                drawDockSliders(context, x + 10, dockY + 8, 22);
+            }
+
+            context.drawTextWithShadow(textRenderer, Text.literal(labels[i]), x + 39, dockY + 15, hover ? TEXT : ICE);
         }
     }
 
     private void drawDockGrid(DrawContext context, int x, int y, int size) {
-        int s = 5, left = x + 7, top = y + 7, gap = 3;
+        int s = 5;
+        int gap = 3;
+        int left = x + 2;
+        int top = y + 2;
         context.fill(left, top, left + s, top + s, ICE);
         context.fill(left + s + gap, top, left + s * 2 + gap, top + s, ICE);
         context.fill(left, top + s + gap, left + s, top + s * 2 + gap, ICE);
@@ -202,21 +219,17 @@ public final class NexaTitleScreen extends Screen {
     }
 
     private void drawDockSliders(DrawContext context, int x, int y, int size) {
-        int left = x + 6, right = x + size - 6;
-        int y1 = y + 7, y2 = y + 12, y3 = y + 17;
+        int left = x + 1;
+        int right = x + size - 2;
+        int y1 = y + 4;
+        int y2 = y + 10;
+        int y3 = y + 16;
         context.fill(left, y1, right, y1 + 1, ICE);
         context.fill(left, y2, right, y2 + 1, ICE);
         context.fill(left, y3, right, y3 + 1, ICE);
-        context.fill(left + 4, y1 - 2, left + 6, y1 + 3, TEXT);
+        context.fill(left + 5, y1 - 2, left + 7, y1 + 3, TEXT);
         context.fill(right - 7, y2 - 2, right - 5, y2 + 3, TEXT);
-        context.fill(left + 8, y3 - 2, left + 10, y3 + 3, TEXT);
-    }
-
-    private void drawTooltip(DrawContext context, String text, int anchorX, int y) {
-        int w = textRenderer.getWidth(text) + 12;
-        int x = anchorX - w / 2;
-        context.fill(x, y, x + w, y + 14, 0xE90A0F13);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal(text), anchorX, y + 3, TEXT);
+        context.fill(left + 9, y3 - 2, left + 11, y3 + 3, TEXT);
     }
 
     private static void drawNexaMark(DrawContext context, int x, int y, int height) {
@@ -229,15 +242,15 @@ public final class NexaTitleScreen extends Screen {
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button != 0 || client == null) return super.mouseClicked(mouseX, mouseY, button);
 
-        int accountWidth = Math.min(205, Math.max(160, width / 7));
-        if (inside(mouseX, mouseY, 12, 12, accountWidth, 42)) {
+        int accountWidth = Math.min(244, Math.max(202, width / 6));
+        if (inside(mouseX, mouseY, 12, 12, accountWidth, 58)) {
             showNotice(client.getSession().getClientId().isPresent()
                 ? "Cuenta Microsoft detectada"
                 : "Microsoft/Xbox listo · Minecraft Services pendiente");
             return true;
         }
 
-        int closeSize = 24;
+        int closeSize = 28;
         int closeX = width - closeSize - 12;
         if (inside(mouseX, mouseY, closeX, 12, closeSize, closeSize)) {
             client.scheduleStop();
@@ -256,11 +269,11 @@ public final class NexaTitleScreen extends Screen {
             return true;
         }
 
-        int totalWidth = dockSize * 3 + dockGap * 2;
+        int totalWidth = dockItemWidth * 3 + dockGap * 2;
         int startX = centerX - totalWidth / 2;
         for (int index = 0; index < 3; index++) {
-            int x = startX + index * (dockSize + dockGap);
-            if (!inside(mouseX, mouseY, x, dockY, dockSize, dockSize)) continue;
+            int x = startX + index * (dockItemWidth + dockGap);
+            if (!inside(mouseX, mouseY, x, dockY, dockItemWidth, dockItemHeight)) continue;
             switch (index) {
                 case 0 -> client.setScreen(new NexoMenuScreen(this, NexoClientMod.MODULES, NexoClientMod.PERFORMANCE));
                 case 1 -> openNormalMods();
