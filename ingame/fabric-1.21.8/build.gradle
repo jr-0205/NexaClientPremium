@@ -24,6 +24,9 @@ loom {
     }
 }
 
+// NEXA 1.21.8 isolation baseline.
+// Compiler sentinel: ../core/src/main/java is intentionally NOT part of this build.
+// Do not add shared sources until this exact target passes clean build.
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
