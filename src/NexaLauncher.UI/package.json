@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "tsc --noEmit && vite build",
+    "dev": "npm run sync:wallpapers && vite --host 127.0.0.1",
+    "sync:wallpapers": "node ./scripts/sync-wallpapers.mjs",
+    "build": "npm run sync:wallpapers && tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
