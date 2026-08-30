@@ -8,13 +8,17 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $ExpectedBranch = "feature/premium-user-module"
-$DevUrl = "http://127.0.0.1:5173"
+$DevHost = "127.0.0.1"
+$PreferredDevPort = 5173
+$DevUrl = $null
 $RepoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
 $UiRoot = Join-Path $RepoRoot "src\NexaLauncher.UI"
 $DesktopProject = Join-Path $RepoRoot "src\NexaLauncher.Desktop\NexaLauncher.Desktop.csproj"
 $Solution = Join-Path $RepoRoot "NexoLauncher.slnx"
 $TestsProject = Join-Path $RepoRoot "tests\NexoLauncher.Core.Tests\NexoLauncher.Core.Tests.csproj"
 $ViteProcess = $null
+$ViteStdOut = Join-Path ([System.IO.Path]::GetTempPath()) "nexa-vite-$PID.stdout.log"
+$ViteStdErr = Join-Path ([System.IO.Path]::GetTempPath()) "nexa-vite-$PID.stderr.log"
 
 function Write-Step([string]$Message) {
     Write-Host "`n[NEXA TEST] $Message" -ForegroundColor Cyan
@@ -26,9 +30,48 @@ function Require-Command([string]$Name) {
     }
 }
 
-function Wait-ForPort([string]$HostName, [int]$Port, [int]$TimeoutSeconds = 25) {
+function Get-AvailableTcpPort([string]$HostName, [int]$PreferredPort) {
+    $preferredClient = [System.Net.Sockets.TcpClient]::new()
+    try {
+        $connectTask = $preferredClient.ConnectAsync($HostName, $PreferredPort)
+        if (-not ($connectTask.Wait(250) -and $preferredClient.Connected)) {
+            return $PreferredPort
+        }
+    }
+    catch {
+        return $PreferredPort
+    }
+    finally {
+        $preferredClient.Dispose()
+    }
+
+    $listener = [System.Net.Sockets.TcpListener]::new(
+        [System.Net.IPAddress]::Parse($HostName),
+        0
+    )
+    try {
+        $listener.Start()
+        return ([System.Net.IPEndPoint]$listener.LocalEndpoint).Port
+    }
+    finally {
+        $listener.Stop()
+    }
+}
+
+function Get-ViteLog {
+    $lines = @()
+    if (Test-Path $ViteStdOut) { $lines += Get-Content -LiteralPath $ViteStdOut -ErrorAction SilentlyContinue }
+    if (Test-Path $ViteStdErr) { $lines += Get-Content -LiteralPath $ViteStdErr -ErrorAction SilentlyContinue }
+    return ($lines | Select-Object -Last 30) -join [Environment]::NewLine
+}
+
+function Wait-ForVite([System.Diagnostics.Process]$Process, [string]$HostName, [int]$Port, [int]$TimeoutSeconds = 25) {
     $deadline = (Get-Date).AddSeconds($TimeoutSeconds)
     while ((Get-Date) -lt $deadline) {
+        if ($Process.HasExited) {
+            $log = Get-ViteLog
+            throw "Vite terminó antes de abrir el puerto $Port (código $($Process.ExitCode)).`n$log"
+        }
         try {
             $client = [System.Net.Sockets.TcpClient]::new()
             $task = $client.ConnectAsync($HostName, $Port)
@@ -43,7 +86,8 @@ function Wait-ForPort([string]$HostName, [int]$Port, [int]$TimeoutSeconds = 25) 
         }
         Start-Sleep -Milliseconds 350
     }
-    return $false
+    $log = Get-ViteLog
+    throw "Vite no abrió el puerto $Port en $TimeoutSeconds segundos.`n$log"
 }
 
 function Stop-ProcessTree([int]$ProcessId) {
@@ -103,15 +147,22 @@ try {
         if ($LASTEXITCODE -ne 0) { throw "Las pruebas fallaron con código $LASTEXITCODE." }
     }
 
+    $devPort = Get-AvailableTcpPort -HostName $DevHost -PreferredPort $PreferredDevPort
+    $DevUrl = "http://${DevHost}:$devPort"
     Write-Step "Iniciando Vite en $DevUrl"
-    $shell = if (Get-Command pwsh -ErrorAction SilentlyContinue) { "pwsh" } else { "powershell.exe" }
-    $escapedUi = $UiRoot.Replace("'", "''")
-    $viteCommand = "Set-Location -LiteralPath '$escapedUi'; `$Host.UI.RawUI.WindowTitle='NEXA UI DEV'; npm run dev"
-    $ViteProcess = Start-Process -FilePath $shell -ArgumentList @("-NoLogo", "-NoExit", "-Command", $viteCommand) -PassThru
+    Remove-Item -LiteralPath $ViteStdOut, $ViteStdErr -Force -ErrorAction SilentlyContinue
+    $npmCommand = (Get-Command "npm.cmd" -ErrorAction SilentlyContinue).Source
+    if (-not $npmCommand) { $npmCommand = (Get-Command "npm").Source }
+    $ViteProcess = Start-Process `
+        -FilePath $npmCommand `
+        -ArgumentList @("run", "dev", "--", "--host", $DevHost, "--port", $devPort, "--strictPort") `
+        -WorkingDirectory $UiRoot `
+        -RedirectStandardOutput $ViteStdOut `
+        -RedirectStandardError $ViteStdErr `
+        -WindowStyle Hidden `
+        -PassThru
 
-    if (-not (Wait-ForPort -HostName "127.0.0.1" -Port 5173)) {
-        throw "Vite no abrió el puerto 5173 en 25 segundos. Revisa la ventana 'NEXA UI DEV'."
-    }
+    Wait-ForVite -Process $ViteProcess -HostName $DevHost -Port $devPort
 
     Write-Host "Vite listo." -ForegroundColor Green
 
@@ -135,6 +186,7 @@ finally {
         Write-Host "`n[NEXA TEST] Cerrando Vite..." -ForegroundColor DarkGray
         Stop-ProcessTree -ProcessId $ViteProcess.Id
     }
+    Remove-Item -LiteralPath $ViteStdOut, $ViteStdErr -Force -ErrorAction SilentlyContinue
     Set-Location $RepoRoot
 }
 
