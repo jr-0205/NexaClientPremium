@@ -249,7 +249,7 @@ internal sealed class NexaPremiumAccountService
 
         try
         {
-            Process.Start(new ProcessStartInfo(authorizeUri) { UseShellExecute = true })
+            _ = Process.Start(new ProcessStartInfo(authorizeUri) { UseShellExecute = true })
                 ?? throw new InvalidOperationException("Windows no pudo abrir el navegador para iniciar sesión con Microsoft.");
         }
         catch (Exception exception) when (exception is not InvalidOperationException)
