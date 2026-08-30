@@ -5,17 +5,16 @@ using NexoLauncher.Core.Installation;
 namespace NexoLauncher.Infrastructure.Content;
 
 /// <summary>
-/// Orquestador v2 de NEXA In-Game.
+/// Orquestador v3 de NEXA In-Game.
 ///
-/// Mantiene el runner Gradle/verificador existente, pero deja de compilar sobre
-/// los fuentes originales. Cada build se prepara en un workspace temporal con:
-/// target + core común + proyectos companion/adaptadores declarados en
-/// ingame/targets.json. Esto permite evolucionar el core una sola vez sin
-/// duplicarlo por versión de Minecraft.
+/// Cada versión de Minecraft conserva su propio adaptador y sus propias fuentes
+/// Fabric. Sólo el core sin imports de Minecraft/Fabric puede compartirse.
+/// Esto evita compilar accidentalmente código de 1.20.4 en 1.20.6 o código de
+/// 1.21.1 en 1.21.4/1.21.8.
 /// </summary>
 public sealed class NexoInGameCompiler
 {
-    public const int ManifestSchema = 2;
+    public const int ManifestSchema = 3;
 
     private static readonly JsonSerializerOptions Json = new(JsonSerializerDefaults.Web)
     {
@@ -93,9 +92,9 @@ public sealed class NexoInGameCompiler
         if (definition is null)
             throw new InvalidDataException($"targets.json no contiene el proyecto habilitado '{projectName}'.");
 
-        progress?.Report($"Compiler v2 · preparando core + {definition.Adapter} para {target.MinecraftVersion}...");
+        progress?.Report($"Compiler v3 · preparando core + {definition.Adapter} para {target.MinecraftVersion}...");
         using var workspace = PrepareWorkspace(repositoryRoot, manifest, definition);
-        progress?.Report($"Compiler v2 · workspace aislado listo para {target.Loader} {target.MinecraftVersion}.");
+        progress?.Report($"Compiler v3 · workspace aislado listo para {target.Loader} {target.MinecraftVersion}.");
 
         return await runner.BuildOneAsync(
             workspace.RepositoryRoot,
@@ -118,8 +117,6 @@ public sealed class NexoInGameCompiler
         if (targets.Count == 0)
             throw new InvalidOperationException("No se encontraron targets NEXA In-Game compilables.");
 
-        // Compilar target por target conserva el aislamiento de workspace y evita
-        // que un proyecto companion sea interpretado accidentalmente como otra build.
         var artifacts = new List<NexoInGameArtifact>(targets.Count);
         var failures = new List<NexoInGameBuildFailure>();
 
@@ -127,7 +124,7 @@ public sealed class NexoInGameCompiler
         {
             token.ThrowIfCancellationRequested();
             var target = targets[index];
-            progress?.Report($"Compiler v2 · {index + 1}/{targets.Count}: {target.Loader} {target.MinecraftVersion}...");
+            progress?.Report($"Compiler v3 · {index + 1}/{targets.Count}: {target.Loader} {target.MinecraftVersion}...");
             try
             {
                 var result = await BuildOneAsync(
@@ -243,7 +240,7 @@ public sealed class NexoInGameCompiler
 
         var block = """
 
-// NEXA_DYNAMIC_CORE - inyectado por NexoInGameCompiler v2.
+// NEXA_DYNAMIC_CORE - inyectado por NexoInGameCompiler v3.
 sourceSets {
     main {
         java.srcDir '../core/src/main/java'
@@ -315,7 +312,7 @@ sourceSets {
             if (IgnoredDirectories.Contains(name)) continue;
             var info = new DirectoryInfo(directory);
             if (info.Attributes.HasFlag(FileAttributes.ReparsePoint))
-                throw new InvalidDataException($"Compiler v2 rechazó un enlace/junction dentro de fuentes: {directory}");
+                throw new InvalidDataException($"Compiler v3 rechazó un enlace/junction dentro de fuentes: {directory}");
             CopyDirectory(directory, Path.Combine(destination, name));
         }
     }
