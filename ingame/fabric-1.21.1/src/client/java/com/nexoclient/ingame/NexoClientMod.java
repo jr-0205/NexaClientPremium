@@ -22,6 +22,8 @@ public final class NexoClientMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        NexaInGameSettings.load(MODULES);
+
         openMenu = KeyBindingHelper.registerKeyBinding(new KeyBinding(
             "key.nexo_ingame.open_menu",
             InputUtil.Type.KEYSYM,
