@@ -18,10 +18,14 @@ export const accentThemes: AccentThemeOption[] = [
 
 const storageKey = "nexa.ui.accent";
 
+export function isAccentTheme(value: unknown): value is AccentTheme {
+  return typeof value === "string" && accentThemes.some((theme) => theme.id === value);
+}
+
 export function readAccentTheme(): AccentTheme {
   try {
-    const stored = window.localStorage.getItem(storageKey) as AccentTheme | null;
-    return accentThemes.some((theme) => theme.id === stored) ? stored! : "nexa";
+    const stored = window.localStorage.getItem(storageKey);
+    return isAccentTheme(stored) ? stored : "nexa";
   } catch {
     return "nexa";
   }
@@ -32,6 +36,6 @@ export function applyAccentTheme(theme: AccentTheme) {
   try {
     window.localStorage.setItem(storageKey, theme);
   } catch {
-    // The visual preference is non-critical; ignore unavailable storage.
+    // Native settings remain authoritative; local storage is only a fast visual cache.
   }
 }
