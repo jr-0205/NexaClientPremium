@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 /**
  * NEXA main menu for Minecraft 1.21.1.
@@ -15,6 +16,10 @@ import net.minecraft.text.Text;
  * selected, without coupling the menu layout to a temporary wallpaper.
  */
 public final class NexaTitleScreen extends Screen {
+    private static final Identifier NEXA_MARK = Identifier.of("nexo_ingame", "textures/gui/nexa_mark.png");
+    private static final int MARK_TEXTURE_WIDTH = 1199;
+    private static final int MARK_TEXTURE_HEIGHT = 1312;
+
     private static final int BG = 0xFF05080D;
     private static final int PANEL = 0xE30A1018;
     private static final int PANEL_HOVER = 0xF0152231;
@@ -79,7 +84,7 @@ public final class NexaTitleScreen extends Screen {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         renderBackground(context, mouseX, mouseY, delta);
 
-        drawNexaMark(context, menuX, 35, 46);
+        drawNexaMark(context, menuX, 31, 54);
         context.drawTextWithShadow(textRenderer, Text.literal("NEXA"), menuX + 62, 42, SILVER);
         context.drawTextWithShadow(textRenderer, Text.literal("CLIENT"), menuX + 62, 57, BLUE);
         context.drawTextWithShadow(textRenderer, Text.literal("MINECRAFT · NORDIC EDITION"), menuX, 96, BLUE);
@@ -94,9 +99,11 @@ public final class NexaTitleScreen extends Screen {
 
         int rightX = Math.max(menuX + menuWidth + 70, (int)(width * 0.65F));
         int markSize = Math.min(180, Math.max(94, width / 8));
-        drawNexaMark(context, Math.min(width - markSize - 42, rightX), Math.max(70, height / 4), markSize);
-        context.drawTextWithShadow(textRenderer, Text.literal("NEXA IN-GAME"), Math.min(width - 150, rightX), Math.max(70, height / 4) + markSize + 24, SILVER);
-        context.drawTextWithShadow(textRenderer, Text.literal("RIGHT SHIFT · CONTROL CENTER"), Math.min(width - 210, rightX), Math.max(70, height / 4) + markSize + 40, MUTED);
+        int markX = Math.min(width - markSize - 42, rightX);
+        int markY = Math.max(70, height / 4);
+        drawNexaMark(context, markX, markY, markSize);
+        context.drawTextWithShadow(textRenderer, Text.literal("NEXA IN-GAME"), Math.min(width - 150, rightX), markY + markSize + 24, SILVER);
+        context.drawTextWithShadow(textRenderer, Text.literal("RIGHT SHIFT · CONTROL CENTER"), Math.min(width - 210, rightX), markY + markSize + 40, MUTED);
 
         context.drawTextWithShadow(textRenderer, Text.literal("NEXA Client · Fabric 1.21.1"), 14, height - 20, 0xFF66768B);
         context.drawTextWithShadow(textRenderer, Text.literal("La portada final podrá usar el fondo voxel/shader elegido sin cambiar este layout."), 14, height - 9, 0xFF465466);
@@ -113,23 +120,21 @@ public final class NexaTitleScreen extends Screen {
         context.drawTextWithShadow(textRenderer, Text.literal(hint), x + w - hintWidth - 12, y + 8, primary ? 0xFFC4D8FF : MUTED);
     }
 
-    /** Draws the NEXA N as a geometric mark so the Minecraft menu can use the
-     * brand even before the final raster asset is wired into every adapter. */
-    private static void drawNexaMark(DrawContext context, int x, int y, int size) {
-        int t = Math.max(3, size / 9);
-        int color = BLUE;
-        context.fill(x, y, x + t, y + size, color);
-        context.fill(x + size - t, y, x + size, y + size, color);
-        int usable = size - t;
-        int steps = Math.max(6, usable / Math.max(2, t / 2));
-        for (int i = 0; i <= steps; i++) {
-            int px = x + (usable * i) / steps;
-            int py = y + (usable * i) / steps;
-            context.fill(px, py, Math.min(x + size, px + t), Math.min(y + size, py + t), color);
-        }
-        int floatSize = Math.max(3, t / 2);
-        context.fill(x + size - floatSize, y - floatSize * 2, x + size, y - floatSize, 0xFFB7D2FF);
-        context.fill(x - floatSize, y + size + floatSize, x, y + size + floatSize * 2, 0xFF5C91F7);
+    private static void drawNexaMark(DrawContext context, int x, int y, int height) {
+        int drawWidth = Math.max(1, Math.round(height * (MARK_TEXTURE_WIDTH / (float)MARK_TEXTURE_HEIGHT)));
+        context.drawTexture(
+            NEXA_MARK,
+            x,
+            y,
+            drawWidth,
+            height,
+            0.0F,
+            0.0F,
+            MARK_TEXTURE_WIDTH,
+            MARK_TEXTURE_HEIGHT,
+            MARK_TEXTURE_WIDTH,
+            MARK_TEXTURE_HEIGHT
+        );
     }
 
     @Override
