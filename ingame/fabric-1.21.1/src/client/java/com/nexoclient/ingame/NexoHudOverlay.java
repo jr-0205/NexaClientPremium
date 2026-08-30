@@ -98,10 +98,14 @@ final class NexoHudOverlay {
         double[] position = topLeft(module, client.getWindow().getScaledWidth(), client.getWindow().getScaledHeight(), width, height);
         float scale = (float) module.placement().scale();
 
-        context.getMatrices().push();
-        context.getMatrices().translate((float) position[0], (float) position[1], 0.0f);
-        context.getMatrices().scale(scale, scale, 1.0f);
-        context.drawTextWithShadow(client.textRenderer, text, 0, 0, color);
-        context.getMatrices().pop();
+        NexaGuiTransforms.push(context);
+        try {
+            NexaGuiTransforms.translate(context, (float) position[0], (float) position[1]);
+            NexaGuiTransforms.scale(context, scale);
+            context.drawTextWithShadow(client.textRenderer, text, 0, 0, color);
+        }
+        finally {
+            NexaGuiTransforms.pop(context);
+        }
     }
 }
