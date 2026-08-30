@@ -12,6 +12,12 @@ type Props = {
 };
 
 const loaders: LoaderName[] = ["Vanilla", "Fabric", "Forge", "NeoForge"];
+const wizardSteps = [
+  { value: 1, title: "Información", subtitle: "Nombre y descripción" },
+  { value: 2, title: "Versión del juego", subtitle: "Minecraft y loader" },
+  { value: 3, title: "Apariencia", subtitle: "Icono y fondo" },
+  { value: 4, title: "Revisar", subtitle: "Confirmar perfil" },
+];
 
 async function imageToDataUrl(file: File) {
   if (file.size > 8 * 1024 * 1024) throw new Error("La imagen no puede superar 8 MB.");
@@ -126,10 +132,10 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
             <p>Cada perfil conserva sus mundos, mods y ajustes por separado.</p>
           </div>
           <div className="wizard-steps">
-            {[1, 2, 3].map((value) => (
+            {wizardSteps.map(({ value, title, subtitle }) => (
               <button key={value} type="button" className={`wizard-step ${step === value ? "active" : ""} ${step > value ? "done" : ""}`} onClick={() => value < step && setStep(value)}>
                 <span>{step > value ? <Check size={15} /> : value}</span>
-                <div><strong>{value === 1 ? "Información" : value === 2 ? "Versión del juego" : "Apariencia"}</strong><small>{value === 1 ? "Nombre y descripción" : value === 2 ? "Minecraft y loader" : "Icono y fondo"}</small></div>
+                <div><strong>{title}</strong><small>{subtitle}</small></div>
               </button>
             ))}
           </div>
@@ -139,7 +145,7 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
         <div className="wizard-content">
           {step === 1 && (
             <div className="wizard-stage">
-              <span className="eyebrow">PASO 1 DE 3</span>
+              <span className="eyebrow">PASO 1 DE 4</span>
               <h1>Información del perfil</h1>
               <p className="stage-description">El nombre pertenece al usuario. NEXA no lo cambiará cuando selecciones otra versión o loader.</p>
               <label className="field-label">NOMBRE DEL PERFIL<input className="nexa-input" autoFocus maxLength={64} value={name} onChange={(event) => setName(event.target.value)} placeholder="Ej. Diosesmon, Survival, Fabric PvP..." /></label>
@@ -150,7 +156,7 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
 
           {step === 2 && (
             <div className="wizard-stage version-stage">
-              <span className="eyebrow">PASO 2 DE 3</span>
+              <span className="eyebrow">PASO 2 DE 4</span>
               <h1>Seleccionar versión del juego</h1>
               <p className="stage-description">NEXA instalará los archivos compartidos y resolverá Java automáticamente.</p>
               <div className="loader-tabs">
@@ -162,7 +168,7 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
                   <div className="version-list">
                     {loadingVersions ? <div className="loading-row"><Loader2 className="spin" size={18} /> Consultando Mojang…</div> : visibleVersions.map((item) => (
                       <button type="button" key={item.id} className={`version-row ${minecraftVersion === item.id ? "active" : ""}`} onClick={() => setMinecraftVersion(item.id)}>
-                        <div><strong>{item.id}</strong><small>Publicada {new Date(item.releaseTime).toLocaleDateString()}</small></div><span>ESTABLE</span>
+                        <div><strong>{item.id}</strong><small>Publicada {new Date(item.releaseTime).toLocaleDateString()}</small></div><span>SELECCIONAR</span>
                       </button>
                     ))}
                   </div>
@@ -181,7 +187,7 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
 
           {step === 3 && (
             <div className="wizard-stage">
-              <span className="eyebrow">PASO 3 DE 3</span>
+              <span className="eyebrow">PASO 3 DE 4</span>
               <h1>Apariencia</h1>
               <p className="stage-description">Personaliza la tarjeta del perfil. Si no eliges icono, se utilizará la N de NEXA.</p>
               <div className="artwork-grid">
@@ -201,11 +207,36 @@ export function CreateProfilePage({ onCreated, onCancel, onNotice }: Props) {
             </div>
           )}
 
+          {step === 4 && (
+            <div className="wizard-stage review-stage">
+              <span className="eyebrow">PASO 4 DE 4</span>
+              <h1>Revisar y crear</h1>
+              <p className="stage-description">Comprueba la configuración. Después podrás modificar el perfil sin perder su identidad ni su carpeta aislada.</p>
+              <div className="profile-review-layout">
+                <div className="profile-review-art" style={backgroundDataUrl ? { backgroundImage: `linear-gradient(180deg,rgba(4,8,14,.05),rgba(4,8,14,.88)),url(${backgroundDataUrl})` } : undefined}>
+                  <div className="profile-review-icon"><img src={iconDataUrl ?? "./brand/nexa-mark.png"} alt="" /></div>
+                  <div><span>PERFIL NUEVO</span><strong>{name.trim()}</strong><small>{description.trim() || "Sin descripción"}</small></div>
+                </div>
+                <div className="profile-review-details glass-panel">
+                  <span className="eyebrow">CONFIGURACIÓN FINAL</span>
+                  <dl>
+                    <div><dt>Minecraft</dt><dd>{minecraftVersion}</dd></div>
+                    <div><dt>Loader</dt><dd>{loader}</dd></div>
+                    {loader !== "Vanilla" && <div><dt>Versión loader</dt><dd>{loaderVersion ?? "Automática"}</dd></div>}
+                    <div><dt>Java</dt><dd>Selección automática</dd></div>
+                    <div><dt>Almacenamiento</dt><dd>Instancia aislada</dd></div>
+                  </dl>
+                </div>
+              </div>
+              <div className="info-strip review-confirmation"><Check size={17} /><div><strong>NEXA sólo creará el perfil al confirmar.</strong><span>Los archivos del juego se descargarán cuando sean necesarios y las operaciones largas mostrarán progreso.</span></div></div>
+            </div>
+          )}
+
           <footer className="wizard-footer">
-            <span>Paso {step} de 3</span>
+            <span>Paso {step} de 4</span>
             <div>
               {step > 1 && <button className="secondary-button" type="button" disabled={creating} onClick={() => setStep((value) => value - 1)}><ArrowLeft size={16} /> ATRÁS</button>}
-              {step < 3 ? <button className="primary-button" type="button" disabled={!canContinue} onClick={() => setStep((value) => value + 1)}>SIGUIENTE <ArrowRight size={16} /></button> : <button className="primary-button" type="button" disabled={creating || !canContinue} onClick={finish}>{creating ? <Loader2 className="spin" size={17} /> : <Check size={17} />} CREAR PERFIL</button>}
+              {step < 4 ? <button className="primary-button" type="button" disabled={!canContinue} onClick={() => setStep((value) => value + 1)}>SIGUIENTE <ArrowRight size={16} /></button> : <button className="primary-button" type="button" disabled={creating || !canContinue} onClick={finish}>{creating ? <Loader2 className="spin" size={17} /> : <Check size={17} />} CREAR PERFIL</button>}
             </div>
           </footer>
         </div>
