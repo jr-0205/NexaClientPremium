@@ -8,8 +8,6 @@ import "./styles/interaction.css";
 import "./styles/profile-tools.css";
 import "./styles/live-console.css";
 import "./styles/profile-actions.css";
-import "./styles/build-manager.css";
-import "./styles/build-family.css";
 import "./styles/installed-content-icons.css";
 import "./styles/account.css";
 import "./styles/polish.css";
