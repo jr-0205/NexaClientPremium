@@ -1,10 +1,11 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "corePath": "core",
+  "versionIsolation": true,
   "targets": [
     {
       "project": "fabric-1.19.4",
-      "adapter": "fabric-1.19",
+      "adapter": "fabric-1.19.4",
       "enabled": true,
       "companions": []
     },
@@ -28,21 +29,21 @@
     },
     {
       "project": "fabric-1.21.1",
-      "adapter": "fabric-1.21",
+      "adapter": "fabric-1.21.1",
       "enabled": true,
       "companions": []
     },
     {
       "project": "fabric-1.21.4",
-      "adapter": "fabric-1.21",
+      "adapter": "fabric-1.21.4",
       "enabled": true,
-      "companions": ["fabric-1.21.1"]
+      "companions": []
     },
     {
       "project": "fabric-1.21.8",
-      "adapter": "fabric-1.21",
+      "adapter": "fabric-1.21.8",
       "enabled": true,
-      "companions": ["fabric-1.21.1"]
+      "companions": []
     }
   ]
 }
