@@ -4,8 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <meta name="theme-color" content="#070a10" />
+    <meta name="theme-color" content="#071017" />
     <title>NEXA Client</title>
+    <style>
+      html, body, #root { width: 100%; height: 100%; margin: 0; background: #071017; }
+      .nexa-boot {
+        position: fixed; inset: 0; display: grid; place-items: center; overflow: hidden;
+        background: linear-gradient(180deg, rgba(3,7,10,.35), rgba(3,7,10,.72)), url('/brand/nexa-night-background.png') center/cover no-repeat;
+        color: #f1f4f6; font: 14px 'Segoe UI', sans-serif;
+      }
+      .nexa-boot::before { content: ''; position: absolute; inset: -3%; background: inherit; filter: blur(10px); transform: scale(1.04); }
+      .nexa-boot-card { position: relative; width: min(360px, calc(100vw - 48px)); padding: 28px 30px; border: 1px solid rgba(185,205,218,.22); border-radius: 16px; background: rgba(8,14,19,.62); box-shadow: 0 24px 90px rgba(0,0,0,.38); backdrop-filter: blur(16px); text-align: center; }
+      .nexa-boot-mark { width: 58px; height: 64px; object-fit: contain; filter: saturate(.18) brightness(1.42); }
+      .nexa-boot-name { margin-top: 8px; color: #dfe7ec; font-size: 12px; font-weight: 700; letter-spacing: .28em; }
+      .nexa-boot-spinner { width: 22px; height: 22px; margin: 18px auto 10px; border: 2px solid rgba(190,207,218,.2); border-top-color: rgba(211,225,234,.88); border-radius: 50%; animation: nexa-boot-spin .9s linear infinite; }
+      .nexa-boot-copy { color: #9cabb5; font-size: 12px; }
+      @keyframes nexa-boot-spin { to { transform: rotate(360deg); } }
+    </style>
     <script>
       (() => {
         const errors = [];
@@ -18,15 +33,25 @@
         });
         window.setTimeout(() => {
           const root = document.getElementById("root");
-          if (!root || root.childElementCount > 0) return;
+          const boot = root?.querySelector("[data-nexa-boot]");
+          if (!root || (root.childElementCount > 0 && !boot)) return;
           const detail = errors.length ? errors.slice(-4).join("\n") : "El bundle JavaScript no llegó a montar React. Comprueba que dist/assets fue copiado completo a wwwroot/assets.";
-          root.innerHTML = `<main style="min-height:100vh;display:grid;place-items:center;padding:32px;background:#070a10;color:#f4f7fc;font:14px 'Segoe UI',sans-serif"><section style="width:min(720px,90vw);padding:30px;border:1px solid #26364d;border-radius:18px;background:linear-gradient(145deg,#161f2e,#0d131e);box-shadow:0 24px 70px rgba(0,0,0,.35)"><div style="color:#5b8cff;font-size:11px;font-weight:700;letter-spacing:.12em">NEXA · DIAGNÓSTICO DE INTERFAZ</div><h1 style="margin:10px 0 8px;font-size:26px">React no pudo iniciar</h1><p style="margin:0 0 16px;color:#9eacbf;line-height:1.6">La ventana de escritorio y WebView2 están funcionando, pero la UI no llegó a montarse.</p><pre style="margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;border-radius:12px;background:#090e16;color:#d8e2f1;border:1px solid #26364d">${detail.replace(/[&<>]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]))}</pre></section></main>`;
+          root.innerHTML = `<main style="min-height:100vh;display:grid;place-items:center;padding:32px;background:#070a10;color:#f4f7fc;font:14px 'Segoe UI',sans-serif"><section style="width:min(720px,90vw);padding:30px;border:1px solid #26364d;border-radius:18px;background:linear-gradient(145deg,#161f2e,#0d131e);box-shadow:0 24px 70px rgba(0,0,0,.35)"><div style="color:#91a9b8;font-size:11px;font-weight:700;letter-spacing:.12em">NEXA · DIAGNÓSTICO DE INTERFAZ</div><h1 style="margin:10px 0 8px;font-size:26px">React no pudo iniciar</h1><p style="margin:0 0 16px;color:#9eacbf;line-height:1.6">La ventana de escritorio y WebView2 están funcionando, pero la UI no llegó a montarse.</p><pre style="margin:0;padding:14px;white-space:pre-wrap;word-break:break-word;border-radius:12px;background:#090e16;color:#d8e2f1;border:1px solid #26364d">${detail.replace(/[&<>]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[char]))}</pre></section></main>`;
         }, 2200);
       })();
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="nexa-boot" data-nexa-boot>
+        <div class="nexa-boot-card">
+          <img class="nexa-boot-mark" src="/brand/nexa-mark.png" alt="" />
+          <div class="nexa-boot-name">N E X A&nbsp;&nbsp; C L I E N T</div>
+          <div class="nexa-boot-spinner"></div>
+          <div class="nexa-boot-copy">Preparando perfiles, cuenta y runtime…</div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
