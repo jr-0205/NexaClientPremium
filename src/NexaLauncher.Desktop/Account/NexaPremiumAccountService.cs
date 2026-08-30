@@ -32,9 +32,12 @@ internal sealed record NexaLaunchIdentity(string Id, string Name, string AccessT
 /// </summary>
 internal sealed class NexaPremiumAccountService
 {
-    private static readonly string[] Scopes = ["XboxLive.signin"];
+    private static readonly string[] Scopes = ["XboxLive.signin", "offline_access"];
     private static readonly TimeSpan RefreshSkew = TimeSpan.FromMinutes(2);
     private const int MaxSkinBytes = 1024 * 1024;
+    private const string XboxContractVersionHeader = "x-xbl-contract-version";
+    private const string XboxContractVersion = "1";
+    private const string DefaultMicrosoftClientId = "67d6a4fc-2398-47f1-8183-e60d01cfa12f";
 
     private readonly HttpClient http = new() { Timeout = TimeSpan.FromSeconds(30) };
     private readonly SemaphoreSlim gate = new(1, 1);
@@ -48,7 +51,10 @@ internal sealed class NexaPremiumAccountService
 
     public NexaPremiumAccountService(NexoPaths paths)
     {
-        clientId = (Environment.GetEnvironmentVariable("NEXA_MICROSOFT_CLIENT_ID") ?? string.Empty).Trim();
+        var configuredClientId = Environment.GetEnvironmentVariable("NEXA_MICROSOFT_CLIENT_ID");
+        clientId = string.IsNullOrWhiteSpace(configuredClientId)
+            ? DefaultMicrosoftClientId
+            : configuredClientId.Trim();
         cacheDirectory = Path.Combine(paths.Root, "auth");
         initialization = InitializeAsync();
     }
@@ -226,8 +232,10 @@ internal sealed class NexaPremiumAccountService
             RelyingParty = "http://auth.xboxlive.com",
             TokenType = "JWT"
         };
-        using var xblResponse = await http.PostAsJsonAsync("https://user.auth.xboxlive.com/user/authenticate", xblBody, token);
-        using var xbl = await ReadJsonAsync(xblResponse, "Xbox Live rechazó la autenticación.", token);
+        using var xblResponse = await PostXboxJsonAsync("https://user.auth.xboxlive.com/user/authenticate", xblBody, token);
+        if (!xblResponse.IsSuccessStatusCode)
+            throw await CreateXboxExceptionAsync(xblResponse, "Xbox User Auth", token);
+        using var xbl = await JsonDocument.ParseAsync(await xblResponse.Content.ReadAsStreamAsync(token), cancellationToken: token);
         var userToken = RequiredString(xbl.RootElement, "Token");
 
         var xstsBody = new
@@ -236,7 +244,7 @@ internal sealed class NexaPremiumAccountService
             RelyingParty = "rp://api.minecraftservices.com/",
             TokenType = "JWT"
         };
-        using var xstsResponse = await http.PostAsJsonAsync("https://xsts.auth.xboxlive.com/xsts/authorize", xstsBody, token);
+        using var xstsResponse = await PostXboxJsonAsync("https://xsts.auth.xboxlive.com/xsts/authorize", xstsBody, token);
         if (!xstsResponse.IsSuccessStatusCode)
             throw await CreateXstsExceptionAsync(xstsResponse, token);
         using var xsts = await JsonDocument.ParseAsync(await xstsResponse.Content.ReadAsStreamAsync(token), cancellationToken: token);
@@ -257,6 +265,17 @@ internal sealed class NexaPremiumAccountService
         await EnsureEntitledAsync(minecraftToken, token);
         var snapshot = await FetchProfileAsync(minecraftToken, microsoftAccount, token);
         return new Session(minecraftToken, DateTimeOffset.UtcNow.AddSeconds(expiresIn), microsoftAccount, snapshot);
+    }
+
+    private async Task<HttpResponseMessage> PostXboxJsonAsync<T>(string uri, T payload, CancellationToken token)
+    {
+        using var request = new HttpRequestMessage(HttpMethod.Post, uri)
+        {
+            Content = JsonContent.Create(payload)
+        };
+        request.Headers.TryAddWithoutValidation(XboxContractVersionHeader, XboxContractVersion);
+        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        return await http.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, token);
     }
 
     private async Task EnsureEntitledAsync(string accessToken, CancellationToken token)
@@ -328,28 +347,81 @@ internal sealed class NexaPremiumAccountService
         {
             var text = await response.Content.ReadAsStringAsync(token);
             if (text.Contains("Invalid app registration", StringComparison.OrdinalIgnoreCase))
-                throw new InvalidOperationException("Microsoft autenticó la cuenta, pero Minecraft Services aún no autoriza el Client ID de NEXA. El registro debe ser aprobado para acceso a Minecraft/Xbox antes de distribuir el inicio de sesión premium.");
+                throw new InvalidOperationException("Microsoft autenticó la cuenta y Xbox respondió correctamente, pero Minecraft Services todavía no autoriza el Client ID de NEXA (HTTP 403: Invalid app registration). El registro de Entra puede estar bien configurado y aun así requerir autorización de Minecraft Services.");
         }
-        return await ReadJsonAsync(response, "Minecraft Services rechazó la autenticación.", token);
+        return await ReadJsonAsync(response, BuildHttpFallback("Minecraft Services", response), token);
+    }
+
+    private static async Task<Exception> CreateXboxExceptionAsync(HttpResponseMessage response, string stage, CancellationToken token)
+    {
+        var (message, xerr) = await ReadXboxErrorAsync(response, token);
+        var correlation = GetCorrelationId(response);
+        var details = BuildDiagnosticSuffix(response, xerr, correlation);
+        return new InvalidOperationException(string.IsNullOrWhiteSpace(message)
+            ? $"{stage} rechazó la solicitud{details}."
+            : $"{stage} rechazó la solicitud{details}: {message}");
     }
 
     private static async Task<Exception> CreateXstsExceptionAsync(HttpResponseMessage response, CancellationToken token)
     {
+        var (message, xerr) = await ReadXboxErrorAsync(response, token);
+        var correlation = GetCorrelationId(response);
+        var details = BuildDiagnosticSuffix(response, xerr, correlation);
+
+        if (xerr is 2148916233)
+            return new InvalidOperationException($"Xbox XSTS rechazó la cuenta{details}: la cuenta Microsoft todavía no tiene un perfil de Xbox Live.");
+        if (xerr is 2148916238)
+            return new InvalidOperationException($"Xbox XSTS rechazó la cuenta{details}: la cuenta es infantil y necesita que la familia autorice el acceso a Xbox Live.");
+
+        return new InvalidOperationException(string.IsNullOrWhiteSpace(message)
+            ? $"Xbox XSTS rechazó la cuenta{details}."
+            : $"Xbox XSTS rechazó la cuenta{details}: {message}");
+    }
+
+    private static async Task<(string? Message, long? XErr)> ReadXboxErrorAsync(HttpResponseMessage response, CancellationToken token)
+    {
         try
         {
-            using var json = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync(token), cancellationToken: token);
-            if (json.RootElement.TryGetProperty("XErr", out var xerr) && xerr.TryGetInt64(out var code))
+            var text = await response.Content.ReadAsStringAsync(token);
+            if (string.IsNullOrWhiteSpace(text)) return (null, null);
+            using var json = JsonDocument.Parse(text);
+            var root = json.RootElement;
+            long? xerr = root.TryGetProperty("XErr", out var xerrValue) && xerrValue.TryGetInt64(out var code)
+                ? code
+                : null;
+            var message = OptionalString(root, "errorMessage")
+                ?? OptionalString(root, "Message")
+                ?? OptionalString(root, "error_description");
+            return (message, xerr);
+        }
+        catch (JsonException)
+        {
+            return (null, null);
+        }
+    }
+
+    private static string BuildDiagnosticSuffix(HttpResponseMessage response, long? xerr, string? correlation)
+    {
+        var suffix = $" (HTTP {(int)response.StatusCode} {response.StatusCode}";
+        if (xerr is not null) suffix += $", XErr {xerr.Value}";
+        if (!string.IsNullOrWhiteSpace(correlation)) suffix += $", Correlation ID {correlation}";
+        return suffix + ")";
+    }
+
+    private static string BuildHttpFallback(string stage, HttpResponseMessage response)
+        => $"{stage} rechazó la solicitud (HTTP {(int)response.StatusCode} {response.StatusCode}).";
+
+    private static string? GetCorrelationId(HttpResponseMessage response)
+    {
+        foreach (var header in new[] { "x-xbl-correlation-id", "x-ms-correlation-request-id", "x-ms-request-id", "request-id" })
+        {
+            if (response.Headers.TryGetValues(header, out var values))
             {
-                return code switch
-                {
-                    2148916233 => new InvalidOperationException("La cuenta Microsoft todavía no tiene un perfil de Xbox Live."),
-                    2148916238 => new InvalidOperationException("La cuenta es infantil y necesita que la familia autorice el acceso a Xbox Live."),
-                    _ => new InvalidOperationException($"Xbox XSTS rechazó la cuenta (XErr {code}).")
-                };
+                var value = values.FirstOrDefault();
+                if (!string.IsNullOrWhiteSpace(value)) return value;
             }
         }
-        catch (JsonException) { }
-        return new InvalidOperationException("Xbox XSTS rechazó la cuenta.");
+        return null;
     }
 
     private static async Task<JsonDocument> ReadJsonAsync(HttpResponseMessage response, string fallback, CancellationToken token)
