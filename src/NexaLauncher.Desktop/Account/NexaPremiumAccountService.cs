@@ -37,6 +37,7 @@ internal sealed class NexaPremiumAccountService
     private const int MaxSkinBytes = 1024 * 1024;
     private const string XboxContractVersionHeader = "x-xbl-contract-version";
     private const string XboxContractVersion = "1";
+    private const string DefaultMicrosoftClientId = "67d6a4fc-2398-47f1-8183-e60d01cfa12f";
 
     private readonly HttpClient http = new() { Timeout = TimeSpan.FromSeconds(30) };
     private readonly SemaphoreSlim gate = new(1, 1);
@@ -50,7 +51,10 @@ internal sealed class NexaPremiumAccountService
 
     public NexaPremiumAccountService(NexoPaths paths)
     {
-        clientId = (Environment.GetEnvironmentVariable("NEXA_MICROSOFT_CLIENT_ID") ?? string.Empty).Trim();
+        var configuredClientId = Environment.GetEnvironmentVariable("NEXA_MICROSOFT_CLIENT_ID");
+        clientId = string.IsNullOrWhiteSpace(configuredClientId)
+            ? DefaultMicrosoftClientId
+            : configuredClientId.Trim();
         cacheDirectory = Path.Combine(paths.Root, "auth");
         initialization = InitializeAsync();
     }
