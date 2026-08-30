@@ -16,7 +16,7 @@ import java.util.Set;
  * qué módulos ya tienen implementación real para esta familia de Minecraft.
  */
 public final class NexoModuleRegistry {
-    private static final Set<String> READY_ON_1_21 = Set.of("fps", "coordinates");
+    private static final Set<String> READY_ON_1_21 = Set.of("fps", "coordinates", "nexa_home");
 
     private final Map<String, NexoModule> modules = new LinkedHashMap<>();
 
