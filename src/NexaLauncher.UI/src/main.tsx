@@ -15,6 +15,7 @@ import "./styles/account.css";
 import "./styles/polish.css";
 import "./styles/wizard-review.css";
 import "./styles/account-gate.css";
+import "./styles/loading.css";
 import "./styles/nordic-redesign.css";
 
 createRoot(document.getElementById("root")!).render(
