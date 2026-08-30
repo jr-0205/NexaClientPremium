@@ -3,7 +3,8 @@ package com.nexoclient.ingame;
 import java.util.Locale;
 
 /** Shared visual token set for NEXA In-Game.
- * The launcher passes the selected accent as -Dnexa.accent=<id>.
+ * NEXA Desktop persists the selected accent and exposes it to child processes
+ * through NEXA_ACCENT_THEME. The system property remains a development override.
  */
 final class NexaTheme {
     final int accent;
@@ -31,7 +32,10 @@ final class NexaTheme {
     }
 
     static NexaTheme current() {
-        String id = System.getProperty("nexa.accent", "nexa").trim().toLowerCase(Locale.ROOT);
+        String inherited = System.getenv("NEXA_ACCENT_THEME");
+        String id = System.getProperty("nexa.accent", inherited == null || inherited.isBlank() ? "nexa" : inherited)
+            .trim()
+            .toLowerCase(Locale.ROOT);
         return switch (id) {
             case "violet" -> new NexaTheme(0xFF8B6CFF, 0xFFAA94FF, 0x338B6CFF);
             case "emerald" -> new NexaTheme(0xFF35C990, 0xFF63DDB0, 0x3335C990);
