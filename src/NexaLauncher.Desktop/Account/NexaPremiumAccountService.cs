@@ -32,7 +32,7 @@ internal sealed record NexaLaunchIdentity(string Id, string Name, string AccessT
 /// </summary>
 internal sealed class NexaPremiumAccountService
 {
-    private static readonly string[] Scopes = ["XboxLive.signin", "offline_access"];
+    private static readonly string[] Scopes = ["XboxLive.signin", "XboxLive.offline_access"];
     private static readonly TimeSpan RefreshSkew = TimeSpan.FromMinutes(2);
     private const int MaxSkinBytes = 1024 * 1024;
     private const string XboxContractVersionHeader = "x-xbl-contract-version";
