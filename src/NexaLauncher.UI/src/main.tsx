@@ -12,6 +12,7 @@ import "./styles/build-manager.css";
 import "./styles/build-family.css";
 import "./styles/installed-content-icons.css";
 import "./styles/account.css";
+import "./styles/polish.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
