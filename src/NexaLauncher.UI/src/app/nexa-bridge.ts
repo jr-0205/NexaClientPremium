@@ -11,6 +11,7 @@ import type {
   InstalledContentEntry,
   LoaderVersionItem,
   MinecraftVersionItem,
+  NexaAccountState,
   NexaInGameBuildGenerateResult,
   NexaInGameBuildLibrary,
   NexaInGameInstallResult,
@@ -98,6 +99,20 @@ const previewData: BootstrapData = {
   activeLaunch: null,
 };
 
+const previewAccount: NexaAccountState = {
+  configured: false,
+  signedIn: false,
+  premium: false,
+  minecraftId: null,
+  minecraftName: null,
+  microsoftAccount: null,
+  skins: [],
+  capes: [],
+  activeSkinUrl: null,
+  activeSkinVariant: null,
+  message: "El inicio de sesión Microsoft está disponible dentro de NEXA Desktop.",
+};
+
 export async function bootstrap(): Promise<BootstrapData> {
   if (!isNativeHost()) return previewData;
   return invoke<BootstrapData>("app.bootstrap");
@@ -116,6 +131,23 @@ export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("pr
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
 export const launchProfile = (id: string) => invoke<{ pid: number; logPath: string; profile: NexaProfile }>("profiles.launch", { id });
 export const stopLaunch = () => invoke<{ stopped: boolean }>("profiles.stop");
+
+export async function getAccountStatus(): Promise<NexaAccountState> {
+  if (!isNativeHost()) return previewAccount;
+  try {
+    return await invoke<NexaAccountState>("account.status");
+  } catch (reason) {
+    return {
+      ...previewAccount,
+      configured: true,
+      message: reason instanceof Error ? reason.message : "No se pudo restaurar la sesión premium. El modo local sigue disponible.",
+    };
+  }
+}
+export const signInMicrosoft = () => invoke<NexaAccountState>("account.signIn");
+export const signOutMicrosoft = () => invoke<NexaAccountState>("account.signOut");
+export const uploadMicrosoftSkin = (variant: "classic" | "slim") =>
+  invoke<NexaAccountState>("account.skin.upload", { variant });
 
 export const listInstalledContent = (id: string) => invoke<InstalledContentEntry[]>("content.list", { id });
 export const toggleInstalledContent = (id: string, entry: InstalledContentEntry) =>

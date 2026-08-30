@@ -18,6 +18,8 @@ public partial class MainWindow : Window
     private NexaDesktopMessageRouter? desktopRouter;
     private NexaInGameBuildMessageRouter? inGameBuildRouter;
     private NexaProfileLogMessageRouter? profileLogRouter;
+    private NexaPremiumAccountService? accountService;
+    private NexaAccountMessageRouter? accountRouter;
 
     public MainWindow()
     {
@@ -47,15 +49,23 @@ public partial class MainWindow : Window
 #else
             core.Settings.AreDevToolsEnabled = false;
 #endif
+            accountService = new NexaPremiumAccountService(paths);
             bridge = new NexaBridge(paths, core);
+            accountRouter = new NexaAccountMessageRouter(core, accountService);
             desktopRouter = new NexaDesktopMessageRouter(paths, core);
             inGameBuildRouter = new NexaInGameBuildMessageRouter(paths, core);
             profileLogRouter = new NexaProfileLogMessageRouter(paths, core);
             core.WebMessageReceived += OnWebMessageReceived;
             core.WindowCloseRequested += (_, _) => Close();
+
+            var devUrl = Environment.GetEnvironmentVariable("NEXA_UI_DEV_URL");
+            var devOrigin = ResolveDevelopmentOrigin(devUrl);
+            if (!string.IsNullOrWhiteSpace(devUrl) && devOrigin is null)
+                throw new InvalidOperationException("NEXA_UI_DEV_URL sólo puede apuntar a http(s)://localhost o a una dirección loopback local.");
+
             core.NavigationStarting += (_, args) =>
             {
-                if (IsAllowedNavigation(args.Uri)) return;
+                if (IsAllowedNavigation(args.Uri, devOrigin)) return;
                 args.Cancel = true;
                 if (IsApprovedExternalLink(args.Uri)) OpenExternal(args.Uri);
             };
@@ -69,7 +79,6 @@ public partial class MainWindow : Window
             core.AddWebResourceRequestedFilter("https://cdn-raw.modrinth.com/*", CoreWebView2WebResourceContext.Image);
             core.WebResourceRequested += async (_, args) => await ProxyCatalogImageAsync(environment, args);
 
-            var devUrl = Environment.GetEnvironmentVariable("NEXA_UI_DEV_URL");
             if (!string.IsNullOrWhiteSpace(devUrl)) { core.Navigate(devUrl); return; }
 
             var uiRoot = Path.Combine(AppContext.BaseDirectory, "wwwroot");
@@ -96,6 +105,7 @@ public partial class MainWindow : Window
     {
         if (profileLogRouter is not null && await profileLogRouter.TryHandleAsync(eventArgs)) return;
         if (inGameBuildRouter is not null && await inGameBuildRouter.TryHandleAsync(eventArgs)) return;
+        if (accountRouter is not null && await accountRouter.TryHandleAsync(eventArgs)) return;
         if (desktopRouter is not null && await desktopRouter.TryHandleAsync(eventArgs)) return;
         bridge?.OnWebMessageReceived(sender, eventArgs);
     }
@@ -165,14 +175,33 @@ public partial class MainWindow : Window
         return missing.Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
     }
 
-    private static bool IsAllowedNavigation(string? uri)
+    private static Uri? ResolveDevelopmentOrigin(string? value)
     {
-        if (string.IsNullOrWhiteSpace(uri)) return false;
-        if (uri.StartsWith("https://app.nexa/", StringComparison.OrdinalIgnoreCase)) return true;
-        if (uri.StartsWith("http://127.0.0.1:", StringComparison.OrdinalIgnoreCase)) return true;
-        if (uri.StartsWith("http://localhost:", StringComparison.OrdinalIgnoreCase)) return true;
-        return uri.Equals("about:blank", StringComparison.OrdinalIgnoreCase);
+        if (string.IsNullOrWhiteSpace(value) || !Uri.TryCreate(value.Trim(), UriKind.Absolute, out var uri)) return null;
+        if (!string.Equals(uri.Scheme, Uri.UriSchemeHttp, StringComparison.OrdinalIgnoreCase) &&
+            !string.Equals(uri.Scheme, Uri.UriSchemeHttps, StringComparison.OrdinalIgnoreCase)) return null;
+        if (!uri.IsLoopback && !string.Equals(uri.Host, "localhost", StringComparison.OrdinalIgnoreCase)) return null;
+        return new Uri(uri.GetLeftPart(UriPartial.Authority) + "/");
     }
+
+    private static bool IsAllowedNavigation(string? value, Uri? devOrigin)
+    {
+        if (string.IsNullOrWhiteSpace(value)) return false;
+        if (value.Equals("about:blank", StringComparison.OrdinalIgnoreCase)) return true;
+        if (!Uri.TryCreate(value, UriKind.Absolute, out var uri)) return false;
+
+        if (uri.Scheme == Uri.UriSchemeHttps &&
+            string.Equals(uri.Host, "app.nexa", StringComparison.OrdinalIgnoreCase) &&
+            uri.IsDefaultPort)
+            return true;
+
+        return devOrigin is not null && SameOrigin(uri, devOrigin);
+    }
+
+    private static bool SameOrigin(Uri candidate, Uri expected)
+        => string.Equals(candidate.Scheme, expected.Scheme, StringComparison.OrdinalIgnoreCase) &&
+           string.Equals(candidate.Host, expected.Host, StringComparison.OrdinalIgnoreCase) &&
+           candidate.Port == expected.Port;
 
     private static bool IsApprovedExternalLink(string? value)
     {
