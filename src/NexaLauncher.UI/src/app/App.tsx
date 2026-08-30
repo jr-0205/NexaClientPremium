@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Loader2, X } from "lucide-react";
+import { X } from "lucide-react";
 import {
   bootstrap,
   getAccountStatus,
@@ -13,6 +13,7 @@ import {
 } from "./nexa-bridge";
 import type { BootstrapData, NexaAccountState, NexaProfile, OperationProgress } from "./types";
 import { defaultArtworkPlacement } from "./types";
+import { NexaLoadingOverlay } from "../components/NexaLoadingOverlay";
 import { Sidebar } from "../components/Sidebar";
 import { Topbar } from "../components/Topbar";
 import { LibraryPage } from "../pages/LibraryPage";
@@ -60,7 +61,7 @@ export default function App() {
   const [operation, setOperation] = useState<OperationProgress | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
-  const [launcherWallpaper, setLauncherWallpaper] = useState<string | null>(null);
+  const [launcherWallpaper, setLauncherWallpaper] = useState<string | null>("./brand/nexa-night-background.png");
 
   const showNotice = useCallback((message: string, kind: "success" | "error" = "success") => {
     setNotice({ id: Date.now(), message, kind });
@@ -242,6 +243,26 @@ export default function App() {
   const title = section === "profile" && selectedProfile ? selectedProfile.name : titleBySection[section];
   const displayUsername = account.premium && account.minecraftName ? account.minecraftName : data?.username ?? "Player";
 
+  const operationPercent = operation && (operation.total ?? 0) > 0
+    ? Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))
+    : null;
+  const bootLoading = !data && !fatalError;
+  const loadingOpen = bootLoading || Boolean(launchingProfileId) || Boolean(operation) || accountBusy;
+  const loadingTitle = bootLoading
+    ? "PREPARANDO NEXA"
+    : launchingProfileId
+      ? "PREPARANDO MINECRAFT"
+      : accountBusy
+        ? "VALIDANDO CUENTA"
+        : "APLICANDO CAMBIOS";
+  const loadingDetail = bootLoading
+    ? "Cargando perfiles, cuenta y configuración local…"
+    : launchingProfileId
+      ? operation?.stage ?? "Comprobando runtime, contenido y argumentos de inicio…"
+      : accountBusy
+        ? "Microsoft y Xbox se están verificando de forma segura…"
+        : operation?.stage ?? null;
+
   return (
     <div className="app-shell" data-section={section}>
       {launcherWallpaper && <div className="launcher-wallpaper" style={{ backgroundImage: `url("${launcherWallpaper}")` }} />}
@@ -264,14 +285,7 @@ export default function App() {
         </main>
       </div>
 
-      {operation && (
-        <div className="operation-pill glass-panel">
-          <Loader2 className="spin" size={16} />
-          <div><strong>{operation.stage}</strong>{(operation.total ?? 0) > 0 && <span>{operation.completed ?? 0} / {operation.total}</span>}</div>
-          {(operation.total ?? 0) > 0 && <div className="operation-track"><span style={{ width: `${Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))}%` }} /></div>}
-        </div>
-      )}
-
+      <NexaLoadingOverlay open={loadingOpen} title={loadingTitle} detail={loadingDetail} progress={operationPercent} />
       {notice && <div key={notice.id} className={`nexa-toast ${notice.kind}`}><span>{notice.message}</span><button className="icon-button" type="button" onClick={() => setNotice(null)}><X size={15} /></button></div>}
     </div>
   );
