@@ -3,13 +3,11 @@
   "id": "nexo_ingame",
   "version": "${version}",
   "name": "NEXA In-Game",
-  "description": "Cliente companion de NEXA con menú modular, HUD y QoL propios.",
+  "description": "NEXA Control Center para Minecraft 1.21.8.",
   "authors": ["NEXA"],
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "com.nexoclient.ingame.NexoClientMod"
-    ]
+    "client": ["com.nexoclient.ingame.NexaCompatClient"]
   },
   "depends": {
     "fabricloader": ">=0.17.2",
