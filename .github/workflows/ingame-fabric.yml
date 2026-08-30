@@ -5,6 +5,8 @@ on:
     branches:
       - main
       - 'codex/**'
+      - 'feature/**'
+      - 'fix/**'
     paths:
       - 'ingame/**'
       - '.github/workflows/ingame-fabric.yml'
@@ -19,7 +21,7 @@ permissions:
 
 jobs:
   build-fabric:
-    name: Fabric ${{ matrix.minecraft }} companion
+    name: Fabric ${{ matrix.minecraft }} isolated adapter
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
@@ -70,10 +72,11 @@ jobs:
         with:
           gradle-version: ${{ matrix.gradle }}
 
-      - name: Build NEXA In-Game
-        run: gradle -p ${{ matrix.project }} build --stacktrace --console=plain
+      - name: Build isolated NEXA adapter
+        run: gradle -p ${{ matrix.project }} clean build --stacktrace --console=plain
 
       - name: Upload companion JAR
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: nexo-ingame-fabric-${{ matrix.minecraft }}
