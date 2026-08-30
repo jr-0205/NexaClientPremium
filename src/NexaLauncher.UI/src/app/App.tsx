@@ -169,17 +169,13 @@ export default function App() {
 
   const signIn = useCallback(async () => {
     setAccountBusy(true);
-    setAccount((current) => ({ ...current, message: null }));
     try {
       const next = await signInMicrosoft();
       setAccount(next);
       setSection("account");
       showNotice(`Bienvenido, ${next.minecraftName ?? "cuenta Microsoft"}. NEXA Premium está activo.`);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "No se pudo iniciar sesión con Microsoft.";
-      setAccount((current) => ({ ...current, signedIn: false, premium: false, message }));
-      setSection("account");
-      showNotice(message, "error");
+      showNotice(error instanceof Error ? error.message : "No se pudo iniciar sesión con Microsoft.", "error");
     } finally {
       setAccountBusy(false);
     }
@@ -249,7 +245,7 @@ export default function App() {
         <div className="operation-pill glass-panel">
           <Loader2 className="spin" size={16} />
           <div><strong>{operation.stage}</strong>{(operation.total ?? 0) > 0 && <span>{operation.completed ?? 0} / {operation.total}</span>}</div>
-          {(operation.total ?? 0) > 0 && <div className="operation-track"><span style={{ width: `${Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))}%` }} /></div>
+          {(operation.total ?? 0) > 0 && <div className="operation-track"><span style={{ width: `${Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))}%` }} /></div>}
         </div>
       )}
 
