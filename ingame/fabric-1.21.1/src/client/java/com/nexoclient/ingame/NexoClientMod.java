@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
@@ -18,6 +19,7 @@ public final class NexoClientMod implements ClientModInitializer {
     private static KeyBinding openMenu;
     private static boolean performanceFaulted;
     private static boolean menuFaulted;
+    private static boolean homeFaulted;
     private static boolean hudFaulted;
 
     @Override
@@ -39,6 +41,18 @@ public final class NexoClientMod implements ClientModInitializer {
                 catch (RuntimeException | LinkageError error) {
                     performanceFaulted = true;
                     reportDisabled("rendimiento", error);
+                }
+            }
+
+            if (!homeFaulted) {
+                try {
+                    if (client.currentScreen instanceof TitleScreen) {
+                        client.setScreen(new NexaHomeScreen(client.currentScreen, MODULES, PERFORMANCE));
+                    }
+                }
+                catch (RuntimeException | LinkageError error) {
+                    homeFaulted = true;
+                    reportDisabled("Home Screen", error);
                 }
             }
 
