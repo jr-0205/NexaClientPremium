@@ -3,17 +3,19 @@ import { X } from "lucide-react";
 import {
   bootstrap,
   getAccountStatus,
+  getUiTheme,
   launchProfile,
   listArtworkPlacements,
   onBridgeEvent,
   signInMicrosoft,
   signOutMicrosoft,
   updateSettings,
+  updateUiTheme,
   uploadMicrosoftSkin,
 } from "./nexa-bridge";
 import type { BootstrapData, NexaAccountState, NexaProfile, OperationProgress } from "./types";
 import { defaultArtworkPlacement } from "./types";
-import { applyAccentTheme, readAccentTheme, type AccentTheme } from "./theme";
+import { applyAccentTheme, isAccentTheme, readAccentTheme, type AccentTheme } from "./theme";
 import { Sidebar } from "../components/Sidebar";
 import { Topbar } from "../components/Topbar";
 import { OperationCenter } from "../components/OperationCenter";
@@ -77,6 +79,25 @@ export default function App() {
     return next;
   }, []);
 
+  const refreshTheme = useCallback(async () => {
+    try {
+      const result = await getUiTheme();
+      if (isAccentTheme(result.theme)) setAccent(result.theme);
+    } catch {
+      // Keep the cached theme if native preferences cannot be read. Launcher functionality must not be blocked by appearance.
+    }
+  }, []);
+
+  const changeAccent = useCallback((theme: AccentTheme) => {
+    setAccent(theme);
+    void updateUiTheme(theme)
+      .then((result) => { if (isAccentTheme(result.theme)) setAccent(result.theme); })
+      .catch((error) => {
+        showNotice(error instanceof Error ? error.message : "No se pudo guardar el color de NEXA.", "error");
+        void refreshTheme();
+      });
+  }, [refreshTheme, showNotice]);
+
   const refresh = useCallback(async () => {
     const next = await bootstrap();
     try {
@@ -96,7 +117,8 @@ export default function App() {
 
   useEffect(() => {
     Promise.all([refresh(), refreshAccount()]).catch((reason: Error) => setFatalError(reason.message));
-  }, [refresh, refreshAccount]);
+    void refreshTheme();
+  }, [refresh, refreshAccount, refreshTheme]);
 
   useEffect(() => {
     const offProgress = onBridgeEvent<OperationProgress>("operation.progress", (value) => {
@@ -240,11 +262,11 @@ export default function App() {
     <div className={`app-shell ${account.premium ? "premium-session" : "base-session"}`}>
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
-      <Sidebar active={activeSidebar} premium={account.premium} accent={accent} onAccentChange={setAccent} onChange={navigate} />
+      <Sidebar active={activeSidebar} premium={account.premium} accent={accent} onAccentChange={changeAccent} onChange={navigate} />
       <div className="workspace">
         <Topbar title={title} username={displayUsername} isPremium={account.premium} onOpenAccount={() => navigate("account")} onUpdateLocalUsername={updateLocalUsername} />
         <main className="content-scroll">
-          {fatalError && <div className="inline-error"><strong>NEXA no pudo cargar el launcher.</strong><span>{fatalError}</span><button type="button" onClick={() => Promise.all([refresh(), refreshAccount()]).catch((reason: Error) => setFatalError(reason.message))}>REINTENTAR</button></div>}
+          {fatalError && <div className="inline-error"><strong>NEXA no pudo cargar el launcher.</strong><span>{fatalError}</span><button type="button" onClick={() => { Promise.all([refresh(), refreshAccount()]).catch((reason: Error) => setFatalError(reason.message)); void refreshTheme(); }}>REINTENTAR</button></div>}
 
           {section === "library" && <LibraryPage profiles={profiles} launchingProfileId={launchingProfileId} onCreate={() => navigate("create")} onOpen={openProfile} onPlay={play} />}
           {section === "create" && <CreateProfilePage onCancel={() => navigate("library")} onNotice={showNotice} onCreated={(profile) => { const hydrated = { ...profile, artwork: profile.artwork ?? defaultArtworkPlacement }; setData((current) => current ? { ...current, profiles: [hydrated, ...current.profiles.filter((item) => item.id !== profile.id)] } : current); openProfile(hydrated); }} />}
