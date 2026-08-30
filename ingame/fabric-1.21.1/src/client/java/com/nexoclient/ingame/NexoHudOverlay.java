@@ -33,12 +33,7 @@ final class NexoHudOverlay {
 
     static int previewWidth(MinecraftClient client, NexoModule module) {
         if (client.textRenderer == null) return 80;
-        String preview = switch (module.id()) {
-            case "fps" -> "NEXA · 144 FPS · 6.9 ms";
-            case "coordinates" -> "XYZ 120.0 / 64.0 / -240.0";
-            default -> module.name();
-        };
-        return client.textRenderer.getWidth(preview);
+        return client.textRenderer.getWidth(previewText(module));
     }
 
     static String previewText(NexoModule module) {
@@ -100,7 +95,7 @@ final class NexoHudOverlay {
     private static void drawModuleText(MinecraftClient client, DrawContext context, NexoModule module, String text, int color) {
         int width = client.textRenderer.getWidth(text);
         int height = 9;
-        double[] position = topLeft(module, context.getScaledWindowWidth(), context.getScaledWindowHeight(), width, height);
+        double[] position = topLeft(module, client.getWindow().getScaledWidth(), client.getWindow().getScaledHeight(), width, height);
         float scale = (float) module.placement().scale();
 
         context.getMatrices().push();
