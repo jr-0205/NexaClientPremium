@@ -1,10 +1,36 @@
 plugins { id 'fabric-loom' version '1.10.1' }
-version=project.mod_version
-group=project.maven_group
-base { archivesName=project.archives_base_name }
-repositories { maven { url='https://maven.fabricmc.net/' };mavenCentral() }
-sourceSets { main { java.srcDir '../fabric-1.20.4/src/main/java' } }
-dependencies { minecraft "com.mojang:minecraft:${project.minecraft_version}";mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2";modImplementation "net.fabricmc:fabric-loader:${project.loader_version}";modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}" }
-processResources { inputs.property "version",project.version;filesMatching("fabric.mod.json"){expand "version":inputs.properties.version} }
-tasks.withType(JavaCompile).configureEach{it.options.encoding='UTF-8';it.options.release=21}
-java{sourceCompatibility=JavaVersion.VERSION_21;targetCompatibility=JavaVersion.VERSION_21;withSourcesJar()}
+
+version = project.mod_version
+group = project.maven_group
+
+base { archivesName = project.archives_base_name }
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+}
+
+// Version isolation rule: this project compiles ONLY its own 1.20.6 sources.
+// Never point a Minecraft target at another target's Java directory.
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") { expand "version": inputs.properties.version }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = 21
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+    withSourcesJar()
+}
