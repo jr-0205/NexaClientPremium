@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NEXA — Redesign Concepts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark} *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:#06080d;color:#eef2f8}
+    .shell{min-height:100vh;background:radial-gradient(circle at 18% 0%,rgba(45,96,230,.18),transparent 32%),radial-gradient(circle at 90% 20%,rgba(50,180,255,.10),transparent 30%),#06080d}
+    .grain{position:fixed;inset:0;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+    .brand{font-family:'Space Grotesk',sans-serif;letter-spacing:.24em}.card{position:relative;overflow:hidden;border:1px solid rgba(120,145,185,.18);background:linear-gradient(145deg,rgba(18,24,36,.88),rgba(9,13,21,.86));transition:.25s ease}.card:hover{transform:translateY(-4px);border-color:rgba(100,150,255,.45);box-shadow:0 30px 80px rgba(0,0,0,.32)}
+    .preview{height:220px;position:relative;overflow:hidden;border-bottom:1px solid rgba(120,145,185,.13)}
+    .mini-sidebar{position:absolute;left:0;top:0;bottom:0;width:52px;border-right:1px solid rgba(255,255,255,.08)}.mini-dot{width:22px;height:22px;border-radius:8px;margin:15px auto;background:linear-gradient(145deg,#5288ff,#67c7ff)}
+    .tag{border:1px solid rgba(120,145,185,.22);background:rgba(18,26,40,.72)}
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <main class="shell px-6 py-8 md:px-10 lg:px-14 lg:py-12">
+    <header class="mx-auto max-w-7xl flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <div class="flex items-center gap-3 text-sky-300 text-xs font-semibold tracking-[.18em]"><span class="h-px w-9 bg-sky-400/70"></span>DESIGN LAB · 2026</div>
+        <h1 class="brand mt-5 text-4xl md:text-6xl font-semibold">NEXA <span class="text-blue-400">CLIENT</span></h1>
+        <p class="mt-5 max-w-3xl text-sm md:text-base leading-7 text-slate-400">Cinco direcciones visuales completas para reconstruir el launcher sin tocar su arquitectura funcional. Abre cada maqueta, compárala y elige la que se convertirá en el nuevo sistema visual de React.</p>
+      </div>
+      <div class="flex gap-2 text-[10px] font-semibold tracking-widest text-slate-400"><span class="tag rounded-full px-3 py-2">TAILWIND</span><span class="tag rounded-full px-3 py-2">LUCIDE</span><span class="tag rounded-full px-3 py-2">HTML MOCKUPS</span></div>
+    </header>
+
+    <section class="mx-auto mt-10 grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <a class="card rounded-[28px] block" href="01-aurora-cinematic.html">
+        <div class="preview" style="background:linear-gradient(90deg,rgba(5,8,14,.92),rgba(5,8,14,.16)),url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80') center/cover">
+          <div class="absolute left-5 right-5 top-5 h-10 rounded-2xl border border-white/10 bg-black/25 backdrop-blur-xl"></div><div class="absolute bottom-6 left-7"><span class="text-[9px] tracking-[.3em] text-sky-300">CINEMATIC</span><div class="mt-2 text-2xl font-semibold">Aurora</div><div class="mt-4 h-9 w-28 rounded-xl bg-blue-500"></div></div>
+        </div>
+        <div class="p-6"><div class="flex items-center justify-between"><h2 class="text-xl font-semibold">01 · Aurora Cinematic</h2><i data-lucide="arrow-up-right" class="h-5 w-5 text-blue-400"></i></div><p class="mt-3 text-sm leading-6 text-slate-400">Wallpaper protagonista, navegación flotante, profundidad y cristal usado sólo donde aporta jerarquía.</p></div>
+      </a>
+
+      <a class="card rounded-[28px] block" href="02-obsidian-command.html">
+        <div class="preview bg-[#090b0f]">
+          <div class="mini-sidebar bg-[#0d1015]"><div class="mini-dot rounded-md bg-cyan-300"></div></div><div class="absolute left-[72px] top-6 right-5"><div class="text-[9px] tracking-[.3em] text-cyan-300">SYSTEM // READY</div><div class="mt-3 text-3xl font-semibold tracking-tight">OBSIDIAN</div><div class="mt-7 grid grid-cols-3 gap-2"><div class="h-20 border border-cyan-300/20 bg-cyan-300/[.03]"></div><div class="h-20 border border-white/10"></div><div class="h-20 border border-white/10"></div></div><div class="mt-3 h-12 border-l-2 border-cyan-300 bg-white/[.03]"></div></div>
+        </div>
+        <div class="p-6"><div class="flex items-center justify-between"><h2 class="text-xl font-semibold">02 · Obsidian Command</h2><i data-lucide="arrow-up-right" class="h-5 w-5 text-cyan-300"></i></div><p class="mt-3 text-sm leading-6 text-slate-400">Industrial y técnico. Paneles sólidos, líneas precisas, telemetría visual y casi nada de decoración.</p></div>
+      </a>
+
+      <a class="card rounded-[28px] block" href="03-nordic-atelier.html">
+        <div class="preview bg-gradient-to-br from-[#11151d] via-[#0a0e14] to-[#080b10]">
+          <div class="absolute inset-y-0 right-0 w-2/5 border-l border-blue-300/10 bg-blue-400/[.03]"></div><div class="absolute left-8 top-7 text-4xl font-light text-slate-200">ᚾ</div><div class="absolute left-8 bottom-7"><div class="text-[9px] tracking-[.42em] text-blue-300">NORDIC ATELIER</div><div class="mt-2 text-3xl font-light">Diosesmon</div><div class="mt-5 h-px w-52 bg-gradient-to-r from-blue-300/70 to-transparent"></div></div>
+        </div>
+        <div class="p-6"><div class="flex items-center justify-between"><h2 class="text-xl font-semibold">03 · Nordic Atelier</h2><i data-lucide="arrow-up-right" class="h-5 w-5 text-blue-300"></i></div><p class="mt-3 text-sm leading-6 text-slate-400">Lujo sobrio, plata y azul, geometría rúnica abstracta y mucho espacio negativo.</p></div>
+      </a>
+
+      <a class="card rounded-[28px] block" href="04-nexus-bento.html">
+        <div class="preview bg-[#0b0d12] p-5"><div class="grid h-full grid-cols-5 grid-rows-3 gap-2"><div class="col-span-3 row-span-3 rounded-2xl bg-gradient-to-br from-blue-500/25 to-slate-900 border border-blue-400/20"></div><div class="col-span-2 row-span-1 rounded-2xl bg-white/[.04] border border-white/10"></div><div class="col-span-1 row-span-2 rounded-2xl bg-white/[.04] border border-white/10"></div><div class="col-span-1 row-span-2 rounded-2xl bg-sky-400/10 border border-sky-300/20"></div></div></div>
+        <div class="p-6"><div class="flex items-center justify-between"><h2 class="text-xl font-semibold">04 · Nexus Bento</h2><i data-lucide="arrow-up-right" class="h-5 w-5 text-blue-400"></i></div><p class="mt-3 text-sm leading-6 text-slate-400">Módulos grandes y claros: jugar, perfiles, cuenta, descargas y contenido como bloques de prioridad.</p></div>
+      </a>
+
+      <a class="card rounded-[28px] block md:col-span-2 xl:col-span-1" href="05-monolith.html">
+        <div class="preview" style="background:linear-gradient(180deg,rgba(2,3,6,.05),rgba(2,3,6,.82)),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80') center/cover"><div class="absolute left-7 top-6 text-[9px] tracking-[.35em]">NEXA / 05</div><div class="absolute bottom-7 left-7 right-7"><div class="text-4xl font-semibold tracking-[-.04em]">MONOLITH</div><div class="mt-4 flex gap-2"><div class="h-10 w-32 rounded-full bg-white text-black"></div><div class="h-10 w-10 rounded-full border border-white/30"></div></div></div></div>
+        <div class="p-6"><div class="flex items-center justify-between"><h2 class="text-xl font-semibold">05 · Monolith</h2><i data-lucide="arrow-up-right" class="h-5 w-5 text-white"></i></div><p class="mt-3 text-sm leading-6 text-slate-400">Ultra minimalista. Pantalla casi limpia, enorme identidad visual y navegación concentrada en un dock.</p></div>
+      </a>
+    </section>
+
+    <footer class="mx-auto mt-8 max-w-7xl rounded-2xl border border-slate-700/30 bg-slate-900/30 px-5 py-4 text-xs leading-5 text-slate-500">Estas maquetas son deliberadamente diferentes entre sí. La dirección elegida se traduce después a componentes React reales; no se copiará el HTML directamente.</footer>
+  </main>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
