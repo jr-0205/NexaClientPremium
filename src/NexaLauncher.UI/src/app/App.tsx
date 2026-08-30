@@ -25,6 +25,7 @@ import { SettingsPage } from "../pages/SettingsPage";
 type Section = "library" | "create" | "profile" | "content" | "account" | "settings";
 type SidebarSection = "library" | "create" | "content" | "account" | "settings";
 type Notice = { id: number; message: string; kind: "success" | "error" };
+type WallpaperEntry = { name?: string; url: string };
 
 const emptyAccount: NexaAccountState = {
   configured: false,
@@ -59,6 +60,7 @@ export default function App() {
   const [operation, setOperation] = useState<OperationProgress | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
+  const [launcherWallpaper, setLauncherWallpaper] = useState<string | null>(null);
 
   const showNotice = useCallback((message: string, kind: "success" | "error" = "success") => {
     setNotice({ id: Date.now(), message, kind });
@@ -90,6 +92,21 @@ export default function App() {
   useEffect(() => {
     Promise.all([refresh(), refreshAccount()]).catch((reason: Error) => setFatalError(reason.message));
   }, [refresh, refreshAccount]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("./wallpapers/catalog.json", { cache: "no-store" })
+      .then((response) => response.ok ? response.json() as Promise<WallpaperEntry[]> : [])
+      .then((entries) => {
+        if (cancelled || !Array.isArray(entries)) return;
+        const usable = entries.filter((entry) => typeof entry?.url === "string" && entry.url.length > 0);
+        if (!usable.length) return;
+        const index = new Date().getDate() % usable.length;
+        setLauncherWallpaper(usable[index].url);
+      })
+      .catch(() => undefined);
+    return () => { cancelled = true; };
+  }, []);
 
   useEffect(() => {
     const offProgress = onBridgeEvent<OperationProgress>("operation.progress", (value) => {
@@ -169,13 +186,17 @@ export default function App() {
 
   const signIn = useCallback(async () => {
     setAccountBusy(true);
+    setAccount((current) => ({ ...current, message: null }));
     try {
       const next = await signInMicrosoft();
       setAccount(next);
       setSection("account");
       showNotice(`Bienvenido, ${next.minecraftName ?? "cuenta Microsoft"}. NEXA Premium está activo.`);
     } catch (error) {
-      showNotice(error instanceof Error ? error.message : "No se pudo iniciar sesión con Microsoft.", "error");
+      const message = error instanceof Error ? error.message : "No se pudo iniciar sesión con Microsoft.";
+      setAccount((current) => ({ ...current, signedIn: false, premium: false, message }));
+      setSection("account");
+      showNotice(message, "error");
     } finally {
       setAccountBusy(false);
     }
@@ -222,7 +243,9 @@ export default function App() {
   const displayUsername = account.premium && account.minecraftName ? account.minecraftName : data?.username ?? "Player";
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-section={section}>
+      {launcherWallpaper && <div className="launcher-wallpaper" style={{ backgroundImage: `url("${launcherWallpaper}")` }} />}
+      <div className="launcher-wallpaper-shade" />
       <div className="ambient ambient-one" />
       <div className="ambient ambient-two" />
       <Sidebar active={activeSidebar} onChange={navigate} />
