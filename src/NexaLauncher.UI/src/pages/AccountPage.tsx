@@ -1,4 +1,4 @@
-import { Check, Crown, Loader2, LogIn, LogOut, ShieldCheck, Shirt, Sparkles, Upload, UserRound } from "lucide-react";
+import { Check, Clock3, Crown, Loader2, LogIn, LogOut, ShieldCheck, Shirt, Sparkles, Upload, UserRound } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import type { NexaAccountState } from "../app/types";
 
@@ -15,6 +15,7 @@ type Props = {
 export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }: Props) {
   const initialVariant: SkinVariant = account.activeSkinVariant?.toLowerCase() === "slim" ? "slim" : "classic";
   const [variant, setVariant] = useState<SkinVariant>(initialVariant);
+  const minecraftApprovalPending = Boolean(account.message && /invalid app registration|minecraft services/i.test(account.message));
 
   useEffect(() => {
     setVariant(account.activeSkinVariant?.toLowerCase() === "slim" ? "slim" : "classic");
@@ -28,8 +29,8 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             <span className="eyebrow">NEXA PREMIUM · CUENTA MICROSOFT</span>
             <h1>Tu identidad de Minecraft, integrada en NEXA.</h1>
             <p>
-              NEXA sigue funcionando como launcher local sin cuenta. Al conectar Microsoft se habilita la experiencia premium:
-              identidad oficial de Minecraft Java, sesiones online y gestión de apariencia desde el launcher.
+              NEXA funciona como launcher local sin cuenta. Al conectar Microsoft se habilita la cadena oficial de identidad
+              Microsoft → Xbox → Minecraft Services, manteniendo tus credenciales fuera de la interfaz web.
             </p>
             <button className="primary-button account-login-button" type="button" disabled={busy || !account.configured} onClick={onSignIn}>
               {busy ? <Loader2 className="spin" size={17} /> : <LogIn size={17} />}
@@ -38,16 +39,27 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             {!account.configured && (
               <div className="account-config-warning">
                 <ShieldCheck size={16} />
-                <span>El módulo está preparado, pero esta build necesita un Client ID público de Microsoft autorizado para NEXA.</span>
+                <span>Esta build necesita un Client ID público de Microsoft configurado para NEXA.</span>
               </div>
             )}
-            {account.message && <p className="account-message">{account.message}</p>}
+
+            {minecraftApprovalPending ? (
+              <div className="account-service-gate">
+                <div className="service-gate-icon"><Clock3 size={20} /></div>
+                <div>
+                  <span className="eyebrow">AUTENTICACIÓN VALIDADA · AUTORIZACIÓN PENDIENTE</span>
+                  <strong>Microsoft y Xbox responden correctamente.</strong>
+                  <p>Minecraft Services todavía no autoriza el Client ID de NEXA. No necesitas cambiar tu contraseña, Authenticator ni la configuración local del launcher.</p>
+                  <code>HTTP 403 · Invalid app registration</code>
+                </div>
+              </div>
+            ) : account.message ? <p className="account-message">{account.message}</p> : null}
           </div>
 
           <div className="account-feature-grid">
             <Feature icon={<ShieldCheck size={20} />} title="Autenticación segura" text="NEXA abre el navegador del sistema. Tu contraseña nunca entra al launcher ni al WebView." />
-            <Feature icon={<UserRound size={20} />} title="Identidad oficial" text="Nombre y UUID provienen del perfil real de Minecraft y se usan automáticamente al iniciar el juego." />
-            <Feature icon={<Shirt size={20} />} title="Skins premium" text="Selecciona una skin PNG, valida el modelo Classic/Slim y publícala en tu perfil oficial desde NEXA." />
+            <Feature icon={<UserRound size={20} />} title="Identidad oficial" text="Cuando Minecraft Services autorice NEXA, nombre y UUID vendrán del perfil real de Minecraft automáticamente." />
+            <Feature icon={<Shirt size={20} />} title="Skins premium" text="La gestión de skins queda preparada para la sesión oficial una vez completada toda la cadena de autenticación." />
           </div>
         </div>
       </section>
