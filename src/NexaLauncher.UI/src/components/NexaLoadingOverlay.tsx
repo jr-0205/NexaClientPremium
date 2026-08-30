@@ -15,6 +15,7 @@ export function NexaLoadingOverlay({ open, title, detail, progress }: Props) {
       <div className="nexa-loading-screen__content">
         <img className="nexa-loading-screen__mark" src="./brand/nexa-mark.png" alt="" />
         <div className="nexa-loading-screen__name">N E X A&nbsp;&nbsp; C L I E N T</div>
+        <span className="nexa-loading-screen__phase">NEXA CORE · SESIÓN SEGURA</span>
         <div className="nexa-loading-screen__spinner" aria-hidden="true" />
         <strong>{title}</strong>
         {detail && <span>{detail}</span>}
