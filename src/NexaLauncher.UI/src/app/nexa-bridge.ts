@@ -21,6 +21,7 @@ import type {
   ProfileLiveLogs,
   UpdateProfileRequest,
 } from "./types";
+import type { AccentTheme } from "./theme";
 
 type WebViewMessageEvent = { data: unknown };
 type WebViewBridge = {
@@ -116,6 +117,16 @@ const previewAccount: NexaAccountState = {
 export async function bootstrap(): Promise<BootstrapData> {
   if (!isNativeHost()) return previewData;
   return invoke<BootstrapData>("app.bootstrap");
+}
+
+export async function getUiTheme(): Promise<{ theme: AccentTheme }> {
+  if (!isNativeHost()) return { theme: "nexa" };
+  return invoke<{ theme: AccentTheme }>("ui.theme.status");
+}
+
+export async function updateUiTheme(theme: AccentTheme): Promise<{ theme: AccentTheme }> {
+  if (!isNativeHost()) return { theme };
+  return invoke<{ theme: AccentTheme }>("ui.theme.update", { theme });
 }
 
 export const listProfiles = () => invoke<NexaProfile[]>("profiles.list");
