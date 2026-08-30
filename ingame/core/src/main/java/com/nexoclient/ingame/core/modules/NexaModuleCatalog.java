@@ -26,6 +26,7 @@ public final class NexaModuleCatalog {
         spec("waypoints", "Waypoints", "Puntos guardados por mundo o servidor", WORLD, true, false),
         spec("minimap", "Minimap", "Mapa compacto con capas configurables", WORLD, true, false),
         spec("chunk_borders", "Chunk Borders", "Límites de chunks sin depender de F3", WORLD, false, false),
+        spec("nexa_home", "NEXA Home", "Sustituye el menú principal vanilla por la experiencia compacta de NEXA", VISUAL, false, true),
         spec("chat", "Chat", "Apariencia y comportamiento del chat", VISUAL, false, false),
         spec("tab", "Tab", "Personalización de la lista de jugadores", VISUAL, false, false),
         spec("scoreboard", "Scoreboard", "Posición, escala y estilo del marcador", VISUAL, true, false),
