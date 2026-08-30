@@ -44,7 +44,7 @@ public final class NexoClientMod implements ClientModInitializer {
                 }
             }
 
-            if (!homeFaulted) {
+            if (!homeFaulted && MODULES.enabled("nexa_home")) {
                 try {
                     if (client.currentScreen instanceof TitleScreen) {
                         client.setScreen(new NexaHomeScreen(client.currentScreen, MODULES, PERFORMANCE));
