@@ -9,10 +9,56 @@ type Props = {
   onNotice(message: string, kind?: "success" | "error"): void;
 };
 
+type ParsedVersion = {
+  core: [number, number, number];
+  prerelease: string[] | null;
+};
+
 function installedVersionFromFileName(fileName?: string | null) {
   if (!fileName) return null;
   const match = fileName.match(/-(\d+\.\d+\.\d+(?:[-+][A-Za-z0-9.-]+)?)\.jar$/i);
   return match?.[1] ?? null;
+}
+
+function parseVersion(value?: string | null): ParsedVersion | null {
+  if (!value) return null;
+  const match = value.trim().match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/);
+  if (!match) return null;
+  return {
+    core: [Number(match[1]), Number(match[2]), Number(match[3])],
+    prerelease: match[4]?.split(".") ?? null,
+  };
+}
+
+function compareVersions(left?: string | null, right?: string | null) {
+  const a = parseVersion(left);
+  const b = parseVersion(right);
+  if (!a || !b) return left === right ? 0 : null;
+
+  for (let index = 0; index < a.core.length; index += 1) {
+    if (a.core[index] !== b.core[index]) return a.core[index] > b.core[index] ? 1 : -1;
+  }
+
+  if (!a.prerelease && !b.prerelease) return 0;
+  if (!a.prerelease) return 1;
+  if (!b.prerelease) return -1;
+
+  const count = Math.max(a.prerelease.length, b.prerelease.length);
+  for (let index = 0; index < count; index += 1) {
+    const av = a.prerelease[index];
+    const bv = b.prerelease[index];
+    if (av === undefined) return -1;
+    if (bv === undefined) return 1;
+    if (av === bv) continue;
+
+    const an = /^\d+$/.test(av) ? Number(av) : null;
+    const bn = /^\d+$/.test(bv) ? Number(bv) : null;
+    if (an !== null && bn !== null) return an > bn ? 1 : -1;
+    if (an !== null) return -1;
+    if (bn !== null) return 1;
+    return av.localeCompare(bv) > 0 ? 1 : -1;
+  }
+  return 0;
 }
 
 export function NexaInGameAction({ profile, launching, onNotice }: Props) {
@@ -35,12 +81,16 @@ export function NexaInGameAction({ profile, launching, onNotice }: Props) {
     () => installedVersionFromFileName(status?.fileName),
     [status?.fileName],
   );
+  const versionComparison = useMemo(
+    () => compareVersions(status?.version, installedVersion),
+    [status?.version, installedVersion],
+  );
   const updateAvailable = Boolean(
     status?.installed &&
     status.available &&
     status.version &&
     installedVersion &&
-    status.version !== installedVersion,
+    versionComparison === 1,
   );
 
   async function installOrRepair() {
@@ -110,7 +160,9 @@ export function NexaInGameAction({ profile, launching, onNotice }: Props) {
           title={status.available
             ? updateAvailable
               ? `Sustituye ${installedVersion ?? "la build instalada"} por NEXA In-Game ${status.version}.`
-              : "Reinstala la misma build publicada y vuelve a verificar su SHA-256."
+              : versionComparison === -1
+                ? `La build instalada (${installedVersion}) es más nueva que la publicada (${status.version}); NEXA no ofrecerá un downgrade automático.`
+                : "Reinstala la misma build publicada y vuelve a verificar su SHA-256."
             : "No hay una build publicada disponible para mantenimiento en este momento."}
           onClick={installOrRepair}
         >
