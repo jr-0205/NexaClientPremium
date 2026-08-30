@@ -5,8 +5,10 @@
         Title="NEXA Client"
         Width="1320" Height="820" MinWidth="980" MinHeight="640"
         WindowStartupLocation="CenterScreen"
-        Background="#070A10">
-    <Grid Background="#070A10">
-        <wv2:WebView2 x:Name="WebView" DefaultBackgroundColor="#070A10" />
+        Background="#071017">
+    <Grid Background="#071017">
+        <Image Source="Assets/NEXA Background.png" Stretch="UniformToFill" Opacity="0.92" />
+        <Border Background="#6003070A" />
+        <wv2:WebView2 x:Name="WebView" DefaultBackgroundColor="#00000000" />
     </Grid>
 </Window>
