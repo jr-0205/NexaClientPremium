@@ -25,6 +25,7 @@
     <ProjectReference Include="..\NexoLauncher.Minecraft\NexoLauncher.Minecraft.csproj" />
     <ProjectReference Include="..\NexoLauncher.Java\NexoLauncher.Java.csproj" />
     <Resource Include="Assets\NEXA N.png" />
+    <Resource Include="Assets\NEXA Background.png" />
   </ItemGroup>
 
   <Target Name="CopyNexaUiToOutput" AfterTargets="Build" Condition="Exists('$(NexaUiDist)\index.html')">
