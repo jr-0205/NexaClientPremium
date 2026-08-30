@@ -84,11 +84,15 @@ final class NexaHudEditorScreen extends Screen {
         drawBorder(context, left, top, w, h, active ? theme.accent : 0xFF364151);
         if (!module.enabled()) context.fill(left, top, left + w, top + h, 0x66000000);
 
-        context.getMatrices().push();
-        context.getMatrices().translate((float) x, (float) y, 0.0f);
-        context.getMatrices().scale((float) scale, (float) scale, 1.0f);
-        context.drawTextWithShadow(textRenderer, Text.literal(preview), 0, 0, module.enabled() ? theme.text : theme.muted);
-        context.getMatrices().pop();
+        NexaGuiTransforms.push(context);
+        try {
+            NexaGuiTransforms.translate(context, (float) x, (float) y);
+            NexaGuiTransforms.scale(context, (float) scale);
+            context.drawTextWithShadow(textRenderer, Text.literal(preview), 0, 0, module.enabled() ? theme.text : theme.muted);
+        }
+        finally {
+            NexaGuiTransforms.pop(context);
+        }
 
         hitBoxes.put(module.id(), new Rect(left, top, w, h));
     }
