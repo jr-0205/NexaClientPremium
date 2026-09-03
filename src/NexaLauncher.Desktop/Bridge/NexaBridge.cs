@@ -35,14 +35,18 @@ internal sealed class NexaBridge
     private readonly JavaRuntimeDetector javaDetector;
     private readonly SemaphoreSlim mutationLock = new(1, 1);
     private readonly JsonSerializerOptions jsonOptions = new(JsonSerializerDefaults.Web);
+    private readonly Action requestClose;
 
     private MinecraftLaunchSession? activeLaunch;
     private InstanceId? activeLaunchProfileId;
 
-    public NexaBridge(NexoPaths paths, CoreWebView2 webView)
+    public bool HasActiveOperation { get; private set; }
+
+    public NexaBridge(NexoPaths paths, CoreWebView2 webView, Action requestClose)
     {
         this.paths = paths;
         this.webView = webView;
+        this.requestClose = requestClose;
         instances = new JsonInstanceRepository(paths.Instances);
         instanceManager = new InstanceManager(instances);
         settings = new JsonLauncherSettingsStore(Path.Combine(paths.Root, "settings.json"));
@@ -64,6 +68,8 @@ internal sealed class NexaBridge
             switch (request.Method)
             {
                 case "app.bootstrap": result = await BootstrapAsync(); break;
+                case "app.operationState": result = UpdateOperationState(request.Payload); break;
+                case "app.confirmClose": result = ConfirmClose(); break;
                 case "profiles.list": result = await ProfilesAsync(); break;
                 case "catalog.minecraftVersions": result = await MinecraftVersionsAsync(); break;
                 case "catalog.loaderVersions": result = await LoaderVersionsAsync(request.Payload); break;
@@ -103,6 +109,19 @@ internal sealed class NexaBridge
             profiles = await ProfilesAsync(),
             activeLaunch = ActiveLaunchState()
         };
+    }
+
+    private object UpdateOperationState(JsonElement payload)
+    {
+        var request = Read<OperationStateRequest>(payload);
+        HasActiveOperation = request.Active;
+        return new { updated = true };
+    }
+
+    private object ConfirmClose()
+    {
+        requestClose();
+        return new { closing = true };
     }
 
     private async Task<IReadOnlyList<object>> ProfilesAsync()
@@ -629,4 +648,5 @@ internal sealed class NexaBridge
     private sealed record CatalogProjectRequest(string Id, string Title, string? Description, string? Author, string ProjectType, string? IconUrl, long Downloads);
     private sealed record ContentInstallRequest(string Id, CatalogProjectRequest Project);
     private sealed record SettingsRequest(string Username, bool CloseLauncherOnGameStart);
+    private sealed record OperationStateRequest(bool Active, string? Stage, double? Percentage);
 }

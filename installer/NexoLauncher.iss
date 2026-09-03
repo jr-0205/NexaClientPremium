@@ -1,5 +1,5 @@
 #define AppName "NEXA Client"
-#define AppVersion "1.0.0"
+#define AppVersion "2.0.0"
 #define AppPublisher "NEXA"
 #define AppExeName "NexaLauncher.Desktop.exe"
 
@@ -8,12 +8,13 @@ AppId={{9CC375FC-51A9-43D6-9638-29340D5D7C35}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppVerName={#AppName} {#AppVersion}
+VersionInfoVersion=2.0.0.0
 AppPublisher={#AppPublisher}
 DefaultDirName={autopf}\NEXA Client
 DefaultGroupName=NEXA Client
 DisableDirPage=no
 DisableProgramGroupPage=yes
-UsePreviousAppDir=no
+UsePreviousAppDir=yes
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=..\artifacts\installer
@@ -28,6 +29,7 @@ UninstallDisplayIcon={app}\{#AppExeName}
 CloseApplications=yes
 RestartApplications=no
 SetupLogging=yes
+SetupIconFile=..\src\NexaLauncher.Desktop\Assets\NEXA.ico
 
 [Languages]
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"

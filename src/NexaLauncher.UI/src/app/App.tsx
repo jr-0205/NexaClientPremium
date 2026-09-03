@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import {
   bootstrap,
+  confirmHostClose,
   getAccountStatus,
   launchProfile,
   listArtworkPlacements,
@@ -9,11 +10,13 @@ import {
   signInMicrosoft,
   signOutMicrosoft,
   updateSettings,
+  updateHostOperationState,
   uploadMicrosoftSkin,
 } from "./nexa-bridge";
 import type { BootstrapData, NexaAccountState, NexaProfile, OperationProgress } from "./types";
 import { defaultArtworkPlacement } from "./types";
 import { NexaLoadingOverlay } from "../components/NexaLoadingOverlay";
+import { NexaDialog } from "../components/NexaDialog";
 import { Sidebar } from "../components/Sidebar";
 import { Topbar } from "../components/Topbar";
 import { LibraryPage } from "../pages/LibraryPage";
@@ -61,6 +64,7 @@ export default function App() {
   const [operation, setOperation] = useState<OperationProgress | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [fatalError, setFatalError] = useState<string | null>(null);
+  const [closeWarningOpen, setCloseWarningOpen] = useState(false);
   const [launcherWallpaper, setLauncherWallpaper] = useState<string | null>("./brand/nexa-night-background.png");
 
   const showNotice = useCallback((message: string, kind: "success" | "error" = "success") => {
@@ -135,6 +139,8 @@ export default function App() {
     return () => window.clearTimeout(timer);
   }, [notice]);
 
+  useEffect(() => onBridgeEvent("app.closeRequested", () => setCloseWarningOpen(true)), []);
+
   const profiles = data?.profiles ?? [];
   const selectedProfile = useMemo(
     () => profiles.find((profile) => profile.id === selectedProfileId) ?? null,
@@ -171,7 +177,7 @@ export default function App() {
           : item),
         activeLaunch: { profileId: profile.id, pid: result.pid, logPath: result.logPath },
       } : current);
-      if (data?.closeLauncherOnGameStart) window.close();
+      if (data?.closeLauncherOnGameStart) await confirmHostClose();
     } catch (error) {
       setLaunchingProfileId(null);
       setOperation(null);
@@ -246,6 +252,11 @@ export default function App() {
   const operationPercent = operation && (operation.total ?? 0) > 0
     ? Math.max(0, Math.min(100, operation.percentage ?? (((operation.completed ?? 0) / Math.max(1, operation.total ?? 1)) * 100)))
     : null;
+  const operationIsDownload = /descarg|instal|archivo|contenido/i.test(operation?.stage ?? "");
+
+  useEffect(() => {
+    updateHostOperationState(Boolean(operation), operation?.stage, operationPercent).catch(() => undefined);
+  }, [operation, operationPercent]);
   const bootLoading = !data && !fatalError;
   const loadingOpen = bootLoading || Boolean(launchingProfileId) || Boolean(operation) || accountBusy;
   const loadingTitle = bootLoading
@@ -281,11 +292,21 @@ export default function App() {
           {section === "profile" && !selectedProfile && <div className="page"><div className="empty-state glass-panel"><h2>Perfil no disponible</h2><p>Vuelve a Biblioteca y selecciona un perfil.</p></div></div>}
           {section === "content" && <ContentPage profiles={profiles} initialProfileId={selectedProfileId} onSelectProfile={setSelectedProfileId} onNotice={showNotice} />}
           {section === "account" && <AccountPage account={account} busy={accountBusy} onSignIn={signIn} onSignOut={signOut} onUploadSkin={uploadSkin} />}
-          {section === "settings" && <SettingsPage username={data?.username ?? "Player"} closeLauncherOnGameStart={data?.closeLauncherOnGameStart ?? true} version={data?.version ?? "1.0.0"} onUpdated={(username, closeLauncherOnGameStart) => setData((current) => current ? { ...current, username, closeLauncherOnGameStart } : current)} onNotice={showNotice} />}
+          {section === "settings" && <SettingsPage username={data?.username ?? "Player"} closeLauncherOnGameStart={data?.closeLauncherOnGameStart ?? true} version={data?.version ?? "2.0.0"} onUpdated={(username, closeLauncherOnGameStart) => setData((current) => current ? { ...current, username, closeLauncherOnGameStart } : current)} onNotice={showNotice} />}
         </main>
       </div>
 
       <NexaLoadingOverlay open={loadingOpen} title={loadingTitle} detail={loadingDetail} progress={operationPercent} />
+      <NexaDialog
+        open={closeWarningOpen}
+        tone="danger"
+        title={operationIsDownload ? "Hay una descarga en curso" : "NEXA sigue trabajando"}
+        description={`${operation?.stage ?? "Hay una operación en curso."}${operationPercent != null ? `\nProgreso actual: ${Math.round(operationPercent)}%.` : ""}\n\n${operationIsDownload ? "Si cierras ahora, los archivos incompletos se descartarán y la descarga deberá continuar o reiniciarse la próxima vez." : "Si cierras ahora, esta operación se interrumpirá y puede que tengas que repetirla."}`}
+        confirmLabel="CERRAR DE TODOS MODOS"
+        cancelLabel="SEGUIR DESCARGANDO"
+        onCancel={() => setCloseWarningOpen(false)}
+        onConfirm={() => { setCloseWarningOpen(false); confirmHostClose().catch(() => window.close()); }}
+      />
       {notice && <div key={notice.id} className={`nexa-toast ${notice.kind}`}><span>{notice.message}</span><button className="icon-button" type="button" onClick={() => setNotice(null)}><X size={15} /></button></div>}
     </div>
   );

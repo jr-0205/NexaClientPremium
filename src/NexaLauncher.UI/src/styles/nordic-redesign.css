@@ -355,6 +355,28 @@ body {
   border-bottom: 1px solid var(--nordic-line);
 }
 
+.nordic-hero-grid.nordic-hero-simple {
+  display: block;
+  min-height: 390px;
+}
+
+.nordic-hero-simple .nordic-session-content {
+  min-height: 390px;
+  justify-content: center;
+}
+
+.nordic-hero-simple .nordic-session-content h2 {
+  max-width: 820px;
+  font-size: clamp(42px, 5vw, 72px);
+}
+
+.nordic-profile-meta {
+  color: #c0ccdc !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
 .nordic-instance-panel {
   padding: 34px 34px 34px 4px;
   border-right: 1px solid var(--nordic-line);

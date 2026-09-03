@@ -172,3 +172,8 @@ export const updateArtworkPlacement = (id: string, artwork: ProfileArtworkPlacem
 
 export const updateSettings = (username: string, closeLauncherOnGameStart: boolean) =>
   invoke<{ username: string; closeLauncherOnGameStart: boolean }>("settings.update", { username, closeLauncherOnGameStart });
+
+export const updateHostOperationState = (active: boolean, stage?: string | null, percentage?: number | null) =>
+  invoke<{ updated: boolean }>("app.operationState", { active, stage, percentage });
+
+export const confirmHostClose = () => invoke<{ closing: boolean }>("app.confirmClose");

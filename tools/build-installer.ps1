@@ -11,9 +11,13 @@ $ui = Join-Path $repository "src\NexaLauncher.UI"
 $desktopProject = Join-Path $repository "src\NexaLauncher.Desktop\NexaLauncher.Desktop.csproj"
 $publishDirectory = Join-Path $repository "artifacts\publish\$Runtime"
 $installerScript = Join-Path $repository "installer\NexoLauncher.iss"
+$iconBuilder = Join-Path $repository "tools\build-brand-icon.ps1"
 
 Push-Location $repository
 try {
+    Write-Host "[0/4] Generando icono de marca..."
+    & $iconBuilder
+
     Write-Host "[1/4] Restaurando y compilando la interfaz..."
     Push-Location $ui
     try {
@@ -31,6 +35,15 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "Las pruebas terminaron con codigo $LASTEXITCODE." }
 
     Write-Host "[3/4] Publicando aplicacion autocontenida..."
+    $resolvedArtifactsRoot = [System.IO.Path]::GetFullPath((Join-Path $repository "artifacts\publish"))
+    $resolvedPublishDirectory = [System.IO.Path]::GetFullPath($publishDirectory)
+    $artifactsPrefix = $resolvedArtifactsRoot.TrimEnd([System.IO.Path]::DirectorySeparatorChar) + [System.IO.Path]::DirectorySeparatorChar
+    if (!$resolvedPublishDirectory.StartsWith($artifactsPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+        throw "El directorio de publicación quedó fuera de artifacts\publish: $resolvedPublishDirectory"
+    }
+    if (Test-Path -LiteralPath $resolvedPublishDirectory) {
+        Remove-Item -LiteralPath $resolvedPublishDirectory -Recurse -Force
+    }
     dotnet publish $desktopProject `
         --configuration $Configuration `
         --runtime $Runtime `

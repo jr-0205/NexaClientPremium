@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.ComponentModel;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -19,6 +20,7 @@ public partial class MainWindow : Window
     private NexaProfileLogMessageRouter? profileLogRouter;
     private NexaPremiumAccountService? accountService;
     private NexaAccountMessageRouter? accountRouter;
+    private bool allowClose;
 
     public MainWindow()
     {
@@ -26,6 +28,7 @@ public partial class MainWindow : Window
         Title = "NEXA Client";
         Icon = NexaApplicationIcon.Create();
         Loaded += OnLoaded;
+        Closing += OnClosing;
     }
 
     private async void OnLoaded(object sender, RoutedEventArgs e)
@@ -49,7 +52,7 @@ public partial class MainWindow : Window
             core.Settings.AreDevToolsEnabled = false;
 #endif
             accountService = new NexaPremiumAccountService(paths);
-            bridge = new NexaBridge(paths, core);
+            bridge = new NexaBridge(paths, core, ConfirmCloseFromWeb);
             accountRouter = new NexaAccountMessageRouter(core, accountService);
             desktopRouter = new NexaDesktopMessageRouter(paths, core);
             profileLogRouter = new NexaProfileLogMessageRouter(paths, core);
@@ -99,6 +102,19 @@ public partial class MainWindow : Window
         }
     }
 
+    private void OnClosing(object? sender, CancelEventArgs eventArgs)
+    {
+        if (allowClose || bridge?.HasActiveOperation != true) return;
+        eventArgs.Cancel = true;
+        WebView.CoreWebView2?.PostWebMessageAsJson("{\"event\":\"app.closeRequested\",\"payload\":{}}");
+    }
+
+    private void ConfirmCloseFromWeb()
+    {
+        allowClose = true;
+        Dispatcher.BeginInvoke(Close);
+    }
+
     private async void OnWebMessageReceived(object? sender, CoreWebView2WebMessageReceivedEventArgs eventArgs)
     {
         if (profileLogRouter is not null && await profileLogRouter.TryHandleAsync(eventArgs)) return;
@@ -114,7 +130,7 @@ public partial class MainWindow : Window
         try
         {
             using var request = new HttpRequestMessage(HttpMethod.Get, args.Request.Uri);
-            request.Headers.UserAgent.ParseAdd("NEXA-Client/1.0.0");
+            request.Headers.UserAgent.ParseAdd("NEXA-Client/2.0.0");
             using var response = await previewHttp.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
             if (!response.IsSuccessStatusCode) return;
 

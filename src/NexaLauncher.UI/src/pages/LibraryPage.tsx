@@ -1,8 +1,7 @@
 import type { CSSProperties } from "react";
-import { Boxes, ChevronRight, Layers3, Loader2, Plus, Play, Search, ShieldCheck, Sparkles } from "lucide-react";
+import { Loader2, Plus, Play, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { defaultArtworkPlacement, type NexaProfile } from "../app/types";
-import { ArtworkViewport } from "../components/ArtworkViewport";
 import { ProfileCard } from "../components/ProfileCard";
 
 type LibraryPageProps = {
@@ -27,9 +26,6 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
   }, [profiles, query]);
 
   const recent = profiles[0];
-  const otherProfiles = profiles.slice(1, 4);
-  const uniqueVersions = useMemo(() => new Set(profiles.map((profile) => profile.minecraftVersion)).size, [profiles]);
-  const moddedProfiles = useMemo(() => profiles.filter((profile) => profile.loader.toLowerCase() !== "vanilla").length, [profiles]);
   const recentArtwork = recent?.artwork ?? defaultArtworkPlacement;
   const recentStyle: ArtworkCss | undefined = recent?.backgroundDataUrl ? {
     backgroundImage: `linear-gradient(90deg, rgba(5,9,15,.90) 0%, rgba(5,9,15,.62) 44%, rgba(5,9,15,.18) 100%), url(${recent.backgroundDataUrl})`,
@@ -41,75 +37,30 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
     <section className="page library-page nordic-library">
       <header className="nordic-library-heading">
         <div>
-          <span className="eyebrow">NEXA CLIENT · BIBLIOTECA</span>
-          <h1>Tu Minecraft. En orden.</h1>
-          <p>Perfiles aislados, versiones controladas y una ruta clara para volver a jugar.</p>
+          <span className="eyebrow">BIBLIOTECA</span>
+          <h1>¿Qué quieres jugar?</h1>
+          <p>Continúa donde lo dejaste o elige otro perfil.</p>
         </div>
         <button className="primary-button nordic-create-button" type="button" onClick={onCreate}><Plus size={16} /> NUEVO PERFIL</button>
       </header>
 
       {recent ? (
-        <div className="nordic-hero-grid">
-          <aside className="nordic-instance-panel">
-            <span className="nordic-section-label">PERFIL SELECCIONADO</span>
-            <div className="nordic-instance-identity">
-              <div className="nordic-instance-icon">
-                <ArtworkViewport
-                  src={recent.iconDataUrl ?? "./brand/nexa-mark.png"}
-                  fit={recentArtwork.iconFit}
-                  positionX={recentArtwork.iconPositionX}
-                  positionY={recentArtwork.iconPositionY}
-                  zoom={recentArtwork.iconZoom}
-                />
-              </div>
-              <div>
-                <h2>{recent.name}</h2>
-                <p>Minecraft {recent.minecraftVersion} · {recent.loader}</p>
-              </div>
-            </div>
-
-            <div className="nordic-divider" />
-
-            <dl className="nordic-instance-facts">
-              <div><dt>Versión</dt><dd>{recent.minecraftVersion}</dd></div>
-              <div><dt>Loader</dt><dd>{recent.loader}</dd></div>
-              <div><dt>Instancia</dt><dd>Aislada</dd></div>
-              <div><dt>Integridad</dt><dd className="verified"><ShieldCheck size={13} /> Lista</dd></div>
-            </dl>
-
-            {otherProfiles.length > 0 && (
-              <div className="nordic-other-profiles">
-                <span className="nordic-section-label">OTROS PERFILES</span>
-                {otherProfiles.map((profile) => (
-                  <button key={profile.id} type="button" onClick={() => onOpen(profile)}>
-                    <span><strong>{profile.name}</strong><small>Minecraft {profile.minecraftVersion} · {profile.loader}</small></span>
-                    <ChevronRight size={15} />
-                  </button>
-                ))}
-              </div>
-            )}
-          </aside>
-
+        <div className="nordic-hero-grid nordic-hero-simple">
           <article className="nordic-session-panel" style={recentStyle}>
             <div className="nordic-session-overlay" />
             <div className="nordic-session-content">
               <div>
-                <span className="nordic-session-kicker"><i /> INSTANCIA ACTUAL</span>
-                <h2>Preparado para entrar.</h2>
-                <p>{recent.description || "NEXA resolverá la instancia y mantendrá cada archivo en su lugar mientras tú sólo te concentras en jugar."}</p>
+                <span className="nordic-session-kicker"><i /> JUGADO RECIENTEMENTE</span>
+                <h2>{recent.name}</h2>
+                <p className="nordic-profile-meta">Minecraft {recent.minecraftVersion} · {recent.loader}</p>
                 <div className="nordic-session-actions">
                   <button className="play-button" type="button" disabled={launchingProfileId === recent.id} onClick={() => onPlay(recent)}>
-                    {launchingProfileId === recent.id ? <Loader2 className="spin" size={18} /> : <Play size={17} fill="currentColor" />} INICIAR SESIÓN
+                    {launchingProfileId === recent.id ? <Loader2 className="spin" size={18} /> : <Play size={17} fill="currentColor" />} JUGAR
                   </button>
                   <button className="secondary-button" type="button" onClick={() => onOpen(recent)}>ABRIR PERFIL</button>
                 </div>
               </div>
 
-              <div className="nordic-capabilities">
-                <div><Boxes size={16} /><span><strong>Contenido</strong><small>Mods y packs por perfil</small></span></div>
-                <div><Sparkles size={16} /><span><strong>Runtime</strong><small>Java resuelto automáticamente</small></span></div>
-                <div><ShieldCheck size={16} /><span><strong>Aislamiento</strong><small>Mundos y ajustes separados</small></span></div>
-              </div>
             </div>
           </article>
         </div>
@@ -127,16 +78,11 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
         <section className="nordic-library-section">
           <div className="nordic-library-toolbar">
             <div>
-              <span className="nordic-section-label">TODAS LAS INSTANCIAS</span>
-              <h2>Biblioteca</h2>
+              <span className="nordic-section-label">TUS PERFILES</span>
+              <h2>Elige otro perfil</h2>
             </div>
             <div className="nordic-toolbar-actions">
-              <div className="nordic-mini-stats">
-                <span><Layers3 size={14} /> {profiles.length} perfiles</span>
-                <span><Sparkles size={14} /> {uniqueVersions} versiones</span>
-                <span><Boxes size={14} /> {moddedProfiles} con loader</span>
-              </div>
-              <div className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar perfil, versión o loader" /></div>
+              <div className="search-field"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar perfil" /></div>
             </div>
           </div>
 
