@@ -105,14 +105,14 @@ internal sealed class NexaProfileLogMessageRouter
         var context = await ResolveProfileAsync(request.Id);
 
         int? memory = request.MemoryMiB;
-        if (memory is not null && memory is < 1024 or > 32768)
+        if (memory is not null && (memory < 1024 || memory > 32768))
             throw new ArgumentOutOfRangeException(nameof(request.MemoryMiB), "La memoria por instancia debe estar entre 1024 y 32768 MB, o quedar vacía para heredar el ajuste global.");
 
         int? width = request.WindowWidth;
         int? height = request.WindowHeight;
-        if (width is not null && width is < 640 or > 7680)
+        if (width is not null && (width < 640 || width > 7680))
             throw new ArgumentOutOfRangeException(nameof(request.WindowWidth), "El ancho de ventana debe estar entre 640 y 7680 px.");
-        if (height is not null && height is < 480 or > 4320)
+        if (height is not null && (height < 480 || height > 4320))
             throw new ArgumentOutOfRangeException(nameof(request.WindowHeight), "El alto de ventana debe estar entre 480 y 4320 px.");
 
         var javaPath = string.IsNullOrWhiteSpace(request.JavaPath) ? null : request.JavaPath.Trim();
@@ -152,6 +152,7 @@ internal sealed class NexaProfileLogMessageRouter
         if (!Directory.Exists(directory)) throw new InvalidOperationException("La ruta solicitada no es una carpeta.");
 
         var entries = Directory.EnumerateFileSystemEntries(directory, "*", SearchOption.TopDirectoryOnly)
+            .Where(path => !IsReparsePoint(path))
             .Take(MaximumDirectoryEntries + 1)
             .Select(path => FileEntry(context.Game, path))
             .ToArray();
@@ -188,6 +189,7 @@ internal sealed class NexaProfileLogMessageRouter
         var worlds = !Directory.Exists(saves)
             ? Array.Empty<WorldEntry>()
             : Directory.EnumerateDirectories(saves, "*", SearchOption.TopDirectoryOnly)
+                .Where(path => !IsReparsePoint(path))
                 .Select(World)
                 .OrderByDescending(world => world.ModifiedAt)
                 .ToArray();
@@ -259,7 +261,14 @@ internal sealed class NexaProfileLogMessageRouter
         {
             long total = 0;
             var count = 0;
-            foreach (var file in Directory.EnumerateFiles(directory, "*", SearchOption.AllDirectories))
+            var options = new EnumerationOptions
+            {
+                RecurseSubdirectories = true,
+                IgnoreInaccessible = true,
+                AttributesToSkip = FileAttributes.ReparsePoint,
+                ReturnSpecialDirectories = false
+            };
+            foreach (var file in Directory.EnumerateFiles(directory, "*", options))
             {
                 if (++count > 20000) break;
                 try { total += new FileInfo(file).Length; }
@@ -283,7 +292,33 @@ internal sealed class NexaProfileLogMessageRouter
             throw new InvalidOperationException("La ruta solicitada está fuera de la instancia.");
         if (requireExisting && !File.Exists(candidate) && !Directory.Exists(candidate))
             throw new FileNotFoundException("El recurso solicitado ya no existe.");
+        EnsureNoReparseTraversal(fullRoot, candidate);
         return candidate;
+    }
+
+    private static void EnsureNoReparseTraversal(string root, string candidate)
+    {
+        if ((File.GetAttributes(root) & FileAttributes.ReparsePoint) != 0)
+            throw new InvalidOperationException("La carpeta de la instancia no puede ser un enlace o junction.");
+
+        var relative = Path.GetRelativePath(root, candidate);
+        if (relative == ".") return;
+        var current = root;
+        foreach (var part in relative.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar))
+        {
+            if (part.Length == 0) continue;
+            current = Path.Combine(current, part);
+            if (!File.Exists(current) && !Directory.Exists(current)) break;
+            if (IsReparsePoint(current))
+                throw new InvalidOperationException("NEXA no permite navegar mediante enlaces o junctions fuera de la instancia.");
+        }
+    }
+
+    private static bool IsReparsePoint(string path)
+    {
+        try { return (File.GetAttributes(path) & FileAttributes.ReparsePoint) != 0; }
+        catch (IOException) { return true; }
+        catch (UnauthorizedAccessException) { return true; }
     }
 
     private static string NormalizeRelative(string root, string path)
