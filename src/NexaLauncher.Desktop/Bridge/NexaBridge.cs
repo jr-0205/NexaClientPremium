@@ -70,6 +70,7 @@ internal sealed class NexaBridge
                 case "profiles.create": result = await CreateProfileAsync(request.Payload); break;
                 case "profiles.update": result = await UpdateProfileAsync(request.Payload); break;
                 case "profiles.installation.update": result = await UpdateInstallationAsync(request.Payload); break;
+                case "profiles.installation.repair": result = await RepairInstallationAsync(request.Payload); break;
                 case "profiles.delete": result = await DeleteProfileAsync(request.Payload); break;
                 case "profiles.openFolder": result = await OpenProfileFolderAsync(request.Payload); break;
                 case "profiles.launch": result = await LaunchProfileAsync(request.Payload); break;
@@ -238,8 +239,7 @@ internal sealed class NexaBridge
     {
         var request = Read<UpdateInstallationRequest>(payload);
         var id = InstanceId.Parse(request.Id);
-        if (activeLaunchProfileId == id && activeLaunch is not null && !activeLaunch.Process.HasExited)
-            throw new InvalidOperationException("No se puede cambiar la instalación mientras esta instancia está en ejecución.");
+        ThrowIfProfileIsRunning(id, "No se puede cambiar la instalación mientras esta instancia está en ejecución.");
 
         await mutationLock.WaitAsync();
         try
@@ -252,6 +252,32 @@ internal sealed class NexaBridge
             var updated = await instanceManager.UpdateInstallationAsync(id, version.Id, loader, loaderVersion);
             PostEvent("operation.progress", new { stage = "Instalación actualizada", completed = 1, total = 1 });
             return ProfileDto(updated);
+        }
+        finally
+        {
+            mutationLock.Release();
+        }
+    }
+
+    private async Task<object> RepairInstallationAsync(JsonElement payload)
+    {
+        var id = InstanceId.Parse(Read<ProfileIdRequest>(payload).Id);
+        ThrowIfProfileIsRunning(id, "No se puede reparar la instalación mientras esta instancia está en ejecución.");
+
+        await mutationLock.WaitAsync();
+        try
+        {
+            var profile = await instanceManager.GetAsync(id) ?? throw new InvalidOperationException("El perfil ya no existe.");
+            var version = await ResolveMinecraftVersionAsync(profile.MinecraftVersion);
+            var loaderVersion = await ResolveLoaderVersionAsync(profile.Loader, version.Id, profile.LoaderVersion);
+            var loaderId = LoaderId(profile.Loader);
+            var java = await ResolveInstallerJavaAsync(profile.Loader, version);
+            var progress = CreateInstallProgress("Reparando instalación");
+
+            PostEvent("operation.progress", new { stage = "Verificando instalación", completed = 0, total = 0 });
+            await minecraft.RepairAsync(new LoaderInstallRequest(version, loaderVersion, java), loaderId, progress);
+            PostEvent("operation.progress", new { stage = "Reparación completada", completed = 1, total = 1 });
+            return new { repaired = true, profile = ProfileDto(profile) };
         }
         finally
         {
@@ -438,20 +464,30 @@ internal sealed class NexaBridge
     {
         var loaderId = LoaderId(loader);
         if (minecraft.IsInstalled(version.Id, loaderId, loaderVersion)) return;
-        string? java = null;
-        if (loader is LoaderType.Forge or LoaderType.NeoForge)
+        var java = await ResolveInstallerJavaAsync(loader, version);
+        await minecraft.InstallAsync(new LoaderInstallRequest(version, loaderVersion, java), loaderId, CreateInstallProgress());
+    }
+
+    private async Task<string?> ResolveInstallerJavaAsync(LoaderType loader, MinecraftVersion version)
+    {
+        if (loader is not (LoaderType.Forge or LoaderType.NeoForge)) return null;
+        var requiredMajor = await minecraft.GetRequiredJavaMajorAsync(version);
+        return await ResolveJavaExecutableAsync(null, requiredMajor);
+    }
+
+    private Progress<InstallProgress> CreateInstallProgress(string? prefix = null)
+        => new(value => PostEvent("operation.progress", new
         {
-            var requiredMajor = await minecraft.GetRequiredJavaMajorAsync(version);
-            java = await ResolveJavaExecutableAsync(null, requiredMajor);
-        }
-        var progress = new Progress<InstallProgress>(value => PostEvent("operation.progress", new
-        {
-            stage = value.Stage,
+            stage = string.IsNullOrWhiteSpace(prefix) ? value.Stage : $"{prefix} · {value.Stage}",
             completed = value.Completed,
             total = value.Total,
             percentage = value.Percentage
         }));
-        await minecraft.InstallAsync(new LoaderInstallRequest(version, loaderVersion, java), loaderId, progress);
+
+    private void ThrowIfProfileIsRunning(InstanceId id, string message)
+    {
+        if (activeLaunchProfileId == id && activeLaunch is not null && !activeLaunch.Process.HasExited)
+            throw new InvalidOperationException(message);
     }
 
     private async Task<MinecraftVersion> ResolveMinecraftVersionAsync(string minecraftVersion)
