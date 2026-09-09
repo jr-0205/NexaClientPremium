@@ -20,6 +20,7 @@ import type {
   ProfileArtworkPlacement,
   ProfileFileListing,
   ProfileLiveLogs,
+  ProfileRuntimeSettings,
   ProfileWorldListing,
   UpdateProfileRequest,
   UpdateProfileSettingsRequest,
@@ -129,8 +130,9 @@ export const createProfile = (request: CreateProfileRequest) =>
   invoke<NexaProfile>("profiles.create", request as unknown as Record<string, unknown>);
 export const updateProfile = (request: UpdateProfileRequest) =>
   invoke<NexaProfile>("profiles.update", request as unknown as Record<string, unknown>);
+export const getProfileSettings = (id: string) => invoke<ProfileRuntimeSettings>("profiles.settings.get", { id });
 export const updateProfileSettings = (request: UpdateProfileSettingsRequest) =>
-  invoke<NexaProfile>("profiles.settings.update", request as unknown as Record<string, unknown>);
+  invoke<ProfileRuntimeSettings>("profiles.settings.update", request as unknown as Record<string, unknown>);
 export const deleteProfile = (id: string) => invoke<{ deleted: boolean }>("profiles.delete", { id });
 export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("profiles.openFolder", { id });
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
