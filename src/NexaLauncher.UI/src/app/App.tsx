@@ -100,7 +100,7 @@ export default function App() {
       setLaunchingProfileId(null);
       setOperation(null);
       setData((current) => current ? { ...current, activeLaunch: { profileId, pid: 0, logPath: "" } } : current);
-      showNotice(account.premium ? "Minecraft se inició con tu cuenta premium." : "Minecraft se inició correctamente.");
+      showNotice(account.premium ? "Minecraft se inició con tu cuenta premium." : "Minecraft se inició en modo local.");
     });
     const offExited = onBridgeEvent<{ profileId: string; exitCode: number; error?: string }>("launch.exited", ({ exitCode, error }) => {
       setData((current) => current ? { ...current, activeLaunch: null } : current);
@@ -186,13 +186,13 @@ export default function App() {
     try {
       const next = await signOutMicrosoft();
       setAccount(next);
-      showNotice("Sesión Microsoft cerrada. NEXA volvió al modo local.");
+      showNotice(`Sesión Microsoft cerrada. NEXA volvió al modo local como ${data?.username ?? "Player"}.`);
     } catch (error) {
       showNotice(error instanceof Error ? error.message : "No se pudo cerrar la sesión.", "error");
     } finally {
       setAccountBusy(false);
     }
-  }, [showNotice]);
+  }, [data?.username, showNotice]);
 
   const uploadSkin = useCallback(async (variant: SkinVariant) => {
     setAccountBusy(true);
@@ -236,7 +236,7 @@ export default function App() {
           {section === "profile" && selectedProfile && <ProfileDetailPage key={selectedProfile.id} profile={selectedProfile} launching={selectedProfileBusy} onLaunch={play} onContent={openContent} onUpdated={replaceProfile} onDeleted={() => { setData((current) => current ? { ...current, profiles: current.profiles.filter((item) => item.id !== selectedProfile.id) } : current); navigate("library"); }} onBack={() => navigate("library")} onNotice={showNotice} />}
           {section === "profile" && !selectedProfile && <div className="page"><div className="empty-state glass-panel"><h2>Perfil no disponible</h2><p>Vuelve a Biblioteca y selecciona un perfil.</p></div></div>}
           {section === "content" && <ContentPage profiles={profiles} initialProfileId={selectedProfileId} onSelectProfile={setSelectedProfileId} onNotice={showNotice} />}
-          {section === "account" && <AccountPage account={account} busy={accountBusy} onSignIn={signIn} onSignOut={signOut} onUploadSkin={uploadSkin} />}
+          {section === "account" && <AccountPage account={account} busy={accountBusy} localUsername={data?.username ?? "Player"} onUpdateLocalUsername={updateLocalUsername} onSignIn={signIn} onSignOut={signOut} onUploadSkin={uploadSkin} />}
           {section === "settings" && <SettingsPage username={data?.username ?? "Player"} closeLauncherOnGameStart={data?.closeLauncherOnGameStart ?? true} version={data?.version ?? "1.0.0"} onUpdated={(username, closeLauncherOnGameStart) => setData((current) => current ? { ...current, username, closeLauncherOnGameStart } : current)} onNotice={showNotice} />}
         </main>
       </div>
