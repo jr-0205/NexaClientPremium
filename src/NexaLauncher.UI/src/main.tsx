@@ -17,6 +17,7 @@ import "./styles/instance-redesign.css";
 import "./styles/account-session-redesign.css";
 import "./styles/settings-redesign.css";
 import "./styles/profile-modules.css";
+import "./styles/nexa-silver.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
