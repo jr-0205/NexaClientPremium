@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
+using Microsoft.Win32;
 using Microsoft.Web.WebView2.Core;
 using NexoLauncher.Application.Instances;
 using NexoLauncher.Core.Installation;
@@ -12,7 +13,8 @@ namespace NexaLauncher.Desktop;
 /// <summary>
 /// Expone recursos acotados de una instancia a React. Todas las rutas solicitadas
 /// se resuelven dentro del directorio Game del perfil: la UI no obtiene acceso
-/// arbitrario al sistema de archivos.
+/// arbitrario al sistema de archivos. La única excepción es el selector nativo de
+/// Java, que devuelve únicamente el ejecutable elegido explícitamente por el usuario.
 /// </summary>
 internal sealed class NexaProfileLogMessageRouter
 {
@@ -47,7 +49,7 @@ internal sealed class NexaProfileLogMessageRouter
         if (request is null || string.IsNullOrWhiteSpace(request.Method) ||
             !request.Method.StartsWith("profiles.", StringComparison.Ordinal)) return false;
 
-        if (request.Method is not ("profiles.liveLogs" or "profiles.files.list" or "profiles.files.open" or "profiles.worlds.list" or "profiles.worlds.open" or "profiles.settings.get" or "profiles.settings.update"))
+        if (request.Method is not ("profiles.liveLogs" or "profiles.files.list" or "profiles.files.open" or "profiles.worlds.list" or "profiles.worlds.open" or "profiles.settings.get" or "profiles.settings.update" or "profiles.java.browse"))
             return false;
 
         try
@@ -61,6 +63,7 @@ internal sealed class NexaProfileLogMessageRouter
                 "profiles.worlds.open" => await OpenWorldAsync(request.Payload),
                 "profiles.settings.get" => await GetSettingsAsync(request.Payload),
                 "profiles.settings.update" => await UpdateSettingsAsync(request.Payload),
+                "profiles.java.browse" => await BrowseJavaAsync(request.Payload),
                 _ => throw new NotSupportedException()
             };
             Post(new ResponseEnvelope(request.Id, true, result, null));
@@ -117,6 +120,8 @@ internal sealed class NexaProfileLogMessageRouter
 
         var javaPath = string.IsNullOrWhiteSpace(request.JavaPath) ? null : request.JavaPath.Trim();
         if (javaPath?.Length > 2048) throw new ArgumentException("La ruta de Java es demasiado larga.");
+        if (javaPath is not null && (!File.Exists(javaPath) || !IsJavaExecutable(javaPath)))
+            throw new ArgumentException("Selecciona un ejecutable java.exe o javaw.exe válido.");
 
         var arguments = (request.JvmArguments ?? Array.Empty<string>())
             .Select(value => value?.Trim() ?? string.Empty)
@@ -129,6 +134,31 @@ internal sealed class NexaProfileLogMessageRouter
         var settings = new InstanceSettings(memory, javaPath, arguments, width, height, request.Fullscreen);
         var updated = await instanceManager.UpdateSettingsAsync(context.Id, settings);
         return SettingsDto(updated);
+    }
+
+    private async Task<object> BrowseJavaAsync(JsonElement payload)
+    {
+        _ = await ResolveProfileAsync(payload);
+        var dialog = new OpenFileDialog
+        {
+            Title = "Seleccionar runtime Java para la instancia",
+            Filter = "Java Runtime (javaw.exe;java.exe)|javaw.exe;java.exe|Ejecutables (*.exe)|*.exe",
+            CheckFileExists = true,
+            Multiselect = false,
+            ValidateNames = true
+        };
+
+        if (dialog.ShowDialog() != true) return new { selected = false, path = (string?)null };
+        if (!IsJavaExecutable(dialog.FileName))
+            throw new InvalidDataException("El archivo seleccionado debe ser java.exe o javaw.exe.");
+        return new { selected = true, path = Path.GetFullPath(dialog.FileName) };
+    }
+
+    private static bool IsJavaExecutable(string path)
+    {
+        var name = Path.GetFileName(path);
+        return string.Equals(name, "java.exe", StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(name, "javaw.exe", StringComparison.OrdinalIgnoreCase);
     }
 
     private static object SettingsDto(GameInstance profile)
