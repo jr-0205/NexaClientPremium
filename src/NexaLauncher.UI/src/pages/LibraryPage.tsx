@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { ArrowDownUp, Clock3, Grid2X2, Loader2, MoreVertical, Play, Plus, Search, SlidersHorizontal, Sparkles } from "lucide-react";
+import { ArrowDownUp, Clock3, Grid2X2, Loader2, MoreVertical, Play, Plus, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { defaultArtworkPlacement, type NexaProfile } from "../app/types";
 import { ArtworkViewport } from "../components/ArtworkViewport";
@@ -29,89 +29,94 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
   const recent = profiles[0];
   const recentArtwork = recent?.artwork ?? defaultArtworkPlacement;
   const recentStyle: ArtworkCss | undefined = recent?.backgroundDataUrl ? {
-    backgroundImage: `linear-gradient(90deg, rgba(7,10,16,.98), rgba(7,10,16,.74)), url(${recent.backgroundDataUrl})`,
+    backgroundImage: `linear-gradient(90deg, rgba(4,6,10,.97) 0%, rgba(5,7,11,.78) 42%, rgba(5,7,11,.18) 100%), linear-gradient(180deg, transparent 54%, rgba(4,6,10,.72)), url(${recent.backgroundDataUrl})`,
     "--nexa-bg-position": `${recentArtwork.backgroundPositionX}% ${recentArtwork.backgroundPositionY}%`,
     "--nexa-bg-fit": recentArtwork.backgroundFit,
   } : undefined;
 
   return (
     <section className="page library-page launcher-home">
-      <div className="launcher-home-grid">
-        <div className="launcher-home-main">
-          <div className="home-section-title">
-            <div><span className="eyebrow">NEXA CLIENT</span><h1>Inicio</h1></div>
-            <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>
-          </div>
+      <div className="home-section-title nexa-home-heading">
+        <div>
+          <span className="eyebrow">NEXA CLIENT</span>
+          <h1>Inicio</h1>
+        </div>
+        <div className="home-heading-actions">
+          <span className="home-core-status"><span className="status-dot" /> NEXA listo</span>
+          <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>
+        </div>
+      </div>
 
-          {recent && (
-            <section className="play-section">
-              <div className="section-heading"><h2>Jugar</h2><span className="section-line" /></div>
-              <div className="recent-instance glass-panel" style={recentStyle} onClick={() => onOpen(recent)} role="button" tabIndex={0}>
+      {recent ? (
+        <section className="play-section nexa-featured-play">
+          <div className="recent-instance recent-instance-hero" style={recentStyle} onClick={() => onOpen(recent)} role="button" tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") onOpen(recent); }}>
+            <div className="hero-instance-content">
+              <span className="hero-instance-label">ÚLTIMA INSTANCIA</span>
+              <div className="hero-instance-title-row">
                 <ArtworkViewport
                   src={recent.iconDataUrl ?? "./brand/nexa-mark.png"}
                   fit={recentArtwork.iconFit}
                   positionX={recentArtwork.iconPositionX}
                   positionY={recentArtwork.iconPositionY}
                   zoom={recentArtwork.iconZoom}
-                  className="recent-instance-icon"
+                  className="recent-instance-icon hero-instance-icon"
                 />
-                <div className="recent-instance-copy">
+                <div className="recent-instance-copy hero-instance-copy">
                   <strong>{recent.name}</strong>
-                  <span>{recent.loader} {recent.minecraftVersion}</span>
+                  <div className="hero-instance-meta">
+                    <span>{recent.minecraftVersion}</span>
+                    <span className="meta-separator" />
+                    <span>{recent.loader}</span>
+                    <span className="meta-separator" />
+                    <span><Clock3 size={13} /> Reciente</span>
+                  </div>
                 </div>
-                <div className="recent-instance-time"><Clock3 size={14} /><span>Última instancia</span></div>
+              </div>
+              <div className="hero-instance-actions">
                 <button className="play-button home-play-button" type="button" disabled={launchingProfileId === recent.id} onClick={(event) => { event.stopPropagation(); onPlay(recent); }}>
                   {launchingProfileId === recent.id ? <Loader2 className="spin" size={18} /> : <Play size={18} fill="currentColor" />} JUGAR
                 </button>
-                <button className="instance-more" type="button" aria-label="Más opciones" onClick={(event) => event.stopPropagation()}><MoreVertical size={18} /></button>
+                <button className="instance-more hero-more" type="button" aria-label="Abrir instancia" onClick={(event) => { event.stopPropagation(); onOpen(recent); }}><MoreVertical size={18} /></button>
               </div>
-            </section>
-          )}
-
-          <section className="library-section">
-            <div className="section-heading"><h2>Biblioteca</h2><span className="library-count">{profiles.length}</span></div>
-            <div className="library-command-row">
-              <div className="search-field library-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar instancias" /></div>
-              <button className="secondary-button" type="button"><Grid2X2 size={16} /> GRUPO PERSONALIZADO</button>
-              <button className="primary-button" type="button" onClick={onCreate}><Plus size={16} /> CREAR INSTANCIA</button>
             </div>
-            <div className="library-filter-row">
-              <button className="filter-chip active" type="button"><ArrowDownUp size={15} /> Última vez jugado</button>
-              <button className="filter-chip" type="button"><Grid2X2 size={15} /> Todas</button>
-              <button className="filter-chip" type="button"><SlidersHorizontal size={15} /> Añadir filtro</button>
-            </div>
+            {!recent.backgroundDataUrl && <div className="nexa-hero-geometry" aria-hidden="true"><span /><span /><span /></div>}
+          </div>
+        </section>
+      ) : (
+        <section className="empty-home-hero">
+          <img src="./brand/nexa-mark.png" alt="NEXA" />
+          <div><strong>No hay instancias todavía</strong><span>Crea una instancia para comenzar.</span></div>
+          <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>
+        </section>
+      )}
 
-            {visible.length > 0 ? (
-              <div className="profile-grid home-profile-grid">
-                {visible.map((profile) => <ProfileCard key={profile.id} profile={profile} launching={launchingProfileId === profile.id} onOpen={onOpen} onPlay={onPlay} />)}
-              </div>
-            ) : (
-              <div className="empty-state glass-panel compact-empty">
-                <img className="empty-brand-mark" src="./brand/nexa-mark.png" alt="NEXA" />
-                <h2>{profiles.length ? "No encontramos instancias" : "Tu biblioteca está lista"}</h2>
-                <p>{profiles.length ? "Prueba con otra búsqueda." : "Crea tu primera instancia. Mundos, mods y configuración permanecerán aislados."}</p>
-                {!profiles.length && <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>}
-              </div>
-            )}
-          </section>
+      <section className="library-section nexa-library-section">
+        <div className="section-heading library-heading-row">
+          <div><h2>Biblioteca</h2><span className="library-count">{profiles.length}</span></div>
+          <div className="library-view-indicator"><Grid2X2 size={14} /> Instancias</div>
+        </div>
+        <div className="library-command-row">
+          <div className="search-field library-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar instancias" /></div>
+          <button className="primary-button" type="button" onClick={onCreate}><Plus size={16} /> CREAR INSTANCIA</button>
+        </div>
+        <div className="library-filter-row">
+          <button className="filter-chip active" type="button"><ArrowDownUp size={15} /> Última vez jugado</button>
+          <span className="library-result-count">{visible.length} visibles</span>
         </div>
 
-        <aside className="launcher-home-rail">
-          <section className="rail-card account-rail-card">
-            <span className="rail-label">ESTADO</span>
-            <div className="rail-status"><span className="status-dot" /><div><strong>NEXA listo</strong><small>No hay instancias en ejecución</small></div></div>
-          </section>
-          <section className="rail-card">
-            <div className="rail-heading"><span>Novedades</span><Sparkles size={16} /></div>
-            <article className="news-card accent-news"><span className="eyebrow">NEXA CLIENT</span><strong>Nuevo diseño del launcher</strong><p>Interfaz más compacta, rápida y configurable sin publicidad.</p></article>
-            <article className="news-card"><strong>Biblioteca aislada</strong><p>Cada instancia conserva su propio contenido, mundos y ajustes.</p></article>
-          </section>
-          <section className="rail-card rail-tip">
-            <span className="rail-label">CONSEJO</span>
-            <p>Puedes cambiar el color de énfasis desde Ajustes. Azul, gris, blanco o uno personalizado.</p>
-          </section>
-        </aside>
-      </div>
+        {visible.length > 0 ? (
+          <div className="profile-grid home-profile-grid">
+            {visible.map((profile) => <ProfileCard key={profile.id} profile={profile} launching={launchingProfileId === profile.id} onOpen={onOpen} onPlay={onPlay} />)}
+          </div>
+        ) : (
+          <div className="empty-state glass-panel compact-empty">
+            <img className="empty-brand-mark" src="./brand/nexa-mark.png" alt="NEXA" />
+            <h2>{profiles.length ? "No encontramos instancias" : "Biblioteca vacía"}</h2>
+            <p>{profiles.length ? "Prueba con otra búsqueda." : "Crea tu primera instancia para empezar."}</p>
+            {!profiles.length && <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>}
+          </div>
+        )}
+      </section>
     </section>
   );
 }
