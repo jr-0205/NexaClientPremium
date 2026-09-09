@@ -11,6 +11,7 @@ import {
 import type { MinecraftVersionItem, NexaInGameBuildEntry, NexaInGameBuildLibrary } from "../app/types";
 import { nexaWordmarkDataUrl } from "../brand/nexa-wordmark";
 import { NexaDialog } from "../components/NexaDialog";
+import { ThemePalette, type AccentTone } from "../components/ThemePalette";
 
 type Props = {
   username: string;
@@ -25,10 +26,40 @@ type BuildFamily = {
   rows: NexaInGameBuildEntry[];
 };
 
+type SettingsSection = "general" | "appearance" | "ingame" | "about";
+
+const accentValues: Record<Exclude<AccentTone, "custom">, string> = {
+  blue: "#1687ff",
+  gray: "#8b95a7",
+  white: "#f4f7fb",
+};
+
+function hexToRgb(hex: string) {
+  const normalized = hex.replace("#", "");
+  const value = Number.parseInt(normalized, 16);
+  return `${(value >> 16) & 255}, ${(value >> 8) & 255}, ${value & 255}`;
+}
+
+function applyAccent(accent: AccentTone, customColor: string) {
+  const color = accent === "custom" ? customColor : accentValues[accent];
+  const root = document.documentElement;
+  root.style.setProperty("--accent", color);
+  root.style.setProperty("--accent-rgb", hexToRgb(color));
+  root.style.setProperty("--accent-contrast", accent === "white" ? "#0a0d12" : "#ffffff");
+  localStorage.setItem("nexa-accent", accent);
+  localStorage.setItem("nexa-custom-accent", customColor);
+}
+
 export function SettingsPage({ username, closeLauncherOnGameStart, version, onUpdated, onNotice }: Props) {
+  const [activeSection, setActiveSection] = useState<SettingsSection>("general");
   const [playerName, setPlayerName] = useState(username);
   const [closeOnLaunch, setCloseOnLaunch] = useState(closeLauncherOnGameStart);
   const [saving, setSaving] = useState(false);
+  const [accent, setAccent] = useState<AccentTone>(() => {
+    const stored = localStorage.getItem("nexa-accent") as AccentTone | null;
+    return stored && ["blue", "gray", "white", "custom"].includes(stored) ? stored : "blue";
+  });
+  const [customAccent, setCustomAccent] = useState(() => localStorage.getItem("nexa-custom-accent") ?? "#7357ff");
   const [buildLibrary, setBuildLibrary] = useState<NexaInGameBuildLibrary | null>(null);
   const [minecraftVersions, setMinecraftVersions] = useState<MinecraftVersionItem[]>([]);
   const [loadingBuilds, setLoadingBuilds] = useState(false);
@@ -51,6 +82,7 @@ export function SettingsPage({ username, closeLauncherOnGameStart, version, onUp
 
   useEffect(() => setPlayerName(username), [username]);
   useEffect(() => setCloseOnLaunch(closeLauncherOnGameStart), [closeLauncherOnGameStart]);
+  useEffect(() => applyAccent(accent, customAccent), []);
   useEffect(() => {
     if (!isNativeHost()) return;
     let cancelled = false;
@@ -73,6 +105,17 @@ export function SettingsPage({ username, closeLauncherOnGameStart, version, onUp
       else next.delete(key);
       return next;
     });
+  }
+
+  function changeAccent(value: AccentTone) {
+    setAccent(value);
+    applyAccent(value, customAccent);
+  }
+
+  function changeCustomAccent(value: string) {
+    setCustomAccent(value);
+    localStorage.setItem("nexa-custom-accent", value);
+    if (accent === "custom") applyAccent("custom", value);
   }
 
   async function save() {
@@ -193,105 +236,151 @@ export function SettingsPage({ username, closeLauncherOnGameStart, version, onUp
   const latestRelease = modernReleases[0]?.id ?? "—";
 
   return (
-    <section className="page settings-page">
+    <section className="page settings-page settings-page-categorized">
       <div className="hero-row settings-heading">
         <div>
           <span className="eyebrow">NEXA CLIENT</span>
           <h1>Configuración</h1>
-          <p>Ajustes globales del launcher. Java sigue siendo automático por perfil.</p>
+          <p>Personaliza el launcher, tu modo local y las herramientas de NEXA.</p>
         </div>
-        <button className="primary-button" type="button" disabled={saving} onClick={save}>{saving ? <Loader2 className="spin" size={16} /> : <Save size={16} />} GUARDAR</button>
+        {activeSection === "general" && <button className="primary-button" type="button" disabled={saving} onClick={save}>{saving ? <Loader2 className="spin" size={16} /> : <Save size={16} />} GUARDAR</button>}
       </div>
 
-      <div className="settings-grid">
-        <article className="settings-card glass-panel">
-          <span className="eyebrow">JUGADOR</span>
-          <h2>Perfil local</h2>
-          <p>Este nombre se usa para sesiones locales/offline mientras la autenticación Microsoft permanece separada.</p>
-          <label className="field-label">NOMBRE DE JUGADOR<input className="nexa-input" maxLength={16} value={playerName} onChange={(event) => setPlayerName(event.target.value)} placeholder="Player" /></label>
-        </article>
+      <div className="settings-layout">
+        <nav className="settings-section-nav glass-panel" aria-label="Categorías de configuración">
+          <span className="settings-nav-label">CONFIGURACIÓN</span>
+          <button type="button" className={activeSection === "general" ? "active" : ""} onClick={() => setActiveSection("general")}><strong>General</strong><small>Perfil local y comportamiento</small></button>
+          <button type="button" className={activeSection === "appearance" ? "active" : ""} onClick={() => setActiveSection("appearance")}><strong>Apariencia</strong><small>Color y estilo visual</small></button>
+          <button type="button" className={activeSection === "ingame" ? "active" : ""} onClick={() => setActiveSection("ingame")}><strong>NEXA In-Game</strong><small>Compiler y adaptadores</small></button>
+          <button type="button" className={activeSection === "about" ? "active" : ""} onClick={() => setActiveSection("about")}><strong>Acerca de</strong><small>Versión y seguridad</small></button>
+        </nav>
 
-        <article className="settings-card glass-panel">
-          <span className="eyebrow">COMPORTAMIENTO</span>
-          <h2>Al iniciar Minecraft</h2>
-          <p>Controla qué ocurre con NEXA cuando el juego se inicia correctamente.</p>
-          <button className={`switch-row ${closeOnLaunch ? "enabled" : ""}`} type="button" onClick={() => setCloseOnLaunch((value) => !value)}>
-            <span className="switch-track"><span /></span>
-            <span><strong>Cerrar launcher al iniciar</strong><small>{closeOnLaunch ? "NEXA se cerrará cuando Minecraft arranque." : "NEXA permanecerá abierto durante la sesión."}</small></span>
-            {closeOnLaunch && <Check size={17} />}
-          </button>
-        </article>
+        <div className="settings-section-content">
+          {activeSection === "general" && (
+            <div className="settings-grid">
+              <article className="settings-card glass-panel">
+                <span className="eyebrow">JUGADOR</span>
+                <h2>Perfil local</h2>
+                <p>Este nombre se usa para sesiones locales/offline mientras la autenticación Microsoft permanece separada.</p>
+                <label className="field-label">NOMBRE DE JUGADOR<input className="nexa-input" maxLength={16} value={playerName} onChange={(event) => setPlayerName(event.target.value)} placeholder="Player" /></label>
+              </article>
 
-        <article className="settings-card glass-panel settings-wide ingame-build-manager">
-          <div className="build-manager-heading">
-            <div>
-              <span className="eyebrow">NEXA IN-GAME · COMPILER V2</span>
-              <h2>Core común + adaptadores por versión</h2>
-              <p>Las releases se agrupan por familia de Minecraft. Abre 1.21, 1.20 o 1.19 para ver sus versiones exactas y compilar únicamente la que necesites.</p>
-            </div>
-            <div className="build-manager-actions">
-              <button className="ghost-button" type="button" disabled={loadingBuilds || anyBuildRunning || !isNativeHost()} onClick={refreshBuilds}><RefreshCw className={loadingBuilds ? "spin" : ""} size={15} /> ACTUALIZAR</button>
-              <button className="ghost-button" type="button" disabled={anyBuildRunning || !isNativeHost()} onClick={openBuildFolder}><FolderOpen size={15} /> ABRIR CARPETA</button>
-              <button className="secondary-button" type="button" disabled={!canBuild} onClick={() => setConfirmBuild(true)}>{building ? <Loader2 className="spin" size={15} /> : <Hammer size={15} />} {building ? "COMPILANDO…" : "GENERAR TODAS COMPATIBLES"}</button>
-            </div>
-          </div>
+              <article className="settings-card glass-panel">
+                <span className="eyebrow">COMPORTAMIENTO</span>
+                <h2>Al iniciar Minecraft</h2>
+                <p>Controla qué ocurre con NEXA cuando el juego se inicia correctamente.</p>
+                <button className={`switch-row ${closeOnLaunch ? "enabled" : ""}`} type="button" onClick={() => setCloseOnLaunch((value) => !value)}>
+                  <span className="switch-track"><span /></span>
+                  <span><strong>Cerrar launcher al iniciar</strong><small>{closeOnLaunch ? "NEXA se cerrará cuando Minecraft arranque." : "NEXA permanecerá abierto durante la sesión."}</small></span>
+                  {closeOnLaunch && <Check size={17} />}
+                </button>
+              </article>
 
-          <div className="build-summary-grid build-summary-grid-four">
-            <BuildMetric icon={<Layers3 size={16} />} label="RELEASES 1.19+" value={modernReleases.length} />
-            <BuildMetric icon={<Archive size={16} />} label="ADAPTADORES" value={buildLibrary?.targetCount ?? 0} />
-            <BuildMetric icon={<Check size={16} />} label="PUBLICADAS" value={buildLibrary?.publishedCount ?? 0} />
-            <BuildMetric icon={<Hammer size={16} />} label="ÚLTIMA" value={latestRelease} compact />
-          </div>
-
-          <div className="build-output-path">
-            <span>Biblioteca local</span>
-            <code>{buildLibrary?.outputRoot ?? (isNativeHost() ? "Leyendo ruta…" : "Disponible dentro de NEXA Desktop")}</code>
-          </div>
-
-          {!loadingBuilds && buildLibrary && !buildLibrary.sourceAvailable && (
-            <div className="build-source-warning">
-              <strong>Fuentes de desarrollo no detectadas.</strong>
-              <span>{buildLibrary.sourceError ?? "Ejecuta NEXA desde un checkout del repositorio que contenga ingame/ para generar builds. La biblioteca ya generada sigue disponible."}</span>
+              <article className="settings-card glass-panel settings-wide settings-roadmap-card">
+                <span className="eyebrow">INSTANCIAS</span>
+                <h2>Ajustes avanzados por perfil</h2>
+                <p>RAM, Java, argumentos JVM, resolución y pantalla completa se configuran desde la pestaña Configuración de cada instancia para mantener los overrides aislados.</p>
+                <div className="settings-capability-row"><span>RAM / Java / JVM</span><strong>DISPONIBLE POR INSTANCIA</strong></div>
+                <div className="settings-capability-row"><span>Instalación Minecraft / Loader</span><strong className="pending">EN DESARROLLO</strong></div>
+                <div className="settings-capability-row"><span>Sincronización avanzada</span><strong className="pending">PENDIENTE DE BACKEND</strong></div>
+              </article>
             </div>
           )}
 
-          <div className="build-library-shell">
-            <div className="build-library-head">
-              <span>VERSIÓN</span><span>LOADER</span><span>NEXA IN-GAME</span><span>JAR</span><span>ESTADO</span><span>ACCIÓN</span>
+          {activeSection === "appearance" && (
+            <div className="settings-appearance-stack">
+              <ThemePalette value={accent} customColor={customAccent} onChange={changeAccent} onCustomColor={changeCustomAccent} />
+              <article className="settings-card glass-panel settings-wide">
+                <span className="eyebrow">TEMA NEXA 2026</span>
+                <h2>Interfaz oscura unificada</h2>
+                <p>El rediseño mantiene superficies navy/negro y aplica tu color seleccionado a botones, estados activos, focos e indicadores sin alterar la legibilidad.</p>
+                <div className="settings-theme-preview">
+                  <div className="theme-preview-surface"><span /><strong>Superficie principal</strong><small>Oscuro NEXA</small></div>
+                  <div className="theme-preview-surface accent"><span /><strong>Énfasis activo</strong><small>{accent === "custom" ? customAccent : accentValues[accent]}</small></div>
+                </div>
+              </article>
             </div>
-            {loadingBuilds && <div className="build-library-empty"><Loader2 className="spin" size={18} /> Leyendo releases y catálogo local…</div>}
-            {!loadingBuilds && buildFamilies.length === 0 && <div className="build-library-empty">No se pudieron obtener releases oficiales desde 1.19.</div>}
-            {!loadingBuilds && buildFamilies.map((family) => (
-              <VersionFamilyGroup
-                key={family.id}
-                family={family}
-                collapsed={collapsedFamilies.has(family.id)}
-                library={buildLibrary}
-                anyBuildRunning={anyBuildRunning}
-                buildingTarget={buildingTarget}
-                failedBuilds={failedBuilds}
-                onToggle={() => toggleFamily(family.id)}
-                onBuild={setSelectedBuild}
-              />
-            ))}
-          </div>
-          {buildLibrary?.lastPublishedAt && <div className="build-library-foot">Última publicación local: {formatDate(buildLibrary.lastPublishedAt)}</div>}
-        </article>
+          )}
 
-        <article className="settings-card glass-panel settings-wide about-react-card">
-          <div className="about-mark"><img src="./brand/nexa-mark.png" alt="NEXA" /></div>
-          <div className="about-copy">
-            <img className="about-wordmark" src={nexaWordmarkDataUrl} alt="NEXA Client" />
-            <span className="eyebrow">ACERCA DE NEXA</span>
-            <h2>NEXA Client <small>{version}</small></h2>
-            <p>Cliente de Minecraft para Windows. Backend .NET, interfaz React y perfiles físicamente aislados por GUID.</p>
-            <div className="trust-row"><ShieldCheck size={17} /><span>Sin telemetría, anuncios ni acceso directo de JavaScript al sistema de archivos.</span></div>
-            <div className="about-actions">
-              <a className="secondary-button link-button" href="https://github.com/jr-0205" target="_blank" rel="noreferrer"><ExternalLink size={15} /> GITHUB DEL CREADOR</a>
-              <a className="ghost-button link-button" href="https://chatgpt.com/download/" target="_blank" rel="noreferrer"><ExternalLink size={15} /> CHATGPT</a>
+          {activeSection === "ingame" && (
+            <div className="settings-grid">
+              <article className="settings-card glass-panel settings-wide ingame-build-manager">
+                <div className="build-manager-heading">
+                  <div>
+                    <span className="eyebrow">NEXA IN-GAME · COMPILER V2</span>
+                    <h2>Core común + adaptadores por versión</h2>
+                    <p>Las releases se agrupan por familia de Minecraft. Abre 1.21, 1.20 o 1.19 para ver sus versiones exactas y compilar únicamente la que necesites.</p>
+                  </div>
+                  <div className="build-manager-actions">
+                    <button className="ghost-button" type="button" disabled={loadingBuilds || anyBuildRunning || !isNativeHost()} onClick={refreshBuilds}><RefreshCw className={loadingBuilds ? "spin" : ""} size={15} /> ACTUALIZAR</button>
+                    <button className="ghost-button" type="button" disabled={anyBuildRunning || !isNativeHost()} onClick={openBuildFolder}><FolderOpen size={15} /> ABRIR CARPETA</button>
+                    <button className="secondary-button" type="button" disabled={!canBuild} onClick={() => setConfirmBuild(true)}>{building ? <Loader2 className="spin" size={15} /> : <Hammer size={15} />} {building ? "COMPILANDO…" : "GENERAR TODAS COMPATIBLES"}</button>
+                  </div>
+                </div>
+
+                <div className="build-summary-grid build-summary-grid-four">
+                  <BuildMetric icon={<Layers3 size={16} />} label="RELEASES 1.19+" value={modernReleases.length} />
+                  <BuildMetric icon={<Archive size={16} />} label="ADAPTADORES" value={buildLibrary?.targetCount ?? 0} />
+                  <BuildMetric icon={<Check size={16} />} label="PUBLICADAS" value={buildLibrary?.publishedCount ?? 0} />
+                  <BuildMetric icon={<Hammer size={16} />} label="ÚLTIMA" value={latestRelease} compact />
+                </div>
+
+                <div className="build-output-path">
+                  <span>Biblioteca local</span>
+                  <code>{buildLibrary?.outputRoot ?? (isNativeHost() ? "Leyendo ruta…" : "Disponible dentro de NEXA Desktop")}</code>
+                </div>
+
+                {!loadingBuilds && buildLibrary && !buildLibrary.sourceAvailable && (
+                  <div className="build-source-warning">
+                    <strong>Fuentes de desarrollo no detectadas.</strong>
+                    <span>{buildLibrary.sourceError ?? "Ejecuta NEXA desde un checkout del repositorio que contenga ingame/ para generar builds. La biblioteca ya generada sigue disponible."}</span>
+                  </div>
+                )}
+
+                <div className="build-library-shell">
+                  <div className="build-library-head">
+                    <span>VERSIÓN</span><span>LOADER</span><span>NEXA IN-GAME</span><span>JAR</span><span>ESTADO</span><span>ACCIÓN</span>
+                  </div>
+                  {loadingBuilds && <div className="build-library-empty"><Loader2 className="spin" size={18} /> Leyendo releases y catálogo local…</div>}
+                  {!loadingBuilds && buildFamilies.length === 0 && <div className="build-library-empty">No se pudieron obtener releases oficiales desde 1.19.</div>}
+                  {!loadingBuilds && buildFamilies.map((family) => (
+                    <VersionFamilyGroup
+                      key={family.id}
+                      family={family}
+                      collapsed={collapsedFamilies.has(family.id)}
+                      library={buildLibrary}
+                      anyBuildRunning={anyBuildRunning}
+                      buildingTarget={buildingTarget}
+                      failedBuilds={failedBuilds}
+                      onToggle={() => toggleFamily(family.id)}
+                      onBuild={setSelectedBuild}
+                    />
+                  ))}
+                </div>
+                {buildLibrary?.lastPublishedAt && <div className="build-library-foot">Última publicación local: {formatDate(buildLibrary.lastPublishedAt)}</div>}
+              </article>
             </div>
-          </div>
-        </article>
+          )}
+
+          {activeSection === "about" && (
+            <div className="settings-grid">
+              <article className="settings-card glass-panel settings-wide about-react-card">
+                <div className="about-mark"><img src="./brand/nexa-mark.png" alt="NEXA" /></div>
+                <div className="about-copy">
+                  <img className="about-wordmark" src={nexaWordmarkDataUrl} alt="NEXA Client" />
+                  <span className="eyebrow">ACERCA DE NEXA</span>
+                  <h2>NEXA Client <small>{version}</small></h2>
+                  <p>Cliente de Minecraft para Windows. Backend .NET, interfaz React y perfiles físicamente aislados por GUID.</p>
+                  <div className="trust-row"><ShieldCheck size={17} /><span>Sin telemetría, anuncios ni acceso directo de JavaScript al sistema de archivos.</span></div>
+                  <div className="about-actions">
+                    <a className="secondary-button link-button" href="https://github.com/jr-0205" target="_blank" rel="noreferrer"><ExternalLink size={15} /> GITHUB DEL CREADOR</a>
+                    <a className="ghost-button link-button" href="https://chatgpt.com/download/" target="_blank" rel="noreferrer"><ExternalLink size={15} /> CHATGPT</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          )}
+        </div>
       </div>
 
       <NexaDialog
