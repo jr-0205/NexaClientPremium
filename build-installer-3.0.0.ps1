@@ -92,6 +92,10 @@ if (-not $SkipTests) {
     if ($LASTEXITCODE -ne 0) { throw "Los checks de NEXA fallaron con codigo $LASTEXITCODE." }
 }
 
+Write-Step "Restaurando dependencias de publicacion win-x64"
+dotnet restore $DesktopProject -r win-x64
+if ($LASTEXITCODE -ne 0) { throw "dotnet restore win-x64 fallo con codigo $LASTEXITCODE." }
+
 Write-Step "Publicando NEXA Client v$Version para Windows x64"
 dotnet publish $DesktopProject `
     -c Release `
