@@ -1,7 +1,7 @@
 export type AccentTone = "blue" | "gray" | "white" | "custom";
 
 export const accentOptions: Array<{ id: AccentTone; label: string; color: string }> = [
-  { id: "gray", label: "Plateado", color: "#aeb7c4" },
+  { id: "gray", label: "Plateado", color: "#8b95a7" },
   { id: "blue", label: "Azul", color: "#1687ff" },
   { id: "white", label: "Blanco", color: "#f4f7fb" },
   { id: "custom", label: "Personalizado", color: "#8b5cf6" },
@@ -17,7 +17,7 @@ function normalizeHex(value: string | null, fallback: string) {
 }
 
 function hexToRgb(hex: string) {
-  const normalized = normalizeHex(hex, "#aeb7c4").slice(1);
+  const normalized = normalizeHex(hex, "#8b95a7").slice(1);
   const value = Number.parseInt(normalized, 16);
   return {
     r: (value >> 16) & 255,
@@ -52,7 +52,7 @@ export function applyAccentPreference(accent: AccentTone, customColor: string, p
   const safeCustom = normalizeHex(customColor, "#8b5cf6");
   const selected = accent === "custom"
     ? safeCustom
-    : accentOptions.find((item) => item.id === accent)?.color ?? "#aeb7c4";
+    : accentOptions.find((item) => item.id === accent)?.color ?? "#8b95a7";
   const { r, g, b } = hexToRgb(selected);
   const root = document.documentElement;
   root.style.setProperty("--accent", selected);
