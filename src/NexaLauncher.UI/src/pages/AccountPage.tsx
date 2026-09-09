@@ -1,4 +1,4 @@
-import { Check, Crown, Loader2, LogIn, LogOut, ShieldCheck, Shirt, Sparkles, Upload, UserRound } from "lucide-react";
+import { Check, Crown, Loader2, LogIn, LogOut, ShieldCheck, Shirt, Sparkles, Upload, UserPlus, UserRound } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import type { NexaAccountState } from "../app/types";
 
@@ -25,29 +25,29 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
       <section className="page account-page">
         <div className="account-landing glass-panel">
           <div className="account-landing-copy">
-            <span className="eyebrow">NEXA PREMIUM · CUENTA MICROSOFT</span>
-            <h1>Tu identidad de Minecraft, integrada en NEXA.</h1>
+            <span className="eyebrow">CUENTA · MICROSOFT</span>
+            <h1>Conecta tu cuenta oficial de Minecraft.</h1>
             <p>
-              NEXA sigue funcionando como launcher local sin cuenta. Al conectar Microsoft se habilita la experiencia premium:
-              identidad oficial de Minecraft Java, sesiones online y gestión de apariencia desde el launcher.
+              NEXA puede funcionar en modo local sin iniciar sesión. Al conectar Microsoft se habilitan la identidad oficial de Minecraft Java,
+              sesiones online, skins y capas. El inicio de sesión siempre se abre en tu navegador del sistema.
             </p>
             <button className="primary-button account-login-button" type="button" disabled={busy || !account.configured} onClick={onSignIn}>
               {busy ? <Loader2 className="spin" size={17} /> : <LogIn size={17} />}
-              {busy ? "CONECTANDO…" : "CONTINUAR CON MICROSOFT"}
+              {busy ? "CONECTANDO…" : "AÑADIR CUENTA MICROSOFT"}
             </button>
             {!account.configured && (
               <div className="account-config-warning">
                 <ShieldCheck size={16} />
-                <span>El módulo está preparado, pero esta build necesita un Client ID público de Microsoft autorizado para NEXA.</span>
+                <span>Esta build aún no tiene configurado un Client ID público autorizado para NEXA.</span>
               </div>
             )}
             {account.message && <p className="account-message">{account.message}</p>}
           </div>
 
           <div className="account-feature-grid">
-            <Feature icon={<ShieldCheck size={20} />} title="Autenticación segura" text="NEXA abre el navegador del sistema. Tu contraseña nunca entra al launcher ni al WebView." />
-            <Feature icon={<UserRound size={20} />} title="Identidad oficial" text="Nombre y UUID provienen del perfil real de Minecraft y se usan automáticamente al iniciar el juego." />
-            <Feature icon={<Shirt size={20} />} title="Skins premium" text="Selecciona una skin PNG, valida el modelo Classic/Slim y publícala en tu perfil oficial desde NEXA." />
+            <Feature icon={<ShieldCheck size={20} />} title="Inicio seguro" text="La contraseña nunca entra en React ni en el WebView. Microsoft autentica desde el navegador del sistema." />
+            <Feature icon={<UserRound size={20} />} title="Perfil oficial" text="NEXA usa tu nombre y UUID reales de Minecraft para las sesiones autenticadas." />
+            <Feature icon={<Shirt size={20} />} title="Skins y capas" text="Administra la apariencia de tu perfil oficial sin exponer credenciales ni rutas locales a la interfaz web." />
           </div>
         </div>
       </section>
@@ -60,11 +60,16 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
     <section className="page account-page">
       <div className="account-heading">
         <div>
-          <span className="eyebrow">NEXA PREMIUM</span>
+          <span className="eyebrow">NEXA ACCOUNT</span>
           <h1>Cuenta</h1>
-          <p>Identidad oficial de Minecraft y apariencia vinculada a tu cuenta Microsoft.</p>
+          <p>Identidad oficial de Minecraft, apariencia y sesión activa del launcher.</p>
         </div>
-        <div className="premium-badge"><Crown size={15} /> PREMIUM ACTIVO</div>
+        <div className="account-heading-actions">
+          <button className="secondary-button" type="button" disabled={busy} onClick={onSignIn}>
+            {busy ? <Loader2 className="spin" size={15} /> : <UserPlus size={15} />} CAMBIAR / AÑADIR CUENTA
+          </button>
+          <div className="premium-badge"><Crown size={15} /> PREMIUM ACTIVO</div>
+        </div>
       </div>
 
       <div className="account-dashboard">
@@ -78,14 +83,17 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             <p>{account.microsoftAccount ?? "Cuenta Microsoft conectada"}</p>
             <code>{formatUuid(account.minecraftId)}</code>
           </div>
-          <div className="account-verified"><Check size={15} /> Licencia verificada</div>
+          <div className="account-profile-status">
+            <div className="account-verified"><Check size={15} /> Licencia verificada</div>
+            <span className="account-session-chip"><span className="status-dot" /> SESIÓN ACTIVA</span>
+          </div>
         </article>
 
         <article className="skin-manager glass-panel">
           <div className="skin-manager-copy">
             <span className="eyebrow">APARIENCIA</span>
             <h2>Skin de Minecraft</h2>
-            <p>El archivo se selecciona mediante una ventana nativa de Windows. La ruta local nunca se expone a React.</p>
+            <p>Selecciona una skin PNG desde Windows. La ruta local permanece en la capa nativa y nunca se entrega a React.</p>
 
             <div className="skin-variant-picker" role="group" aria-label="Modelo de skin">
               <button type="button" className={variant === "classic" ? "active" : ""} onClick={() => setVariant("classic")} disabled={busy}>
@@ -121,7 +129,7 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
           <div>
             <span className="eyebrow">SEGURIDAD DE SESIÓN</span>
             <h3>Credenciales fuera de la interfaz web</h3>
-            <p>Los tokens de Microsoft/Xbox/Minecraft permanecen en la capa nativa. React sólo recibe nombre, UUID, estado premium y metadatos públicos del perfil.</p>
+            <p>Microsoft, Xbox, XSTS y Minecraft permanecen en la capa nativa. React sólo recibe información pública y sanitizada del perfil.</p>
           </div>
         </article>
 
@@ -136,7 +144,7 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
       <div className="account-danger-row">
         <div>
           <strong>Cerrar sesión en NEXA</strong>
-          <span>Elimina la cuenta de la caché local protegida y vuelve al modo no premium.</span>
+          <span>Quita la sesión actual del launcher y vuelve al modo local.</span>
         </div>
         <button className="ghost-button" type="button" disabled={busy} onClick={onSignOut}><LogOut size={15} /> CERRAR SESIÓN</button>
       </div>
