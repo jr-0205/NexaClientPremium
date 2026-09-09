@@ -18,7 +18,9 @@ import type {
   NexaInGameStatus,
   NexaProfile,
   ProfileArtworkPlacement,
+  ProfileFileListing,
   ProfileLiveLogs,
+  ProfileWorldListing,
   UpdateProfileRequest,
 } from "./types";
 
@@ -129,6 +131,10 @@ export const updateProfile = (request: UpdateProfileRequest) =>
 export const deleteProfile = (id: string) => invoke<{ deleted: boolean }>("profiles.delete", { id });
 export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("profiles.openFolder", { id });
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
+export const listProfileFiles = (id: string, path = "") => invoke<ProfileFileListing>("profiles.files.list", { id, path });
+export const openProfileFile = (id: string, path = "") => invoke<{ opened: boolean }>("profiles.files.open", { id, path });
+export const listProfileWorlds = (id: string) => invoke<ProfileWorldListing>("profiles.worlds.list", { id });
+export const openProfileWorld = (id: string, path = "") => invoke<{ opened: boolean }>("profiles.worlds.open", { id, path });
 export const launchProfile = (id: string) => invoke<{ pid: number; logPath: string; profile: NexaProfile }>("profiles.launch", { id });
 export const stopLaunch = () => invoke<{ stopped: boolean }>("profiles.stop");
 
