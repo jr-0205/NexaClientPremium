@@ -1,4 +1,5 @@
-import { Check, Crown, Gamepad2, Loader2, LogIn, LogOut, Save, ShieldCheck, Shirt, Sparkles, Upload, UserPlus, UserRound } from "lucide-react";
+import { Check, Crown, FloppyDisk, Gamepad, LogIn, LogOut, ShieldCheck, Shirt, Star, Upload, User, UserPlus } from "iconoir-react";
+import { Loader2 } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import type { NexaAccountState } from "../app/types";
 
@@ -46,11 +47,11 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
             <h1>Cuenta</h1>
             <p>Usa NEXA en modo local o conecta Microsoft cuando necesites una sesión oficial.</p>
           </div>
-          <div className="local-mode-badge"><Gamepad2 size={15} /> MODO LOCAL</div>
+          <div className="local-mode-badge"><Gamepad width={15} height={15} /> MODO LOCAL</div>
         </div>
 
         <article className="local-account-card glass-panel">
-          <div className="local-account-icon"><UserRound size={27} /></div>
+          <div className="local-account-icon"><User width={27} height={27} /></div>
           <div className="local-account-copy">
             <span className="eyebrow">SIN AUTENTICACIÓN OBLIGATORIA</span>
             <h2>Juega con un nombre local</h2>
@@ -69,7 +70,7 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
                 />
               </label>
               <button className="secondary-button" type="button" disabled={savingLocal || !localName.trim() || localName.trim() === localUsername} onClick={saveLocalName}>
-                {savingLocal ? <Loader2 className="spin" size={15} /> : <Save size={15} />} GUARDAR NOMBRE
+                {savingLocal ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR NOMBRE
               </button>
             </div>
             <div className="local-account-status"><span className="status-dot" /><strong>{localUsername}</strong><span>se usará para las sesiones locales.</span></div>
@@ -85,12 +86,12 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
               El inicio de sesión se abre en el navegador del sistema y nunca bloquea el uso local del launcher.
             </p>
             <button className="primary-button account-login-button" type="button" disabled={busy || !account.configured} onClick={onSignIn}>
-              {busy ? <Loader2 className="spin" size={17} /> : <LogIn size={17} />}
+              {busy ? <Loader2 className="spin" size={17} /> : <LogIn width={17} height={17} />}
               {busy ? "CONECTANDO…" : "AÑADIR CUENTA MICROSOFT"}
             </button>
             {!account.configured && (
               <div className="account-config-warning">
-                <ShieldCheck size={16} />
+                <ShieldCheck width={16} height={16} />
                 <span>Esta build aún no tiene un Client ID público autorizado para NEXA. El modo local sigue disponible sin restricciones del launcher.</span>
               </div>
             )}
@@ -98,9 +99,9 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
           </div>
 
           <div className="account-feature-grid">
-            <Feature icon={<Gamepad2 size={20} />} title="Modo local completo" text="Biblioteca, instancias, mods, mundos, ajustes y ejecución normal sin iniciar sesión." />
-            <Feature icon={<ShieldCheck size={20} />} title="Inicio seguro" text="La contraseña nunca entra en React ni en el WebView. Microsoft autentica desde el navegador del sistema." />
-            <Feature icon={<Shirt size={20} />} title="Premium opcional" text="Conecta Microsoft únicamente si quieres identidad oficial, sesiones autenticadas, skins y capas." />
+            <Feature icon={<Gamepad width={20} height={20} />} title="Modo local completo" text="Biblioteca, instancias, mods, mundos, ajustes y ejecución normal sin iniciar sesión." />
+            <Feature icon={<ShieldCheck width={20} height={20} />} title="Inicio seguro" text="La contraseña nunca entra en React ni en el WebView. Microsoft autentica desde el navegador del sistema." />
+            <Feature icon={<Shirt width={20} height={20} />} title="Premium opcional" text="Conecta Microsoft únicamente si quieres identidad oficial, sesiones autenticadas, skins y capas." />
           </div>
         </div>
       </section>
@@ -119,9 +120,9 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
         </div>
         <div className="account-heading-actions">
           <button className="secondary-button" type="button" disabled={busy} onClick={onSignIn}>
-            {busy ? <Loader2 className="spin" size={15} /> : <UserPlus size={15} />} CAMBIAR / AÑADIR CUENTA
+            {busy ? <Loader2 className="spin" size={15} /> : <UserPlus width={15} height={15} />} CAMBIAR / AÑADIR CUENTA
           </button>
-          <div className="premium-badge"><Crown size={15} /> PREMIUM ACTIVO</div>
+          <div className="premium-badge"><Crown width={15} height={15} /> PREMIUM ACTIVO</div>
         </div>
       </div>
 
@@ -137,7 +138,7 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
             <code>{formatUuid(account.minecraftId)}</code>
           </div>
           <div className="account-profile-status">
-            <div className="account-verified"><Check size={15} /> Licencia verificada</div>
+            <div className="account-verified"><Check width={15} height={15} /> Licencia verificada</div>
             <span className="account-session-chip"><span className="status-dot" /> SESIÓN ACTIVA</span>
           </div>
         </article>
@@ -158,7 +159,7 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
             </div>
 
             <button className="primary-button skin-upload-button" type="button" disabled={busy} onClick={() => onUploadSkin(variant)}>
-              {busy ? <Loader2 className="spin" size={16} /> : <Upload size={16} />}
+              {busy ? <Loader2 className="spin" size={16} /> : <Upload width={16} height={16} />}
               {busy ? "ACTUALIZANDO…" : "CAMBIAR SKIN"}
             </button>
             <span className="skin-upload-hint">PNG · 64×64 recomendado · máximo 1 MB</span>
@@ -168,17 +169,17 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
             {account.activeSkinUrl ? (
               <img className="skin-texture-preview" src={account.activeSkinUrl} alt={`Skin activa de ${account.minecraftName ?? "Minecraft"}`} />
             ) : (
-              <div className="skin-preview-empty"><Shirt size={34} /><span>No hay skin activa disponible.</span></div>
+              <div className="skin-preview-empty"><Shirt width={34} height={34} /><span>No hay skin activa disponible.</span></div>
             )}
             <div className="skin-preview-meta">
-              <span><Sparkles size={14} /> SKIN ACTIVA</span>
+              <span><Star width={14} height={14} /> SKIN ACTIVA</span>
               <strong>{account.activeSkinVariant?.toUpperCase() ?? "CLASSIC"}</strong>
             </div>
           </div>
         </article>
 
         <article className="account-security-card glass-panel">
-          <ShieldCheck size={22} />
+          <ShieldCheck width={22} height={22} />
           <div>
             <span className="eyebrow">SEGURIDAD DE SESIÓN</span>
             <h3>Credenciales fuera de la interfaz web</h3>
@@ -199,7 +200,7 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
           <strong>Cerrar sesión en NEXA</strong>
           <span>Quita la sesión actual del launcher y vuelve al modo local con el nombre {localUsername}.</span>
         </div>
-        <button className="ghost-button" type="button" disabled={busy} onClick={onSignOut}><LogOut size={15} /> CERRAR SESIÓN</button>
+        <button className="ghost-button" type="button" disabled={busy} onClick={onSignOut}><LogOut width={15} height={15} /> CERRAR SESIÓN</button>
       </div>
     </section>
   );
