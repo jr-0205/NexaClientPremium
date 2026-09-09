@@ -136,6 +136,7 @@ export const updateProfileInstallation = (request: UpdateProfileInstallationRequ
 export const getProfileSettings = (id: string) => invoke<ProfileRuntimeSettings>("profiles.settings.get", { id });
 export const updateProfileSettings = (request: UpdateProfileSettingsRequest) =>
   invoke<ProfileRuntimeSettings>("profiles.settings.update", request as unknown as Record<string, unknown>);
+export const browseProfileJava = (id: string) => invoke<{ selected: boolean; path?: string | null }>("profiles.java.browse", { id });
 export const deleteProfile = (id: string) => invoke<{ deleted: boolean }>("profiles.delete", { id });
 export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("profiles.openFolder", { id });
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
