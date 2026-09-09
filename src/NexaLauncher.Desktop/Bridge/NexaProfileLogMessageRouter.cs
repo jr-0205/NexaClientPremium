@@ -47,7 +47,7 @@ internal sealed class NexaProfileLogMessageRouter
         if (request is null || string.IsNullOrWhiteSpace(request.Method) ||
             !request.Method.StartsWith("profiles.", StringComparison.Ordinal)) return false;
 
-        if (request.Method is not ("profiles.liveLogs" or "profiles.files.list" or "profiles.files.open" or "profiles.worlds.list" or "profiles.worlds.open"))
+        if (request.Method is not ("profiles.liveLogs" or "profiles.files.list" or "profiles.files.open" or "profiles.worlds.list" or "profiles.worlds.open" or "profiles.settings.get" or "profiles.settings.update"))
             return false;
 
         try
@@ -59,6 +59,8 @@ internal sealed class NexaProfileLogMessageRouter
                 "profiles.files.open" => await OpenFileAsync(request.Payload),
                 "profiles.worlds.list" => await ListWorldsAsync(request.Payload),
                 "profiles.worlds.open" => await OpenWorldAsync(request.Payload),
+                "profiles.settings.get" => await GetSettingsAsync(request.Payload),
+                "profiles.settings.update" => await UpdateSettingsAsync(request.Payload),
                 _ => throw new NotSupportedException()
             };
             Post(new ResponseEnvelope(request.Id, true, result, null));
@@ -90,6 +92,56 @@ internal sealed class NexaProfileLogMessageRouter
             crash = Snapshot(crashReportPath, crashReport)
         };
     }
+
+    private async Task<object> GetSettingsAsync(JsonElement payload)
+    {
+        var context = await ResolveProfileAsync(payload);
+        return SettingsDto(context.Profile);
+    }
+
+    private async Task<object> UpdateSettingsAsync(JsonElement payload)
+    {
+        var request = Read<ProfileSettingsRequest>(payload);
+        var context = await ResolveProfileAsync(request.Id);
+
+        int? memory = request.MemoryMiB;
+        if (memory is not null && memory is < 1024 or > 32768)
+            throw new ArgumentOutOfRangeException(nameof(request.MemoryMiB), "La memoria por instancia debe estar entre 1024 y 32768 MB, o quedar vacía para heredar el ajuste global.");
+
+        int? width = request.WindowWidth;
+        int? height = request.WindowHeight;
+        if (width is not null && width is < 640 or > 7680)
+            throw new ArgumentOutOfRangeException(nameof(request.WindowWidth), "El ancho de ventana debe estar entre 640 y 7680 px.");
+        if (height is not null && height is < 480 or > 4320)
+            throw new ArgumentOutOfRangeException(nameof(request.WindowHeight), "El alto de ventana debe estar entre 480 y 4320 px.");
+
+        var javaPath = string.IsNullOrWhiteSpace(request.JavaPath) ? null : request.JavaPath.Trim();
+        if (javaPath?.Length > 2048) throw new ArgumentException("La ruta de Java es demasiado larga.");
+
+        var arguments = (request.JvmArguments ?? Array.Empty<string>())
+            .Select(value => value?.Trim() ?? string.Empty)
+            .Where(value => value.Length > 0)
+            .ToArray();
+        if (arguments.Length > 64) throw new ArgumentException("NEXA admite hasta 64 argumentos JVM por instancia.");
+        if (arguments.Any(value => value.Length > 512 || value.Contains('\r') || value.Contains('\n') || value.Contains('\0')))
+            throw new ArgumentException("Uno de los argumentos JVM no tiene un formato válido.");
+
+        var settings = new InstanceSettings(memory, javaPath, arguments, width, height, request.Fullscreen);
+        var updated = await instanceManager.UpdateSettingsAsync(context.Id, settings);
+        return SettingsDto(updated);
+    }
+
+    private static object SettingsDto(GameInstance profile)
+        => new
+        {
+            profileId = profile.Id.ToString(),
+            memoryMiB = profile.Settings.MemoryMiB,
+            javaPath = profile.Settings.JavaPath,
+            jvmArguments = profile.Settings.JvmArguments ?? Array.Empty<string>(),
+            windowWidth = profile.Settings.WindowWidth,
+            windowHeight = profile.Settings.WindowHeight,
+            fullscreen = profile.Settings.Fullscreen
+        };
 
     private async Task<object> ListFilesAsync(JsonElement payload)
     {
@@ -328,6 +380,7 @@ internal sealed class NexaProfileLogMessageRouter
     private sealed record ResponseEnvelope(string Id, bool Ok, object? Result, string? Error);
     private sealed record ProfileRequest(string Id);
     private sealed record ProfilePathRequest(string Id, string? Path = null);
+    private sealed record ProfileSettingsRequest(string Id, int? MemoryMiB, string? JavaPath, IReadOnlyList<string>? JvmArguments, int? WindowWidth, int? WindowHeight, bool? Fullscreen);
     private sealed record ProfileContext(InstanceId Id, GameInstance Profile, string Game);
     private sealed record FileEntry(string Name, string RelativePath, bool IsDirectory, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt);
     private sealed record WorldEntry(string Name, string RelativePath, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt, bool Locked);
