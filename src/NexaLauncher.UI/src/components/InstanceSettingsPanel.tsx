@@ -1,15 +1,26 @@
 import { FloppyDisk, Refresh, Settings } from "iconoir-react";
 import { Loader2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { getProfileSettings, updateProfileSettings } from "../app/nexa-bridge";
-import type { NexaProfile, ProfileRuntimeSettings } from "../app/types";
+import {
+  getLoaderVersions,
+  getMinecraftVersions,
+  getProfileSettings,
+  updateProfileInstallation,
+  updateProfileSettings,
+} from "../app/nexa-bridge";
+import type { LoaderVersionItem, MinecraftVersionItem, NexaProfile, ProfileRuntimeSettings } from "../app/types";
 
 type Props = {
   profile: NexaProfile;
   open: boolean;
+  running?: boolean;
   onClose(): void;
+  onUpdated(profile: NexaProfile): void;
   onNotice(message: string, kind?: "success" | "error"): void;
 };
+
+type SettingsTab = "runtime" | "installation";
+type LoaderName = "Vanilla" | "Fabric" | "Forge" | "NeoForge";
 
 const EMPTY: ProfileRuntimeSettings = {
   profileId: "",
@@ -21,13 +32,21 @@ const EMPTY: ProfileRuntimeSettings = {
   fullscreen: null,
 };
 
+const loaders: LoaderName[] = ["Vanilla", "Fabric", "Forge", "NeoForge"];
+
 function optionalNumber(value: string) {
   if (!value.trim()) return null;
   const number = Number(value);
   return Number.isFinite(number) ? Math.round(number) : null;
 }
 
-export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Props) {
+function normalizeLoader(value: string): LoaderName {
+  const match = loaders.find((item) => item.toLowerCase() === value.toLowerCase());
+  return match ?? "Vanilla";
+}
+
+export function InstanceSettingsPanel({ profile, open, running = false, onClose, onUpdated, onNotice }: Props) {
+  const [tab, setTab] = useState<SettingsTab>("runtime");
   const [settings, setSettings] = useState<ProfileRuntimeSettings>(EMPTY);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -38,8 +57,20 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
   const [windowHeight, setWindowHeight] = useState("");
   const [fullscreen, setFullscreen] = useState<"inherit" | "on" | "off">("inherit");
 
+  const [minecraftVersions, setMinecraftVersions] = useState<MinecraftVersionItem[]>([]);
+  const [loaderVersions, setLoaderVersions] = useState<LoaderVersionItem[]>([]);
+  const [installationLoading, setInstallationLoading] = useState(false);
+  const [installationSaving, setInstallationSaving] = useState(false);
+  const [minecraftVersion, setMinecraftVersion] = useState(profile.minecraftVersion);
+  const [loader, setLoader] = useState<LoaderName>(() => normalizeLoader(profile.loader));
+  const [loaderVersion, setLoaderVersion] = useState(profile.loaderVersion ?? "");
+
   useEffect(() => {
     if (!open) return;
+    setTab("runtime");
+    setMinecraftVersion(profile.minecraftVersion);
+    setLoader(normalizeLoader(profile.loader));
+    setLoaderVersion(profile.loaderVersion ?? "");
     setLoading(true);
     getProfileSettings(profile.id)
       .then((value) => {
@@ -55,6 +86,37 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
       .finally(() => setLoading(false));
   }, [open, profile.id]);
 
+  useEffect(() => {
+    if (!open || tab !== "installation" || minecraftVersions.length > 0) return;
+    setInstallationLoading(true);
+    getMinecraftVersions()
+      .then(setMinecraftVersions)
+      .catch((error: Error) => onNotice(error.message, "error"))
+      .finally(() => setInstallationLoading(false));
+  }, [open, tab, minecraftVersions.length]);
+
+  useEffect(() => {
+    if (!open || tab !== "installation") return;
+    if (loader === "Vanilla") {
+      setLoaderVersions([]);
+      setLoaderVersion("");
+      return;
+    }
+    if (!minecraftVersion) return;
+    let cancelled = false;
+    setInstallationLoading(true);
+    getLoaderVersions(minecraftVersion, loader)
+      .then((items) => {
+        if (cancelled) return;
+        setLoaderVersions(items);
+        const stillAvailable = items.some((item) => item.version === loaderVersion);
+        if (!stillAvailable) setLoaderVersion(items.find((item) => item.stable)?.version ?? items[0]?.version ?? "");
+      })
+      .catch((error: Error) => { if (!cancelled) onNotice(error.message, "error"); })
+      .finally(() => { if (!cancelled) setInstallationLoading(false); });
+    return () => { cancelled = true; };
+  }, [open, tab, minecraftVersion, loader]);
+
   const changed = useMemo(() => {
     const nextJvm = jvmText.split(/\r?\n/).map((value) => value.trim()).filter(Boolean);
     return memory !== (settings.memoryMiB?.toString() ?? "") ||
@@ -65,6 +127,10 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
       fullscreen !== (settings.fullscreen == null ? "inherit" : settings.fullscreen ? "on" : "off");
   }, [settings, memory, javaPath, jvmText, windowWidth, windowHeight, fullscreen]);
 
+  const installationChanged = minecraftVersion !== profile.minecraftVersion ||
+    loader.toLowerCase() !== profile.loader.toLowerCase() ||
+    (loader === "Vanilla" ? null : loaderVersion || null) !== (profile.loaderVersion ?? null);
+
   function restoreLoadedValues() {
     setMemory(settings.memoryMiB?.toString() ?? "");
     setJavaPath(settings.javaPath ?? "");
@@ -74,28 +140,22 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
     setFullscreen(settings.fullscreen == null ? "inherit" : settings.fullscreen ? "on" : "off");
   }
 
+  function restoreInstallation() {
+    setMinecraftVersion(profile.minecraftVersion);
+    setLoader(normalizeLoader(profile.loader));
+    setLoaderVersion(profile.loaderVersion ?? "");
+  }
+
   async function save() {
     const memoryValue = optionalNumber(memory);
     const widthValue = optionalNumber(windowWidth);
     const heightValue = optionalNumber(windowHeight);
     const argumentsList = jvmText.split(/\r?\n/).map((value) => value.trim()).filter(Boolean);
 
-    if (memory.trim() && (memoryValue == null || memoryValue < 1024 || memoryValue > 32768)) {
-      onNotice("La memoria debe estar entre 1024 y 32768 MB.", "error");
-      return;
-    }
-    if (windowWidth.trim() && (widthValue == null || widthValue < 640 || widthValue > 7680)) {
-      onNotice("El ancho debe estar entre 640 y 7680 px.", "error");
-      return;
-    }
-    if (windowHeight.trim() && (heightValue == null || heightValue < 480 || heightValue > 4320)) {
-      onNotice("El alto debe estar entre 480 y 4320 px.", "error");
-      return;
-    }
-    if (argumentsList.length > 64) {
-      onNotice("NEXA admite hasta 64 argumentos JVM por instancia.", "error");
-      return;
-    }
+    if (memory.trim() && (memoryValue == null || memoryValue < 1024 || memoryValue > 32768)) return onNotice("La memoria debe estar entre 1024 y 32768 MB.", "error");
+    if (windowWidth.trim() && (widthValue == null || widthValue < 640 || widthValue > 7680)) return onNotice("El ancho debe estar entre 640 y 7680 px.", "error");
+    if (windowHeight.trim() && (heightValue == null || heightValue < 480 || heightValue > 4320)) return onNotice("El alto debe estar entre 480 y 4320 px.", "error");
+    if (argumentsList.length > 64) return onNotice("NEXA admite hasta 64 argumentos JVM por instancia.", "error");
 
     setSaving(true);
     try {
@@ -109,11 +169,45 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
         fullscreen: fullscreen === "inherit" ? null : fullscreen === "on",
       });
       setSettings(updated);
-      onNotice("Configuración de la instancia guardada.", "success");
+      onUpdated({
+        ...profile,
+        memoryMiB: updated.memoryMiB,
+        javaPath: updated.javaPath,
+        jvmArguments: updated.jvmArguments,
+        windowWidth: updated.windowWidth,
+        windowHeight: updated.windowHeight,
+        fullscreen: updated.fullscreen,
+      });
+      onNotice("Configuración de ejecución guardada.", "success");
     } catch (error) {
       onNotice(error instanceof Error ? error.message : "No se pudo guardar la configuración de la instancia.", "error");
     } finally {
       setSaving(false);
+    }
+  }
+
+  async function saveInstallation() {
+    if (running) return onNotice("Cierra Minecraft antes de cambiar la instalación de esta instancia.", "error");
+    if (!minecraftVersion) return onNotice("Selecciona una versión de Minecraft.", "error");
+    if (loader !== "Vanilla" && !loaderVersion) return onNotice("Selecciona una versión del loader.", "error");
+
+    setInstallationSaving(true);
+    try {
+      const updated = await updateProfileInstallation({
+        id: profile.id,
+        minecraftVersion,
+        loader,
+        loaderVersion: loader === "Vanilla" ? null : loaderVersion,
+      });
+      setMinecraftVersion(updated.minecraftVersion);
+      setLoader(normalizeLoader(updated.loader));
+      setLoaderVersion(updated.loaderVersion ?? "");
+      onUpdated(updated);
+      onNotice("Instalación de la instancia actualizada. Revisa la compatibilidad de mods y contenido instalado.", "success");
+    } catch (error) {
+      onNotice(error instanceof Error ? error.message : "No se pudo actualizar la instalación.", "error");
+    } finally {
+      setInstallationSaving(false);
     }
   }
 
@@ -128,15 +222,23 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
           <p>Minecraft {profile.minecraftVersion} · {profile.loader}{profile.loaderVersion ? ` ${profile.loaderVersion}` : ""}</p>
         </div>
         <div className="instance-settings-actions">
-          {changed && <button className="ghost-button" type="button" disabled={saving} onClick={restoreLoadedValues}><Refresh width={15} height={15} /> DESCARTAR</button>}
+          {tab === "runtime" && changed && <button className="ghost-button" type="button" disabled={saving} onClick={restoreLoadedValues}><Refresh width={15} height={15} /> DESCARTAR</button>}
+          {tab === "installation" && installationChanged && <button className="ghost-button" type="button" disabled={installationSaving} onClick={restoreInstallation}><Refresh width={15} height={15} /> DESCARTAR</button>}
           <button className="ghost-button" type="button" onClick={onClose}>CERRAR</button>
-          <button className="primary-button" type="button" disabled={loading || saving || !changed} onClick={save}>
-            {saving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR
-          </button>
+          {tab === "runtime" ? (
+            <button className="primary-button" type="button" disabled={loading || saving || !changed} onClick={save}>{saving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR</button>
+          ) : (
+            <button className="primary-button" type="button" disabled={installationLoading || installationSaving || running || !installationChanged} onClick={saveInstallation}>{installationSaving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} APLICAR INSTALACIÓN</button>
+          )}
         </div>
       </header>
 
-      {loading ? <div className="instance-settings-loading"><Loader2 className="spin" size={18} /> Cargando ajustes…</div> : (
+      <div className="instance-settings-tabs" role="tablist" aria-label="Secciones de configuración de instancia">
+        <button type="button" className={tab === "runtime" ? "active" : ""} onClick={() => setTab("runtime")}>GENERAL Y RUNTIME</button>
+        <button type="button" className={tab === "installation" ? "active" : ""} onClick={() => setTab("installation")}>INSTALACIÓN</button>
+      </div>
+
+      {tab === "runtime" && (loading ? <div className="instance-settings-loading"><Loader2 className="spin" size={18} /> Cargando ajustes…</div> : (
         <div className="instance-settings-grid">
           <article className="instance-settings-card">
             <span className="eyebrow">RENDIMIENTO</span>
@@ -154,10 +256,8 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
             <h3>Runtime de la instancia</h3>
             <p>Vacío = NEXA detecta en cada inicio el Java compatible con la versión de Minecraft.</p>
             <label className="field-label">RUTA DE JAVA<input className="nexa-input" value={javaPath} onChange={(event) => setJavaPath(event.target.value)} placeholder="Detección automática" spellCheck={false} /></label>
-            <div className="instance-memory-presets">
-              <button type="button" className={!javaPath.trim() ? "active" : ""} onClick={() => setJavaPath("")}>USAR DETECCIÓN AUTOMÁTICA</button>
-            </div>
-            <small className="instance-settings-hint">El selector nativo de java.exe/javaw.exe se añadirá sobre este mismo override sin enviar rutas arbitrarias fuera del bridge.</small>
+            <div className="instance-memory-presets"><button type="button" className={!javaPath.trim() ? "active" : ""} onClick={() => setJavaPath("")}>USAR DETECCIÓN AUTOMÁTICA</button></div>
+            <small className="instance-settings-hint">El selector nativo de java.exe/javaw.exe se añadirá sobre este mismo override.</small>
           </article>
 
           <article className="instance-settings-card wide">
@@ -186,6 +286,47 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
               <button type="button" className={fullscreen === "off" ? "active" : ""} onClick={() => setFullscreen("off")}>VENTANA</button>
               <button type="button" className={fullscreen === "on" ? "active" : ""} onClick={() => setFullscreen("on")}>FULLSCREEN</button>
             </div>
+          </article>
+        </div>
+      ))}
+
+      {tab === "installation" && (
+        <div className="instance-settings-grid installation-settings-grid">
+          <article className="instance-settings-card wide installation-warning-card">
+            <span className="eyebrow">INSTALACIÓN</span>
+            <h3>Minecraft y loader</h3>
+            <p>Cambiar esta combinación conserva la carpeta del juego y los mundos. Mods, resource packs y otros archivos existentes no se eliminan automáticamente, por lo que debes revisar su compatibilidad después del cambio.</p>
+            {running && <div className="instance-installation-lock">Minecraft está en ejecución. Cierra el juego para modificar la instalación.</div>}
+          </article>
+
+          <article className="instance-settings-card">
+            <span className="eyebrow">MINECRAFT</span>
+            <h3>Versión del juego</h3>
+            <label className="field-label">VERSIÓN
+              <select className="nexa-input" value={minecraftVersion} disabled={installationLoading || installationSaving || running} onChange={(event) => setMinecraftVersion(event.target.value)}>
+                {!minecraftVersions.some((item) => item.id === minecraftVersion) && <option value={minecraftVersion}>{minecraftVersion}</option>}
+                {minecraftVersions.map((item) => <option key={item.id} value={item.id}>{item.id}</option>)}
+              </select>
+            </label>
+            <small className="instance-settings-hint">Sólo se ofrecen releases disponibles en el catálogo oficial que NEXA ya utiliza al crear perfiles.</small>
+          </article>
+
+          <article className="instance-settings-card">
+            <span className="eyebrow">LOADER</span>
+            <h3>Plataforma</h3>
+            <label className="field-label">LOADER
+              <select className="nexa-input" value={loader} disabled={installationLoading || installationSaving || running} onChange={(event) => setLoader(event.target.value as LoaderName)}>
+                {loaders.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </label>
+            {loader !== "Vanilla" && (
+              <label className="field-label installation-loader-version">VERSIÓN DEL LOADER
+                <select className="nexa-input" value={loaderVersion} disabled={installationLoading || installationSaving || running || loaderVersions.length === 0} onChange={(event) => setLoaderVersion(event.target.value)}>
+                  {loaderVersions.length === 0 && <option value="">Sin versiones disponibles</option>}
+                  {loaderVersions.map((item) => <option key={item.version} value={item.version}>{item.version}{item.stable ? " · estable" : ""}</option>)}
+                </select>
+              </label>
+            )}
           </article>
         </div>
       )}
