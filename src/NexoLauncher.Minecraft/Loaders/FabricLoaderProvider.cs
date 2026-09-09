@@ -21,12 +21,18 @@ public sealed class FabricLoaderProvider(
            && vanilla.IsInstalled(minecraftVersion)
            && File.Exists(paths.FabricProfile(minecraftVersion, loaderVersion));
 
-    public async Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+    public Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: false, token);
+
+    public Task RepairAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: true, token);
+
+    private async Task InstallCoreAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress, bool repairVanilla, CancellationToken token)
     {
         if (string.IsNullOrWhiteSpace(request.LoaderVersion))
             throw new ArgumentException("Fabric requiere una versión de loader.", nameof(request));
 
-        if (!vanilla.IsInstalled(request.Version.Id))
+        if (repairVanilla || !vanilla.IsInstalled(request.Version.Id))
             await vanilla.InstallAsync(request.Version, progress, token);
 
         var profilePath = paths.FabricProfile(request.Version.Id, request.LoaderVersion);
@@ -49,7 +55,7 @@ public sealed class FabricLoaderProvider(
             await downloader.DownloadAsync(downloadUrl, target, null, ct);
             progress?.Report(new("Descargando Fabric", Interlocked.Increment(ref completed), libraries.Length));
         });
-        progress?.Report(new("Fabric listo", libraries.Length, libraries.Length));
+        progress?.Report(new(repairVanilla ? "Fabric reparado" : "Fabric listo", libraries.Length, libraries.Length));
     }
 
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string? loaderVersion, string gameDirectory)
