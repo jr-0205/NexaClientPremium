@@ -1,4 +1,4 @@
-import { Check, Palette } from "lucide-react";
+import { Check, Palette } from "iconoir-react";
 
 export type AccentTone = "blue" | "gray" | "white" | "custom";
 
@@ -20,7 +20,7 @@ export function ThemePalette({ value, customColor, onChange, onCustomColor }: Pr
   return (
     <section className="appearance-panel glass-panel" aria-label="Apariencia de NEXA">
       <div className="appearance-copy">
-        <span className="appearance-icon"><Palette size={20} /></span>
+        <span className="appearance-icon"><Palette width={20} height={20} /></span>
         <div>
           <span className="eyebrow">APARIENCIA</span>
           <h2>Color de énfasis</h2>
@@ -39,7 +39,7 @@ export function ThemePalette({ value, customColor, onChange, onCustomColor }: Pr
           >
             <span className="accent-swatch" style={{ background: option.id === "custom" ? customColor : option.value }} />
             <span>{option.label}</span>
-            {value === option.id && <Check size={15} />}
+            {value === option.id && <Check width={15} height={15} />}
           </button>
         ))}
         {value === "custom" && (
