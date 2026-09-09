@@ -22,6 +22,7 @@ import type {
   ProfileLiveLogs,
   ProfileRuntimeSettings,
   ProfileWorldListing,
+  UpdateProfileInstallationRequest,
   UpdateProfileRequest,
   UpdateProfileSettingsRequest,
 } from "./types";
@@ -130,6 +131,8 @@ export const createProfile = (request: CreateProfileRequest) =>
   invoke<NexaProfile>("profiles.create", request as unknown as Record<string, unknown>);
 export const updateProfile = (request: UpdateProfileRequest) =>
   invoke<NexaProfile>("profiles.update", request as unknown as Record<string, unknown>);
+export const updateProfileInstallation = (request: UpdateProfileInstallationRequest) =>
+  invoke<NexaProfile>("profiles.installation.update", request as unknown as Record<string, unknown>);
 export const getProfileSettings = (id: string) => invoke<ProfileRuntimeSettings>("profiles.settings.get", { id });
 export const updateProfileSettings = (request: UpdateProfileSettingsRequest) =>
   invoke<ProfileRuntimeSettings>("profiles.settings.update", request as unknown as Record<string, unknown>);
