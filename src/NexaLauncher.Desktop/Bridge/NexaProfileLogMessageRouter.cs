@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 using Microsoft.Web.WebView2.Core;
@@ -9,15 +10,14 @@ using NexoLauncher.Infrastructure.Instances;
 namespace NexaLauncher.Desktop;
 
 /// <summary>
-/// Expone únicamente logs de diagnóstico de una instancia a React.
-/// La UI no recibe acceso arbitrario al sistema de archivos: sólo puede pedir
-/// latest.log, la captura de stdout/stderr de NEXA y el crash report más reciente
-/// correspondientes al perfil solicitado.
+/// Expone recursos acotados de una instancia a React. Todas las rutas solicitadas
+/// se resuelven dentro del directorio Game del perfil: la UI no obtiene acceso
+/// arbitrario al sistema de archivos.
 /// </summary>
 internal sealed class NexaProfileLogMessageRouter
 {
-    private const string MethodName = "profiles.liveLogs";
     private const int MaximumReadBytes = 384 * 1024;
+    private const int MaximumDirectoryEntries = 500;
     private readonly NexoPaths paths;
     private readonly CoreWebView2 webView;
     private readonly JsonInstanceRepository instances;
@@ -44,11 +44,23 @@ internal sealed class NexaProfileLogMessageRouter
             return false;
         }
 
-        if (request is null || !string.Equals(request.Method, MethodName, StringComparison.Ordinal)) return false;
+        if (request is null || string.IsNullOrWhiteSpace(request.Method) ||
+            !request.Method.StartsWith("profiles.", StringComparison.Ordinal)) return false;
+
+        if (request.Method is not ("profiles.liveLogs" or "profiles.files.list" or "profiles.files.open" or "profiles.worlds.list" or "profiles.worlds.open"))
+            return false;
 
         try
         {
-            var result = await ReadAsync(request.Payload);
+            object result = request.Method switch
+            {
+                "profiles.liveLogs" => await ReadLogsAsync(request.Payload),
+                "profiles.files.list" => await ListFilesAsync(request.Payload),
+                "profiles.files.open" => await OpenFileAsync(request.Payload),
+                "profiles.worlds.list" => await ListWorldsAsync(request.Payload),
+                "profiles.worlds.open" => await OpenWorldAsync(request.Payload),
+                _ => throw new NotSupportedException()
+            };
             Post(new ResponseEnvelope(request.Id, true, result, null));
         }
         catch (Exception exception)
@@ -58,18 +70,12 @@ internal sealed class NexaProfileLogMessageRouter
         return true;
     }
 
-    private async Task<object> ReadAsync(JsonElement payload)
+    private async Task<object> ReadLogsAsync(JsonElement payload)
     {
-        var request = payload.Deserialize<ProfileRequest>(json)
-                      ?? throw new InvalidDataException("No se pudo interpretar el perfil solicitado.");
-        var id = InstanceId.Parse(request.Id);
-        var profile = await instanceManager.GetAsync(id)
-                      ?? throw new InvalidOperationException("El perfil ya no existe.");
-        var game = instances.GetPaths(id).Game;
-
-        var gameLogPath = Path.Combine(game, "logs", "latest.log");
-        var launcherLogPath = FindLatestLauncherLog(profile.MinecraftVersion);
-        var crashReportPath = FindNewestFile(Path.Combine(game, "crash-reports"), "*.txt");
+        var context = await ResolveProfileAsync(payload);
+        var gameLogPath = Path.Combine(context.Game, "logs", "latest.log");
+        var launcherLogPath = FindLatestLauncherLog(context.Profile.MinecraftVersion);
+        var crashReportPath = FindNewestFile(Path.Combine(context.Game, "crash-reports"), "*.txt");
 
         var gameLog = ReadTail(gameLogPath);
         var launcherLog = ReadTail(launcherLogPath);
@@ -77,12 +83,167 @@ internal sealed class NexaProfileLogMessageRouter
 
         return new
         {
-            profileId = id.ToString(),
+            profileId = context.Id.ToString(),
             capturedAt = DateTimeOffset.UtcNow,
             game = Snapshot(gameLogPath, gameLog),
             launcher = Snapshot(launcherLogPath, launcherLog),
             crash = Snapshot(crashReportPath, crashReport)
         };
+    }
+
+    private async Task<object> ListFilesAsync(JsonElement payload)
+    {
+        var request = Read<ProfilePathRequest>(payload);
+        var context = await ResolveProfileAsync(request.Id);
+        Directory.CreateDirectory(context.Game);
+        var directory = ResolveInside(context.Game, request.Path, requireExisting: true);
+        if (!Directory.Exists(directory)) throw new InvalidOperationException("La ruta solicitada no es una carpeta.");
+
+        var entries = Directory.EnumerateFileSystemEntries(directory, "*", SearchOption.TopDirectoryOnly)
+            .Take(MaximumDirectoryEntries + 1)
+            .Select(path => FileEntry(context.Game, path))
+            .ToArray();
+        var truncated = entries.Length > MaximumDirectoryEntries;
+        if (truncated) entries = entries.Take(MaximumDirectoryEntries).ToArray();
+
+        entries = entries
+            .OrderByDescending(entry => entry.IsDirectory)
+            .ThenBy(entry => entry.Name, StringComparer.OrdinalIgnoreCase)
+            .ToArray();
+
+        return new
+        {
+            profileId = context.Id.ToString(),
+            path = NormalizeRelative(context.Game, directory),
+            entries,
+            truncated
+        };
+    }
+
+    private async Task<object> OpenFileAsync(JsonElement payload)
+    {
+        var request = Read<ProfilePathRequest>(payload);
+        var context = await ResolveProfileAsync(request.Id);
+        var target = ResolveInside(context.Game, request.Path, requireExisting: true);
+        OpenInExplorer(target);
+        return new { opened = true };
+    }
+
+    private async Task<object> ListWorldsAsync(JsonElement payload)
+    {
+        var context = await ResolveProfileAsync(payload);
+        var saves = Path.Combine(context.Game, "saves");
+        var worlds = !Directory.Exists(saves)
+            ? Array.Empty<WorldEntry>()
+            : Directory.EnumerateDirectories(saves, "*", SearchOption.TopDirectoryOnly)
+                .Select(World)
+                .OrderByDescending(world => world.ModifiedAt)
+                .ToArray();
+
+        return new
+        {
+            profileId = context.Id.ToString(),
+            worlds,
+            serversConfigured = File.Exists(Path.Combine(context.Game, "servers.dat"))
+        };
+    }
+
+    private async Task<object> OpenWorldAsync(JsonElement payload)
+    {
+        var request = Read<ProfilePathRequest>(payload);
+        var context = await ResolveProfileAsync(request.Id);
+        var saves = Path.Combine(context.Game, "saves");
+        Directory.CreateDirectory(saves);
+        var target = ResolveInside(saves, request.Path, requireExisting: true);
+        if (!Directory.Exists(target)) throw new InvalidOperationException("El mundo solicitado ya no existe.");
+        OpenInExplorer(target);
+        return new { opened = true };
+    }
+
+    private async Task<ProfileContext> ResolveProfileAsync(JsonElement payload)
+    {
+        var request = Read<ProfileRequest>(payload);
+        return await ResolveProfileAsync(request.Id);
+    }
+
+    private async Task<ProfileContext> ResolveProfileAsync(string idValue)
+    {
+        var id = InstanceId.Parse(idValue);
+        var profile = await instanceManager.GetAsync(id)
+                      ?? throw new InvalidOperationException("El perfil ya no existe.");
+        return new ProfileContext(id, profile, instances.GetPaths(id).Game);
+    }
+
+    private T Read<T>(JsonElement payload)
+        => payload.Deserialize<T>(json) ?? throw new InvalidDataException("No se pudo interpretar la solicitud del perfil.");
+
+    private static FileEntry FileEntry(string root, string path)
+    {
+        if (Directory.Exists(path))
+        {
+            var info = new DirectoryInfo(path);
+            return new FileEntry(info.Name, NormalizeRelative(root, path), true, 0, info.CreationTimeUtc, info.LastWriteTimeUtc);
+        }
+
+        var file = new FileInfo(path);
+        return new FileEntry(file.Name, NormalizeRelative(root, path), false, file.Exists ? file.Length : 0, file.CreationTimeUtc, file.LastWriteTimeUtc);
+    }
+
+    private static WorldEntry World(string path)
+    {
+        var info = new DirectoryInfo(path);
+        return new WorldEntry(
+            info.Name,
+            info.Name,
+            TryDirectorySize(path),
+            info.CreationTimeUtc,
+            info.LastWriteTimeUtc,
+            File.Exists(Path.Combine(path, "session.lock")));
+    }
+
+    private static long TryDirectorySize(string directory)
+    {
+        try
+        {
+            long total = 0;
+            var count = 0;
+            foreach (var file in Directory.EnumerateFiles(directory, "*", SearchOption.AllDirectories))
+            {
+                if (++count > 20000) break;
+                try { total += new FileInfo(file).Length; }
+                catch (IOException) { }
+                catch (UnauthorizedAccessException) { }
+            }
+            return total;
+        }
+        catch (IOException) { return 0; }
+        catch (UnauthorizedAccessException) { return 0; }
+    }
+
+    private static string ResolveInside(string root, string? relativePath, bool requireExisting)
+    {
+        var fullRoot = Path.GetFullPath(root).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        var value = (relativePath ?? string.Empty).Replace('/', Path.DirectorySeparatorChar).TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+        var candidate = Path.GetFullPath(Path.Combine(fullRoot, value));
+        var prefix = fullRoot + Path.DirectorySeparatorChar;
+        if (!string.Equals(candidate, fullRoot, StringComparison.OrdinalIgnoreCase) &&
+            !candidate.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            throw new InvalidOperationException("La ruta solicitada está fuera de la instancia.");
+        if (requireExisting && !File.Exists(candidate) && !Directory.Exists(candidate))
+            throw new FileNotFoundException("El recurso solicitado ya no existe.");
+        return candidate;
+    }
+
+    private static string NormalizeRelative(string root, string path)
+    {
+        var relative = Path.GetRelativePath(Path.GetFullPath(root), Path.GetFullPath(path));
+        return relative == "." ? string.Empty : relative.Replace(Path.DirectorySeparatorChar, '/');
+    }
+
+    private static void OpenInExplorer(string target)
+    {
+        var arguments = File.Exists(target) ? $"/select,\"{target}\"" : $"\"{target}\"";
+        Process.Start(new ProcessStartInfo("explorer.exe", arguments) { UseShellExecute = true });
     }
 
     private string? FindLatestLauncherLog(string minecraftVersion)
@@ -166,4 +327,8 @@ internal sealed class NexaProfileLogMessageRouter
     private sealed record RequestEnvelope(string Id, string Method, JsonElement Payload);
     private sealed record ResponseEnvelope(string Id, bool Ok, object? Result, string? Error);
     private sealed record ProfileRequest(string Id);
+    private sealed record ProfilePathRequest(string Id, string? Path = null);
+    private sealed record ProfileContext(InstanceId Id, InstanceProfile Profile, string Game);
+    private sealed record FileEntry(string Name, string RelativePath, bool IsDirectory, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt);
+    private sealed record WorldEntry(string Name, string RelativePath, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt, bool Locked);
 }
