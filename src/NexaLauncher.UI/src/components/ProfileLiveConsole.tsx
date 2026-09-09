@@ -1,4 +1,4 @@
-import { ChevronRight, Clipboard, ExternalLink, File, Folder, FolderOpen, Globe2, Home, RefreshCw, Search, Terminal } from "lucide-react";
+import { ChevronRight, Clipboard, ExternalLink, File, Folder, FolderOpen, Globe2, Home, RefreshCw, Search, Settings2, Terminal } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getProfileLiveLogs,
@@ -15,6 +15,7 @@ import type {
   ProfileLogSnapshot,
   ProfileWorldListing,
 } from "../app/types";
+import { InstanceSettingsPanel } from "./InstanceSettingsPanel";
 
 type Props = {
   profile: NexaProfile;
@@ -22,7 +23,7 @@ type Props = {
   onNotice(message: string, kind?: "success" | "error"): void;
 };
 
-type ModuleTab = "files" | "worlds" | "logs";
+type ModuleTab = "files" | "worlds" | "logs" | "settings";
 type LogTab = "game" | "launcher" | "crash";
 type LogFilter = "all" | "error" | "warn" | "info";
 
@@ -223,13 +224,14 @@ export function ProfileLiveConsole({ profile, running, onNotice }: Props) {
       <header className="profile-modules-head">
         <div>
           <span className="eyebrow">GESTIÓN DE INSTANCIA</span>
-          <strong>Archivos, mundos y registros</strong>
+          <strong>Archivos, mundos, registros y configuración</strong>
           <span>Minecraft {profile.minecraftVersion} · {profile.loader}{profile.loaderVersion ? ` ${profile.loaderVersion}` : ""}</span>
         </div>
         <div className="profile-module-tabs" role="tablist" aria-label="Módulos del perfil">
           <button type="button" className={moduleTab === "files" ? "active" : ""} onClick={() => setModuleTab("files")}><Folder size={15} /> ARCHIVOS</button>
           <button type="button" className={moduleTab === "worlds" ? "active" : ""} onClick={() => setModuleTab("worlds")}><Globe2 size={15} /> MUNDOS</button>
           <button type="button" className={moduleTab === "logs" ? "active" : ""} onClick={() => setModuleTab("logs")}><Terminal size={15} /> REGISTROS</button>
+          <button type="button" className={moduleTab === "settings" ? "active" : ""} onClick={() => setModuleTab("settings")}><Settings2 size={15} /> CONFIGURACIÓN</button>
         </div>
       </header>
 
@@ -332,6 +334,10 @@ export function ProfileLiveConsole({ profile, running, onNotice }: Props) {
 
           <div className="live-console-path" title={activeSnapshot.path ?? ""}>{activeSnapshot.path ?? "Sin archivo todavía"}</div>
         </div>
+      )}
+
+      {moduleTab === "settings" && (
+        <InstanceSettingsPanel profile={profile} open onClose={() => setModuleTab("files")} onNotice={onNotice} />
       )}
     </section>
   );
