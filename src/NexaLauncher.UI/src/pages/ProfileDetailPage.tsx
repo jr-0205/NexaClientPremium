@@ -190,7 +190,7 @@ export function ProfileDetailPage({ profile, launching, onLaunch, onContent, onU
         </div>
       </div>
 
-      <ProfileLiveConsole profile={profile} running={launching} onNotice={onNotice} />
+      <ProfileLiveConsole profile={profile} running={launching} onUpdated={onUpdated} onNotice={onNotice} />
 
       {boostOpen && (
         <section className="boost-panel glass-panel">
