@@ -2,6 +2,7 @@ import { Check, Crown, FloppyDisk, Gamepad, LogIn, LogOut, ShieldCheck, Shirt, S
 import { Loader2 } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import type { NexaAccountState } from "../app/types";
+import { LocalSkinManager } from "../components/LocalSkinManager";
 
 export type SkinVariant = "classic" | "slim";
 
@@ -54,7 +55,7 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
           <div className="local-account-icon"><User width={27} height={27} /></div>
           <div className="local-account-copy">
             <span className="eyebrow">SIN AUTENTICACIÓN OBLIGATORIA</span>
-            <h2>Juega con un nombre local</h2>
+            <h2>Perfil local</h2>
             <p>NEXA funciona normalmente sin cuenta Microsoft. Puedes crear instancias, instalar contenido, cambiar ajustes e iniciar Minecraft en modo local.</p>
             <div className="local-name-editor">
               <label className="field-label">
@@ -77,10 +78,12 @@ export function AccountPage({ account, busy, localUsername, onUpdateLocalUsernam
           </div>
         </article>
 
+        <LocalSkinManager />
+
         <div className="account-landing glass-panel premium-connect-panel">
           <div className="account-landing-copy">
             <span className="eyebrow">OPCIONAL · MICROSOFT</span>
-            <h1>Conecta tu cuenta oficial de Minecraft.</h1>
+            <h1>Cuenta oficial de Minecraft</h1>
             <p>
               Microsoft sólo es necesario para identidad oficial, servidores que exigen autenticación, skins y capas del perfil premium.
               El inicio de sesión se abre en el navegador del sistema y nunca bloquea el uso local del launcher.
