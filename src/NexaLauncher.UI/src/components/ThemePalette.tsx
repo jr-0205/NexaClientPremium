@@ -1,7 +1,13 @@
 import { Check, Palette } from "iconoir-react";
-import { accentOptions, type AccentTone } from "../app/accent-theme";
 
-export type { AccentTone } from "../app/accent-theme";
+export type AccentTone = "blue" | "gray" | "white" | "custom";
+
+const options: Array<{ id: AccentTone; label: string; value: string }> = [
+  { id: "blue", label: "Azul", value: "#1687ff" },
+  { id: "gray", label: "Plateado", value: "#aeb7c4" },
+  { id: "white", label: "Blanco", value: "#f4f7fb" },
+  { id: "custom", label: "Personalizado", value: "#8b5cf6" },
+];
 
 type Props = {
   value: AccentTone;
@@ -18,11 +24,11 @@ export function ThemePalette({ value, customColor, onChange, onCustomColor }: Pr
         <div>
           <span className="eyebrow">APARIENCIA</span>
           <h2>Color de énfasis</h2>
-          <p>La interfaz conserva su base negra, gris y plateada. El acento personaliza controles y estados activos.</p>
+          <p>La base visual permanece negra, gris y plateada. El acento modifica controles, selecciones e indicadores.</p>
         </div>
       </div>
       <div className="accent-options" role="radiogroup" aria-label="Color de énfasis">
-        {accentOptions.map((option) => (
+        {options.map((option) => (
           <button
             key={option.id}
             type="button"
@@ -31,7 +37,7 @@ export function ThemePalette({ value, customColor, onChange, onCustomColor }: Pr
             role="radio"
             aria-checked={value === option.id}
           >
-            <span className="accent-swatch" style={{ background: option.id === "custom" ? customColor : option.color }} />
+            <span className="accent-swatch" style={{ background: option.id === "custom" ? customColor : option.value }} />
             <span>{option.label}</span>
             {value === option.id && <Check width={15} height={15} />}
           </button>
