@@ -22,6 +22,7 @@ import type {
   ProfileLiveLogs,
   ProfileWorldListing,
   UpdateProfileRequest,
+  UpdateProfileSettingsRequest,
 } from "./types";
 
 type WebViewMessageEvent = { data: unknown };
@@ -128,6 +129,8 @@ export const createProfile = (request: CreateProfileRequest) =>
   invoke<NexaProfile>("profiles.create", request as unknown as Record<string, unknown>);
 export const updateProfile = (request: UpdateProfileRequest) =>
   invoke<NexaProfile>("profiles.update", request as unknown as Record<string, unknown>);
+export const updateProfileSettings = (request: UpdateProfileSettingsRequest) =>
+  invoke<NexaProfile>("profiles.settings.update", request as unknown as Record<string, unknown>);
 export const deleteProfile = (id: string) => invoke<{ deleted: boolean }>("profiles.delete", { id });
 export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("profiles.openFolder", { id });
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
