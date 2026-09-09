@@ -1,6 +1,7 @@
 import { Check, Crown, NavArrowDown, User } from "iconoir-react";
 import { Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { loadLocalSkinPreference, onLocalSkinPreferenceChanged } from "../app/local-skin";
 
 type TopbarProps = {
   title: string;
@@ -15,9 +16,11 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
   const [draft, setDraft] = useState(username || "Player");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [localSkin, setLocalSkin] = useState(() => loadLocalSkinPreference().dataUrl);
   const wrapper = useRef<HTMLDivElement>(null);
 
   useEffect(() => setDraft(username || "Player"), [username]);
+  useEffect(() => onLocalSkinPreferenceChanged((next) => setLocalSkin(next.dataUrl)), []);
 
   useEffect(() => {
     if (!open) return;
@@ -63,6 +66,8 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
     setOpen((value) => !value);
   }
 
+  const localAvatarStyle = !isPremium && localSkin ? { backgroundImage: `url(${localSkin})` } : undefined;
+
   return (
     <header className="topbar glass-edge">
       <div className="topbar-title">{title}</div>
@@ -73,7 +78,7 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
         </div>
         <div className="user-menu-wrap" ref={wrapper}>
           <button className={`user-card ${open ? "active" : ""}`} type="button" aria-label={isPremium ? "Gestionar cuenta NEXA Premium" : "Cuenta local"} aria-expanded={!isPremium && open} onClick={handleAccountClick}>
-            <span className="user-avatar"><img src="./brand/nexa-mark.png" alt="" /></span>
+            {localAvatarStyle ? <span className="user-avatar local-skin-head" style={localAvatarStyle} aria-hidden="true" /> : <span className="user-avatar"><img src="./brand/nexa-mark.png" alt="" /></span>}
             <span className="user-copy">
               <strong>{username || "Player"}</strong>
               <small>{isPremium ? "Minecraft verificado" : "Perfil local"}</small>
@@ -84,13 +89,13 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
           {open && !isPremium && (
             <div className="user-popover glass-panel" role="dialog" aria-label="Perfil de jugador">
               <div className="user-popover-head">
-                <span className="user-popover-mark"><img src="./brand/nexa-mark.png" alt="" /></span>
+                {localAvatarStyle ? <span className="user-popover-mark local-skin-head" style={localAvatarStyle} aria-hidden="true" /> : <span className="user-popover-mark"><img src="./brand/nexa-mark.png" alt="" /></span>}
                 <div><span className="eyebrow">PERFIL LOCAL · NO PREMIUM</span><strong>{username || "Player"}</strong></div>
               </div>
 
-              <p className="user-popover-description">Mientras uses un perfil local puedes cambiar aquí el nombre que NEXA utilizará para las sesiones offline.</p>
+              <p className="user-popover-description">Puedes cambiar el nombre local aquí. La skin local se administra desde Cuenta y sólo modifica tu apariencia dentro de NEXA.</p>
               <label className="field-label">NOMBRE DE JUGADOR
-                <div className="user-name-input"><User width={15} height={15} /><input value={draft} maxLength={16} onChange={(event) => { setDraft(event.target.value); setError(null); }} onKeyDown={(event) => { if (event.key === "Enter") save(); }} autoFocus /></div>
+                <div className="user-name-input"><User width={15} height={15} /><input value={draft} maxLength={16} onChange={(event) => { setDraft(event.target.value); setError(null); }} onKeyDown={(event) => { if (event.key === "Enter") void save(); }} autoFocus /></div>
               </label>
               {error && <div className="user-popover-error">{error}</div>}
               <div className="user-popover-actions">
