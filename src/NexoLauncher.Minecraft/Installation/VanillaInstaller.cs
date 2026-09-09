@@ -8,12 +8,18 @@ public sealed class VanillaInstaller(VerifiedDownloader downloader, MinecraftPat
 {
     public bool IsInstalled(string id) => File.Exists(paths.VersionJson(id)) && File.Exists(paths.ClientJar(id));
 
-    public async Task InstallAsync(MinecraftVersion version, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+    public Task InstallAsync(MinecraftVersion version, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(version, progress, forceMetadataRefresh: false, token: token);
+
+    public Task RepairAsync(MinecraftVersion version, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(version, progress, forceMetadataRefresh: true, token: token);
+
+    private async Task InstallCoreAsync(MinecraftVersion version, IProgress<InstallProgress>? progress, bool forceMetadataRefresh, CancellationToken token)
     {
         paths.EnsureCreated();
         Directory.CreateDirectory(paths.VersionDirectory(version.Id));
-        progress?.Report(new("Descargando metadatos", 0, 1));
-        await downloader.DownloadAsync(version.MetadataUrl, paths.VersionJson(version.Id), null, token);
+        progress?.Report(new(forceMetadataRefresh ? "Actualizando metadatos oficiales" : "Descargando metadatos", 0, 1));
+        await downloader.DownloadAsync(version.MetadataUrl, paths.VersionJson(version.Id), null, token, force: forceMetadataRefresh);
         using var metadata = JsonDocument.Parse(await File.ReadAllBytesAsync(paths.VersionJson(version.Id), token));
         var root = metadata.RootElement;
         var client = root.GetProperty("downloads").GetProperty("client");
@@ -53,12 +59,10 @@ public sealed class VanillaInstaller(VerifiedDownloader downloader, MinecraftPat
         await Parallel.ForEachAsync(uniqueJobs, new ParallelOptions { MaxDegreeOfParallelism = 8, CancellationToken = token }, async (job, ct) =>
         {
             await downloader.DownloadAsync(job.Url, job.Path, job.Sha1, ct);
-            progress?.Report(new("Descargando archivos", Interlocked.Increment(ref completed), uniqueJobs.Count));
+            progress?.Report(new(forceMetadataRefresh ? "Verificando y reparando archivos" : "Descargando archivos", Interlocked.Increment(ref completed), uniqueJobs.Count));
         });
 
-        // Los JAR nativos son recursos compartidos; su extracción es temporal y ocurre por
-        // lanzamiento dentro de instances/<GUID>/runtime/natives/<launch-id>.
-        progress?.Report(new("Instalación lista", uniqueJobs.Count, uniqueJobs.Count));
+        progress?.Report(new(forceMetadataRefresh ? "Reparación Vanilla lista" : "Instalación lista", uniqueJobs.Count, uniqueJobs.Count));
     }
 
     private DownloadJob CreateArtifactJob(JsonElement artifact, bool native = false) => new(
