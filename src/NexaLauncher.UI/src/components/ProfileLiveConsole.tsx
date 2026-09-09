@@ -1,4 +1,4 @@
-import { ChevronRight, Clipboard, ExternalLink, File, Folder, FolderOpen, Globe2, Home, RefreshCw, Search, Settings2, Terminal } from "lucide-react";
+import { ChevronRight, Clipboard, ExternalLink, File, Folder, FolderOpen, Globe2, Home, RefreshCw, Search, Server, Settings2, Terminal } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   getProfileLiveLogs,
@@ -276,25 +276,53 @@ export function ProfileLiveConsole({ profile, running, onUpdated, onNotice }: Pr
       {moduleTab === "worlds" && (
         <div className="profile-worlds-module">
           <div className="module-toolbar worlds-toolbar">
-            <div><strong>Mundos locales</strong><span>{worlds?.serversConfigured ? "servers.dat detectado · servidores guardados en Minecraft" : "Sin servidores guardados detectados"}</span></div>
+            <div><strong>Mundos y servidores</strong><span>{worlds?.servers?.length ? `${worlds.servers.length} servidor(es) guardado(s) · ${worlds.worlds.length} mundo(s)` : worlds?.serversConfigured ? "servers.dat detectado" : "Sin servidores guardados detectados"}</span></div>
             <div className="module-toolbar-actions">
               <button type="button" onClick={() => void refreshWorlds()} disabled={worldsLoading}><RefreshCw size={14} className={worldsLoading ? "spin" : ""} /> ACTUALIZAR</button>
               <button type="button" onClick={() => openProfileWorld(profile.id).catch((error: Error) => onNotice(error.message, "error"))}><FolderOpen size={14} /> ABRIR SAVES</button>
             </div>
           </div>
 
-          {worldsLoading && !worlds ? <div className="module-empty">Buscando mundos…</div> : !worlds?.worlds.length ? (
-            <div className="module-empty worlds-empty"><Globe2 size={30} /><strong>No hay mundos añadidos</strong><span>Los mundos de Minecraft guardados en esta instancia aparecerán aquí automáticamente.</span><button className="secondary-button" type="button" onClick={() => openProfileWorld(profile.id).catch((error: Error) => onNotice(error.message, "error"))}><FolderOpen size={15} /> ABRIR CARPETA SAVES</button></div>
-          ) : (
-            <div className="world-card-grid">
-              {worlds.worlds.map((world) => (
-                <article className="world-card" key={world.relativePath}>
-                  <div className="world-card-icon"><Globe2 size={23} /></div>
-                  <div className="world-card-copy"><strong>{world.name}</strong><span>{formatSize(world.sizeBytes)} · modificado {formatDate(world.modifiedAt)}</span><small>{world.locked ? "Minecraft mantiene session.lock en este mundo" : "Disponible"}</small></div>
-                  <button className="module-icon-action" type="button" title="Abrir carpeta del mundo" onClick={() => openProfileWorld(profile.id, world.relativePath).catch((error: Error) => onNotice(error.message, "error"))}><ExternalLink size={15} /></button>
-                </article>
-              ))}
-            </div>
+          {worldsLoading && !worlds ? <div className="module-empty">Buscando mundos y servidores…</div> : (
+            <>
+              <section className="worlds-section-block">
+                <div className="worlds-section-heading"><div><Globe2 size={17} /><strong>Mundos locales</strong></div><span>{worlds?.worlds.length ?? 0}</span></div>
+                {!worlds?.worlds.length ? (
+                  <div className="module-empty worlds-empty compact-empty"><Globe2 size={27} /><strong>No hay mundos añadidos</strong><span>Los mundos guardados en esta instancia aparecerán aquí automáticamente.</span><button className="secondary-button" type="button" onClick={() => openProfileWorld(profile.id).catch((error: Error) => onNotice(error.message, "error"))}><FolderOpen size={15} /> ABRIR CARPETA SAVES</button></div>
+                ) : (
+                  <div className="world-card-grid">
+                    {worlds.worlds.map((world) => (
+                      <article className="world-card" key={world.relativePath}>
+                        <div className="world-card-icon"><Globe2 size={23} /></div>
+                        <div className="world-card-copy"><strong>{world.name}</strong><span>{formatSize(world.sizeBytes)} · modificado {formatDate(world.modifiedAt)}</span><small>{world.locked ? "Minecraft mantiene session.lock en este mundo" : "Disponible"}</small></div>
+                        <button className="module-icon-action" type="button" title="Abrir carpeta del mundo" onClick={() => openProfileWorld(profile.id, world.relativePath).catch((error: Error) => onNotice(error.message, "error"))}><ExternalLink size={15} /></button>
+                      </article>
+                    ))}
+                  </div>
+                )}
+              </section>
+
+              <section className="worlds-section-block server-section">
+                <div className="worlds-section-heading"><div><Server size={17} /><strong>Servidores guardados</strong></div><span>{worlds?.servers.length ?? 0}</span></div>
+                {worlds?.serversError && <div className="module-note server-read-error">{worlds.serversError}</div>}
+                {!worlds?.servers.length ? (
+                  <div className="module-empty compact-empty"><Server size={27} /><strong>No hay servidores guardados</strong><span>{worlds?.serversConfigured ? "servers.dat existe, pero no contiene entradas legibles." : "Los servidores que guardes desde Minecraft aparecerán aquí."}</span></div>
+                ) : (
+                  <div className="server-card-grid">
+                    {worlds.servers.map((server, index) => (
+                      <article className="server-card" key={`${server.address}-${index}`}>
+                        <div className="server-card-icon"><Server size={20} /></div>
+                        <div className="server-card-copy">
+                          <strong>{server.name}</strong>
+                          <span>{server.hiddenAddress ? "Dirección oculta por Minecraft" : server.address}</span>
+                          <small>{server.acceptTextures == null ? "Resource packs: preguntar" : server.acceptTextures ? "Resource packs: aceptar" : "Resource packs: rechazar"}</small>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                )}
+              </section>
+            </>
           )}
         </div>
       )}
