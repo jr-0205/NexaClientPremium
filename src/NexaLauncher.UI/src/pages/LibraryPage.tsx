@@ -43,7 +43,6 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
         </div>
         <div className="home-heading-actions">
           <span className="home-core-status"><span className="status-dot" /> NEXA listo</span>
-          <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>
         </div>
       </div>
 
