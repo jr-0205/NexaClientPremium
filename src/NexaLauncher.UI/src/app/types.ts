@@ -312,10 +312,19 @@ export type ProfileWorldEntry = {
   locked: boolean;
 };
 
+export type ProfileServerEntry = {
+  name: string;
+  address: string;
+  hiddenAddress: boolean;
+  acceptTextures?: boolean | null;
+};
+
 export type ProfileWorldListing = {
   profileId: string;
   worlds: ProfileWorldEntry[];
   serversConfigured: boolean;
+  servers: ProfileServerEntry[];
+  serversError?: string | null;
 };
 
 export type OperationProgress = {
