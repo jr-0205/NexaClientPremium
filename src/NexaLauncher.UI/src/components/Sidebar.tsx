@@ -1,4 +1,4 @@
-import { Boxes, Crown, Home, LibraryBig, Palette, Plus, Settings2, Sparkles, X } from "lucide-react";
+import { Box, Crown, Home, Palette, Plus, Settings, Star, Xmark } from "iconoir-react";
 import { useEffect, useState } from "react";
 
 type Section = "library" | "create" | "content" | "account" | "settings";
@@ -9,13 +9,13 @@ type SidebarProps = {
   onChange(section: Section): void;
 };
 
-const items: Array<{ key: Section; label: string; icon: typeof LibraryBig }> = [
+const items = [
   { key: "library", label: "Inicio", icon: Home },
-  { key: "content", label: "Explorar", icon: Boxes },
+  { key: "content", label: "Explorar", icon: Box },
   { key: "create", label: "Nueva instancia", icon: Plus },
   { key: "account", label: "Cuenta", icon: Crown },
-  { key: "settings", label: "Ajustes", icon: Settings2 },
-];
+  { key: "settings", label: "Ajustes", icon: Settings },
+] as const;
 
 const accents: Array<{ id: Accent; label: string; color: string }> = [
   { id: "blue", label: "Azul", color: "#1687ff" },
@@ -65,7 +65,7 @@ export function Sidebar({ active, onChange }: SidebarProps) {
       <nav className="sidebar-nav" aria-label="Navegación principal">
         {items.map(({ key, label, icon: Icon }) => (
           <button key={key} type="button" className={`nav-button ${active === key ? "active" : ""}`} onClick={() => onChange(key)} title={label} aria-label={label}>
-            <Icon size={20} strokeWidth={1.8} />
+            <Icon width={20} height={20} strokeWidth={1.8} />
             <span className="nav-tooltip">{label}</span>
           </button>
         ))}
@@ -73,14 +73,14 @@ export function Sidebar({ active, onChange }: SidebarProps) {
 
       <div className="sidebar-bottom">
         <button className={`nav-button palette-button ${paletteOpen ? "active" : ""}`} type="button" onClick={() => setPaletteOpen((value) => !value)} title="Color de énfasis" aria-label="Color de énfasis">
-          <Palette size={19} />
+          <Palette width={19} height={19} />
         </button>
-        <div className="sidebar-status" title="NEXA Core listo"><Sparkles size={16} /></div>
+        <div className="sidebar-status" title="NEXA Core listo"><Star width={16} height={16} /></div>
       </div>
 
       {paletteOpen && (
         <div className="sidebar-palette glass-panel">
-          <div className="sidebar-palette-head"><div><span className="eyebrow">NEXA</span><strong>Color de énfasis</strong></div><button className="icon-button" type="button" onClick={() => setPaletteOpen(false)}><X size={15} /></button></div>
+          <div className="sidebar-palette-head"><div><span className="eyebrow">NEXA</span><strong>Color de énfasis</strong></div><button className="icon-button" type="button" onClick={() => setPaletteOpen(false)}><Xmark width={15} height={15} /></button></div>
           <p>Elige el color principal de botones, selecciones e indicadores.</p>
           <div className="sidebar-palette-grid">
             {accents.map((item) => <button key={item.id} type="button" className={`palette-choice ${accent === item.id ? "selected" : ""}`} onClick={() => chooseAccent(item.id)}><span style={{ background: item.id === "custom" ? customColor : item.color }} /><small>{item.label}</small></button>)}
