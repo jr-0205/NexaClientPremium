@@ -24,7 +24,7 @@ export function Sidebar({ active, onChange }: SidebarProps) {
   const [customColor, setCustomColor] = useState(initial.customColor);
 
   useEffect(() => {
-    applyAccentPreference(accent, customColor, false);
+    applyAccentPreference(accent, customColor);
     return onAccentPreferenceChanged((next) => {
       setAccent(next.accent);
       setCustomColor(next.customColor);
