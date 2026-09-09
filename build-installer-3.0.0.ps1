@@ -29,15 +29,21 @@ function Require-Command([string]$Name) {
 
 function Find-Iscc {
     $fromPath = Get-Command "ISCC.exe" -ErrorAction SilentlyContinue
-    if ($fromPath) { return $fromPath.Source }
+    if ($null -ne $fromPath) { return $fromPath.Source }
 
-    $candidates = @(
-        "$env:ProgramFiles(x86)\Inno Setup 6\ISCC.exe",
-        "$env:ProgramFiles\Inno Setup 6\ISCC.exe",
-        "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe"
-    ) | Where-Object { $_ -and (Test-Path $_) }
+    $programFilesX86 = [Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFilesX86)
+    $programFiles = [Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFiles)
+    $localAppData = [Environment]::GetFolderPath([Environment+SpecialFolder]::LocalApplicationData)
 
-    if ($candidates.Count -gt 0) { return $candidates[0] }
+    $candidatePaths = @(
+        (Join-Path $programFilesX86 "Inno Setup 6\ISCC.exe")
+        (Join-Path $programFiles "Inno Setup 6\ISCC.exe")
+        (Join-Path $localAppData "Programs\Inno Setup 6\ISCC.exe")
+    )
+
+    $candidates = @($candidatePaths | Where-Object { $_ -and (Test-Path $_) })
+    if ($candidates.Length -gt 0) { return $candidates[0] }
+
     throw "No se encontro Inno Setup 6 (ISCC.exe). Instala Inno Setup 6 y vuelve a ejecutar el script."
 }
 
@@ -52,6 +58,7 @@ $Iscc = Find-Iscc
 
 Write-Host "NEXA Client - compilacion de instalador v$Version" -ForegroundColor White
 Write-Host "Repositorio: $RepoRoot" -ForegroundColor DarkGray
+Write-Host "Inno Setup: $Iscc" -ForegroundColor DarkGray
 
 Write-Step "Limpiando artefactos de publicacion anteriores"
 if (Test-Path $PublishDir) { Remove-Item $PublishDir -Recurse -Force }
