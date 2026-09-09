@@ -65,12 +65,12 @@ public sealed class MinecraftRuntime
         => Provider(loaderId).InstallAsync(request, progress, token);
 
     /// <summary>
-    /// Ejecuta nuevamente el pipeline de instalación aunque el proveedor ya marque la
-    /// combinación como instalada. Los descargadores verificados reutilizan archivos
-    /// válidos y reemplazan recursos ausentes o cuyo hash ya no coincide.
+    /// Ejecuta un pipeline de reparación explícito. Cada loader vuelve a validar su capa
+    /// Vanilla compartida y sus propios metadatos/bibliotecas sin tocar el directorio game
+    /// de la instancia, por lo que mundos, mods y configuración del usuario se conservan.
     /// </summary>
     public Task RepairAsync(LoaderInstallRequest request, string loaderId, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
-        => Provider(loaderId).InstallAsync(request, progress, token);
+        => Provider(loaderId).RepairAsync(request, progress, token);
 
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string loaderId, string? loaderVersion, string gameDirectory)
         => Provider(loaderId).CreateLaunchPlan(minecraftVersion, loaderVersion, gameDirectory);
