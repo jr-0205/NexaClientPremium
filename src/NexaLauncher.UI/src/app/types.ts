@@ -29,6 +29,11 @@ export type NexaProfile = {
   loaderVersion?: string | null;
   lastPlayedAt?: string | null;
   memoryMiB?: number | null;
+  javaPath?: string | null;
+  jvmArguments?: string[] | null;
+  windowWidth?: number | null;
+  windowHeight?: number | null;
+  fullscreen?: boolean | null;
   iconDataUrl?: string | null;
   backgroundDataUrl?: string | null;
   artwork?: ProfileArtworkPlacement;
@@ -52,6 +57,13 @@ export type UpdateProfileSettingsRequest = {
   windowWidth?: number | null;
   windowHeight?: number | null;
   fullscreen?: boolean | null;
+};
+
+export type UpdateProfileInstallationRequest = {
+  id: string;
+  minecraftVersion: string;
+  loader: "Vanilla" | "Fabric" | "Forge" | "NeoForge";
+  loaderVersion?: string | null;
 };
 
 export type ActiveLaunch = {
