@@ -24,13 +24,26 @@ export function Sidebar({ active, onChange }: SidebarProps) {
   const [customColor, setCustomColor] = useState(initial.customColor);
 
   useEffect(() => {
-    applyAccentPreference(accent, customColor);
+    applyAccentPreference(accent, customColor, false);
     return onAccentPreferenceChanged((next) => {
       setAccent(next.accent);
       setCustomColor(next.customColor);
       applyAccentPreference(next.accent, next.customColor, false);
     });
   }, []);
+
+  function togglePalette() {
+    setPaletteOpen((current) => {
+      const nextOpen = !current;
+      if (nextOpen) {
+        const saved = loadAccentPreference();
+        setAccent(saved.accent);
+        setCustomColor(saved.customColor);
+        applyAccentPreference(saved.accent, saved.customColor, false);
+      }
+      return nextOpen;
+    });
+  }
 
   function chooseAccent(next: AccentTone) {
     setAccent(next);
@@ -59,7 +72,7 @@ export function Sidebar({ active, onChange }: SidebarProps) {
       </nav>
 
       <div className="sidebar-bottom">
-        <button className={`nav-button palette-button ${paletteOpen ? "active" : ""}`} type="button" onClick={() => setPaletteOpen((value) => !value)} title="Color de énfasis" aria-label="Color de énfasis">
+        <button className={`nav-button palette-button ${paletteOpen ? "active" : ""}`} type="button" onClick={togglePalette} title="Color de énfasis" aria-label="Color de énfasis">
           <Palette width={19} height={19} />
         </button>
         <div className="sidebar-status" title="NEXA Core listo"><Star width={16} height={16} /></div>
