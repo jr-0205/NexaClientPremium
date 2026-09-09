@@ -328,7 +328,7 @@ internal sealed class NexaProfileLogMessageRouter
     private sealed record ResponseEnvelope(string Id, bool Ok, object? Result, string? Error);
     private sealed record ProfileRequest(string Id);
     private sealed record ProfilePathRequest(string Id, string? Path = null);
-    private sealed record ProfileContext(InstanceId Id, InstanceProfile Profile, string Game);
+    private sealed record ProfileContext(InstanceId Id, GameInstance Profile, string Game);
     private sealed record FileEntry(string Name, string RelativePath, bool IsDirectory, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt);
     private sealed record WorldEntry(string Name, string RelativePath, long SizeBytes, DateTimeOffset CreatedAt, DateTimeOffset ModifiedAt, bool Locked);
 }
