@@ -255,6 +255,37 @@ export type ProfileLiveLogs = {
   crash: ProfileLogSnapshot;
 };
 
+export type ProfileFileEntry = {
+  name: string;
+  relativePath: string;
+  isDirectory: boolean;
+  sizeBytes: number;
+  createdAt: string;
+  modifiedAt: string;
+};
+
+export type ProfileFileListing = {
+  profileId: string;
+  path: string;
+  entries: ProfileFileEntry[];
+  truncated: boolean;
+};
+
+export type ProfileWorldEntry = {
+  name: string;
+  relativePath: string;
+  sizeBytes: number;
+  createdAt: string;
+  modifiedAt: string;
+  locked: boolean;
+};
+
+export type ProfileWorldListing = {
+  profileId: string;
+  worlds: ProfileWorldEntry[];
+  serversConfigured: boolean;
+};
+
 export type OperationProgress = {
   stage: string;
   completed?: number;
