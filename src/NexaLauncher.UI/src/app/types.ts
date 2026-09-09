@@ -29,14 +29,19 @@ export type NexaProfile = {
   loaderVersion?: string | null;
   lastPlayedAt?: string | null;
   memoryMiB?: number | null;
-  javaPath?: string | null;
-  jvmArguments?: string[] | null;
-  windowWidth?: number | null;
-  windowHeight?: number | null;
-  fullscreen?: boolean | null;
   iconDataUrl?: string | null;
   backgroundDataUrl?: string | null;
   artwork?: ProfileArtworkPlacement;
+};
+
+export type ProfileRuntimeSettings = {
+  profileId: string;
+  memoryMiB?: number | null;
+  javaPath?: string | null;
+  jvmArguments: string[];
+  windowWidth?: number | null;
+  windowHeight?: number | null;
+  fullscreen?: boolean | null;
 };
 
 export type UpdateProfileSettingsRequest = {
