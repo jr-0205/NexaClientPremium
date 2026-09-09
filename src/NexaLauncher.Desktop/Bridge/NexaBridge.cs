@@ -69,6 +69,7 @@ internal sealed class NexaBridge
                 case "catalog.loaderVersions": result = await LoaderVersionsAsync(request.Payload); break;
                 case "profiles.create": result = await CreateProfileAsync(request.Payload); break;
                 case "profiles.update": result = await UpdateProfileAsync(request.Payload); break;
+                case "profiles.installation.update": result = await UpdateInstallationAsync(request.Payload); break;
                 case "profiles.delete": result = await DeleteProfileAsync(request.Payload); break;
                 case "profiles.openFolder": result = await OpenProfileFolderAsync(request.Payload); break;
                 case "profiles.launch": result = await LaunchProfileAsync(request.Payload); break;
@@ -225,6 +226,31 @@ internal sealed class NexaBridge
                 UpdatedAt = DateTimeOffset.UtcNow
             };
             await instances.SaveAsync(updated);
+            return ProfileDto(updated);
+        }
+        finally
+        {
+            mutationLock.Release();
+        }
+    }
+
+    private async Task<object> UpdateInstallationAsync(JsonElement payload)
+    {
+        var request = Read<UpdateInstallationRequest>(payload);
+        var id = InstanceId.Parse(request.Id);
+        if (activeLaunchProfileId == id && activeLaunch is not null && !activeLaunch.Process.HasExited)
+            throw new InvalidOperationException("No se puede cambiar la instalación mientras esta instancia está en ejecución.");
+
+        await mutationLock.WaitAsync();
+        try
+        {
+            var version = await ResolveMinecraftVersionAsync(request.MinecraftVersion);
+            var loader = ParseLoader(request.Loader);
+            var loaderVersion = await ResolveLoaderVersionAsync(loader, version.Id, request.LoaderVersion);
+            PostEvent("operation.progress", new { stage = "Preparando instalación", completed = 0, total = 0 });
+            await EnsureInstalledAsync(version, loader, loaderVersion);
+            var updated = await instanceManager.UpdateInstallationAsync(id, version.Id, loader, loaderVersion);
+            PostEvent("operation.progress", new { stage = "Instalación actualizada", completed = 1, total = 1 });
             return ProfileDto(updated);
         }
         finally
@@ -476,6 +502,11 @@ internal sealed class NexaBridge
             loader = profile.Loader.ToString(),
             loaderVersion = profile.LoaderVersion,
             memoryMiB = profile.Settings.MemoryMiB,
+            javaPath = profile.Settings.JavaPath,
+            jvmArguments = profile.Settings.JvmArguments,
+            windowWidth = profile.Settings.WindowWidth,
+            windowHeight = profile.Settings.WindowHeight,
+            fullscreen = profile.Settings.Fullscreen,
             createdAt = profile.CreatedAt,
             updatedAt = profile.UpdatedAt,
             lastPlayedAt = profile.LastPlayedAt,
@@ -624,6 +655,7 @@ internal sealed class NexaBridge
     private sealed record ProfileIdRequest(string Id);
     private sealed record CreateProfileRequest(string Name, string MinecraftVersion, string Loader, string? LoaderVersion, string? Description, int? MemoryMiB, string? IconDataUrl, string? BackgroundDataUrl);
     private sealed record UpdateProfileRequest(string Id, string Name, string? Description, string? IconDataUrl, string? BackgroundDataUrl, bool RemoveIcon, bool RemoveBackground);
+    private sealed record UpdateInstallationRequest(string Id, string MinecraftVersion, string Loader, string? LoaderVersion);
     private sealed record ContentEntryRequest(string Id, InstalledContentEntry Entry);
     private sealed record ContentSearchRequest(string Id, string? Query, string ProjectType);
     private sealed record CatalogProjectRequest(string Id, string Title, string? Description, string? Author, string ProjectType, string? IconUrl, long Downloads);
