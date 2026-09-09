@@ -64,6 +64,14 @@ public sealed class MinecraftRuntime
     public Task InstallAsync(LoaderInstallRequest request, string loaderId, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
         => Provider(loaderId).InstallAsync(request, progress, token);
 
+    /// <summary>
+    /// Ejecuta nuevamente el pipeline de instalación aunque el proveedor ya marque la
+    /// combinación como instalada. Los descargadores verificados reutilizan archivos
+    /// válidos y reemplazan recursos ausentes o cuyo hash ya no coincide.
+    /// </summary>
+    public Task RepairAsync(LoaderInstallRequest request, string loaderId, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => Provider(loaderId).InstallAsync(request, progress, token);
+
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string loaderId, string? loaderVersion, string gameDirectory)
         => Provider(loaderId).CreateLaunchPlan(minecraftVersion, loaderVersion, gameDirectory);
 
