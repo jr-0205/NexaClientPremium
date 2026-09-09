@@ -1,4 +1,5 @@
-import { Loader2, Save } from "lucide-react";
+import { FloppyDisk, Refresh, Settings } from "iconoir-react";
+import { Loader2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { getProfileSettings, updateProfileSettings } from "../app/nexa-bridge";
 import type { NexaProfile, ProfileRuntimeSettings } from "../app/types";
@@ -64,10 +65,21 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
       fullscreen !== (settings.fullscreen == null ? "inherit" : settings.fullscreen ? "on" : "off");
   }, [settings, memory, javaPath, jvmText, windowWidth, windowHeight, fullscreen]);
 
+  function restoreLoadedValues() {
+    setMemory(settings.memoryMiB?.toString() ?? "");
+    setJavaPath(settings.javaPath ?? "");
+    setJvmText(settings.jvmArguments.join("\n"));
+    setWindowWidth(settings.windowWidth?.toString() ?? "");
+    setWindowHeight(settings.windowHeight?.toString() ?? "");
+    setFullscreen(settings.fullscreen == null ? "inherit" : settings.fullscreen ? "on" : "off");
+  }
+
   async function save() {
     const memoryValue = optionalNumber(memory);
     const widthValue = optionalNumber(windowWidth);
     const heightValue = optionalNumber(windowHeight);
+    const argumentsList = jvmText.split(/\r?\n/).map((value) => value.trim()).filter(Boolean);
+
     if (memory.trim() && (memoryValue == null || memoryValue < 1024 || memoryValue > 32768)) {
       onNotice("La memoria debe estar entre 1024 y 32768 MB.", "error");
       return;
@@ -80,6 +92,10 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
       onNotice("El alto debe estar entre 480 y 4320 px.", "error");
       return;
     }
+    if (argumentsList.length > 64) {
+      onNotice("NEXA admite hasta 64 argumentos JVM por instancia.", "error");
+      return;
+    }
 
     setSaving(true);
     try {
@@ -87,7 +103,7 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
         id: profile.id,
         memoryMiB: memoryValue,
         javaPath: javaPath.trim() || null,
-        jvmArguments: jvmText.split(/\r?\n/).map((value) => value.trim()).filter(Boolean),
+        jvmArguments: argumentsList,
         windowWidth: widthValue,
         windowHeight: heightValue,
         fullscreen: fullscreen === "inherit" ? null : fullscreen === "on",
@@ -107,14 +123,15 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
     <section className="instance-settings-panel glass-panel" aria-label={`Configuración de ${profile.name}`}>
       <header className="instance-settings-heading">
         <div>
-          <span className="eyebrow">CONFIGURACIÓN DE INSTANCIA</span>
+          <span className="eyebrow"><Settings width={14} height={14} /> CONFIGURACIÓN DE INSTANCIA</span>
           <h2>{profile.name}</h2>
           <p>Minecraft {profile.minecraftVersion} · {profile.loader}{profile.loaderVersion ? ` ${profile.loaderVersion}` : ""}</p>
         </div>
         <div className="instance-settings-actions">
+          {changed && <button className="ghost-button" type="button" disabled={saving} onClick={restoreLoadedValues}><Refresh width={15} height={15} /> DESCARTAR</button>}
           <button className="ghost-button" type="button" onClick={onClose}>CERRAR</button>
           <button className="primary-button" type="button" disabled={loading || saving || !changed} onClick={save}>
-            {saving ? <Loader2 className="spin" size={15} /> : <Save size={15} />} GUARDAR
+            {saving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR
           </button>
         </div>
       </header>
@@ -134,16 +151,21 @@ export function InstanceSettingsPanel({ profile, open, onClose, onNotice }: Prop
 
           <article className="instance-settings-card">
             <span className="eyebrow">JAVA</span>
-            <h3>Runtime personalizado</h3>
-            <p>Déjalo vacío para que NEXA detecte automáticamente el Java compatible al iniciar.</p>
-            <label className="field-label">RUTA DE JAVA<input className="nexa-input" value={javaPath} onChange={(event) => setJavaPath(event.target.value)} placeholder="Auto detectar" spellCheck={false} /></label>
+            <h3>Runtime de la instancia</h3>
+            <p>Vacío = NEXA detecta en cada inicio el Java compatible con la versión de Minecraft.</p>
+            <label className="field-label">RUTA DE JAVA<input className="nexa-input" value={javaPath} onChange={(event) => setJavaPath(event.target.value)} placeholder="Detección automática" spellCheck={false} /></label>
+            <div className="instance-memory-presets">
+              <button type="button" className={!javaPath.trim() ? "active" : ""} onClick={() => setJavaPath("")}>USAR DETECCIÓN AUTOMÁTICA</button>
+            </div>
+            <small className="instance-settings-hint">El selector nativo de java.exe/javaw.exe se añadirá sobre este mismo override sin enviar rutas arbitrarias fuera del bridge.</small>
           </article>
 
           <article className="instance-settings-card wide">
             <span className="eyebrow">AVANZADO</span>
             <h3>Argumentos JVM</h3>
-            <p>Un argumento por línea. NEXA conserva estos argumentos únicamente para esta instancia.</p>
+            <p>Un argumento por línea. Máximo 64. NEXA conserva estos argumentos únicamente para esta instancia.</p>
             <textarea className="nexa-input instance-jvm-input" value={jvmText} onChange={(event) => setJvmText(event.target.value)} placeholder={'-XX:+UseG1GC\n-Dpropiedad=valor'} spellCheck={false} />
+            <small className="instance-settings-hint">{jvmText.split(/\r?\n/).map((value) => value.trim()).filter(Boolean).length}/64 argumentos</small>
           </article>
 
           <article className="instance-settings-card">
