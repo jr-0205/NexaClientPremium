@@ -15,7 +15,7 @@ public sealed class VanillaLoaderProvider(VanillaInstaller installer) : ILoaderP
         => installer.InstallAsync(request.Version, progress, token);
 
     public Task RepairAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
-        => installer.InstallAsync(request.Version, progress, token);
+        => installer.RepairAsync(request.Version, progress, token);
 
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string? loaderVersion, string gameDirectory)
         => new(minecraftVersion, Path.GetFullPath(gameDirectory));
