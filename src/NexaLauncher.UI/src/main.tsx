@@ -14,6 +14,8 @@ import "./styles/installed-content-icons.css";
 import "./styles/account.css";
 import "./styles/redesign.css";
 import "./styles/instance-redesign.css";
+import "./styles/account-session-redesign.css";
+import "./styles/settings-redesign.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
