@@ -22,10 +22,10 @@ public sealed class FabricLoaderProvider(
            && File.Exists(paths.FabricProfile(minecraftVersion, loaderVersion));
 
     public Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
-        => InstallCoreAsync(request, progress, repairVanilla: false, token);
+        => InstallCoreAsync(request, progress, repairVanilla: false, token: token);
 
     public Task RepairAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
-        => InstallCoreAsync(request, progress, repairVanilla: true, token);
+        => InstallCoreAsync(request, progress, repairVanilla: true, token: token);
 
     private async Task InstallCoreAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress, bool repairVanilla, CancellationToken token)
     {
