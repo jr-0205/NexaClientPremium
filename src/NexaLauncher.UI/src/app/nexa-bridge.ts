@@ -90,7 +90,6 @@ export function invoke<T>(method: string, payload: Record<string, unknown> = {})
   ensureListener();
   const id = crypto.randomUUID();
   return new Promise<T>((resolve, reject) => {
-    pending.set(id, { resolve: resolve as (value: unknown): void => void 0, reject });
     pending.set(id, { resolve: resolve as (value: unknown) => void, reject });
     webview.postMessage({ id, method, payload });
   });
