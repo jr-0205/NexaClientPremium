@@ -1,8 +1,8 @@
 import { Box, Crown, Home, Palette, Plus, Settings, Star, Xmark } from "iconoir-react";
 import { useEffect, useState } from "react";
+import { accentOptions, applyAccentPreference, loadAccentPreference, onAccentPreferenceChanged, type AccentTone } from "../app/accent-theme";
 
 type Section = "library" | "create" | "content" | "account" | "settings";
-type Accent = "blue" | "gray" | "white" | "custom";
 
 type SidebarProps = {
   active: Section;
@@ -17,43 +17,30 @@ const items = [
   { key: "settings", label: "Ajustes", icon: Settings },
 ] as const;
 
-const accents: Array<{ id: Accent; label: string; color: string }> = [
-  { id: "blue", label: "Azul", color: "#1687ff" },
-  { id: "gray", label: "Gris", color: "#8b95a7" },
-  { id: "white", label: "Blanco", color: "#f4f7fb" },
-  { id: "custom", label: "Personalizado", color: "#7357ff" },
-];
-
-function hexToRgb(hex: string) {
-  const normalized = hex.replace("#", "");
-  const value = Number.parseInt(normalized, 16);
-  return `${(value >> 16) & 255}, ${(value >> 8) & 255}, ${value & 255}`;
-}
-
-function applyAccent(accent: Accent, custom: string) {
-  const selected = accent === "custom" ? custom : accents.find((item) => item.id === accent)?.color ?? "#1687ff";
-  const root = document.documentElement;
-  root.style.setProperty("--accent", selected);
-  root.style.setProperty("--accent-rgb", hexToRgb(selected));
-  root.style.setProperty("--accent-contrast", accent === "white" ? "#07101c" : "#ffffff");
-}
-
 export function Sidebar({ active, onChange }: SidebarProps) {
+  const initial = loadAccentPreference();
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [accent, setAccent] = useState<Accent>(() => (localStorage.getItem("nexa-accent") as Accent) || "blue");
-  const [customColor, setCustomColor] = useState(() => localStorage.getItem("nexa-custom-accent") || "#7357ff");
+  const [accent, setAccent] = useState<AccentTone>(initial.accent);
+  const [customColor, setCustomColor] = useState(initial.customColor);
 
-  useEffect(() => applyAccent(accent, customColor), [accent, customColor]);
+  useEffect(() => {
+    applyAccentPreference(accent, customColor, false);
+    return onAccentPreferenceChanged((next) => {
+      setAccent(next.accent);
+      setCustomColor(next.customColor);
+      applyAccentPreference(next.accent, next.customColor, false);
+    });
+  }, []);
 
-  function chooseAccent(next: Accent) {
+  function chooseAccent(next: AccentTone) {
     setAccent(next);
-    localStorage.setItem("nexa-accent", next);
+    applyAccentPreference(next, customColor);
   }
 
   function chooseCustom(next: string) {
     setCustomColor(next);
-    localStorage.setItem("nexa-custom-accent", next);
-    chooseAccent("custom");
+    setAccent("custom");
+    applyAccentPreference("custom", next);
   }
 
   return (
@@ -81,9 +68,9 @@ export function Sidebar({ active, onChange }: SidebarProps) {
       {paletteOpen && (
         <div className="sidebar-palette glass-panel">
           <div className="sidebar-palette-head"><div><span className="eyebrow">NEXA</span><strong>Color de énfasis</strong></div><button className="icon-button" type="button" onClick={() => setPaletteOpen(false)}><Xmark width={15} height={15} /></button></div>
-          <p>Elige el color principal de botones, selecciones e indicadores.</p>
+          <p>La base negra y plateada permanece fija. El color sólo cambia selecciones, botones e indicadores.</p>
           <div className="sidebar-palette-grid">
-            {accents.map((item) => <button key={item.id} type="button" className={`palette-choice ${accent === item.id ? "selected" : ""}`} onClick={() => chooseAccent(item.id)}><span style={{ background: item.id === "custom" ? customColor : item.color }} /><small>{item.label}</small></button>)}
+            {accentOptions.map((item) => <button key={item.id} type="button" className={`palette-choice ${accent === item.id ? "selected" : ""}`} onClick={() => chooseAccent(item.id)}><span style={{ background: item.id === "custom" ? customColor : item.color }} /><small>{item.label}</small></button>)}
           </div>
           <label className="palette-custom">Personalizado<input type="color" value={customColor} onChange={(event) => chooseCustom(event.target.value)} /></label>
         </div>
