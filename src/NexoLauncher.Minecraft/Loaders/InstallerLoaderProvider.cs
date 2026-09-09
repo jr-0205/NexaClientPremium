@@ -33,7 +33,10 @@ public sealed class InstallerLoaderProvider(
         if (string.IsNullOrWhiteSpace(request.JavaExecutable) || !File.Exists(request.JavaExecutable))
             throw new FileNotFoundException($"{Id} requiere un runtime Java válido para ejecutar su instalador.", request.JavaExecutable);
 
-        if (repairVanilla || !vanilla.IsInstalled(request.Version.Id)) await vanilla.InstallAsync(request.Version, progress, token);
+        if (repairVanilla)
+            await vanilla.RepairAsync(request.Version, progress, token);
+        else if (!vanilla.IsInstalled(request.Version.Id))
+            await vanilla.InstallAsync(request.Version, progress, token);
         PrepareOfficialLayout(request.Version.Id);
 
         var installer = paths.LoaderInstaller(Id, request.Version.Id, request.LoaderVersion);
