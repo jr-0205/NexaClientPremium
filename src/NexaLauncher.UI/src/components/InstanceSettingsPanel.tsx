@@ -2,6 +2,7 @@ import { FloppyDisk, Refresh, Settings } from "iconoir-react";
 import { Loader2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import {
+  browseProfileJava,
   getLoaderVersions,
   getMinecraftVersions,
   getProfileSettings,
@@ -50,6 +51,7 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
   const [settings, setSettings] = useState<ProfileRuntimeSettings>(EMPTY);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [browsingJava, setBrowsingJava] = useState(false);
   const [memory, setMemory] = useState("");
   const [javaPath, setJavaPath] = useState("");
   const [jvmText, setJvmText] = useState("");
@@ -144,6 +146,18 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
     setMinecraftVersion(profile.minecraftVersion);
     setLoader(normalizeLoader(profile.loader));
     setLoaderVersion(profile.loaderVersion ?? "");
+  }
+
+  async function chooseJava() {
+    setBrowsingJava(true);
+    try {
+      const result = await browseProfileJava(profile.id);
+      if (result.selected && result.path) setJavaPath(result.path);
+    } catch (error) {
+      onNotice(error instanceof Error ? error.message : "No se pudo abrir el selector de Java.", "error");
+    } finally {
+      setBrowsingJava(false);
+    }
   }
 
   async function save() {
@@ -256,8 +270,11 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
             <h3>Runtime de la instancia</h3>
             <p>Vacío = NEXA detecta en cada inicio el Java compatible con la versión de Minecraft.</p>
             <label className="field-label">RUTA DE JAVA<input className="nexa-input" value={javaPath} onChange={(event) => setJavaPath(event.target.value)} placeholder="Detección automática" spellCheck={false} /></label>
-            <div className="instance-memory-presets"><button type="button" className={!javaPath.trim() ? "active" : ""} onClick={() => setJavaPath("")}>USAR DETECCIÓN AUTOMÁTICA</button></div>
-            <small className="instance-settings-hint">El selector nativo de java.exe/javaw.exe se añadirá sobre este mismo override.</small>
+            <div className="instance-memory-presets">
+              <button type="button" className={!javaPath.trim() ? "active" : ""} onClick={() => setJavaPath("")}>USAR DETECCIÓN AUTOMÁTICA</button>
+              <button type="button" disabled={browsingJava} onClick={() => void chooseJava()}>{browsingJava ? "ABRIENDO…" : "EXAMINAR JAVA"}</button>
+            </div>
+            <small className="instance-settings-hint">Examinar abre un selector nativo de Windows limitado a java.exe/javaw.exe. La ruta sólo se guarda si confirmas los cambios.</small>
           </article>
 
           <article className="instance-settings-card wide">
