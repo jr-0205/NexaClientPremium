@@ -1,4 +1,5 @@
-import { Check, ChevronDown, Crown, Loader2, UserRound } from "lucide-react";
+import { Check, Crown, NavArrowDown, User } from "iconoir-react";
+import { Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 type TopbarProps = {
@@ -67,7 +68,7 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
       <div className="topbar-title">{title}</div>
       <div className="topbar-actions">
         <div className={`core-pill ${isPremium ? "premium" : ""}`}>
-          {isPremium ? <Crown size={13} /> : <span className="status-dot" />}
+          {isPremium ? <Crown width={13} height={13} /> : <span className="status-dot" />}
           {isPremium ? "NEXA PREMIUM" : "NEXA CORE LISTO"}
         </div>
         <div className="user-menu-wrap" ref={wrapper}>
@@ -77,7 +78,7 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
               <strong>{username || "Player"}</strong>
               <small>{isPremium ? "Minecraft verificado" : "Perfil local"}</small>
             </span>
-            <ChevronDown size={15} className={`user-chevron ${open ? "open" : ""}`} />
+            <NavArrowDown width={15} height={15} className={`user-chevron ${open ? "open" : ""}`} />
           </button>
 
           {open && !isPremium && (
@@ -89,12 +90,12 @@ export function Topbar({ title, username, isPremium = false, onOpenAccount, onUp
 
               <p className="user-popover-description">Mientras uses un perfil local puedes cambiar aquí el nombre que NEXA utilizará para las sesiones offline.</p>
               <label className="field-label">NOMBRE DE JUGADOR
-                <div className="user-name-input"><UserRound size={15} /><input value={draft} maxLength={16} onChange={(event) => { setDraft(event.target.value); setError(null); }} onKeyDown={(event) => { if (event.key === "Enter") save(); }} autoFocus /></div>
+                <div className="user-name-input"><User width={15} height={15} /><input value={draft} maxLength={16} onChange={(event) => { setDraft(event.target.value); setError(null); }} onKeyDown={(event) => { if (event.key === "Enter") save(); }} autoFocus /></div>
               </label>
               {error && <div className="user-popover-error">{error}</div>}
               <div className="user-popover-actions">
                 <button className="ghost-button" type="button" onClick={() => { setDraft(username || "Player"); setError(null); setOpen(false); }}>CANCELAR</button>
-                <button className="primary-button" type="button" disabled={saving || draft.trim() === username} onClick={save}>{saving ? <Loader2 className="spin" size={15} /> : <Check size={15} />} GUARDAR</button>
+                <button className="primary-button" type="button" disabled={saving || draft.trim() === username} onClick={save}>{saving ? <Loader2 className="spin" size={15} /> : <Check width={15} height={15} />} GUARDAR</button>
               </div>
             </div>
           )}
