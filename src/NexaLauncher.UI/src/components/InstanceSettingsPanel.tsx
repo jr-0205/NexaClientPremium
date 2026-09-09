@@ -6,6 +6,7 @@ import {
   getLoaderVersions,
   getMinecraftVersions,
   getProfileSettings,
+  repairProfileInstallation,
   updateProfileInstallation,
   updateProfileSettings,
 } from "../app/nexa-bridge";
@@ -63,6 +64,7 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
   const [loaderVersions, setLoaderVersions] = useState<LoaderVersionItem[]>([]);
   const [installationLoading, setInstallationLoading] = useState(false);
   const [installationSaving, setInstallationSaving] = useState(false);
+  const [repairing, setRepairing] = useState(false);
   const [minecraftVersion, setMinecraftVersion] = useState(profile.minecraftVersion);
   const [loader, setLoader] = useState<LoaderName>(() => normalizeLoader(profile.loader));
   const [loaderVersion, setLoaderVersion] = useState(profile.loaderVersion ?? "");
@@ -225,6 +227,22 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
     }
   }
 
+  async function repairInstallation() {
+    if (running) return onNotice("Cierra Minecraft antes de reparar esta instalación.", "error");
+    if (installationChanged) return onNotice("Aplica o descarta los cambios de versión antes de reparar.", "error");
+
+    setRepairing(true);
+    try {
+      const result = await repairProfileInstallation(profile.id);
+      onUpdated(result.profile);
+      onNotice("Instalación verificada y reparada. Los archivos válidos se conservaron y los dañados o faltantes se restauraron.", "success");
+    } catch (error) {
+      onNotice(error instanceof Error ? error.message : "No se pudo reparar la instalación.", "error");
+    } finally {
+      setRepairing(false);
+    }
+  }
+
   if (!open) return null;
 
   return (
@@ -237,12 +255,12 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
         </div>
         <div className="instance-settings-actions">
           {tab === "runtime" && changed && <button className="ghost-button" type="button" disabled={saving} onClick={restoreLoadedValues}><Refresh width={15} height={15} /> DESCARTAR</button>}
-          {tab === "installation" && installationChanged && <button className="ghost-button" type="button" disabled={installationSaving} onClick={restoreInstallation}><Refresh width={15} height={15} /> DESCARTAR</button>}
+          {tab === "installation" && installationChanged && <button className="ghost-button" type="button" disabled={installationSaving || repairing} onClick={restoreInstallation}><Refresh width={15} height={15} /> DESCARTAR</button>}
           <button className="ghost-button" type="button" onClick={onClose}>CERRAR</button>
           {tab === "runtime" ? (
             <button className="primary-button" type="button" disabled={loading || saving || !changed} onClick={save}>{saving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR</button>
           ) : (
-            <button className="primary-button" type="button" disabled={installationLoading || installationSaving || running || !installationChanged} onClick={saveInstallation}>{installationSaving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} APLICAR INSTALACIÓN</button>
+            <button className="primary-button" type="button" disabled={installationLoading || installationSaving || repairing || running || !installationChanged} onClick={saveInstallation}>{installationSaving ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} APLICAR INSTALACIÓN</button>
           )}
         </div>
       </header>
@@ -313,14 +331,14 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
             <span className="eyebrow">INSTALACIÓN</span>
             <h3>Minecraft y loader</h3>
             <p>Cambiar esta combinación conserva la carpeta del juego y los mundos. Mods, resource packs y otros archivos existentes no se eliminan automáticamente, por lo que debes revisar su compatibilidad después del cambio.</p>
-            {running && <div className="instance-installation-lock">Minecraft está en ejecución. Cierra el juego para modificar la instalación.</div>}
+            {running && <div className="instance-installation-lock">Minecraft está en ejecución. Cierra el juego para modificar o reparar la instalación.</div>}
           </article>
 
           <article className="instance-settings-card">
             <span className="eyebrow">MINECRAFT</span>
             <h3>Versión del juego</h3>
             <label className="field-label">VERSIÓN
-              <select className="nexa-input" value={minecraftVersion} disabled={installationLoading || installationSaving || running} onChange={(event) => setMinecraftVersion(event.target.value)}>
+              <select className="nexa-input" value={minecraftVersion} disabled={installationLoading || installationSaving || repairing || running} onChange={(event) => setMinecraftVersion(event.target.value)}>
                 {!minecraftVersions.some((item) => item.id === minecraftVersion) && <option value={minecraftVersion}>{minecraftVersion}</option>}
                 {minecraftVersions.map((item) => <option key={item.id} value={item.id}>{item.id}</option>)}
               </select>
@@ -332,18 +350,28 @@ export function InstanceSettingsPanel({ profile, open, running = false, onClose,
             <span className="eyebrow">LOADER</span>
             <h3>Plataforma</h3>
             <label className="field-label">LOADER
-              <select className="nexa-input" value={loader} disabled={installationLoading || installationSaving || running} onChange={(event) => setLoader(event.target.value as LoaderName)}>
+              <select className="nexa-input" value={loader} disabled={installationLoading || installationSaving || repairing || running} onChange={(event) => setLoader(event.target.value as LoaderName)}>
                 {loaders.map((item) => <option key={item} value={item}>{item}</option>)}
               </select>
             </label>
             {loader !== "Vanilla" && (
               <label className="field-label installation-loader-version">VERSIÓN DEL LOADER
-                <select className="nexa-input" value={loaderVersion} disabled={installationLoading || installationSaving || running || loaderVersions.length === 0} onChange={(event) => setLoaderVersion(event.target.value)}>
+                <select className="nexa-input" value={loaderVersion} disabled={installationLoading || installationSaving || repairing || running || loaderVersions.length === 0} onChange={(event) => setLoaderVersion(event.target.value)}>
                   {loaderVersions.length === 0 && <option value="">Sin versiones disponibles</option>}
                   {loaderVersions.map((item) => <option key={item.version} value={item.version}>{item.version}{item.stable ? " · estable" : ""}</option>)}
                 </select>
               </label>
             )}
+          </article>
+
+          <article className="instance-settings-card wide instance-repair-card">
+            <span className="eyebrow">MANTENIMIENTO</span>
+            <h3>Verificar y reparar</h3>
+            <p>Vuelve a ejecutar el instalador de la combinación activa. Los recursos con hash válido se reutilizan; los archivos ausentes o dañados se descargan de nuevo. La carpeta <code>game</code>, mundos, mods y ajustes del usuario no se eliminan.</p>
+            <button className="secondary-button" type="button" disabled={running || repairing || installationSaving || installationChanged} onClick={() => void repairInstallation()}>
+              {repairing ? <Loader2 className="spin" size={15} /> : <Refresh width={15} height={15} />} {repairing ? "REPARANDO…" : "VERIFICAR Y REPARAR INSTALACIÓN"}
+            </button>
+            {installationChanged && <small className="instance-settings-hint">Aplica o descarta los cambios pendientes antes de reparar la instalación activa.</small>}
           </article>
         </div>
       )}
