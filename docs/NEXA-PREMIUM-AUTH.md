@@ -19,9 +19,13 @@ The React/WebView layer is never a credential boundary. Passwords, refresh token
 9. Immediately before `profiles.launch`, the native account router silently refreshes the session and creates a one-use authenticated launch identity.
 10. The Minecraft runtime consumes that identity once while building `LaunchOptions`; the handoff is cleared immediately afterwards.
 
-## Secret handling
+## Public Client ID
 
-NEXA is a public desktop client and therefore **must not contain a Microsoft client secret**. The only application identifier required by the client is the public Client ID.
+NEXA is a public desktop application. A Client ID is an application identifier, **not a secret**. It is expected to be visible in a distributed desktop application.
+
+NEXA must never embed a Microsoft client secret. A secret stored in a public desktop binary cannot remain confidential and would weaken the security model.
+
+The Client ID used by production builds must belong to the NEXA application registration and must be authorized for the Xbox/Minecraft authentication flow. A Client ID copied from another launcher or application must not be used: it identifies a different application registration and does not grant NEXA authorization.
 
 Development configuration:
 
@@ -29,7 +33,17 @@ Development configuration:
 $env:NEXA_MICROSOFT_CLIENT_ID="00000000-0000-0000-0000-000000000000"
 ```
 
-The Client ID must belong to the NEXA Microsoft application registration and must be authorized for the Xbox/Minecraft authentication flow before production distribution.
+When Minecraft Services returns `Invalid app registration`, the Microsoft login itself may have succeeded but the NEXA application registration is not yet authorized by Minecraft Services. This cannot be bypassed safely from client code.
+
+## Account switching
+
+The account page may call the same `account.signIn` operation while a session already exists. MSAL uses `Prompt.SelectAccount`, so the system-browser flow can select another Microsoft account without exposing credentials to NEXA.
+
+The current implementation treats the selected Microsoft/Minecraft identity as the active launcher session. A future multi-account vault may persist more than one selectable account, but it must preserve the same native-only token boundary.
+
+## Secret handling
+
+The only application identifier required by the client is the public Client ID.
 
 The MSAL cache is created with `Microsoft.Identity.Client.Extensions.Msal` under `%LOCALAPPDATA%\NexoLauncher\auth`. NEXA intentionally does not enable the unprotected/plaintext cache fallback.
 
