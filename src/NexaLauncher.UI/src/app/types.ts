@@ -29,9 +29,41 @@ export type NexaProfile = {
   loaderVersion?: string | null;
   lastPlayedAt?: string | null;
   memoryMiB?: number | null;
+  javaPath?: string | null;
+  jvmArguments?: string[] | null;
+  windowWidth?: number | null;
+  windowHeight?: number | null;
+  fullscreen?: boolean | null;
   iconDataUrl?: string | null;
   backgroundDataUrl?: string | null;
   artwork?: ProfileArtworkPlacement;
+};
+
+export type ProfileRuntimeSettings = {
+  profileId: string;
+  memoryMiB?: number | null;
+  javaPath?: string | null;
+  jvmArguments: string[];
+  windowWidth?: number | null;
+  windowHeight?: number | null;
+  fullscreen?: boolean | null;
+};
+
+export type UpdateProfileSettingsRequest = {
+  id: string;
+  memoryMiB?: number | null;
+  javaPath?: string | null;
+  jvmArguments?: string[] | null;
+  windowWidth?: number | null;
+  windowHeight?: number | null;
+  fullscreen?: boolean | null;
+};
+
+export type UpdateProfileInstallationRequest = {
+  id: string;
+  minecraftVersion: string;
+  loader: "Vanilla" | "Fabric" | "Forge" | "NeoForge";
+  loaderVersion?: string | null;
 };
 
 export type ActiveLaunch = {
@@ -253,6 +285,46 @@ export type ProfileLiveLogs = {
   game: ProfileLogSnapshot;
   launcher: ProfileLogSnapshot;
   crash: ProfileLogSnapshot;
+};
+
+export type ProfileFileEntry = {
+  name: string;
+  relativePath: string;
+  isDirectory: boolean;
+  sizeBytes: number;
+  createdAt: string;
+  modifiedAt: string;
+};
+
+export type ProfileFileListing = {
+  profileId: string;
+  path: string;
+  entries: ProfileFileEntry[];
+  truncated: boolean;
+};
+
+export type ProfileWorldEntry = {
+  name: string;
+  relativePath: string;
+  sizeBytes: number;
+  createdAt: string;
+  modifiedAt: string;
+  locked: boolean;
+};
+
+export type ProfileServerEntry = {
+  name: string;
+  address: string;
+  hiddenAddress: boolean;
+  acceptTextures?: boolean | null;
+};
+
+export type ProfileWorldListing = {
+  profileId: string;
+  worlds: ProfileWorldEntry[];
+  serversConfigured: boolean;
+  servers: ProfileServerEntry[];
+  serversError?: string | null;
 };
 
 export type OperationProgress = {

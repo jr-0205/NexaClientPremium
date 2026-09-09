@@ -73,6 +73,28 @@ public sealed class InstanceManager(IInstanceRepository repository)
     public async Task<GameInstance> UpdateSettingsAsync(InstanceId id, InstanceSettings settings, CancellationToken cancellationToken = default)
         => await UpdateAsync(id, null, settings, cancellationToken);
 
+    public async Task<GameInstance> UpdateInstallationAsync(InstanceId id, string minecraftVersion, LoaderType loader, string? loaderVersion, CancellationToken cancellationToken = default)
+    {
+        minecraftVersion = minecraftVersion?.Trim() ?? string.Empty;
+        loaderVersion = loaderVersion?.Trim();
+        if (string.IsNullOrWhiteSpace(minecraftVersion)) throw new ArgumentException("La versión de Minecraft es obligatoria.", nameof(minecraftVersion));
+        if (loader == LoaderType.Vanilla) loaderVersion = null;
+        else if (string.IsNullOrWhiteSpace(loaderVersion)) throw new ArgumentException("La versión del loader es obligatoria.", nameof(loaderVersion));
+
+        var instance = await repository.GetAsync(id, cancellationToken)
+            ?? throw new InvalidOperationException("La instancia seleccionada ya no existe.");
+
+        var updated = instance with
+        {
+            MinecraftVersion = minecraftVersion,
+            Loader = loader,
+            LoaderVersion = loaderVersion,
+            UpdatedAt = DateTimeOffset.UtcNow
+        };
+        await repository.SaveAsync(updated, cancellationToken);
+        return updated;
+    }
+
     public async Task<GameInstance> UpdateAsync(InstanceId id, string? name, InstanceSettings settings, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(settings);

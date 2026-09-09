@@ -1,53 +1,110 @@
-import { Check, Crown, Loader2, LogIn, LogOut, ShieldCheck, Shirt, Sparkles, Upload, UserRound } from "lucide-react";
+import { Check, Crown, FloppyDisk, Gamepad, LogIn, LogOut, ShieldCheck, Shirt, Star, Upload, User, UserPlus } from "iconoir-react";
+import { Loader2 } from "lucide-react";
 import { type ReactNode, useEffect, useState } from "react";
 import type { NexaAccountState } from "../app/types";
+import { LocalSkinManager } from "../components/LocalSkinManager";
 
 export type SkinVariant = "classic" | "slim";
 
 type Props = {
   account: NexaAccountState;
   busy: boolean;
+  localUsername: string;
+  onUpdateLocalUsername(username: string): Promise<void>;
   onSignIn(): Promise<void>;
   onSignOut(): Promise<void>;
   onUploadSkin(variant: SkinVariant): Promise<void>;
 };
 
-export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }: Props) {
+export function AccountPage({ account, busy, localUsername, onUpdateLocalUsername, onSignIn, onSignOut, onUploadSkin }: Props) {
   const initialVariant: SkinVariant = account.activeSkinVariant?.toLowerCase() === "slim" ? "slim" : "classic";
   const [variant, setVariant] = useState<SkinVariant>(initialVariant);
+  const [localName, setLocalName] = useState(localUsername);
+  const [savingLocal, setSavingLocal] = useState(false);
 
   useEffect(() => {
     setVariant(account.activeSkinVariant?.toLowerCase() === "slim" ? "slim" : "classic");
   }, [account.activeSkinVariant]);
 
+  useEffect(() => setLocalName(localUsername), [localUsername]);
+
+  async function saveLocalName() {
+    const next = localName.trim();
+    if (!next || next === localUsername || savingLocal) return;
+    setSavingLocal(true);
+    try {
+      await onUpdateLocalUsername(next);
+    } finally {
+      setSavingLocal(false);
+    }
+  }
+
   if (!account.signedIn) {
     return (
       <section className="page account-page">
-        <div className="account-landing glass-panel">
+        <div className="account-heading local-account-heading">
+          <div>
+            <span className="eyebrow">NEXA ACCOUNT</span>
+            <h1>Cuenta</h1>
+            <p>Usa NEXA en modo local o conecta Microsoft cuando necesites una sesión oficial.</p>
+          </div>
+          <div className="local-mode-badge"><Gamepad width={15} height={15} /> MODO LOCAL</div>
+        </div>
+
+        <article className="local-account-card glass-panel">
+          <div className="local-account-icon"><User width={27} height={27} /></div>
+          <div className="local-account-copy">
+            <span className="eyebrow">SIN AUTENTICACIÓN OBLIGATORIA</span>
+            <h2>Perfil local</h2>
+            <p>NEXA funciona normalmente sin cuenta Microsoft. Puedes crear instancias, instalar contenido, cambiar ajustes e iniciar Minecraft en modo local.</p>
+            <div className="local-name-editor">
+              <label className="field-label">
+                NOMBRE DE JUGADOR
+                <input
+                  className="nexa-input"
+                  value={localName}
+                  maxLength={16}
+                  autoComplete="off"
+                  onChange={(event) => setLocalName(event.target.value)}
+                  onKeyDown={(event) => { if (event.key === "Enter") void saveLocalName(); }}
+                  placeholder="Player"
+                />
+              </label>
+              <button className="secondary-button" type="button" disabled={savingLocal || !localName.trim() || localName.trim() === localUsername} onClick={saveLocalName}>
+                {savingLocal ? <Loader2 className="spin" size={15} /> : <FloppyDisk width={15} height={15} />} GUARDAR NOMBRE
+              </button>
+            </div>
+            <div className="local-account-status"><span className="status-dot" /><strong>{localUsername}</strong><span>se usará para las sesiones locales.</span></div>
+          </div>
+        </article>
+
+        <LocalSkinManager />
+
+        <div className="account-landing glass-panel premium-connect-panel">
           <div className="account-landing-copy">
-            <span className="eyebrow">NEXA PREMIUM · CUENTA MICROSOFT</span>
-            <h1>Tu identidad de Minecraft, integrada en NEXA.</h1>
+            <span className="eyebrow">OPCIONAL · MICROSOFT</span>
+            <h1>Cuenta oficial de Minecraft</h1>
             <p>
-              NEXA sigue funcionando como launcher local sin cuenta. Al conectar Microsoft se habilita la experiencia premium:
-              identidad oficial de Minecraft Java, sesiones online y gestión de apariencia desde el launcher.
+              Microsoft sólo es necesario para identidad oficial, servidores que exigen autenticación, skins y capas del perfil premium.
+              El inicio de sesión se abre en el navegador del sistema y nunca bloquea el uso local del launcher.
             </p>
             <button className="primary-button account-login-button" type="button" disabled={busy || !account.configured} onClick={onSignIn}>
-              {busy ? <Loader2 className="spin" size={17} /> : <LogIn size={17} />}
-              {busy ? "CONECTANDO…" : "CONTINUAR CON MICROSOFT"}
+              {busy ? <Loader2 className="spin" size={17} /> : <LogIn width={17} height={17} />}
+              {busy ? "CONECTANDO…" : "AÑADIR CUENTA MICROSOFT"}
             </button>
             {!account.configured && (
               <div className="account-config-warning">
-                <ShieldCheck size={16} />
-                <span>El módulo está preparado, pero esta build necesita un Client ID público de Microsoft autorizado para NEXA.</span>
+                <ShieldCheck width={16} height={16} />
+                <span>Esta build aún no tiene un Client ID público autorizado para NEXA. El modo local sigue disponible sin restricciones del launcher.</span>
               </div>
             )}
             {account.message && <p className="account-message">{account.message}</p>}
           </div>
 
           <div className="account-feature-grid">
-            <Feature icon={<ShieldCheck size={20} />} title="Autenticación segura" text="NEXA abre el navegador del sistema. Tu contraseña nunca entra al launcher ni al WebView." />
-            <Feature icon={<UserRound size={20} />} title="Identidad oficial" text="Nombre y UUID provienen del perfil real de Minecraft y se usan automáticamente al iniciar el juego." />
-            <Feature icon={<Shirt size={20} />} title="Skins premium" text="Selecciona una skin PNG, valida el modelo Classic/Slim y publícala en tu perfil oficial desde NEXA." />
+            <Feature icon={<Gamepad width={20} height={20} />} title="Modo local completo" text="Biblioteca, instancias, mods, mundos, ajustes y ejecución normal sin iniciar sesión." />
+            <Feature icon={<ShieldCheck width={20} height={20} />} title="Inicio seguro" text="La contraseña nunca entra en React ni en el WebView. Microsoft autentica desde el navegador del sistema." />
+            <Feature icon={<Shirt width={20} height={20} />} title="Premium opcional" text="Conecta Microsoft únicamente si quieres identidad oficial, sesiones autenticadas, skins y capas." />
           </div>
         </div>
       </section>
@@ -60,11 +117,16 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
     <section className="page account-page">
       <div className="account-heading">
         <div>
-          <span className="eyebrow">NEXA PREMIUM</span>
+          <span className="eyebrow">NEXA ACCOUNT</span>
           <h1>Cuenta</h1>
-          <p>Identidad oficial de Minecraft y apariencia vinculada a tu cuenta Microsoft.</p>
+          <p>Identidad oficial de Minecraft, apariencia y sesión activa del launcher.</p>
         </div>
-        <div className="premium-badge"><Crown size={15} /> PREMIUM ACTIVO</div>
+        <div className="account-heading-actions">
+          <button className="secondary-button" type="button" disabled={busy} onClick={onSignIn}>
+            {busy ? <Loader2 className="spin" size={15} /> : <UserPlus width={15} height={15} />} CAMBIAR / AÑADIR CUENTA
+          </button>
+          <div className="premium-badge"><Crown width={15} height={15} /> PREMIUM ACTIVO</div>
+        </div>
       </div>
 
       <div className="account-dashboard">
@@ -78,14 +140,17 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             <p>{account.microsoftAccount ?? "Cuenta Microsoft conectada"}</p>
             <code>{formatUuid(account.minecraftId)}</code>
           </div>
-          <div className="account-verified"><Check size={15} /> Licencia verificada</div>
+          <div className="account-profile-status">
+            <div className="account-verified"><Check width={15} height={15} /> Licencia verificada</div>
+            <span className="account-session-chip"><span className="status-dot" /> SESIÓN ACTIVA</span>
+          </div>
         </article>
 
         <article className="skin-manager glass-panel">
           <div className="skin-manager-copy">
             <span className="eyebrow">APARIENCIA</span>
             <h2>Skin de Minecraft</h2>
-            <p>El archivo se selecciona mediante una ventana nativa de Windows. La ruta local nunca se expone a React.</p>
+            <p>Selecciona una skin PNG desde Windows. La ruta local permanece en la capa nativa y nunca se entrega a React.</p>
 
             <div className="skin-variant-picker" role="group" aria-label="Modelo de skin">
               <button type="button" className={variant === "classic" ? "active" : ""} onClick={() => setVariant("classic")} disabled={busy}>
@@ -97,7 +162,7 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             </div>
 
             <button className="primary-button skin-upload-button" type="button" disabled={busy} onClick={() => onUploadSkin(variant)}>
-              {busy ? <Loader2 className="spin" size={16} /> : <Upload size={16} />}
+              {busy ? <Loader2 className="spin" size={16} /> : <Upload width={16} height={16} />}
               {busy ? "ACTUALIZANDO…" : "CAMBIAR SKIN"}
             </button>
             <span className="skin-upload-hint">PNG · 64×64 recomendado · máximo 1 MB</span>
@@ -107,21 +172,21 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
             {account.activeSkinUrl ? (
               <img className="skin-texture-preview" src={account.activeSkinUrl} alt={`Skin activa de ${account.minecraftName ?? "Minecraft"}`} />
             ) : (
-              <div className="skin-preview-empty"><Shirt size={34} /><span>No hay skin activa disponible.</span></div>
+              <div className="skin-preview-empty"><Shirt width={34} height={34} /><span>No hay skin activa disponible.</span></div>
             )}
             <div className="skin-preview-meta">
-              <span><Sparkles size={14} /> SKIN ACTIVA</span>
+              <span><Star width={14} height={14} /> SKIN ACTIVA</span>
               <strong>{account.activeSkinVariant?.toUpperCase() ?? "CLASSIC"}</strong>
             </div>
           </div>
         </article>
 
         <article className="account-security-card glass-panel">
-          <ShieldCheck size={22} />
+          <ShieldCheck width={22} height={22} />
           <div>
             <span className="eyebrow">SEGURIDAD DE SESIÓN</span>
             <h3>Credenciales fuera de la interfaz web</h3>
-            <p>Los tokens de Microsoft/Xbox/Minecraft permanecen en la capa nativa. React sólo recibe nombre, UUID, estado premium y metadatos públicos del perfil.</p>
+            <p>Microsoft, Xbox, XSTS y Minecraft permanecen en la capa nativa. React sólo recibe información pública y sanitizada del perfil.</p>
           </div>
         </article>
 
@@ -136,9 +201,9 @@ export function AccountPage({ account, busy, onSignIn, onSignOut, onUploadSkin }
       <div className="account-danger-row">
         <div>
           <strong>Cerrar sesión en NEXA</strong>
-          <span>Elimina la cuenta de la caché local protegida y vuelve al modo no premium.</span>
+          <span>Quita la sesión actual del launcher y vuelve al modo local con el nombre {localUsername}.</span>
         </div>
-        <button className="ghost-button" type="button" disabled={busy} onClick={onSignOut}><LogOut size={15} /> CERRAR SESIÓN</button>
+        <button className="ghost-button" type="button" disabled={busy} onClick={onSignOut}><LogOut width={15} height={15} /> CERRAR SESIÓN</button>
       </div>
     </section>
   );

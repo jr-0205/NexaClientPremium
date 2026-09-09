@@ -21,17 +21,25 @@ public sealed class FabricLoaderProvider(
            && vanilla.IsInstalled(minecraftVersion)
            && File.Exists(paths.FabricProfile(minecraftVersion, loaderVersion));
 
-    public async Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+    public Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: false, token: token);
+
+    public Task RepairAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: true, token: token);
+
+    private async Task InstallCoreAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress, bool repairVanilla, CancellationToken token)
     {
         if (string.IsNullOrWhiteSpace(request.LoaderVersion))
             throw new ArgumentException("Fabric requiere una versión de loader.", nameof(request));
 
-        if (!vanilla.IsInstalled(request.Version.Id))
+        if (repairVanilla)
+            await vanilla.RepairAsync(request.Version, progress, token);
+        else if (!vanilla.IsInstalled(request.Version.Id))
             await vanilla.InstallAsync(request.Version, progress, token);
 
         var profilePath = paths.FabricProfile(request.Version.Id, request.LoaderVersion);
-        progress?.Report(new("Descargando perfil oficial de Fabric", 0, 1));
-        await downloader.DownloadAsync(metadata.ProfileUrl(request.Version.Id, request.LoaderVersion), profilePath, null, token);
+        progress?.Report(new(repairVanilla ? "Actualizando perfil oficial de Fabric" : "Descargando perfil oficial de Fabric", 0, 1));
+        await downloader.DownloadAsync(metadata.ProfileUrl(request.Version.Id, request.LoaderVersion), profilePath, null, token, force: repairVanilla);
 
         using var profile = JsonDocument.Parse(await File.ReadAllBytesAsync(profilePath, token));
         var libraries = profile.RootElement.GetProperty("libraries").EnumerateArray().ToArray();
@@ -46,10 +54,10 @@ public sealed class FabricLoaderProvider(
                 throw new InvalidDataException("Fabric publicó una URL de biblioteca no segura.");
             var downloadUrl = new Uri(uri, resolved.RelativePath).AbsoluteUri;
             var target = SafeLibraryPath(resolved.RelativePath);
-            await downloader.DownloadAsync(downloadUrl, target, null, ct);
-            progress?.Report(new("Descargando Fabric", Interlocked.Increment(ref completed), libraries.Length));
+            await downloader.DownloadAsync(downloadUrl, target, null, ct, force: repairVanilla);
+            progress?.Report(new(repairVanilla ? "Reparando Fabric" : "Descargando Fabric", Interlocked.Increment(ref completed), libraries.Length));
         });
-        progress?.Report(new("Fabric listo", libraries.Length, libraries.Length));
+        progress?.Report(new(repairVanilla ? "Fabric reparado" : "Fabric listo", libraries.Length, libraries.Length));
     }
 
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string? loaderVersion, string gameDirectory)

@@ -50,10 +50,12 @@ export function ProfileDetailPage({ profile, launching, onLaunch, onContent, onU
 
   useEffect(() => {
     setArtwork(profile.artwork ?? defaultArtworkPlacement);
+    setBoostStatus(null);
+    setBoostSummary(null);
     getBoostStatus(profile.id)
       .then(setBoostStatus)
       .catch((error: Error) => onNotice(error.message, "error"));
-  }, [profile.id]);
+  }, [profile.id, profile.minecraftVersion, profile.loader, profile.loaderVersion]);
 
   const shownIcon = removeIcon ? "./brand/nexa-mark.png" : iconDataUrl ?? profile.iconDataUrl ?? "./brand/nexa-mark.png";
   const shownBackground = removeBackground ? null : backgroundDataUrl ?? profile.backgroundDataUrl ?? null;
@@ -190,7 +192,7 @@ export function ProfileDetailPage({ profile, launching, onLaunch, onContent, onU
         </div>
       </div>
 
-      <ProfileLiveConsole profile={profile} running={launching} onNotice={onNotice} />
+      <ProfileLiveConsole profile={profile} running={launching} onUpdated={onUpdated} onNotice={onNotice} />
 
       {boostOpen && (
         <section className="boost-panel glass-panel">

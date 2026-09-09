@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Boxes, Download, ExternalLink, Loader2, PackagePlus, Search as SearchIcon, ToggleLeft, ToggleRight, Trash2, X } from "lucide-react";
+import { Box, Download, OpenNewWindow, Plus, Search, Trash, Xmark } from "iconoir-react";
+import { Loader2, ToggleLeft, ToggleRight } from "lucide-react";
 import {
   deleteInstalledContent,
   installContent,
@@ -27,6 +28,8 @@ const typeLabels: Record<ProjectType, string> = {
   shader: "Shaders",
   datapack: "Datapacks",
 };
+
+const projectTypes = Object.entries(typeLabels) as Array<[ProjectType, string]>;
 
 function formatSize(bytes: number) {
   if (bytes >= 1024 ** 3) return `${(bytes / 1024 ** 3).toFixed(2)} GB`;
@@ -83,7 +86,7 @@ export function ContentPage({ profiles, initialProfileId, onSelectProfile, onNot
       await toggleInstalledContent(profileId, entry);
       await refresh();
     } catch (error) {
-      onNotice(error instanceof Error ? error.message : "No se pudo cambiar el mod.", "error");
+      onNotice(error instanceof Error ? error.message : "No se pudo cambiar el contenido.", "error");
     }
   }
 
@@ -130,25 +133,25 @@ export function ContentPage({ profiles, initialProfileId, onSelectProfile, onNot
   }
 
   return (
-    <section className="page content-page">
+    <section className="page content-page nexa-explore-page">
       <div className="content-heading">
-        <div><span className="eyebrow">CONTENIDO DEL PERFIL</span><h1>{selected.name}</h1><p>{selected.loader} · Minecraft {selected.minecraftVersion}</p></div>
+        <div><span className="eyebrow">NEXA · CONTENIDO</span><h1>{mode === "catalog" ? "Explorar" : selected.name}</h1><p>{mode === "catalog" ? `Contenido compatible para ${selected.name}` : `${selected.loader} · Minecraft ${selected.minecraftVersion}`}</p></div>
         <div className="content-heading-actions">
           <select className="nexa-input nexa-select profile-select" value={selected.id} onChange={(event) => { setProfileId(event.target.value); setMode("installed"); }}>{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.name}</option>)}</select>
-          {mode === "installed" ? <button className="primary-button" type="button" onClick={() => setMode("catalog")}><PackagePlus size={17} /> AGREGAR CONTENIDO</button> : <button className="secondary-button" type="button" onClick={() => setMode("installed")}><X size={16} /> VOLVER A INSTALADO</button>}
+          {mode === "installed" ? <button className="primary-button" type="button" onClick={() => setMode("catalog")}><Plus width={17} height={17} /> EXPLORAR CONTENIDO</button> : <button className="secondary-button" type="button" onClick={() => setMode("installed")}><Xmark width={16} height={16} /> VOLVER A INSTALADO</button>}
         </div>
       </div>
 
       <div className="content-tabs">
         <button className={mode === "installed" ? "active" : ""} type="button" onClick={() => setMode("installed")}>INSTALADO <span>{installed.length}</span></button>
-        <button className={mode === "catalog" ? "active" : ""} type="button" onClick={() => setMode("catalog")}>CATÁLOGO</button>
+        <button className={mode === "catalog" ? "active" : ""} type="button" onClick={() => setMode("catalog")}>EXPLORAR</button>
       </div>
 
       {mode === "installed" ? (
         <div className="installed-layout">
-          <div className="installed-toolbar"><div className="search-field"><SearchIcon size={16} /><input value={filter} onChange={(event) => setFilter(event.target.value)} placeholder="Filtrar contenido instalado..." /></div><span>{filtered.length} elementos</span></div>
+          <div className="installed-toolbar"><div className="search-field"><Search width={16} height={16} /><input value={filter} onChange={(event) => setFilter(event.target.value)} placeholder="Filtrar contenido instalado..." /></div><span>{filtered.length} elementos</span></div>
           {loading ? <div className="loading-panel glass-panel"><Loader2 className="spin" /> Leyendo contenido del perfil…</div> : groups.length === 0 ? (
-            <div className="empty-state glass-panel"><Boxes size={28} /><h2>Este perfil todavía está limpio</h2><p>Los mods, texturas, shaders y datapacks que instales aparecerán aquí primero.</p><button className="primary-button" type="button" onClick={() => setMode("catalog")}><PackagePlus size={16} /> AGREGAR CONTENIDO</button></div>
+            <div className="empty-state glass-panel"><Box width={28} height={28} /><h2>Este perfil todavía está limpio</h2><p>Los mods, texturas, shaders y datapacks que instales aparecerán aquí.</p><button className="primary-button" type="button" onClick={() => setMode("catalog")}><Plus width={16} height={16} /> EXPLORAR CONTENIDO</button></div>
           ) : groups.map((group) => (
             <section className="content-group" key={group.category}>
               <header><strong>{group.category}</strong><span>{group.entries.length}</span></header>
@@ -156,14 +159,14 @@ export function ContentPage({ profiles, initialProfileId, onSelectProfile, onNot
                 {group.entries.map((entry) => (
                   <article className="installed-row glass-panel" key={entry.relativePath}>
                     <div className={`installed-icon ${entry.iconDataUrl ? "has-image" : ""}`}>
-                      <Boxes size={18} />
+                      <Box width={18} height={18} />
                       {entry.iconDataUrl && <img src={entry.iconDataUrl} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.display = "none"; }} />}
                     </div>
                     <div className="installed-copy"><strong>{entry.name}</strong><span>{entry.isDirectory ? "Carpeta" : `${formatSize(entry.sizeBytes)} · ${entry.relativePath}`}</span></div>
                     <div className="installed-actions">
                       {entry.canToggle && <button className={`state-button ${entry.enabled ? "enabled" : ""}`} type="button" onClick={() => toggle(entry)}>{entry.enabled ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}{entry.enabled ? "ACTIVO" : "DESACTIVADO"}</button>}
-                      <button className="icon-text-button" type="button" onClick={() => openInstalledContent(profileId, entry).catch((error: Error) => onNotice(error.message, "error"))}><ExternalLink size={15} /> ABRIR</button>
-                      <button className="icon-text-button danger-text" type="button" onClick={() => setDeleteTarget(entry)}><Trash2 size={15} /> ELIMINAR</button>
+                      <button className="icon-text-button" type="button" onClick={() => openInstalledContent(profileId, entry).catch((error: Error) => onNotice(error.message, "error"))}><OpenNewWindow width={15} height={15} /> ABRIR</button>
+                      <button className="icon-text-button danger-text" type="button" onClick={() => setDeleteTarget(entry)}><Trash width={15} height={15} /> ELIMINAR</button>
                     </div>
                   </article>
                 ))}
@@ -172,25 +175,31 @@ export function ContentPage({ profiles, initialProfileId, onSelectProfile, onNot
           ))}
         </div>
       ) : (
-        <div className="catalog-layout">
-          <div className="catalog-controls glass-panel">
-            <div className="search-field catalog-search"><SearchIcon size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => event.key === "Enter" && runSearch()} placeholder="Buscar en Modrinth..." /></div>
-            <select className="nexa-input nexa-select" value={projectType} onChange={(event) => setProjectType(event.target.value as ProjectType)}>{Object.entries(typeLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select>
-            <button className="primary-button" type="button" disabled={searching} onClick={runSearch}>{searching ? <Loader2 className="spin" size={16} /> : <SearchIcon size={16} />} BUSCAR</button>
+        <div className="catalog-layout nexa-catalog-layout">
+          <div className="catalog-type-tabs" role="tablist" aria-label="Tipo de contenido">
+            {projectTypes.map(([value, label]) => (
+              <button key={value} type="button" role="tab" aria-selected={projectType === value} className={projectType === value ? "active" : ""} onClick={() => { setProjectType(value); setResults([]); }}>
+                {label}
+              </button>
+            ))}
           </div>
-          <p className="catalog-note">NEXA sólo muestra resultados compatibles con Minecraft {selected.minecraftVersion}{projectType === "mod" ? ` y ${selected.loader}` : ""}.</p>
+          <div className="catalog-controls glass-panel">
+            <div className="search-field catalog-search"><Search width={17} height={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} onKeyDown={(event) => event.key === "Enter" && runSearch()} placeholder={`Buscar ${typeLabels[projectType].toLowerCase()} compatibles…`} /></div>
+            <button className="primary-button" type="button" disabled={searching} onClick={runSearch}>{searching ? <Loader2 className="spin" size={16} /> : <Search width={16} height={16} />} BUSCAR</button>
+          </div>
+          <p className="catalog-note">NEXA filtra resultados compatibles con Minecraft {selected.minecraftVersion}{projectType === "mod" ? ` y ${selected.loader}` : ""}. Modpacks y servidores se añadirán cuando exista soporte nativo en el backend.</p>
           <div className="catalog-results">
             {results.map((project) => (
               <article className="catalog-row glass-panel" key={project.id}>
                 <div className="catalog-icon">
-                  <Boxes size={22} />
+                  <Box width={22} height={22} />
                   {project.iconUrl && <img src={project.iconUrl} alt="" loading="lazy" referrerPolicy="no-referrer" onError={(event) => { event.currentTarget.style.display = "none"; }} />}
                 </div>
                 <div className="catalog-copy"><div><strong>{project.title}</strong><span>por {project.author}</span></div><p>{project.description}</p><small>{project.downloads.toLocaleString()} descargas · {typeLabels[project.projectType]}</small></div>
-                <button className="secondary-button" type="button" disabled={installingId === project.id} onClick={() => install(project)}>{installingId === project.id ? <Loader2 className="spin" size={16} /> : <Download size={16} />} INSTALAR</button>
+                <button className="secondary-button" type="button" disabled={installingId === project.id} onClick={() => install(project)}>{installingId === project.id ? <Loader2 className="spin" size={16} /> : <Download width={16} height={16} />} INSTALAR</button>
               </article>
             ))}
-            {!searching && results.length === 0 && <div className="catalog-empty"><PackagePlus size={26} /><strong>Busca contenido para {selected.name}</strong><span>Los resultados compatibles aparecerán aquí.</span></div>}
+            {!searching && results.length === 0 && <div className="catalog-empty"><Plus width={26} height={26} /><strong>Busca contenido para {selected.name}</strong><span>Los resultados compatibles aparecerán aquí.</span></div>}
           </div>
         </div>
       )}

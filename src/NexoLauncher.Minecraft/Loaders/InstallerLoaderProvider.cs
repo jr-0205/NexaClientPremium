@@ -21,13 +21,22 @@ public sealed class InstallerLoaderProvider(
         => !string.IsNullOrWhiteSpace(loaderVersion) && vanilla.IsInstalled(minecraftVersion)
            && File.Exists(paths.LoaderProfile(Id, minecraftVersion, loaderVersion));
 
-    public async Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+    public Task InstallAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: false, token: token);
+
+    public Task RepairAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress = null, CancellationToken token = default)
+        => InstallCoreAsync(request, progress, repairVanilla: true, token: token);
+
+    private async Task InstallCoreAsync(LoaderInstallRequest request, IProgress<InstallProgress>? progress, bool repairVanilla, CancellationToken token)
     {
         if (string.IsNullOrWhiteSpace(request.LoaderVersion)) throw new ArgumentException($"{Id} requiere una versión de loader.", nameof(request));
         if (string.IsNullOrWhiteSpace(request.JavaExecutable) || !File.Exists(request.JavaExecutable))
             throw new FileNotFoundException($"{Id} requiere un runtime Java válido para ejecutar su instalador.", request.JavaExecutable);
 
-        if (!vanilla.IsInstalled(request.Version.Id)) await vanilla.InstallAsync(request.Version, progress, token);
+        if (repairVanilla)
+            await vanilla.RepairAsync(request.Version, progress, token);
+        else if (!vanilla.IsInstalled(request.Version.Id))
+            await vanilla.InstallAsync(request.Version, progress, token);
         PrepareOfficialLayout(request.Version.Id);
 
         var installer = paths.LoaderInstaller(Id, request.Version.Id, request.LoaderVersion);
@@ -38,11 +47,11 @@ public sealed class InstallerLoaderProvider(
         var sha1 = await metadata.GetSha1Async(url, token);
         await downloader.DownloadAsync(url, installer, sha1, token);
 
-        progress?.Report(new($"Ejecutando instalador oficial de {Id}", 0, 1));
+        progress?.Report(new(repairVanilla ? $"Reparando {Id} con instalador oficial" : $"Ejecutando instalador oficial de {Id}", 0, 1));
         var startedAt = DateTime.UtcNow;
         await RunInstallerAsync(request.JavaExecutable, installer, token);
         ImportGeneratedProfile(request.Version.Id, request.LoaderVersion, startedAt);
-        progress?.Report(new($"{Id} listo", 1, 1));
+        progress?.Report(new(repairVanilla ? $"{Id} reparado" : $"{Id} listo", 1, 1));
     }
 
     public LaunchPlan CreateLaunchPlan(string minecraftVersion, string? loaderVersion, string gameDirectory)
@@ -62,9 +71,6 @@ public sealed class InstallerLoaderProvider(
 
     private void PrepareOfficialLayout(string minecraftVersion)
     {
-        // shared/ ya ES el layout oficial usado por el instalador. No copiar los archivos
-        // de versión sobre sí mismos; únicamente validamos que Vanilla esté listo y creamos
-        // launcher_profiles.json, que algunos instaladores oficiales esperan encontrar.
         if (!File.Exists(paths.VersionJson(minecraftVersion)) || !File.Exists(paths.ClientJar(minecraftVersion)))
             throw new InvalidDataException($"Minecraft {minecraftVersion} no está completo antes de instalar {Id}.");
         Directory.CreateDirectory(paths.VersionDirectory(minecraftVersion));

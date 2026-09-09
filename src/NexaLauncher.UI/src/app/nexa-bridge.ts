@@ -18,8 +18,13 @@ import type {
   NexaInGameStatus,
   NexaProfile,
   ProfileArtworkPlacement,
+  ProfileFileListing,
   ProfileLiveLogs,
+  ProfileRuntimeSettings,
+  ProfileWorldListing,
+  UpdateProfileInstallationRequest,
   UpdateProfileRequest,
+  UpdateProfileSettingsRequest,
 } from "./types";
 
 type WebViewMessageEvent = { data: unknown };
@@ -126,9 +131,21 @@ export const createProfile = (request: CreateProfileRequest) =>
   invoke<NexaProfile>("profiles.create", request as unknown as Record<string, unknown>);
 export const updateProfile = (request: UpdateProfileRequest) =>
   invoke<NexaProfile>("profiles.update", request as unknown as Record<string, unknown>);
+export const updateProfileInstallation = (request: UpdateProfileInstallationRequest) =>
+  invoke<NexaProfile>("profiles.installation.update", request as unknown as Record<string, unknown>);
+export const repairProfileInstallation = (id: string) =>
+  invoke<{ repaired: boolean; profile: NexaProfile }>("profiles.installation.repair", { id });
+export const getProfileSettings = (id: string) => invoke<ProfileRuntimeSettings>("profiles.settings.get", { id });
+export const updateProfileSettings = (request: UpdateProfileSettingsRequest) =>
+  invoke<ProfileRuntimeSettings>("profiles.settings.update", request as unknown as Record<string, unknown>);
+export const browseProfileJava = (id: string) => invoke<{ selected: boolean; path?: string | null }>("profiles.java.browse", { id });
 export const deleteProfile = (id: string) => invoke<{ deleted: boolean }>("profiles.delete", { id });
 export const openProfileFolder = (id: string) => invoke<{ opened: boolean }>("profiles.openFolder", { id });
 export const getProfileLiveLogs = (id: string) => invoke<ProfileLiveLogs>("profiles.liveLogs", { id });
+export const listProfileFiles = (id: string, path = "") => invoke<ProfileFileListing>("profiles.files.list", { id, path });
+export const openProfileFile = (id: string, path = "") => invoke<{ opened: boolean }>("profiles.files.open", { id, path });
+export const listProfileWorlds = (id: string) => invoke<ProfileWorldListing>("profiles.worlds.list", { id });
+export const openProfileWorld = (id: string, path = "") => invoke<{ opened: boolean }>("profiles.worlds.open", { id, path });
 export const launchProfile = (id: string) => invoke<{ pid: number; logPath: string; profile: NexaProfile }>("profiles.launch", { id });
 export const stopLaunch = () => invoke<{ stopped: boolean }>("profiles.stop");
 
