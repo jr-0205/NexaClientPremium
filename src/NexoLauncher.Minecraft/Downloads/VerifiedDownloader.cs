@@ -4,11 +4,11 @@ namespace NexoLauncher.Minecraft.Downloads;
 
 public sealed class VerifiedDownloader(HttpClient http)
 {
-    public async Task DownloadAsync(string url, string destination, string? expectedSha1, CancellationToken token = default)
+    public async Task DownloadAsync(string url, string destination, string? expectedSha1, CancellationToken token = default, bool force = false)
     {
         if (!Uri.TryCreate(url, UriKind.Absolute, out var uri) || uri.Scheme != Uri.UriSchemeHttps)
             throw new InvalidDataException("NEXO solo permite descargas HTTPS.");
-        if (File.Exists(destination) && (expectedSha1 is null || await HasSha1Async(destination, expectedSha1, token))) return;
+        if (!force && File.Exists(destination) && (expectedSha1 is null || await HasSha1Async(destination, expectedSha1, token))) return;
         Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
         var temporary = destination + ".download";
         try
