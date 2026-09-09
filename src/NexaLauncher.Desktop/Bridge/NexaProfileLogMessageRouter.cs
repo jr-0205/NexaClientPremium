@@ -128,7 +128,16 @@ internal sealed class NexaProfileLogMessageRouter
         var context = await ResolveProfileAsync(payload);
         var saves = Path.Combine(context.Game, "saves");
         var worlds = !Directory.Exists(saves) ? Array.Empty<WorldEntry>() : Directory.EnumerateDirectories(saves).Where(path => !IsReparsePoint(path)).Select(World).OrderByDescending(world => world.ModifiedAt).ToArray();
-        return new { profileId = context.Id.ToString(), worlds, serversConfigured = File.Exists(Path.Combine(context.Game, "servers.dat")) };
+        var serversPath = Path.Combine(context.Game, "servers.dat");
+        var serverList = MinecraftServerListReader.Read(serversPath);
+        return new
+        {
+            profileId = context.Id.ToString(),
+            worlds,
+            serversConfigured = File.Exists(serversPath),
+            servers = serverList.Servers,
+            serversError = serverList.Error
+        };
     }
 
     private async Task<object> OpenWorldAsync(JsonElement payload)
