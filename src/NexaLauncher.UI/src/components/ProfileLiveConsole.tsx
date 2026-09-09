@@ -20,6 +20,7 @@ import { InstanceSettingsPanel } from "./InstanceSettingsPanel";
 type Props = {
   profile: NexaProfile;
   running: boolean;
+  onUpdated(profile: NexaProfile): void;
   onNotice(message: string, kind?: "success" | "error"): void;
 };
 
@@ -60,7 +61,7 @@ function formatDate(value?: string | null) {
   return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString();
 }
 
-export function ProfileLiveConsole({ profile, running, onNotice }: Props) {
+export function ProfileLiveConsole({ profile, running, onUpdated, onNotice }: Props) {
   const [moduleTab, setModuleTab] = useState<ModuleTab>("files");
   const [files, setFiles] = useState<ProfileFileListing | null>(null);
   const [filePath, setFilePath] = useState("");
@@ -337,7 +338,7 @@ export function ProfileLiveConsole({ profile, running, onNotice }: Props) {
       )}
 
       {moduleTab === "settings" && (
-        <InstanceSettingsPanel profile={profile} open onClose={() => setModuleTab("files")} onNotice={onNotice} />
+        <InstanceSettingsPanel profile={profile} open running={running} onClose={() => setModuleTab("files")} onUpdated={onUpdated} onNotice={onNotice} />
       )}
     </section>
   );
