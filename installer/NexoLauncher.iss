@@ -1,5 +1,7 @@
 #define AppName "NEXA Client"
-#define AppVersion "1.0.0"
+#ifndef AppVersion
+  #define AppVersion "1.0.0"
+#endif
 #define AppPublisher "NEXA"
 #define AppExeName "NexaLauncher.Desktop.exe"
 
