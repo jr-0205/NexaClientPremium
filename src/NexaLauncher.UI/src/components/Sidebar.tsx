@@ -10,8 +10,8 @@ type SidebarProps = {
 };
 
 const items = [
-  { key: "library", label: "Inicio", icon: Home },
-  { key: "content", label: "Explorar", icon: Box },
+  { key: "library", label: "Biblioteca", icon: Home },
+  { key: "content", label: "Contenido", icon: Box },
   { key: "create", label: "Nueva instancia", icon: Plus },
   { key: "account", label: "Cuenta", icon: Crown },
   { key: "settings", label: "Ajustes", icon: Settings },
@@ -58,13 +58,14 @@ export function Sidebar({ active, onChange }: SidebarProps) {
 
   return (
     <aside className="sidebar glass-edge">
-      <button className="brand-button" onClick={() => onChange("library")} aria-label="NEXA Client">
-        <img src="./brand/nexa-mark.png" alt="NEXA" className="brand-mark" />
+      <button className="brand-button" onClick={() => onChange("library")} aria-label="Ir a Biblioteca de NEXA Client">
+        <img src="./brand/nexa-mark.png" alt="" className="brand-mark" />
+        <span className="brand-copy" aria-hidden="true"><strong>NEXA</strong><small>CLIENT</small></span>
       </button>
 
       <nav className="sidebar-nav" aria-label="Navegación principal">
         {items.map(({ key, label, icon: Icon }) => (
-          <button key={key} type="button" className={`nav-button ${active === key ? "active" : ""}`} onClick={() => onChange(key)} title={label} aria-label={label}>
+          <button key={key} type="button" className={`nav-button ${active === key ? "active" : ""}`} onClick={() => onChange(key)} title={label} aria-label={label} aria-current={active === key ? "page" : undefined}>
             <Icon width={20} height={20} strokeWidth={1.8} />
             <span className="nav-tooltip">{label}</span>
           </button>
@@ -72,15 +73,16 @@ export function Sidebar({ active, onChange }: SidebarProps) {
       </nav>
 
       <div className="sidebar-bottom">
-        <button className={`nav-button palette-button ${paletteOpen ? "active" : ""}`} type="button" onClick={togglePalette} title="Color de énfasis" aria-label="Color de énfasis">
+        <button className={`nav-button palette-button ${paletteOpen ? "active" : ""}`} type="button" onClick={togglePalette} title="Color de énfasis" aria-label="Color de énfasis" aria-expanded={paletteOpen}>
           <Palette width={19} height={19} />
+          <span className="nav-tooltip">Apariencia</span>
         </button>
-        <div className="sidebar-status" title="NEXA Core listo"><Star width={16} height={16} /></div>
+        <div className="sidebar-status" title="NEXA Core listo"><Star width={16} height={16} /><span>Core listo</span></div>
       </div>
 
       {paletteOpen && (
         <div className="sidebar-palette glass-panel">
-          <div className="sidebar-palette-head"><div><span className="eyebrow">NEXA</span><strong>Color de énfasis</strong></div><button className="icon-button" type="button" onClick={() => setPaletteOpen(false)}><Xmark width={15} height={15} /></button></div>
+          <div className="sidebar-palette-head"><div><span className="eyebrow">NEXA</span><strong>Color de énfasis</strong></div><button className="icon-button" type="button" onClick={() => setPaletteOpen(false)} aria-label="Cerrar selector de color"><Xmark width={15} height={15} /></button></div>
           <p>La base negra y plateada permanece fija. El color sólo cambia selecciones, botones e indicadores.</p>
           <div className="sidebar-palette-grid">
             {accentOptions.map((item) => <button key={item.id} type="button" className={`palette-choice ${accent === item.id ? "selected" : ""}`} onClick={() => chooseAccent(item.id)}><span style={{ background: item.id === "custom" ? customColor : item.color }} /><small>{item.label}</small></button>)}
