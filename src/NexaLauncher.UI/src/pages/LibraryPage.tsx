@@ -39,18 +39,18 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
       <div className="home-section-title nexa-home-heading">
         <div>
           <span className="eyebrow">NEXA CLIENT</span>
-          <h1>Inicio</h1>
+          <h1>Biblioteca</h1>
         </div>
         <div className="home-heading-actions">
-          <span className="home-core-status"><span className="status-dot" /> NEXA listo</span>
+          <span className="home-core-status"><span className="status-dot" /> Sistema listo</span>
         </div>
       </div>
 
       {recent ? (
-        <section className="play-section nexa-featured-play">
+        <section className="play-section nexa-featured-play" aria-label="Instancia reciente">
           <div className="recent-instance recent-instance-hero" style={recentStyle} onClick={() => onOpen(recent)} role="button" tabIndex={0} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") onOpen(recent); }}>
             <div className="hero-instance-content">
-              <span className="hero-instance-label">ÚLTIMA INSTANCIA</span>
+              <span className="hero-instance-label">CONTINUAR JUGANDO</span>
               <div className="hero-instance-title-row">
                 <ArtworkViewport
                   src={recent.iconDataUrl ?? "./brand/nexa-mark.png"}
@@ -75,7 +75,7 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
                 <button className="play-button home-play-button" type="button" disabled={launchingProfileId === recent.id} onClick={(event) => { event.stopPropagation(); onPlay(recent); }}>
                   {launchingProfileId === recent.id ? <Loader2 className="spin" size={18} /> : <Play size={18} fill="currentColor" />} JUGAR
                 </button>
-                <button className="instance-more hero-more" type="button" aria-label="Abrir instancia" onClick={(event) => { event.stopPropagation(); onOpen(recent); }}><MoreVertical size={18} /></button>
+                <button className="instance-more hero-more" type="button" aria-label="Abrir detalles de la instancia" onClick={(event) => { event.stopPropagation(); onOpen(recent); }}><MoreVertical size={18} /></button>
               </div>
             </div>
             {!recent.backgroundDataUrl && <div className="nexa-hero-geometry" aria-hidden="true"><span /><span /><span /></div>}
@@ -91,16 +91,16 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
 
       <section className="library-section nexa-library-section">
         <div className="section-heading library-heading-row">
-          <div><h2>Biblioteca</h2><span className="library-count">{profiles.length}</span></div>
-          <div className="library-view-indicator"><Grid2X2 size={14} /> Instancias</div>
+          <div><h2>Mis instancias</h2><span className="library-count">{profiles.length}</span></div>
+          <div className="library-view-indicator"><Grid2X2 size={14} /> Cuadrícula</div>
         </div>
         <div className="library-command-row">
-          <div className="search-field library-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar instancias" /></div>
-          <button className="primary-button" type="button" onClick={onCreate}><Plus size={16} /> CREAR INSTANCIA</button>
+          <div className="search-field library-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Buscar por nombre, versión o loader" aria-label="Buscar instancias" /></div>
+          <button className="primary-button" type="button" onClick={onCreate}><Plus size={16} /> NUEVA INSTANCIA</button>
         </div>
         <div className="library-filter-row">
-          <button className="filter-chip active" type="button"><ArrowDownUp size={15} /> Última vez jugado</button>
-          <span className="library-result-count">{visible.length} visibles</span>
+          <button className="filter-chip active" type="button"><ArrowDownUp size={15} /> Actividad reciente</button>
+          <span className="library-result-count">{visible.length} {visible.length === 1 ? "resultado" : "resultados"}</span>
         </div>
 
         {visible.length > 0 ? (
@@ -111,7 +111,7 @@ export function LibraryPage({ profiles, launchingProfileId, onCreate, onOpen, on
           <div className="empty-state glass-panel compact-empty">
             <img className="empty-brand-mark" src="./brand/nexa-mark.png" alt="NEXA" />
             <h2>{profiles.length ? "No encontramos instancias" : "Biblioteca vacía"}</h2>
-            <p>{profiles.length ? "Prueba con otra búsqueda." : "Crea tu primera instancia para empezar."}</p>
+            <p>{profiles.length ? "Prueba con otro nombre, versión o loader." : "Crea tu primera instancia para empezar."}</p>
             {!profiles.length && <button className="primary-button" type="button" onClick={onCreate}><Plus size={17} /> CREAR INSTANCIA</button>}
           </div>
         )}
