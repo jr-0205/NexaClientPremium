@@ -19,6 +19,7 @@ import "./styles/settings-redesign.css";
 import "./styles/profile-modules.css";
 import "./styles/nexa-silver.css";
 import "./styles/local-skin.css";
+import "./styles/skill-design.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
